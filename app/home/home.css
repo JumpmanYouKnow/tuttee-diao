@@ -1,0 +1,98 @@
+
+
+#jum {
+    /*width: 100%;
+    height:100%;*/
+    background-image: url("http://placehold.it/2000x1000");
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size:cover;
+        height: 600px;
+
+}
+
+#jumword {
+    color:white;
+    position: relative;
+    top:30%;
+    margin-top: 7%;
+    text-align: center;
+}
+
+html,body {height:90%;}
+
+
+
+#emptybox{
+    height: 600px;
+    width: 100%;
+}
+
+#teacherbox{
+    width:100%;
+    /*height: 700px;*/
+
+}
+
+
+
+#picture1,#picture3{
+    padding-right: 1.75%;
+}
+
+#picture2,#picture4{
+    padding-left: 1.75%;
+}
+
+.tpic {
+    max-width:100%;
+    height:300px;
+}
+
+@media (max-width: 993px) {
+    .tpic {
+        width:100%;
+        height:100%;
+
+    }
+
+    /*#teacherbox {*/
+        /*height:500px;*/
+    /*}*/
+    /*#picture4{*/
+        /*margin-bottom: 10px;*/
+    /*}*/
+}
+
+@media (max-width: 600px) {
+    .tpic {
+        width:100%;
+        height:100%;
+    }
+
+    /*#teacherbox {*/
+        /*height:1000px;*/
+    /*}*/
+}
+
+
+
+
+/*body {*/
+    /*display: flex;*/
+    /*min-height: 100vh;*/
+    /*flex-direction: column;*/
+/*}*/
+
+/*main {*/
+    /*flex: 1 0 auto;*/
+/*}*/
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse i {
+    height: 50px;
+    line-height: 50px;
+}
+
+
+

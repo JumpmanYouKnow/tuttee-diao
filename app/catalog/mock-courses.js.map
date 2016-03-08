@@ -1,0 +1,1 @@
+{"version":3,"file":"mock-courses.js","sourceRoot":"","sources":["mock-courses.ts"],"names":[],"mappings":";;;QAEW,OAAO;;;;YAAP,qBAAA,OAAO,GAAa;gBAC3B,EAAE,IAAI,EAAE,EAAE;oBACV,MAAM,EAAE,UAAU;oBAClB,QAAQ,EAAC,6BAA6B;oBACtC,WAAW,EAAC,2BAA2B;oBACvC,QAAQ,EAAE,CAAC;oBACX,OAAO,EAAC,CAAC,EAAE;aAEd,CAAA,CAAC"}

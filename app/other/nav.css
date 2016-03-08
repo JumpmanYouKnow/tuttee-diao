@@ -1,0 +1,38 @@
+/*nav{
+    background-color: transparent;
+    box-shadow: none;
+    
+    transition: background-color 1s;
+    border:0px;
+
+}
+.nav-wrapper {
+    border:0px;
+}
+
+.navbar-fixed{
+    height:5px;
+}
+*/
+
+
+.trans{
+     background-color: transparent;
+}
+
+nav{
+    box-shadow: none;
+    background-color: orangered;
+    opacity: 0.9;
+    transition: background-color 1s;
+    border:0px;
+
+}
+
+
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse i {
+    height: 50px;
+    line-height: 50px;
+}
