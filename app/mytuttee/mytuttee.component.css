@@ -1,0 +1,20 @@
+#jum {
+    width: 100%;
+    height:150px;
+    background-image: url("http://placekitten.com/2000/300");
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size:cover;
+
+}
+
+#photo {
+    border-radius: 50em;
+
+}
+
+#leftCol {
+    position:relative;
+    top:-30px;
+}
+

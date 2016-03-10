@@ -1,0 +1,11 @@
+table{
+    max-height:200px;
+    overflow: scroll;
+}
+
+table tbody tr{
+    position:relative;
+    top:-20px;
+    z-index:2;
+    height:20px;
+}

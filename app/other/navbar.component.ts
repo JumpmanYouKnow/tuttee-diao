@@ -23,6 +23,7 @@ export class NavbarComponent implements AfterViewInit {
 	ngAfterViewInit () {
 		$(this.el.nativeElement).find(".button-collapse").sideNav();
 		$('.modal-trigger').leanModal();
+		$(".dropdown-button").dropdown();
 	}
 
 }

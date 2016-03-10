@@ -1,7 +1,6 @@
 
 
 
-
     <div class="navbar-fixed" >
         <nav class="down">
     <div class="nav-wrapper">
@@ -12,9 +11,10 @@
         <li><a href="/#/beteacher">我要当教师</a></li>
 
         <li><a [routerLink]="['About']">About Us</a></li>
-       <!-- <li><a href="/#/about">About Us</a></li> -->
-        <li><a class = "modal-trigger" href="#modal2">注册</a></li>
-        <li><a class = "modal-trigger" href = "#modal1">登录</a></li>
+          <li><a class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
+
+       <!--  <li><a class = "modal-trigger" href="#modal2">注册</a></li>
+        <li><a class = "modal-trigger" href = "#modal1">登录</a></li> -->
     </ul>
     <ul  class="side-nav" id="mobile-demo">
         <li><a href="catalog.html">浏览课程</a></li>
@@ -26,6 +26,15 @@
     </div>
         </nav>
     </div>
+
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a [routerLink]="['Mytuttee','Upcoming']">Upcoming</a></li>
+      <li><a [routerLink]="['Mytuttee','History']">History</a></li>
+      <li class="divider"></li>
+      <li><a [routerLink]="['Mytuttee','Favorite']">Favorite</a></li>
+      <li><a [routerLink]="['Mytuttee','Setting']">Setting</a></li>
+    </ul>
+
 
 
     <!-- Modal Structure -->

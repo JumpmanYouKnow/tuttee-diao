@@ -30,6 +30,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 NavbarComponent.prototype.ngAfterViewInit = function () {
                     $(this.el.nativeElement).find(".button-collapse").sideNav();
                     $('.modal-trigger').leanModal();
+                    $(".dropdown-button").dropdown();
                 };
                 NavbarComponent = __decorate([
                     core_1.Component({

@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './catalog/catalog'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './catalog/catalog', './mytuttee/mytuttee.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, catalog_1;
+    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, catalog_1, mytuttee_component_1;
     var AppComponent;
     return {
         setters:[
@@ -43,6 +43,9 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
             },
             function (catalog_1_1) {
                 catalog_1 = catalog_1_1;
+            },
+            function (mytuttee_component_1_1) {
+                mytuttee_component_1 = mytuttee_component_1_1;
             }],
         execute: function() {
             /*
@@ -68,7 +71,8 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                         // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
                         { path: '/about', name: 'About', component: about_component_1.AboutComponent },
                         { path: '/catalog', name: 'Catalog', component: catalog_1.Catalog },
-                        { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent }
+                        { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent },
+                        { path: '/mytuttee/...', name: 'Mytuttee', component: mytuttee_component_1.MytutteeComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

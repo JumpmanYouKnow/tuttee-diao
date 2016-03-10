@@ -1,0 +1,45 @@
+<div id="jum">
+</div>
+
+
+    <section class = "row">
+        <div id = "leftCol" class = "col s12 m3">
+            <div class = "row center-align">
+                <img id="photo" src = "http://placehold.it/150x150">
+            </div>
+
+            <div class = "row center-align">
+               <p>老板</p>
+
+                <div id="menu">
+                    <a class = "col m12 s3" [routerLink] = "['Upcoming']" >我的预订</a>
+                    <a class = "col m12 s3" [routerLink]= "['History']">我上过的</a>
+                    <a class = "col m12 s3" [routerLink]= "['Favorite']">我的收藏</a>
+                    <a class = "col m12 s3" [routerLink]= "['Setting']">修改资料</a>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+        <div id = "rightCol" class = "col s12 m8 offset-m1">
+             <router-outlet></router-outlet>     
+        </div>
+
+
+    </section>
+
+
+
+
+
+
