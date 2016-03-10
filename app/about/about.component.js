@@ -11,27 +11,37 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var NfNavbarComponent;
+    var AboutComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            NfNavbarComponent = (function () {
-                function NfNavbarComponent() {
+            /*
+             * We're loading this component asynchronously
+             * We are using some magic with es6-promise-loader that will wrap the module with a Promise
+             * see https://github.com/gdi2290/es6-promise-loader for more info
+             */
+            console.log('`About` component loaded asynchronously');
+            AboutComponent = (function () {
+                function AboutComponent() {
                 }
-                NfNavbarComponent = __decorate([
+                AboutComponent.prototype.ngOnInit = function () {
+                    console.log('hello `About` component');
+                };
+                AboutComponent = __decorate([
                     core_1.Component({
-                        selector: 'nfnavbar',
-                        templateUrl: 'nofixnav.html',
+                        selector: 'about',
+                        styleUrls: ['app/about/about.css'],
+                        templateUrl: 'app/about/about.html',
                     }), 
                     __metadata('design:paramtypes', [])
-                ], NfNavbarComponent);
-                return NfNavbarComponent;
+                ], AboutComponent);
+                return AboutComponent;
             }());
-            exports_1("NfNavbarComponent", NfNavbarComponent);
+            exports_1("AboutComponent", AboutComponent);
         }
     }
 });
-//# sourceMappingURL=nfnavbar.component.js.map
+//# sourceMappingURL=about.component.js.map

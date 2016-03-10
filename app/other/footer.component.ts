@@ -1,4 +1,4 @@
-import {Component}  from 'angular2/core';
+import {Component,AfterViewInit}  from 'angular2/core';
 
 @Component({
 	selector: 'footer',
@@ -7,5 +7,11 @@ import {Component}  from 'angular2/core';
 })
 
 export class FooterComponent {
+
+	ngAfterViewInit() {
+		$('.tooltip').tooltipster({
+			content: $('<span><img src="http://placehold.it/100x100" /> </span>')
+		});
+	}
 
 }

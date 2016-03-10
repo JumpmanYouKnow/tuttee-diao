@@ -44,7 +44,6 @@ System.register(['angular2/core', 'angular2/router', '../other/navbar.component'
                     $(window).scroll(function () {
                         var currPos = $(window).scrollTop();
                         if (sectionsPos < currPos) {
-                            $('nav').addClass("down");
                             $('nav').removeClass("trans");
                         }
                         else
@@ -53,6 +52,7 @@ System.register(['angular2/core', 'angular2/router', '../other/navbar.component'
                 };
                 Home.prototype.ngOnDestroy = function () {
                     $(window).unbind("scroll");
+                    $('nav').removeClass("trans");
                 };
                 Home = __decorate([
                     core_1.Component({

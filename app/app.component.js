@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-System.register(['angular2/core', 'angular2/router', './home/home', './about/about', './catalog/catalog'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './catalog/catalog'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', './home/home', './about/abo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, home_1, about_1, catalog_1;
+    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, catalog_1;
     var AppComponent;
     return {
         setters:[
@@ -23,11 +23,23 @@ System.register(['angular2/core', 'angular2/router', './home/home', './about/abo
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (home_1_1) {
-                home_1 = home_1_1;
+            function (tutprofile_service_1_1) {
+                tutprofile_service_1 = tutprofile_service_1_1;
             },
-            function (about_1_1) {
-                about_1 = about_1_1;
+            function (navbar_component_1_1) {
+                navbar_component_1 = navbar_component_1_1;
+            },
+            function (footer_component_1_1) {
+                footer_component_1 = footer_component_1_1;
+            },
+            function (tutprofile_component_1_1) {
+                tutprofile_component_1 = tutprofile_component_1_1;
+            },
+            function (home_component_1_1) {
+                home_component_1 = home_component_1_1;
+            },
+            function (about_component_1_1) {
+                about_component_1 = about_component_1_1;
             },
             function (catalog_1_1) {
                 catalog_1 = catalog_1_1;
@@ -46,15 +58,17 @@ System.register(['angular2/core', 'angular2/router', './home/home', './about/abo
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        template: "\n\n\t<router-outlet></router-outlet>",
-                        directives: [router_1.ROUTER_DIRECTIVES],
+                        template: "\n\t<navbar></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
+                        directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, footer_component_1.FooterComponent],
+                        providers: [tutprofile_service_1.TutProfileService]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: 'Home', component: home_1.Home },
+                        { path: '/', name: 'Home', component: home_component_1.HomeComponent },
                         // { path: '/about', component: About, name: 'About' },
                         // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-                        { path: '/about', name: 'About', component: about_1.About },
+                        { path: '/about', name: 'About', component: about_component_1.AboutComponent },
                         { path: '/catalog', name: 'Catalog', component: catalog_1.Catalog },
+                        { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

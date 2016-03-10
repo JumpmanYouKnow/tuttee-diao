@@ -1,0 +1,103 @@
+<body>
+<div id="jum">
+</div>
+
+<div *ngIf = "TutProfile" class = "container">
+    <section class = "row">
+        <div id = "leftCol" class = "col s12 m3">
+            <div class = "row center-align">
+                <img id="photo" src = "http://placehold.it/150x150">
+            </div>
+
+              <div class = "row center-align">
+              {{TutProfile.name}}
+            </div>
+
+            <div class = "row center-align">
+                <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+            </div>
+
+          
+
+            <div class = "row center-align">
+                职位: PhD
+            </div>
+
+            <div class = "row center-align">
+                加入时间: 15年
+            </div>
+
+            <div class = "row center-align">
+                认证：<i class="fa fa-check-circle-o"></i>
+            </div>
+
+            <div class = "row center-align">
+                <a class="waves-effect waves-light btn" id="main" href="catalog.html">联系我</a>
+            </div>
+
+            <div class = "row center-align">
+                <a class="waves-effect waves-light btn" id="main" href="catalog.html">收藏</a>
+            </div>
+        </div>
+
+        <div id = "rightCol" class = "col s12 m8 offset-m1">
+
+            <h4>个人介绍</h4>
+
+            <p>{{TutProfile.description}}</p>
+
+            <h4>课程</h4>
+
+            <div *ngFor = "#course of TutProfile.courses"class = "course">
+                <div class = "row">
+                    <div class = "col m3">
+                       {{course}}
+                    </div>
+
+                    <div class = "description col m7">
+                       <div class = "m12"> Upcoming：</div>
+                       <div class = "m12"> 3月24日 15点 </div>
+                    </div>
+
+                    <div class = "col m2">
+                            <a class="btn" onclick="window.location='classintro.html'">check!</a>
+                    </div>
+
+                </div>
+            </div>
+
+            </div>
+
+
+    </section>
+
+    <h5>Comments</h5>
+
+   <div id = "comment" *ngFor = "#comment of TutProfile.comments" class = "row">
+       <div class = "col m2 center-align">
+           <div class ="row">
+               <img src = "http://placehold.it/50x50">
+           </div>
+           <div class ="row">
+              <p>{{comment.faculty}}</p>
+
+           </div>
+
+
+
+       </div>
+
+       <div class = "commentContent col m10">
+            <p>{{comment.time}}</p>
+           <p>{{comment.content}}</p>
+       </div>
+
+   </div>
+
+</div>
+
+</body>
+
+
+
+

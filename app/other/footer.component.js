@@ -21,6 +21,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             FooterComponent = (function () {
                 function FooterComponent() {
                 }
+                FooterComponent.prototype.ngAfterViewInit = function () {
+                    $('.tooltip').tooltipster({
+                        content: $('<span><img src="http://placehold.it/100x100" /> </span>')
+                    });
+                };
                 FooterComponent = __decorate([
                     core_1.Component({
                         selector: 'footer',

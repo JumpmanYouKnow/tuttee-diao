@@ -4,10 +4,12 @@
 
 import { Component, AfterViewInit} from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
-
-
-import {Home} from './home/home';
-import {About} from './about/about';
+import {TutProfileService} from './tutprofile/tutprofile.service'
+import {NavbarComponent} from './other/navbar.component'
+import {FooterComponent} from './other/footer.component'
+import {TutProfileComponent} from './tutprofile/tutprofile.component'
+import {HomeComponent} from './home/home.component';
+import {AboutComponent} from './about/about.component';
 import {Catalog} from './catalog/catalog';
 declare var jQuery: JQueryStatic;
 /*
@@ -18,18 +20,23 @@ declare var jQuery: JQueryStatic;
 @Component({
 	selector: 'app',
 	template: `
+	<navbar></navbar>
+	<router-outlet></router-outlet>
+	<footer></footer>
+	`,
 
-	<router-outlet></router-outlet>`,
-	directives: [ROUTER_DIRECTIVES],
+	directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
+	providers: [TutProfileService]
 })
 
 
 @RouteConfig([
-		{ path: '/', name: 'Home',component: Home},
+		{ path: '/', name: 'Home',component: HomeComponent},
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-		{ path: '/about', name: 'About',component: About },
+		{ path: '/about', name: 'About',component: AboutComponent },
 		{ path: '/catalog', name: 'Catalog' ,component: Catalog },
+		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent}
 
 ])
 export class AppComponent implements AfterViewInit{

@@ -1,7 +1,5 @@
 import {Component, AfterViewInit, ElementRef,OnDestroy} from 'angular2/core';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
-import {NavbarComponent} from '../other/navbar.component'
-import {FooterComponent} from '../other/footer.component'
+
 
 // declare var jQuery: JQueryStatic;
 
@@ -15,9 +13,7 @@ import {FooterComponent} from '../other/footer.component'
 
   // We need to tell Angular's compiler which directives are in our template.
   // Doing so will allow Angular to attach our behavior to an element
-  directives: [
-    NavbarComponent, FooterComponent, ROUTER_DIRECTIVES
-  ],
+
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [ ],
   // Our list of styles in our component. We may add more to compose many styles together
@@ -25,7 +21,7 @@ import {FooterComponent} from '../other/footer.component'
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: 'app/home/home.html'
 })
-export class Home {
+export class HomeComponent {
   // Set our default values
   data = { value: '' };
   // TypeScript public modifiers
@@ -44,7 +40,7 @@ export class Home {
     $(window).scroll(function() {
     var currPos = $(window).scrollTop();
     if (sectionsPos < currPos) {
-        $('nav').addClass("down");
+       
         $('nav').removeClass("trans");
   }
       else $('nav').addClass("trans");
@@ -53,6 +49,7 @@ export class Home {
 
   ngOnDestroy() {
     $(window).unbind("scroll");
+    $('nav').removeClass("trans");
    }
 
   // ngAfterViewInit() {
