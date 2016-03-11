@@ -84,9 +84,10 @@ System.register(['angular2/router', 'angular2/src/facade/lang', 'angular2/core']
                     __param(3, core_1.Query(router_2.RouterLink)),
                     __param(4, core_1.Optional()),
                     __param(4, core_1.Attribute('router-active')), 
-                    __metadata('design:paramtypes', [router_1.Router, core_1.ElementRef, core_1.Renderer, core_1.QueryList, String])
+                    __metadata('design:paramtypes', [router_1.Router, (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object, String])
                 ], RouterActive);
                 return RouterActive;
+                var _a, _b, _c;
             }());
             exports_1("RouterActive", RouterActive);
         }
