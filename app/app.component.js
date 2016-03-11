@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './betutor/betutor.component', './courses/courses.component', './mytuttee/mytuttee.component', './courses/subject/subject.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './mytutor/mytutor.component', './betutor/betutor.component', './courses/courses.component', './mytuttee/mytuttee.component', './courses/subject/subject.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, betutor_component_1, courses_component_1, mytuttee_component_1, subject_component_1;
+    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, mytutor_component_1, betutor_component_1, courses_component_1, mytuttee_component_1, subject_component_1;
     var AppComponent;
     return {
         setters:[
@@ -40,6 +40,9 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
             },
             function (about_component_1_1) {
                 about_component_1 = about_component_1_1;
+            },
+            function (mytutor_component_1_1) {
+                mytutor_component_1 = mytutor_component_1_1;
             },
             function (betutor_component_1_1) {
                 betutor_component_1 = betutor_component_1_1;
@@ -81,7 +84,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                         { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent },
                         { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent },
                         { path: '/mytuttee/...', name: 'Mytuttee', component: mytuttee_component_1.MytutteeComponent },
-                        { path: '/courses/...', name: 'Courses', component: courses_component_1.CoursesComponent }
+                        { path: '/mytutor/...', name: 'Mytutor', component: mytutor_component_1.MytutorComponent },
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

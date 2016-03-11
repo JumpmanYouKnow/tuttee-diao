@@ -11,14 +11,15 @@
         <li><a [routerLink] = "['Betutor']">我要当教师</a></li>
 
         <li><a [routerLink] = "['Courses']">浏览课程</a></li>
-        <li><a href="/#/beteacher">我要当教师</a></li>
+      
 
-
-        <li><a [routerLink] = "['About']">About Us</a></li>
+         <li><a class = "modal-trigger" href="#modal2">注册</a></li>
+        <li><a class = "modal-trigger" href = "#modal1">登录</a></li>
           <li><a class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
 
-       <!--  <li><a class = "modal-trigger" href="#modal2">注册</a></li>
-        <li><a class = "modal-trigger" href = "#modal1">登录</a></li> -->
+           <li><a class="dropdown-button" data-activates="dropdown2">I'm Tutor<i class="material-icons right">arrow_drop_down</i></a></li>
+
+      
     </ul>
     <ul  class="side-nav" id="mobile-demo">
         <li><a href="/#/catalog">浏览课程</a></li>
@@ -37,6 +38,14 @@
       <li class="divider"></li>
       <li><a [routerLink]="['Mytuttee','Favorite']">Favorite</a></li>
       <li><a [routerLink]="['Mytuttee','Setting']">Setting</a></li>
+    </ul>
+
+        <ul id="dropdown2" class="dropdown-content">
+      <li><a [routerLink]="['Mytutor','Upcoming']">Upcoming</a></li>
+      <li><a [routerLink]="['Mytutor','History']">History</a></li>
+      <li class="divider"></li>
+     
+      <li><a [routerLink]="['Mytutor','Setting']">Setting</a></li>
     </ul>
 
 
