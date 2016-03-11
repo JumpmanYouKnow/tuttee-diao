@@ -16,7 +16,7 @@ import {TutProfile} from './tutprofile.service'
 
 export class TutProfileComponent implements OnInit{
 
-	public TutProfile: TutProfile ;
+	public TutProfile: TutProfile;
 
 
 	constructor(private _routeParams: RouteParams, private _tutProfileService:TutProfileService
