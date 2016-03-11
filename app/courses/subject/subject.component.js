@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../other/navbar.component', '../other/footer.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,39 +10,29 @@ System.register(['angular2/core', '../other/navbar.component', '../other/footer.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, navbar_component_1, footer_component_1;
-    var Catalog;
+    var core_1;
+    var SubjectComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (navbar_component_1_1) {
-                navbar_component_1 = navbar_component_1_1;
-            },
-            function (footer_component_1_1) {
-                footer_component_1 = footer_component_1_1;
             }],
         execute: function() {
-            Catalog = (function () {
-                function Catalog() {
-                    this.courses = [];
+            SubjectComponent = (function () {
+                function SubjectComponent() {
                 }
-                Catalog = __decorate([
+                SubjectComponent = __decorate([
                     core_1.Component({
-                        selector: 'catalog',
-                        directives: [
-                            navbar_component_1.NavbarComponent, footer_component_1.FooterComponent
-                        ],
-                        styleUrls: ['app/catalog/catalog.css'],
-                        templateUrl: 'app/catalog/catalog.html',
+                        selector: 'subject',
+                        styleUrls: ['./subject.component.css'],
+                        template: './subject.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], Catalog);
-                return Catalog;
+                ], SubjectComponent);
+                return SubjectComponent;
             }());
-            exports_1("Catalog", Catalog);
+            exports_1("SubjectComponent", SubjectComponent);
         }
     }
 });
-//# sourceMappingURL=catalog.js.map
+//# sourceMappingURL=subject.component.js.map

@@ -1,0 +1,24 @@
+#jum {
+    width: 100%;
+    height:200px;
+    background-image: url("http://placekitten.com/2000/500");
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size:cover;
+}
+
+
+h5 {
+    position: relative;
+    top:50px;
+    margin-top:0px;
+    padding-top:0px;
+    color:white;
+    font-size: 70px;
+    text-align: center;
+}
+
+
+#calendar {
+    margin-top:50px;
+}

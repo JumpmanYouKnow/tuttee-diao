@@ -10,8 +10,9 @@ import {FooterComponent} from './other/footer.component'
 import {TutProfileComponent} from './tutprofile/tutprofile.component'
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
-import {Catalog} from './catalog/catalog';
+import {CoursesComponent} from './courses/courses.component';
 import {MytutteeComponent} from './mytuttee/mytuttee.component'
+import {SubjectComponent} from './courses/subject/subject.component';
 
 
 declare var jQuery: JQueryStatic;
@@ -38,9 +39,12 @@ declare var jQuery: JQueryStatic;
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 		{ path: '/about', name: 'About',component: AboutComponent },
-		{ path: '/catalog', name: 'Catalog' ,component: Catalog },
+		{ path: '/courses/subject', name: 'Subject',component: SubjectComponent },
+		{ path: '/courses', name: 'Courses' ,component: CoursesComponent },
 		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
-		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent}
+		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
+		{ path: '/courses/...', name: 'Courses', component: CoursesComponent}
+
 
 ])
 export class AppComponent implements AfterViewInit{
