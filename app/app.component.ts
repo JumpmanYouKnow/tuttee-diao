@@ -10,11 +10,21 @@ import {FooterComponent} from './other/footer.component'
 import {TutProfileComponent} from './tutprofile/tutprofile.component'
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
+<<<<<<< HEAD
 import {BetutorComponent} from'./betutor/betutor.component'
 import {CoursesComponent} from './courses/courses.component';
 import {MytutteeComponent} from './mytuttee/mytuttee.component'
 import {SubjectComponent} from './courses/subject/subject.component';
 import {CoursesService} from './courses/courses.service';
+=======
+
+import {BetutorComponent} from'./betutor/betutor.component'
+
+import {CoursesComponent} from './courses/courses.component';
+import {MytutteeComponent} from './mytuttee/mytuttee.component'
+import {SubjectComponent} from './courses/subject/subject.component';
+
+>>>>>>> 84bd759e47b4fac5f7c54e10e1e0f9d28959813c
 
 
 declare var jQuery: JQueryStatic;
@@ -41,11 +51,24 @@ declare var jQuery: JQueryStatic;
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 		{ path: '/about', name: 'About',component: AboutComponent },
+<<<<<<< HEAD
         { path: '/betutor', name: 'Betutor', component: BetutorComponent},			
 		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
 		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
         { path: '/courses', name: 'Courses' ,component: CoursesComponent },
       //  { path: '/courses/:subject', name: 'Subject',component: SubjectComponent },	
+=======
+
+        { path: '/betutor', name: 'Betutor', component: BetutorComponent},
+
+		{ path: '/courses/subject', name: 'Subject',component: SubjectComponent },
+		{ path: '/courses', name: 'Courses' ,component: CoursesComponent },
+		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
+		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
+		{ path: '/courses/...', name: 'Courses', component: CoursesComponent}
+
+
+>>>>>>> 84bd759e47b4fac5f7c54e10e1e0f9d28959813c
 
 ])
 export class AppComponent implements AfterViewInit {
