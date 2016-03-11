@@ -1,22 +1,27 @@
-import {Component} from 'angular2/core';
+import {Component,OnInit} from 'angular2/core';
 import {Course} from '../objects/course';
-import {NavbarComponent} from '../other/navbar.component';
-import {FooterComponent} from '../other/footer.component';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {CoursesService} from './courses.service';
+//import {SubjectComponent} from 'subject/subject.component';
 
 
 @Component({
 	selector: 'course',
-	directives: [
-		NavbarComponent, FooterComponent
-	],
 	styleUrls:[ './app/courses/courses.component.css'],
 	templateUrl: './app/courses/courses.component.html'
-
+    
 })
 
 
-export class CoursesComponent {
-	courses: Course[] = [];
+export class CoursesComponent implements OnInit{
+	public Courses:Course[];
 
+	constructor( private _coursesservices : CoursesService
+	) {}
+
+	getCourse(){
+		this._coursesservices.getCourses().then(data => this.Courses = data);
+	}
+	ngOnInit() {
+		this.getCourse();
+	}
 }

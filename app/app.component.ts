@@ -10,15 +10,11 @@ import {FooterComponent} from './other/footer.component'
 import {TutProfileComponent} from './tutprofile/tutprofile.component'
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
-<<<<<<< HEAD
-import {Catalog} from './catalog/catalog.component';
-import {MytutteeComponent} from './mytuttee/mytuttee.component'
 import {BetutorComponent} from'./betutor/betutor.component'
-=======
 import {CoursesComponent} from './courses/courses.component';
 import {MytutteeComponent} from './mytuttee/mytuttee.component'
 import {SubjectComponent} from './courses/subject/subject.component';
->>>>>>> 6f6c1aa1b7541c84c93209d32cbc64aa86895f65
+import {CoursesService} from './courses/courses.service';
 
 
 declare var jQuery: JQueryStatic;
@@ -36,7 +32,7 @@ declare var jQuery: JQueryStatic;
 	`,
 
 	directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
-	providers: [TutProfileService]
+	providers: [TutProfileService,CoursesService]
 })
 
 
@@ -45,19 +41,11 @@ declare var jQuery: JQueryStatic;
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 		{ path: '/about', name: 'About',component: AboutComponent },
-<<<<<<< HEAD
-		{ path: '/catalog/', name: 'Catalog' ,component: Catalog },
+        { path: '/betutor', name: 'Betutor', component: BetutorComponent},			
 		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
 		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
-        { path: '/betutor', name: 'Betutor', component: BetutorComponent},
-=======
-		{ path: '/courses/subject', name: 'Subject',component: SubjectComponent },
-		{ path: '/courses', name: 'Courses' ,component: CoursesComponent },
-		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
-		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
-		{ path: '/courses/...', name: 'Courses', component: CoursesComponent}
-
->>>>>>> 6f6c1aa1b7541c84c93209d32cbc64aa86895f65
+        { path: '/courses', name: 'Courses' ,component: CoursesComponent },
+      //  { path: '/courses/:subject', name: 'Subject',component: SubjectComponent },	
 
 ])
 export class AppComponent implements AfterViewInit {
