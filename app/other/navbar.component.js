@@ -39,10 +39,9 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                         styleUrls: ['app/other/nav.css'],
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof core_2.ElementRef !== 'undefined' && core_2.ElementRef) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [core_2.ElementRef])
                 ], NavbarComponent);
                 return NavbarComponent;
-                var _a;
             }());
             exports_1("NavbarComponent", NavbarComponent);
         }
