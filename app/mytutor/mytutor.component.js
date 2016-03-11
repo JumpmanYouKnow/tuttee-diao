@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './upcoming.component', './history.component', './setting.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './upcoming.component', './history.component', './setting.component', './post.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', 'angular2/router', './upcoming.component', './
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, upcoming_component_1, history_component_1, setting_component_1;
-    var MytutteeComponent;
+    var core_1, router_1, upcoming_component_1, history_component_1, setting_component_1, post_component_1;
+    var MytutorComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -28,29 +28,32 @@ System.register(['angular2/core', 'angular2/router', './upcoming.component', './
             },
             function (setting_component_1_1) {
                 setting_component_1 = setting_component_1_1;
+            },
+            function (post_component_1_1) {
+                post_component_1 = post_component_1_1;
             }],
         execute: function() {
-            MytutteeComponent = (function () {
-                function MytutteeComponent() {
+            MytutorComponent = (function () {
+                function MytutorComponent() {
                 }
-                MytutteeComponent = __decorate([
+                MytutorComponent = __decorate([
                     core_1.Component({
-                        selector: 'mytuttee',
-                        templateUrl: './app/mytuttee/mytuttee.component.html',
-                        styleUrls: ['./app/mytuttee/mytuttee.component.css'],
+                        selector: 'mytutor',
+                        templateUrl: './app/mytutor/mytutor.component.html',
+                        styleUrls: ['./app/mytutor/mytutor.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
                         { path: '/upcoming', name: 'Upcoming', component: upcoming_component_1.UpcomingComponent, useAsDefault: true },
-                        { path: '/favorite', name: 'Favorite', component: FavoriteComponent },
                         { path: '/setting', name: 'Setting', component: setting_component_1.SettingComponent },
                         { path: '/history', name: 'History', component: history_component_1.HistoryComponent },
+                        { path: '/post', name: 'Post', component: post_component_1.PostComponent },
                     ]), 
                     __metadata('design:paramtypes', [])
-                ], MytutteeComponent);
-                return MytutteeComponent;
+                ], MytutorComponent);
+                return MytutorComponent;
             }());
-            exports_1("MytutteeComponent", MytutteeComponent);
+            exports_1("MytutorComponent", MytutorComponent);
         }
     }
 });
