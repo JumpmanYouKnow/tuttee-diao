@@ -10,12 +10,20 @@ import {FooterComponent} from './other/footer.component'
 import {TutProfileComponent} from './tutprofile/tutprofile.component'
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
+
+// import {BetutorComponent} from'./betutor/betutor.component'
+// import {CoursesComponent} from './courses/courses.component';
+// import {MytutteeComponent} from './mytuttee/mytuttee.component'
+// import {SubjectComponent} from './courses/subject/subject.component';
+import {SubjectService} from './courses/subject/subject.service'
+import {CoursesService} from './courses/courses.service';
 import {MytutorComponent} from './mytutor/mytutor.component'
 import {BetutorComponent} from'./betutor/betutor.component'
 import {CoursesComponent} from './courses/courses.component';
 import {MytutteeComponent} from './mytuttee/mytuttee.component'
 import {SubjectComponent} from './courses/subject/subject.component';
 import {TimeslotService} from './mytutor/timeslot.service'
+
 
 
 
@@ -34,7 +42,8 @@ declare var jQuery: JQueryStatic;
 	`,
 
 	directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
-	providers: [TutProfileService,TimeslotService]
+	providers: [TutProfileService,CoursesService,SubjectService,TimeslotService]
+
 })
 
 
@@ -43,14 +52,13 @@ declare var jQuery: JQueryStatic;
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 		{ path: '/about', name: 'About',component: AboutComponent },
-
+        { path: '/courses', name: 'Courses' ,component: CoursesComponent },
+        { path: '/subject/:subject', name: 'Subject',component: SubjectComponent },	
         { path: '/betutor', name: 'Betutor', component: BetutorComponent},
-
-		{ path: '/courses/subject', name: 'Subject',component: SubjectComponent },
-		{ path: '/courses', name: 'Courses' ,component: CoursesComponent },
 		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
 		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
 		{ path: '/mytutor/...', name: 'Mytutor', component: MytutorComponent},
+
 
 
 
