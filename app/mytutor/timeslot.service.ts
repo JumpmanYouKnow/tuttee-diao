@@ -14,13 +14,16 @@ export interface Timeslot {
 	nowPeople: tuttee[],
 	maxPeople: number,
 	duration: number,
-	location: string
-	tutor_id: number
+	location: string,
+	tutor_id: number,
+	price: number,
+	description: string
 }
 
 
 @Injectable()
 export class TimeslotService { 
+
 	getTimeslot() {
 		return Promise.resolve(TIMESLOTS);
 	}

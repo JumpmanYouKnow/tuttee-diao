@@ -1,9 +1,10 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
 import {UpcomingComponent} from './upcoming.component'
 import {HistoryComponent} from './history.component'
 import {SettingComponent} from './setting.component'
 import {PostComponent} from './post.component'
+import {TimeslotService,Timeslot} from './timeslot.service'
 
 
 
@@ -26,6 +27,7 @@ import {PostComponent} from './post.component'
 ])
 
 export class MytutorComponent {
+
 
 
 

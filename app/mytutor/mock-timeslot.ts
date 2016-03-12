@@ -20,7 +20,9 @@ export var TIMESLOTS:Timeslot[] =
 		maxPeople:5,
 		duration:1,
 		location:"DC",
-		tutor_id:3
+		tutor_id:3,
+		price: 10,
+		description:"Final"
 	},
 	 {
 	 	course: "cs135",
@@ -40,7 +42,9 @@ export var TIMESLOTS:Timeslot[] =
 		maxPeople:5,
 		duration:1,
 		location:"RCH",
-		tutor_id:4
+		tutor_id:4,
+		price: 20,
+		description:"a8"
 	 }
 
 	]

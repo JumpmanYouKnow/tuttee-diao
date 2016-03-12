@@ -9,7 +9,7 @@ import {Component,AfterViewInit}  from 'angular2/core';
 export class FooterComponent {
 
 	ngAfterViewInit() {
-		$('.tooltip').tooltipster({
+		$('#weixin').tooltipster({
 			content: $('<span><img src="http://placehold.it/100x100" /> </span>')
 		});
 	}

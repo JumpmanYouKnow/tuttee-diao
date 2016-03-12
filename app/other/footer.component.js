@@ -22,7 +22,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function FooterComponent() {
                 }
                 FooterComponent.prototype.ngAfterViewInit = function () {
-                    $('.tooltip').tooltipster({
+                    $('#weixin').tooltipster({
                         content: $('<span><img src="http://placehold.it/100x100" /> </span>')
                     });
                 };

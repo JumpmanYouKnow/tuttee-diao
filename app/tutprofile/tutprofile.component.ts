@@ -27,6 +27,6 @@ export class TutProfileComponent implements OnInit{
 	ngOnInit() {
 		 let id = +this._routeParams.get('id');
 
-		this.getTutProfile(id);
+		 this.getTutProfile(id);
 	} 
 }
