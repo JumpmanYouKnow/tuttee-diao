@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './mock-timeslot'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,33 +10,31 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var PostComponent;
+    var core_1, mock_timeslot_1;
+    var TimeslotService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (mock_timeslot_1_1) {
+                mock_timeslot_1 = mock_timeslot_1_1;
             }],
         execute: function() {
-            PostComponent = (function () {
-                function PostComponent() {
+            TimeslotService = (function () {
+                function TimeslotService() {
                 }
-                PostComponent.prototype.ngAfterViewInit = function () {
-                    $('#datetimepicker').datetimepicker();
-                    $('select').material_select();
+                TimeslotService.prototype.getTimeslot = function () {
+                    return Promise.resolve(mock_timeslot_1.TIMESLOTS);
                 };
-                PostComponent = __decorate([
-                    core_1.Component({
-                        selector: 'post',
-                        templateUrl: './app/mytutor/post.component.html',
-                        styleUrls: ['./app/mytutor/post.component.css']
-                    }), 
+                TimeslotService = __decorate([
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], PostComponent);
-                return PostComponent;
+                ], TimeslotService);
+                return TimeslotService;
             }());
-            exports_1("PostComponent", PostComponent);
+            exports_1("TimeslotService", TimeslotService);
         }
     }
 });
-//# sourceMappingURL=post.component.js.map
+//# sourceMappingURL=timeslot.service.js.map

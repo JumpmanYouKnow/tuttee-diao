@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './mytutor/mytutor.component', './betutor/betutor.component', './courses/courses.component', './mytuttee/mytuttee.component', './courses/subject/subject.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './mytutor/mytutor.component', './betutor/betutor.component', './courses/courses.component', './mytuttee/mytuttee.component', './courses/subject/subject.component', './mytutor/timeslot.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, mytutor_component_1, betutor_component_1, courses_component_1, mytuttee_component_1, subject_component_1;
+    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, mytutor_component_1, betutor_component_1, courses_component_1, mytuttee_component_1, subject_component_1, timeslot_service_1;
     var AppComponent;
     return {
         setters:[
@@ -55,6 +55,9 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
             },
             function (subject_component_1_1) {
                 subject_component_1 = subject_component_1_1;
+            },
+            function (timeslot_service_1_1) {
+                timeslot_service_1 = timeslot_service_1_1;
             }],
         execute: function() {
             /*
@@ -72,7 +75,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                         selector: 'app',
                         template: "\n\t<navbar></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
                         directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, footer_component_1.FooterComponent],
-                        providers: [tutprofile_service_1.TutProfileService]
+                        providers: [tutprofile_service_1.TutProfileService, timeslot_service_1.TimeslotService]
                     }),
                     router_1.RouteConfig([
                         { path: '/', name: 'Home', component: home_component_1.HomeComponent },

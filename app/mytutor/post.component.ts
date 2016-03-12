@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component,AfterViewInit} from 'angular2/core';
 
 @Component({
 	selector:'post',
@@ -8,5 +8,10 @@ import {Component} from 'angular2/core';
 })
 
 export class PostComponent {
+
+	ngAfterViewInit() {
+		$('#datetimepicker').datetimepicker();
+		  $('select').material_select();
+	}
 
 }
