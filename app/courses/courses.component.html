@@ -3,23 +3,21 @@
 <section id="classcatbox">
 
 
-    <!--<div class="row">-->
     <div>               
       <div class="row">
         <div *ngFor="#course of Courses" class="col s12 m4">
           <div class="card">
               <div class="card-image s12 m12 l12">
+                
               <a class="btn-floating btn waves-effect waves-light red bookmark"><i class="fa fa-2x fa-bookmark" ></i></a>       
-              <!-- <div class="image">     -->   
-               <img src="{{course.imageURL}}" id="image"> 
-               <!-- </div>   -->        
+               <img src="{{course.imageURL}}" id="image">       
                <span class="card-title" style="z-index:3">{{course.name}} </span>   
               </div>
-              
-              <!-- <li><a [routerLink] = "['Subject']">About Us</a></li> -->
-            
+                         
              <div class="card-content ">
-              {{course.description}}
+              {{course.description}} 
+              <br>
+              <a class="waves-effect waves-light btn" (click)="gotoDetail(course.id)"> 查看课程教师</a>
             </div>
             <div class="card-action">
               <a>老师数量：{{course.numTutor}}</a>
@@ -29,8 +27,6 @@
         </div>
       </div>         
     </div>
-
-    <!--</div>-->
     <section>
 
 

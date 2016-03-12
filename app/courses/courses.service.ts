@@ -2,7 +2,7 @@ import {Injectable} from 'angular2/core';
 import {COURSES} from'./mock-courses';
 
 export interface Course {
-	id: number;
+	id: string;
 	name: string;
 	imageURL: string;
 	description: string;

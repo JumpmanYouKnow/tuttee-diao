@@ -15,7 +15,7 @@ import {AboutComponent} from './about/about.component';
 // import {CoursesComponent} from './courses/courses.component';
 // import {MytutteeComponent} from './mytuttee/mytuttee.component'
 // import {SubjectComponent} from './courses/subject/subject.component';
-
+import {SubjectService} from './courses/subject/subject.service'
 import {CoursesService} from './courses/courses.service';
 import {MytutorComponent} from './mytutor/mytutor.component'
 import {BetutorComponent} from'./betutor/betutor.component'
@@ -41,7 +41,7 @@ declare var jQuery: JQueryStatic;
 	`,
 
 	directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
-	providers: [TutProfileService,CoursesService]
+	providers: [TutProfileService,CoursesService,SubjectService]
 })
 
 
@@ -51,7 +51,7 @@ declare var jQuery: JQueryStatic;
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 		{ path: '/about', name: 'About',component: AboutComponent },
         { path: '/courses', name: 'Courses' ,component: CoursesComponent },
-      //  { path: '/courses/:subject', name: 'Subject',component: SubjectComponent },	
+        { path: '/subject/:subject', name: 'Subject',component: SubjectComponent },	
         { path: '/betutor', name: 'Betutor', component: BetutorComponent},
 		{ path: '/tutor/:id',name: 'TutProfile', component: TutProfileComponent},
 		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},

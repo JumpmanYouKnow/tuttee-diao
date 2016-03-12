@@ -1,15 +1,33 @@
-import  {Component} from 'angular2/core';
-import {Router} from 'angular2/router';
-import {Course} from '../../objects/course';
+import {Component, OnInit,Pipe} from 'angular2/core';
+import {Router, RouteParams} from 'angular2/router';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {SubjectService, Subject, Teacher} from './subject.service';
+
 
 @Component({
 	selector: 'subject',
-	styleUrls: ['./subject.component.css'],
-	template: './subject.component.html'
+	styleUrls: ['app/courses/subject/subject.component.css'],
+	templateUrl: 'app/courses/subject/subject.component.html',
+
 })
 
 
-export class SubjectComponent{
+export class SubjectComponent implements OnInit{
+	Subject: Subject;
+  Teacher: Teacher[];
+
+    constructor(
+    private _subjectService: SubjectService,
+    private _routeParams: RouteParams) {
+  }
+
+
+	ngOnInit() {
+    let a = this._routeParams.get('subject');
+    this._subjectService.getSubject(a).then(data => {
+    this.Subject = data;
+    this.Teacher = this.Subject.teacher;
+  });
+  }
 
 }
