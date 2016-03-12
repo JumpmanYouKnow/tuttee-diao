@@ -9,12 +9,8 @@
     <ul class="right hide-on-med-and-down">
 
         <li><a [routerLink] = "['Betutor']">我要当教师</a></li>
-
-
         <li><a [routerLink] = "['Courses']">浏览课程</a></li>
-
         <li><a [routerLink] = "['About']">About Us</a></li>
-
          <li><a class = "modal-trigger" href="#modal2">注册</a></li>
         <li><a class = "modal-trigger" href = "#modal1">登录</a></li>
           <li><a class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -24,7 +20,7 @@
       
     </ul>
     <ul  class="side-nav" id="mobile-demo">
-        <li><a href="/#/catalog">浏览课程</a></li>
+        <li><a [routerLink] = "['Courses']">浏览课程</a></li>
         <li><a href="/#/betutor">我要当教师</a></li>
         <li><a href="/#/about">关于我们</a></li>
         <li><a class = "modal-trigger" href="#modal2">注册</a></li>

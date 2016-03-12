@@ -12,14 +12,14 @@ System.register([], function(exports_1, context_1) {
                     teacher: [
                         {
                             name: "老板",
-                            teacher_escripition: "很黄很暴力",
+                            teacher_descripition: "很黄很暴力",
                             imageURL: "http://placehold.it/500x300",
                             sales: "2344",
                             avgpr: "998"
                         },
                         {
                             name: "老小",
-                            teacher_escripition: "bu黄很暴力",
+                            teacher_descripition: "bu黄很暴力",
                             imageURL: "http://placehold.it/500x300",
                             sales: "234",
                             avgpr: "99",
@@ -32,14 +32,14 @@ System.register([], function(exports_1, context_1) {
                     teacher: [
                         {
                             name: "老大",
-                            teacher_escripition: "很傻很天真",
+                            teacher_descripition: "很傻很天真",
                             imageURL: "http://placehold.it/500x300",
                             sales: "299",
                             avgpr: "888"
                         },
                         {
                             name: "老2",
-                            teacher_escripition: "no傻很天真",
+                            teacher_descripition: "no傻很天真",
                             imageURL: "http://placehold.it/500x300",
                             sales: "299",
                             avgpr: "888"
