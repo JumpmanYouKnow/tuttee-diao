@@ -8,6 +8,7 @@ export var SUBJECT: Subject[] =
 		teacher: [
 
 			{
+		    id:1
             name: "老板",
 	        teacher_descripition: "很黄很暴力",
             imageURL: "http://placehold.it/500x300",
@@ -16,6 +17,7 @@ export var SUBJECT: Subject[] =
 		},
 
         {
+        id:2
 	    name: "老小",
         teacher_descripition: "bu黄很暴力",
         imageURL: "http://placehold.it/500x300",
@@ -31,6 +33,7 @@ export var SUBJECT: Subject[] =
 		course_description: "描述Math 137",
 		teacher: [
 		{
+            id:3
 		    name: "老大",
 		    teacher_descripition: "很傻很天真",
             imageURL: "http://placehold.it/500x300",
@@ -38,6 +41,7 @@ export var SUBJECT: Subject[] =
 			avgpr: "888"
 		},
 		{
+            id:4
 		    name: "老2",
 		    teacher_descripition: "no傻很天真",
             imageURL: "http://placehold.it/500x300",

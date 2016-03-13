@@ -21,9 +21,7 @@ export interface Subject {
 export class SubjectService {
 	getSubject(id: string) {
 		return	Promise.resolve(SUBJECT).then(
-			heroes =>  heroes.filter(hero => hero.id === id)[0]
-		);
-
-		 
+			heroes => heroes.filter(hero => hero.id === id)[0]
+		);	 
 	}
 }

@@ -1,5 +1,4 @@
 import {Component,OnInit} from 'angular2/core';
-
 import {CoursesService,Course} from './courses.service';
 import {Router } from 'angular2/router';
 //import {SubjectComponent} from 'subject/subject.component';
@@ -15,8 +14,8 @@ import {Router } from 'angular2/router';
 
 export class CoursesComponent implements OnInit {
 	public Courses: Course[];
-
-	constructor(private _router: Router, private _coursesservices: CoursesService
+	constructor(private _router: Router,
+	            private _coursesservices: CoursesService
 	) { }
 
 	getCourse() {

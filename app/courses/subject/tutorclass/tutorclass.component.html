@@ -1,0 +1,30 @@
+<h4 >即将上的</h4>
+            <div id="table-scroll">
+            <table class="highlight center">
+                <thead>
+                <tr>
+                    <th data-field="course">课名</th>  
+                    <th data-field="time">时间</th>
+                    <th data-field="location">地点</th>
+                    <th data-field="duration">时长</th>
+                    <th data-filed="people">人数</th>
+                      <th data-filed="price">价格</th>
+                    <th data-field="description">描述</th>                                    
+                </tr>
+                </thead>            
+                <tbody>
+                <tr *ngFor = "#timeslot of Tutorclass">
+                    <td  style="width:15%"class="course">{{timeslot.subject}}</td>  
+                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>
+                    <td  style="width:10%" class="location">{{timeslot.location}}</td>
+                    <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
+                    <td  style="width:10%"><a class ="people tooltip"></a>{{timeslot.nowPeople}}</td>
+                     <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
+                    <td class="description">{{timeslot.description}}</td>                
+                </tr>
+                </tbody>
+            </table>    
+
+            </div>
+
+

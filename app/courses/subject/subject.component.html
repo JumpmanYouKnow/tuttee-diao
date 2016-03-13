@@ -25,6 +25,10 @@
              <div class="card-content ">
               {{teacher.teacher_descripition}} 
               <br>
+              <a class="waves-effect waves-light btn" (click)="gotoDetail(Subject.id,teacher.id)"> 
+              查看此教师所有课程
+            </a>
+
             </div>
             <div class="card-action">
               <a>均价：{{teacher.avgpr}}</a>

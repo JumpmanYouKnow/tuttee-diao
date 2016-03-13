@@ -25,7 +25,8 @@ System.register(['angular2/core', 'angular2/router', './subject.service'], funct
             }],
         execute: function() {
             SubjectComponent = (function () {
-                function SubjectComponent(_subjectService, _routeParams) {
+                function SubjectComponent(_router, _subjectService, _routeParams) {
+                    this._router = _router;
                     this._subjectService = _subjectService;
                     this._routeParams = _routeParams;
                 }
@@ -37,13 +38,17 @@ System.register(['angular2/core', 'angular2/router', './subject.service'], funct
                         _this.Teacher = _this.Subject.teacher;
                     });
                 };
+                SubjectComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
+                    this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);
+                    //this._router.navigate(['About']);
+                };
                 SubjectComponent = __decorate([
                     core_1.Component({
                         selector: 'subject',
                         styleUrls: ['app/courses/subject/subject.component.css'],
                         templateUrl: 'app/courses/subject/subject.component.html',
                     }), 
-                    __metadata('design:paramtypes', [subject_service_1.SubjectService, router_1.RouteParams])
+                    __metadata('design:paramtypes', [router_1.Router, subject_service_1.SubjectService, router_1.RouteParams])
                 ], SubjectComponent);
                 return SubjectComponent;
             }());
