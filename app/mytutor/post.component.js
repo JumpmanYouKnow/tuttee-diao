@@ -22,7 +22,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function PostComponent() {
                 }
                 PostComponent.prototype.ngAfterViewInit = function () {
-                    $('#datetimepicker').datetimepicker();
+                    jQuery('#datetimepicker').datetimepicker({
+                        format: 'DD.MM.YYYY h:mm a',
+                    });
                     $('select').material_select();
                 };
                 PostComponent = __decorate([

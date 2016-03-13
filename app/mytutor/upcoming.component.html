@@ -1,4 +1,46 @@
-<h4 >即将上的</h4>
+<div class = "row">
+<h4 class = "col">即将上的</h4>
+ <a class = "col btn" [routerLink]= "['Post']">开新课</a>
+</div>
+             <div id = "modifyBox"*ngIf= "modSlot">
+                <div class="input-field col s6">
+                    <input id="datetimepicker" value = "{{modSlot.time | date:'EEE,Mdyyyy h:mm a'}}" type="text" ><br>
+                     <label class="active">Select the Time</label>
+                 </div>
+
+                 <div class="input-field col s6">
+                 <select>
+                      <option value="{{modSlot.maxPeople}}" disabled selected>{{modSlot.maxPeople}}</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                        <label >Select number of students</label>
+                 </div>
+
+                  <div class="input-field col s6">
+                        <input  value = "{{modSlot.location}}" type="text" ><br>
+                        <label class="active">Location</label>
+                 </div>
+
+                    <div class="input-field col s6">
+                    <input  value = "{{modSlot.price}}" type="text" ><br>
+                    <label class = "active">Price</label>
+                    </div>
+
+                     <div class="input-field col s12">
+                    <input  value = "{{modSlot.description}}" type="text" ><br>
+                    <label class = "active">Description - no more than 20 chars</label>
+                    </div>
+
+            <a class = "btn">modify</a>
+ 
+
+             </div>
+
+         
             <div id="table-scroll">
             <table class="highlight center">
                 <thead>
@@ -24,6 +66,7 @@
                     <td  style="width:10%"><a class ="people tooltip" title="{{timeslot.nowPeople}}" >{{timeslot.nowPeople.length}}/{{timeslot.maxPeople}}</a></td>
                      <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
                     <td class="description">{{timeslot.description}}</td>
+                    <td style="width:1%"> <a class = "btn" (click)="modify(timeslot)"> modify</a></td>
                    
                 </tr>
 

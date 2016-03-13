@@ -12,7 +12,7 @@
     <script src= "bower_components/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
     <link rel="stylesheet" href="bower_components/datetimepicker/jquery.datetimepicker.css">
     <link rel="stylesheet" href="bower_components/chosen/chosen.css">
-
+    <script src = "bower_components/moment/min/moment-with-locales.min.js"></script>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/tooltipster.css">
     <link rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css" >
@@ -39,6 +39,13 @@
       });
       System.import('app/main')
             .then(null, console.error.bind(console));
+
+      // Date.parseDate = function( input, format ){
+      //   return moment(input,format).toDate();
+      // };
+      // Date.prototype.dateFormat = function( format ){
+      //   return moment(this).format(format);
+      // };
     </script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
