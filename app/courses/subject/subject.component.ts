@@ -17,6 +17,7 @@ export class SubjectComponent implements OnInit{
   Teacher: Teacher[];
 
     constructor(
+    private _router: Router,
     private _subjectService: SubjectService,
     private _routeParams: RouteParams) {
   }
@@ -24,10 +25,16 @@ export class SubjectComponent implements OnInit{
 
 	ngOnInit() {
     let a = this._routeParams.get('subject');
+
     this._subjectService.getSubject(a).then(data => {
     this.Subject = data;
     this.Teacher = this.Subject.teacher;
   });
+  }
+
+  gotoDetail(subject_id: String,tutor_id:number) {
+    this._router.navigate(['Tutorclass', { subject: subject_id ; id:tutor_id }]);
+    //this._router.navigate(['About']);
   }
 
 }
