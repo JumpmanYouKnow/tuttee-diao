@@ -10,9 +10,10 @@ import {Component,AfterViewInit} from 'angular2/core';
 export class PostComponent {
 
 	ngAfterViewInit() {
-			jQuery('#datetimepicker').datetimepicker({ 
-			    format:'DD.MM.YYYY h:mm a',
+			$('#datetimepicker').datetimepicker({ 
+			    format:'m-d-Y h:m',
   			});
+
 		  $('select').material_select();
 	}
 

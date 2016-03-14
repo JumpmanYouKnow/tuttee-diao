@@ -1,4 +1,4 @@
-System.register(['angular2/core', './timeslot.service', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './timeslot.service', 'angular2/router', './email-pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, timeslot_service_1, router_1;
+    var core_1, timeslot_service_1, router_1, email_pipe_1;
     var UpcomingComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (email_pipe_1_1) {
+                email_pipe_1 = email_pipe_1_1;
             }],
         execute: function() {
             UpcomingComponent = (function () {
@@ -34,7 +37,8 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
                         console.log(timeslot);
                         _this.Timeslots = timeslot;
                         setTimeout(function () {
-                            $('.tooltip').tooltipster();
+                            // $('.tooltip').tooltipster();
+                            $('.modal-trigger').leanModal();
                         }, 500);
                     });
                 };
@@ -45,10 +49,8 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
                     this.modSlot = timeslot;
                     setTimeout(function () {
                         $('select').material_select();
-                        jQuery('#datetimepicker').datetimepicker({
-                            format: 'DD.MM.YYYY h:mm a',
-                            formatTime: 'h:mm a',
-                            formatDate: 'DD.MM.YYYY'
+                        $('#datetimepicker').datetimepicker({
+                            format: 'm-d-Y h:m',
                         });
                     }, 100);
                 };
@@ -57,6 +59,7 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
                 UpcomingComponent = __decorate([
                     core_1.Component({
                         selector: 'upcoming',
+                        pipes: [email_pipe_1.EmailPipe],
                         templateUrl: './app/mytutor/upcoming.component.html',
                         styleUrls: ['./app/mytutor/upcoming.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES]

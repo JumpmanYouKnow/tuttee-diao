@@ -11,34 +11,34 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var PostComponent;
+    var EmailPipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            PostComponent = (function () {
-                function PostComponent() {
+            EmailPipe = (function () {
+                function EmailPipe() {
                 }
-                PostComponent.prototype.ngAfterViewInit = function () {
-                    $('#datetimepicker').datetimepicker({
-                        format: 'm-d-Y h:m',
-                    });
-                    $('select').material_select();
+                EmailPipe.prototype.transform = function (array) {
+                    var fuck = "";
+                    for (var i = 0; i < array.length; i++) {
+                        fuck += array[i].email;
+                        fuck += " ";
+                    }
+                    return fuck;
                 };
-                PostComponent = __decorate([
-                    core_1.Component({
-                        selector: 'post',
-                        templateUrl: './app/mytutor/post.component.html',
-                        styleUrls: ['./app/mytutor/post.component.css']
+                EmailPipe = __decorate([
+                    core_1.Pipe({
+                        name: "email"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], PostComponent);
-                return PostComponent;
+                ], EmailPipe);
+                return EmailPipe;
             }());
-            exports_1("PostComponent", PostComponent);
+            exports_1("EmailPipe", EmailPipe);
         }
     }
 });
-//# sourceMappingURL=post.component.js.map
+//# sourceMappingURL=email-pipe.js.map

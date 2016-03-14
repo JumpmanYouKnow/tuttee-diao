@@ -1,12 +1,19 @@
 import { Injectable } from 'angular2/core'
 import {TIMESLOTS} from './mock-timeslot'
 
+export interface tuttee {
+	name:string;
+	email:string;
+	wechat:string;
+
+}
 
 
 export interface Timeslot {
+	id:number,
 	course: string,
 	time: Date,
-	nowPeople: number;
+	nowPeople: tuttee[];
 	maxPeople: number,
 	duration: number,
 	location: string,
