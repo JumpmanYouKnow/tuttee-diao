@@ -1,5 +1,6 @@
 /*table{
     max-height:200px;
+    max-width: 10px;
     overflow: scroll;
 }
 
@@ -9,3 +10,18 @@ table tbody tr{
     z-index:2;
     height:20px;
 }*/
+
+#modifyBox {
+	border:solid 1px;
+	border-radius: 10px;
+}
+/*
+table {
+
+		width:40px;
+        display: block;
+        overflow-x: auto;
+    }*/
+
+
+    

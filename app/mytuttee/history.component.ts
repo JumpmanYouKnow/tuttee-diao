@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {TimeslotService,Timeslot} from '../mytutor/timeslot.service';
 
 @Component({
 	selector: 'history',
@@ -7,5 +8,30 @@ import {Component} from 'angular2/core';
 })
 
 export class HistoryComponent {
+
+		Timeslots : Timeslot[];
+		modSlot : Timeslot;
+
+		constructor(private _timeslotservice:TimeslotService
+	) {}
+
+	getTimeSlots() {
+		this._timeslotservice.getTimeslot().then(timeslot => {
+			console.log(timeslot);
+			this.Timeslots = timeslot;
+			setTimeout( function() {
+			// $('.tooltip').tooltipster();
+			$('.modal-trigger').leanModal();
+		}, 500);
+		});
+
+	}
+
+	ngOnInit() {
+		this.getTimeSlots();
+       
+	}
+
+	
 
 }

@@ -2,13 +2,16 @@
 import {Component,OnInit,AfterViewInit} from 'angular2/core';
 import {TimeslotService,Timeslot} from './timeslot.service';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
-import {EmailPipe} from './email-pipe'
+
+
 @Component({
 	selector:'upcoming',
-	pipes: [EmailPipe],
 	templateUrl: './app/mytutor/upcoming.component.html',
 	styleUrls: ['./app/mytutor/upcoming.component.css'],
-	directives:[ROUTER_DIRECTIVES]
+	directives:[ROUTER_DIRECTIVES],
+
+
+
 
 })
 
@@ -35,6 +38,10 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 	ngOnInit() {
 		this.getTimeSlots();
        
+	}
+
+	closeModify() {
+		this.modSlot = undefined;
 	}
 
 	modify(timeslot:Timeslot) {

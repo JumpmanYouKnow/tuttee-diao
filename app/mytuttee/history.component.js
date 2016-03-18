@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', '../mytutor/timeslot.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,42 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, timeslot_service_1;
     var HistoryComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (timeslot_service_1_1) {
+                timeslot_service_1 = timeslot_service_1_1;
             }],
         execute: function() {
             HistoryComponent = (function () {
-                function HistoryComponent() {
+                function HistoryComponent(_timeslotservice) {
+                    this._timeslotservice = _timeslotservice;
                 }
+                HistoryComponent.prototype.getTimeSlots = function () {
+                    var _this = this;
+                    this._timeslotservice.getTimeslot().then(function (timeslot) {
+                        console.log(timeslot);
+                        _this.Timeslots = timeslot;
+                        setTimeout(function () {
+                            // $('.tooltip').tooltipster();
+                            $('.modal-trigger').leanModal();
+                        }, 500);
+                    });
+                };
+                HistoryComponent.prototype.ngOnInit = function () {
+                    this.getTimeSlots();
+                };
                 HistoryComponent = __decorate([
                     core_1.Component({
                         selector: 'history',
                         templateUrl: './app/mytuttee/history.component.html',
                         styleUrls: ['./app/mytuttee/history.component.css']
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [timeslot_service_1.TimeslotService])
                 ], HistoryComponent);
                 return HistoryComponent;
             }());

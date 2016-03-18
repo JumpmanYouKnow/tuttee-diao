@@ -1,4 +1,5 @@
 import {Component, AfterViewInit, ElementRef,OnDestroy} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 
 // declare var jQuery: JQueryStatic;
@@ -8,7 +9,8 @@ import {Component, AfterViewInit, ElementRef,OnDestroy} from 'angular2/core';
   selector: 'home',  // <home></home>
   pipes: [ ],
   styleUrls: ['app/home/home.css'], 
-  templateUrl: 'app/home/home.html'
+  templateUrl: 'app/home/home.html',
+   directives:[ROUTER_DIRECTIVES]
 })
 export class HomeComponent {
   // Set our default values

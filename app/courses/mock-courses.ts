@@ -4,7 +4,7 @@ export var COURSES: Course[] = [
     {
 		id: "math135",
 		name: "Math 135",
-		imageURL: "http://placehold.it/500x300",
+		imageURL: "http://placehold.it/500x500",
 		description: "Math's 135's Descriptions",
 		numTutor: 5,
 		sales:5

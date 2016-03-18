@@ -1,26 +1,67 @@
-<h4>预订历史</h4>
+<div class = "row">
+<h4 class = "col">上过的课</h4>
+
+</div>
+          
+
+         
             <div id="table-scroll">
             <table class="highlight center">
                 <thead>
                 <tr>
-                    <th data-field="id">时间</th>
-                    <th data-field="id">上课人数</th>
-                    <th data-field="name">时长</th>
-                    <th data-field="price">地点</th>
-                    <th data-field="content">内容</th>
+                    <th data-field="course">课名</th>  
+                    <th data-field="time">时间</th>
+                    <th data-field="location">地点</th>
+                    <th data-field="duration">时长</th>
+                    <th data-filed="people">人数</th>
+                    <th data-filed="price">价格</th>
+                    <th data-field="description">描述</th>                                    
                 </tr>
                 </thead>
              
-                <tbody >
-                <tr>
-                    <td class = "time"></td>
-                    <td class = "people"></td>
-                    <td class = "duration"></td>
-                    <td class = "location"></td>
-                    <td class = "content">Math135</td>
+                <tbody>
+                <tr *ngFor = "#timeslot of Timeslots">
+                    <td  style="width:15%"class="course">{{timeslot.course}}</td>  
+                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>
+                    <td  style="width:10%" class="location">{{timeslot.location}}</td>
+                    <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
+                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn modal-trigger" >{{timeslot.nowPeople.length}}/{{timeslot.maxPeople}}</a></td>
+                     <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
+                    <td class="description">{{timeslot.description}}</td>
+                   
+                      <!-- Modal Trigger -->
+                      <!-- Modal Structure -->
+                  <div id="{{timeslot.id}}" class="modal">
+                    <div class="modal-content">
+                    <p>{{timeslot.course}}</p>
+                     <table class="highlight center">
+                      <thead>
+                        <tr>
+                          <th data-field= "name">名字</th>
+                          <th data-field= "email">Email</th>
+                          <th data-field = "wechat">微信号</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="#people of timeslot.nowPeople">
+                          <td>{{people.name}}</td>
+                          <td>{{people.email}}</td>
+                          <td>{{people.wechat}}</td>
+                        </tr>
+                      </tbody>
+                             </table>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                  </div>
+
+                                 
                 </tr>
 
                 </tbody>
             </table>    
 
             </div>
+
+

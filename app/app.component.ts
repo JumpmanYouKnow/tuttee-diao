@@ -20,7 +20,7 @@ import {SubjectComponent} from './courses/subject/subject.component';
 import {TimeslotService} from './mytutor/timeslot.service'
 import {TutorclassComponent} from'./courses/subject/tutorclass/tutorclass.component';
 import {TutorclassService} from'./courses/subject/tutorclass/tutorclass.service'; 
-
+//import {PaginationService} from 'ng2-pagination'
 
 declare var jQuery: JQueryStatic;
 /*
