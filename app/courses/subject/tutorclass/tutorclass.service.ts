@@ -1,7 +1,9 @@
 import { Injectable } from 'angular2/core'
-import {TIMESLOTS} from './mock-timeslot'
+import {TIMESLOTS, COMMENT} from './mock-timeslot'
+
 
   export interface Timeslot {
+  tutor_name: string;
   id: number,
   subject: string,
   time: Date,
@@ -11,6 +13,13 @@ import {TIMESLOTS} from './mock-timeslot'
   location: string,
   price: number,
   description: string
+}
+
+export interface Comment {
+ // course: string;
+  faculty: string;
+  time: Date;
+  content: string;
 }
 
 
@@ -23,4 +32,8 @@ export class TutorclassService {
         tuotr => tuotr.filter(hero => hero.id == id)
       );   
   }
+   getComment() {
+     return Promise.resolve(COMMENT);
+  }
 }
+

@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router, RouteParams} from 'angular2/router';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {TutorclassService, Timeslot} from './tutorclass.service'
+import {TutorclassService, Timeslot, Comment} from './tutorclass.service'
 
 
 @Component({
@@ -17,7 +17,8 @@ import {TutorclassService, Timeslot} from './tutorclass.service'
 
 export class TutorclassComponent implements OnInit {
    Tutorclass: Timeslot[];
-  
+   Subject: string;
+   Comment: Comment[];
 
     constructor(
     private _routeParams: RouteParams,
@@ -29,14 +30,17 @@ export class TutorclassComponent implements OnInit {
   ngOnInit() {
     let subject = this._routeParams.get('subject');
     let id = this._routeParams.get('id');
-
-     
+   
     this._tutorclassService.getTimeslot(id).then(hero => {
     this.Tutorclass = hero;
-    console.log(this.Tutorclass);
+  //  console.log(this.Tutorclass);
+    this.Subject = subject;
   });
+    this._tutorclassService.getComment().then(data =>
+  { this.Comment = data 
+    console.log(this.Comment);
+  })
 
-    });
-  }
-
+  };
 }
+

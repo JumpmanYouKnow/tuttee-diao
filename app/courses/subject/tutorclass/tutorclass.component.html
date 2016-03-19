@@ -1,4 +1,9 @@
-<h4 >即将上的</h4>
+<div *ngIf = "Tutorclass" id ="jum">
+<h5  class = "center">{{Tutorclass[0].tutor_name}}的{{Subject}}</h5>
+</div>
+
+<section>
+    <div class="container" id="table">
             <div id="table-scroll">
             <table class="highlight center">
                 <thead>
@@ -24,7 +29,28 @@
                 </tr>
                 </tbody>
             </table>    
-
             </div>
+        </div>
+        </section>
 
+<div class="container" id="commentbox" >
+<div id = "comment" *ngFor = "#comment of Comment" class = "row ">
+       <div class = "col m2 center-align">
+           <div class ="row">
+               <img src = "http://placehold.it/50x50">
+           </div>
+           <div class ="row">
+              <p>{{comment.faculty}}</p>
+
+           </div>
+       </div>
+
+       <div class = "commentContent col m10">
+            <p>{{comment.time}}</p>
+           <p>{{comment.content}}</p>
+       </div>
+
+   </div>
+
+</div>
 
