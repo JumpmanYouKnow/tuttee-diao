@@ -35,7 +35,12 @@ System.register(['angular2/core', 'angular2/router', './tutorclass.service'], fu
                     var id = this._routeParams.get('id');
                     this._tutorclassService.getTimeslot(id).then(function (hero) {
                         _this.Tutorclass = hero;
-                        console.log(_this.Tutorclass);
+                        //  console.log(this.Tutorclass);
+                        _this.Subject = subject;
+                    });
+                    this._tutorclassService.getComment().then(function (data) {
+                        _this.Comment = data;
+                        console.log(_this.Comment);
                     });
                 };
                 ;

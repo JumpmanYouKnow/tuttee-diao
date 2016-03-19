@@ -1,0 +1,45 @@
+#jum {
+    width: 100%;
+    height:200px;
+    background-image: url("http://placekitten.com/2000/500");
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size:cover;
+}
+h5 {
+    position: relative;
+    top:50px;
+    margin-top:0px;
+    padding-top:0px;
+    color:white;
+    font-size: 70px;
+    text-align: center;
+}
+
+#table{
+	margin-top:2rem;
+}
+
+#table-scroll{
+	border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+#comment {
+    line-height:5px;
+    margin-top: 2rem;
+
+}
+#commentbox{
+   margin-top: 5rem;
+
+}
+.commentContent {
+    box-shadow: 5px black;
+    padding-top:20px;
+    height:80px;
+    position:relative;
+    top:-20px;
+
+}

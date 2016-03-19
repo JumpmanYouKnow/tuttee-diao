@@ -28,6 +28,9 @@ System.register(['angular2/core', './mock-timeslot'], function(exports_1, contex
                     console.log(mock_timeslot_1.TIMESLOTS);
                     return Promise.resolve(mock_timeslot_1.TIMESLOTS).then(function (tuotr) { return tuotr.filter(function (hero) { return hero.id == id; }); });
                 };
+                TutorclassService.prototype.getComment = function () {
+                    return Promise.resolve(mock_timeslot_1.COMMENT);
+                };
                 TutorclassService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
