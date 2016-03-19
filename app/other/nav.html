@@ -53,23 +53,23 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h3>Sign in</h3>
-            <form class="col s12">
+            <form class="col s12" #signin="ngForm" (ngSubmit)="login(signin.value)"  >
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
+                        <input id="email" type="email" class="validate" ngControl="email">
                         <label for="email">Email</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" class="validate" ngControl="password">
                         <label for="password">Password</label>
                     </div>
                 </div>
-
+            <button type="submit" class=" modal-action  waves-effect waves-green btn-large">Sign in!dfsafdasas</button>
             </form>
-            <a href="#!" class=" modal-action  waves-effect waves-green btn-large">Sign in!</a>
+           
 
         </div>
     </div>

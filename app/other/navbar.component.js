@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2/common', './login.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, core_2;
+    var core_1, router_1, core_2, common_1, login_service_1;
     var NavbarComponent;
     return {
         setters:[
@@ -20,13 +20,34 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
+            function (login_service_1_1) {
+                login_service_1 = login_service_1_1;
             }],
         execute: function() {
             // declare var jQuery: JQueryStatic;
             NavbarComponent = (function () {
-                function NavbarComponent(el) {
+                function NavbarComponent(el, _loginservice) {
                     this.el = el;
+                    this._loginservice = _loginservice;
                 }
+                NavbarComponent.prototype.login = function (value) {
+                    var _this = this;
+                    this._loginservice.postLogin(value.email, value.password)
+                        .subscribe(function (data) {
+                        _this.loginObj = data;
+                    });
+                };
+                NavbarComponent.prototype.register = function (value) {
+                    var _this = this;
+                    this._loginservice.postLogin(value.email, value.password)
+                        .subscribe(function (data) {
+                        _this.loginObj = data;
+                    });
+                };
                 NavbarComponent.prototype.ngAfterViewInit = function () {
                     $(this.el.nativeElement).find(".button-collapse").sideNav();
                     $('.modal-trigger').leanModal();
@@ -37,9 +58,9 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                         selector: 'navbar',
                         templateUrl: 'app/other/nav.html',
                         styleUrls: ['app/other/nav.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [core_2.ElementRef])
+                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService])
                 ], NavbarComponent);
                 return NavbarComponent;
             }());
