@@ -12,6 +12,7 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {SubjectService} from './courses/subject/subject.service'
 import {CoursesService} from './courses/courses.service';
+import {LoginService} from "./other/login.service";
 import {MytutorComponent} from './mytutor/mytutor.component'
 import {BetutorComponent} from'./betutor/betutor.component'
 import {CoursesComponent} from './courses/courses.component';
@@ -37,7 +38,7 @@ declare var jQuery: JQueryStatic;
 	`,
 
 	directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
-	providers: [TutProfileService, CoursesService, SubjectService, TimeslotService,TutorclassService]
+	providers: [TutProfileService, CoursesService, SubjectService, TimeslotService,TutorclassService,LoginService]
 
 })
 

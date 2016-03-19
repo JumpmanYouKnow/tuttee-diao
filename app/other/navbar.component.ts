@@ -3,7 +3,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit, ElementRef} from 'angular2/core'
 import { FORM_DIRECTIVES } from 'angular2/common';
-import {LoginService,loginObj} from './login.service'
+ import {LoginService,loginObj} from './login.service'
 
 
 // declare var jQuery: JQueryStatic;
@@ -23,7 +23,7 @@ export class NavbarComponent implements AfterViewInit {
 	private loginObj:loginObj
 
 
-	constructor(private el: ElementRef, private _loginservice:LoginService) {
+	constructor(private el: ElementRef, private _loginservice: LoginService) {
     }
 
   
