@@ -20,8 +20,8 @@
                 <tbody>
                 <tr *ngFor = "#timeslot of Tutorclass">
                     <td  style="width:15%"class="course">{{timeslot.subject}}</td>  
-                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>
-                    <td  style="width:10%" class="location">{{timeslot.location}}</td>
+                    <td  style="width:10%" class="time">{{timeslot.time|                     <td  style="width:10%" class="location">{{timeslot.location}}</td>
+date:'EEE,Mdyyyy h:mm a'}}</td>
                     <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
                     <td  style="width:10%"><a class ="people tooltip"></a>{{timeslot.nowPeople}}</td>
                      <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>

@@ -15,19 +15,18 @@ export interface loginObj {
 @Injectable()
 export class LoginService { 
 
+
  	constructor(private _http: Http) {
 
-	  }
+}
 
 	postLogin(email:string,password:string) {
-
 		var headers = new Headers();
 		headers.append('Content-Type','application/json');
 
 		return this._http.post('/login',
 			JSON.stringify({email:email,password:password}),headers)
-		   .map(res => res.json());
-		
+		   .map(res => res.json());		
 	}
 
 	postSignUp(email:string,password:string) {
@@ -38,7 +37,6 @@ export class LoginService {
 		return this._http.post('/register',
 			JSON.stringify({email:email,password:password}),{headers:headers})
 		   .map(res => res.json());
-
 	}
 
 }

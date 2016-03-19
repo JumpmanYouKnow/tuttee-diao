@@ -33,7 +33,7 @@ export class NavbarComponent implements AfterViewInit {
 	constructor(private el: ElementRef, private _loginservice: LoginService) {
     }
 
-  
+
     login (value:any) {
     	this._loginservice.postLogin(value.email,value.password)
     	.subscribe( data => {
