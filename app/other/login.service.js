@@ -26,13 +26,13 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1, context_
                     this.http = http;
                 }
                 LoginService.prototype.postLogin = function (email, password) {
-                    var headers = new http_1.Headers();
+                    var headers = new Headers();
                     headers.append('Content-Type', 'application/json');
                     return this.http.post('/login', JSON.stringify({ email: email, password: password }), headers)
                         .map(function (res) { return res.json(); });
                 };
                 LoginService.prototype.postSignUp = function (email, password) {
-                    var headers = new http_1.Headers();
+                    var headers = new Headers();
                     headers.append('Content-Type', 'application/json');
                     return this.http.post('/register', JSON.stringify({ email: email, password: password }), { headers: headers })
                         .map(function (res) { return res.json(); });

@@ -1,4 +1,4 @@
-import {Http, HTTP_PROVIDERS,Headers} from 'angular2/http';
+import {HTTP_PROVIDERS,Http} from 'angular2/http';
 import { Injectable } from 'angular2/core'
 
 
