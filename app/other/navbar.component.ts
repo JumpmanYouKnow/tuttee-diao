@@ -3,6 +3,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit, ElementRef} from 'angular2/core'
 
+
 // declare var jQuery: JQueryStatic;
 
 @Component({
@@ -18,6 +19,10 @@ import {AfterViewInit, ElementRef} from 'angular2/core'
 export class NavbarComponent implements AfterViewInit {
 
 	constructor(private el: ElementRef) {
+    }
+
+    login () {
+    	
     }
 
 	ngAfterViewInit () {
