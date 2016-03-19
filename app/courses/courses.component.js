@@ -26,9 +26,11 @@ System.register(['angular2/core', './courses.service', 'angular2/router'], funct
         execute: function() {
             //import {SubjectComponent} from 'subject/subject.component';
             CoursesComponent = (function () {
-                function CoursesComponent(_router, _coursesservices) {
+                function CoursesComponent(_router, _coursesservices, _data) {
                     this._router = _router;
                     this._coursesservices = _coursesservices;
+                    this._data = _data;
+                    this.token = this._data.get('token');
                 }
                 CoursesComponent.prototype.getCourse = function () {
                     var _this = this;
@@ -47,7 +49,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router'], funct
                         styleUrls: ['./app/courses/courses.component.css'],
                         templateUrl: './app/courses/courses.component.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService])
+                    __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, router_1.RouteData])
                 ], CoursesComponent);
                 return CoursesComponent;
             }());

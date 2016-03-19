@@ -81,14 +81,19 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
              */
             AppComponent = (function () {
                 function AppComponent() {
+                    this.token = "";
                 }
+                AppComponent.prototype.getLogin = function (arg) {
+                    console.log(arg);
+                    //this.loginObj = arg;
+                };
                 AppComponent.prototype.ngAfterViewInit = function () {
                     //	jQuery(this.elementRef.nativeElement).find("p").append("fuckjasdjlfdsa");
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        template: "\n\t<navbar></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
+                        template: "\n\t<navbar (chuan) = \"getLogin($event)\"></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
                         directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, footer_component_1.FooterComponent],
                         providers: [tutprofile_service_1.TutProfileService, courses_service_1.CoursesService, subject_service_1.SubjectService, timeslot_service_1.TimeslotService, tutorclass_service_1.TutorclassService, login_service_1.LoginService]
                     }),
@@ -97,7 +102,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                         // { path: '/about', component: About, name: 'About' },
                         // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
                         { path: '/about', name: 'About', component: about_component_1.AboutComponent },
-                        { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent },
+                        { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent, data: {} },
                         { path: '/subject/:subject', name: 'Subject', component: subject_component_1.SubjectComponent },
                         { path: '/betutor', name: 'Betutor', component: betutor_component_1.BetutorComponent },
                         { path: '/subject/:subject/:id', name: 'Tutorclass', component: tutorclass_component_1.TutorclassComponent },

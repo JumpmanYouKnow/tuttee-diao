@@ -22,19 +22,19 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1, context_
             }],
         execute: function() {
             LoginService = (function () {
-                function LoginService(http) {
-                    this.http = http;
+                function LoginService(_http) {
+                    this._http = _http;
                 }
                 LoginService.prototype.postLogin = function (email, password) {
-                    var headers = new Headers();
+                    var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    return this.http.post('/login', JSON.stringify({ email: email, password: password }), headers)
+                    return this._http.post('/login', JSON.stringify({ email: email, password: password }), headers)
                         .map(function (res) { return res.json(); });
                 };
                 LoginService.prototype.postSignUp = function (email, password) {
-                    var headers = new Headers();
+                    var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    return this.http.post('/register', JSON.stringify({ email: email, password: password }), { headers: headers })
+                    return this._http.post('/register', JSON.stringify({ email: email, password: password }), { headers: headers })
                         .map(function (res) { return res.json(); });
                 };
                 LoginService = __decorate([

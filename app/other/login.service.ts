@@ -1,4 +1,4 @@
-import {HTTP_PROVIDERS,Http} from 'angular2/http';
+import {HTTP_PROVIDERS,Http,Headers} from 'angular2/http';
 import { Injectable } from 'angular2/core'
 
 
@@ -15,7 +15,7 @@ export interface loginObj {
 @Injectable()
 export class LoginService { 
 
- 	constructor(private http: Http) {
+ 	constructor(private _http: Http) {
 
 	  }
 
@@ -24,7 +24,7 @@ export class LoginService {
 		var headers = new Headers();
 		headers.append('Content-Type','application/json');
 
-		return this.http.post('/login',
+		return this._http.post('/login',
 			JSON.stringify({email:email,password:password}),headers)
 		   .map(res => res.json());
 		
@@ -35,7 +35,7 @@ export class LoginService {
 		var headers = new Headers();
 		headers.append('Content-Type','application/json');
 
-		return this.http.post('/register',
+		return this._http.post('/register',
 			JSON.stringify({email:email,password:password}),{headers:headers})
 		   .map(res => res.json());
 

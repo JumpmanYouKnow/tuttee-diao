@@ -12,7 +12,7 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {SubjectService} from './courses/subject/subject.service'
 import {CoursesService} from './courses/courses.service';
-import {LoginService} from "./other/login.service";
+import {LoginService,loginObj} from "./other/login.service";
 import {MytutorComponent} from './mytutor/mytutor.component'
 import {BetutorComponent} from'./betutor/betutor.component'
 import {CoursesComponent} from './courses/courses.component';
@@ -32,7 +32,7 @@ declare var jQuery: JQueryStatic;
 @Component({
 	selector: 'app',
 	template: `
-	<navbar></navbar>
+	<navbar (chuan) = "getLogin($event)"></navbar>
 	<router-outlet></router-outlet>
 	<footer></footer>
 	`,
@@ -47,13 +47,13 @@ declare var jQuery: JQueryStatic;
 		{ path: '/', name: 'Home',component: HomeComponent},
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-		{ path: '/about', name: 'About',component: AboutComponent },
-        { path: '/courses', name: 'Courses' ,component: CoursesComponent },
-        { path: '/subject/:subject', name: 'Subject',component: SubjectComponent },	
+		{ path: '/about', name: 'About',component: AboutComponent},
+        { path: '/courses', name: 'Courses' ,component: CoursesComponent,data:{}},
+        { path: '/subject/:subject', name: 'Subject',component: SubjectComponent},	
         { path: '/betutor', name: 'Betutor', component: BetutorComponent},
         { path: '/subject/:subject/:id', name: 'Tutorclass', component: TutorclassComponent},
-		{ path: '/tutor/:id', name: 'TutProfile', component: TutProfileComponent},
-		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
+		{ path: '/tutor/:id', name: 'TutProfile', component: TutProfileComponent },
+		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent },
 		{ path: '/mytutor/...', name: 'Mytutor', component: MytutorComponent},
 
 
@@ -62,7 +62,14 @@ declare var jQuery: JQueryStatic;
 
 ])
 export class AppComponent implements AfterViewInit {
+	public loginObj:loginObj;
+	public token:string = "";
 
+	getLogin(arg:any) {
+		console.log(arg);
+		//this.loginObj = arg;
+
+	}
 
 
 	ngAfterViewInit () {

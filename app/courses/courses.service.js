@@ -1,4 +1,4 @@
-System.register(['angular2/core', './mock-courses'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', './mock-courses'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,35 @@ System.register(['angular2/core', './mock-courses'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_courses_1;
+    var core_1, http_1, mock_courses_1;
     var CoursesService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
             function (mock_courses_1_1) {
                 mock_courses_1 = mock_courses_1_1;
             }],
         execute: function() {
             CoursesService = (function () {
-                function CoursesService() {
+                function CoursesService(_http) {
+                    this._http = _http;
                 }
                 CoursesService.prototype.getCourses = function () {
+                    // var headers = new Headers();
+                    // headers.append('Content-Type','application/json');
+                    //headers.append('Authorization','')
+                    // return this._http.get('/courses')
+                    //    .map(res => res.json());
                     return Promise.resolve(mock_courses_1.COURSES);
                 };
                 CoursesService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], CoursesService);
                 return CoursesService;
             }());

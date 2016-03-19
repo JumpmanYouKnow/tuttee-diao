@@ -1,4 +1,4 @@
-import {Component}  from 'angular2/core';
+import {Component,Input,Output,EventEmitter}  from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit, ElementRef} from 'angular2/core'
@@ -19,8 +19,15 @@ import { FORM_DIRECTIVES } from 'angular2/common';
 
 
 export class NavbarComponent implements AfterViewInit {
-
-	private loginObj:loginObj
+    private loginObj:loginObj  = {
+    "confirmed": true,
+    "expiration": 3600,
+    "id": 3,
+    "is_tutor": true,
+    "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
+    "username": "root"
+}
+	@Output() private chuan = new EventEmitter();
 
 
 	constructor(private el: ElementRef, private _loginservice: LoginService) {
@@ -31,12 +38,14 @@ export class NavbarComponent implements AfterViewInit {
     	this._loginservice.postLogin(value.email,value.password)
     	.subscribe( data => {
     		this.loginObj = data;
+            this.chuan.emit(this.loginObj);
     	});
     }
 
      register (value:any) {
     	this._loginservice.postLogin(value.email,value.password)
     	.subscribe( data => {
+    		console.log(data);
     		this.loginObj = data;
     	});
     }
@@ -45,7 +54,10 @@ export class NavbarComponent implements AfterViewInit {
 		$(this.el.nativeElement).find(".button-collapse").sideNav();
 		$('.modal-trigger').leanModal();
 		$(".dropdown-button").dropdown();
+           this.chuan.emit("whatthefuck");
 	}
+
+
 
 }
 

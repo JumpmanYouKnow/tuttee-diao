@@ -33,18 +33,29 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                 function NavbarComponent(el, _loginservice) {
                     this.el = el;
                     this._loginservice = _loginservice;
+                    this.loginObj = {
+                        "confirmed": true,
+                        "expiration": 3600,
+                        "id": 3,
+                        "is_tutor": true,
+                        "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
+                        "username": "root"
+                    };
+                    this.chuan = new core_1.EventEmitter();
                 }
                 NavbarComponent.prototype.login = function (value) {
                     var _this = this;
                     this._loginservice.postLogin(value.email, value.password)
                         .subscribe(function (data) {
                         _this.loginObj = data;
+                        _this.chuan.emit(_this.loginObj);
                     });
                 };
                 NavbarComponent.prototype.register = function (value) {
                     var _this = this;
                     this._loginservice.postLogin(value.email, value.password)
                         .subscribe(function (data) {
+                        console.log(data);
                         _this.loginObj = data;
                     });
                 };
@@ -52,7 +63,12 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                     $(this.el.nativeElement).find(".button-collapse").sideNav();
                     $('.modal-trigger').leanModal();
                     $(".dropdown-button").dropdown();
+                    this.chuan.emit("whatthefuck");
                 };
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], NavbarComponent.prototype, "chuan", void 0);
                 NavbarComponent = __decorate([
                     core_1.Component({
                         selector: 'navbar',

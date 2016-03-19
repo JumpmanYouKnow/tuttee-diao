@@ -1,6 +1,7 @@
 import {Component,OnInit} from 'angular2/core';
 import {CoursesService,Course} from './courses.service';
-import {Router } from 'angular2/router';
+import {Router,RouteData} from 'angular2/router';
+import {NavbarComponent} from '../other/navbar.component'
 //import {SubjectComponent} from 'subject/subject.component';
 
 
@@ -14,9 +15,14 @@ import {Router } from 'angular2/router';
 
 export class CoursesComponent implements OnInit {
 	public Courses: Course[];
+	public token: string;
 	constructor(private _router: Router,
-	            private _coursesservices: CoursesService
-	) { }
+	            private _coursesservices: CoursesService,
+	            private _data: RouteData
+	) { 
+		this.token = this._data.get('token');
+
+	}
 
 	getCourse() {
 		this._coursesservices.getCourses().then(data => this.Courses = data);

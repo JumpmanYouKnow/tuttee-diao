@@ -53,7 +53,7 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h3>Sign in</h3>
-            <form class="col s12" #signin="ngForm" (ngSubmit)="login(signin.value)"  >
+            <form class="col s12" #login="ngForm" (ngSubmit)="login(login.value)"  >
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" type="email" class="validate" ngControl="email">
@@ -66,8 +66,9 @@
                         <input id="password" type="password" class="validate" ngControl="password">
                         <label for="password">Password</label>
                     </div>
+
                 </div>
-            <button type="submit" class=" modal-action  waves-effect waves-green btn-large">Sign in!dfsafdasas</button>
+            <button type="submit"   class=" modal-action  waves-effect waves-green btn-large">Sign in!</button>
             </form>
            
 
@@ -77,23 +78,35 @@
     <div id="modal2" class="modal">
         <div class="modal-content">
             <h3>Sign up</h3>
-            <form class="col s12">
+            <form class="col s12 " #register="ngForm" (ngSubmit)="register(register.value)">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
+                        <input id="email" type="email" class="validate" required> 
                         <label for="email">Email</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" class="validate" ngControl="password" required>
                         <label for="password">Password</label>
                     </div>
+                    <div class="input-field col s12">
+                        <input id="repassword" type="password" class="validate" ngControl="repassword" required>
+                        <label for="repassword">Re-enter Password</label>
+                    </div>
+
+                    
                 </div>
+    
+                   <div  [hidden] = "register.value.password==register.value.repassword || register.pristine" >
+                         两次输入不一致
+                        </div>
+             
+
+                 <button type="submit" [ngClass]="{disabled: register.value.password!=register.value.repassword || !register.valid }" class=" modal-action  waves-effect waves-green btn-large">Sign Up!</button>
 
             </form>
-            <a href="#!" class=" modal-action  waves-effect waves-green btn-large">Sign in!</a>
-
+     
         </div>
     </div>
