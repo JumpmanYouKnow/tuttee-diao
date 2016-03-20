@@ -48,12 +48,12 @@ declare var jQuery: JQueryStatic;
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 		{ path: '/about', name: 'About',component: AboutComponent},
-        { path: '/courses', name: 'Courses' ,component: CoursesComponent,data:{}},
+        { path: '/courses', name: 'Courses' ,component: CoursesComponent},
         { path: '/subject/:subject', name: 'Subject',component: SubjectComponent},	
         { path: '/betutor', name: 'Betutor', component: BetutorComponent},
         { path: '/subject/:subject/:id', name: 'Tutorclass', component: TutorclassComponent},
-		{ path: '/tutor/:id', name: 'TutProfile', component: TutProfileComponent },
-		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent },
+		{ path: '/tutor/:id', name: 'TutProfile', component: TutProfileComponent},
+		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
 		{ path: '/mytutor/...', name: 'Mytutor', component: MytutorComponent},
 
 
@@ -62,12 +62,12 @@ declare var jQuery: JQueryStatic;
 
 ])
 export class AppComponent implements AfterViewInit {
-	public loginObj:loginObj;
+
 	public token:string = "";
 
 	getLogin(arg:any) {
 		console.log(arg);
-		//this.loginObj = arg;
+		this.token = arg;
 
 	}
 
