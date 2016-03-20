@@ -85,7 +85,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                 }
                 AppComponent.prototype.getLogin = function (arg) {
                     console.log(arg);
-                    //this.loginObj = arg;
+                    this.token = arg;
                 };
                 AppComponent.prototype.ngAfterViewInit = function () {
                     //	jQuery(this.elementRef.nativeElement).find("p").append("fuckjasdjlfdsa");
@@ -102,7 +102,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                         // { path: '/about', component: About, name: 'About' },
                         // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
                         { path: '/about', name: 'About', component: about_component_1.AboutComponent },
-                        { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent, data: {} },
+                        { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent },
                         { path: '/subject/:subject', name: 'Subject', component: subject_component_1.SubjectComponent },
                         { path: '/betutor', name: 'Betutor', component: betutor_component_1.BetutorComponent },
                         { path: '/subject/:subject/:id', name: 'Tutorclass', component: tutorclass_component_1.TutorclassComponent },

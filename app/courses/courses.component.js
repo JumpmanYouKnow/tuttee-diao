@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.service', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.service', 'angular2/router', '../services/token.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router'], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_service_1, router_1;
+    var core_1, courses_service_1, router_1, token_service_1;
     var CoursesComponent;
     return {
         setters:[
@@ -22,22 +22,27 @@ System.register(['angular2/core', './courses.service', 'angular2/router'], funct
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (token_service_1_1) {
+                token_service_1 = token_service_1_1;
             }],
         execute: function() {
-            //import {SubjectComponent} from 'subject/subject.component';
             CoursesComponent = (function () {
-                function CoursesComponent(_router, _coursesservices, _data) {
+                function CoursesComponent(_router, _coursesservices, _tokenservice) {
                     this._router = _router;
                     this._coursesservices = _coursesservices;
-                    this._data = _data;
-                    this.token = this._data.get('token');
+                    this._tokenservice = _tokenservice;
                 }
                 CoursesComponent.prototype.getCourse = function () {
                     var _this = this;
-                    this._coursesservices.getCourses().then(function (data) { return _this.Courses = data; });
+                    this._coursesservices.getCourses()
+                        .then(function (data) { return _this.Courses = data; });
+                    //this._coursesservice.getCourses().subscribe(data => this.Courses = data)
                 };
                 CoursesComponent.prototype.ngOnInit = function () {
                     this.getCourse();
+                    // console.log("the token is",this.token);
+                    console.log("the token is : " + this._tokenservice.getToken());
                 };
                 CoursesComponent.prototype.gotoDetail = function (course_id) {
                     console.log(course_id);
@@ -49,7 +54,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router'], funct
                         styleUrls: ['./app/courses/courses.component.css'],
                         templateUrl: './app/courses/courses.component.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, router_1.RouteData])
+                    __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, token_service_1.TokenService])
                 ], CoursesComponent);
                 return CoursesComponent;
             }());

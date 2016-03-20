@@ -29,19 +29,9 @@ System.register(['angular2/core', 'angular2/router', './tutprofile.service'], fu
                     this._routeParams = _routeParams;
                     this._tutProfileService = _tutProfileService;
                 }
-                // getTutProfile(id:number) {
-                // 	this._tutProfileService.getTutProfile()
-                // 		.subscribe( data => {
-                //	this.TutProfile = data;
-                // }
                 TutProfileComponent.prototype.getTutProfile = function (id) {
                     var _this = this;
-                    this._tutProfileService.getTutProfile().then(function (TutProfiles) {
-                        _this.TutProfile = TutProfiles;
-                        _this.Timeslots = TutProfiles[0].timeslots;
-                        _this.Courses = TutProfiles[0].courses;
-                        console.log(_this.Timeslots);
-                    });
+                    this._tutProfileService.getTutProfile().then(function (TutProfiles) { return _this.TutProfile = TutProfiles[id - 1]; });
                 };
                 TutProfileComponent.prototype.ngOnInit = function () {
                     var id = +this._routeParams.get('id');

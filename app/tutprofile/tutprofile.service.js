@@ -37,20 +37,4 @@ System.register(['angular2/core', './mock-tutprofile'], function(exports_1, cont
         }
     }
 });
-// @Injectable()
-// export class TutProfileService { 
-// 	public token: string;
-//     constructor(private _http: Http) {
-// 	}
-// 	getTutProfile() {
-// 		return Promise.resolve(TUTPROFILES);
-// 	}
-// 	getTutProfile(id:number) {
-// 		var headers = new Headers();
-// 		headers.append('Authorization',this.token);
-// 		return this._http.get('/tutors'+ id,
-// 			, { headers: headers })
-// 		   .map(res => res.json());		
-// 	}
-// } 
 //# sourceMappingURL=tutprofile.service.js.map
