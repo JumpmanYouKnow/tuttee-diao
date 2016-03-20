@@ -10,7 +10,7 @@
             </div>
 
               <div class = "row center-align">
-              {{TutProfile.name}}
+              {{TutProfile.username}}
             </div>
 
             <div class = "row center-align">
@@ -36,25 +36,28 @@
             <div class = "row center-align">
                 <a class="waves-effect waves-light btn" id="main" href="catalog.html">收藏</a>
             </div>
+       <!--  </div> -->
         </div>
 
         <div id = "rightCol" class = "col s12 m8 offset-m1">
 
-            <h4>个人介绍</h4>
+            <!-- <h4>个人介绍</h4>
 
-            <p>{{TutProfile.description}}</p>
+            <p>{{TutProfile.description}}</p> -->
 
             <h4>课程</h4>
 
-            <div *ngFor = "#course of TutProfile.courses"class = "course">
+            <div *ngFor = "#timeslots of Timeslots" class = "course">
                 <div class = "row">
                     <div class = "col m3">
-                       {{course}}
+                       {{timeslots.course}}
                     </div>
 
                     <div class = "description col m7">
-                       <div class = "m12"> Upcoming：</div>
-                       <div class = "m12"> 3月24日 15点 </div>
+                       <div class = "m12">开始与 </div>
+                       <div class = "m12">{{timeslots.start_time | date:"medium"}}</div>
+                       <div class = "m12">结束于 </div>
+                       <div class = "m12">{{timeslots.end_time | date:"medium"}}</div>
                     </div>
 
                     <div class = "col m2">
@@ -71,28 +74,31 @@
 
     <h5>Comments</h5>
 
-   <div id = "comment" *ngFor = "#comment of TutProfile.comments" class = "row">
+   <div id = "comment" *ngFor = "#courses of Courses" class = "row">
+    <div class="container">
+      <h3>{{courses.id}}</h3>
+        <div *ngFor = "#reviews of Courses[0].reviews">
+
        <div class = "col m2 center-align">
            <div class ="row">
                <img src = "http://placehold.it/50x50">
            </div>
            <div class ="row">
-              <p>{{comment.faculty}}</p>
-
+              <p>{{reviews.rating}}</p>
            </div>
-
-
 
        </div>
 
        <div class = "commentContent col m10">
-            <p>{{comment.time}}</p>
-           <p>{{comment.content}}</p>
+            <p>{{reviews.timestamp|date:"medium"}}</p>
+           <p>{{reviews.text}}</p>
        </div>
-
    </div>
 
-</div>
+ </div>
+</div> 
+
+
 
 
 

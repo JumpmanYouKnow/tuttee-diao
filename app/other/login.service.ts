@@ -15,7 +15,6 @@ export interface loginObj {
 @Injectable()
 export class LoginService { 
 
-
  	constructor(private _http: Http) {
 
 }
