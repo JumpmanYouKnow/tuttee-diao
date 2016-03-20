@@ -3,12 +3,13 @@ import {HTTP_PROVIDERS,Http,Headers} from 'angular2/http';
 import {COURSES} from'./mock-courses';
 
 export interface Course {
+	favorited: boolean;
 	id: string;
 	name: string;
-	imageURL: string;
+//	imageURL: string;
 	description: string;
-	numTutor: number;
-	sales: number;
+	total_tutors: number;
+//	sales: number;
 }
 
 @Injectable()
@@ -17,7 +18,7 @@ export interface Course {
 
 export class CoursesService {
 
-
+	
  	constructor(private _http: Http) {
 	  }
 

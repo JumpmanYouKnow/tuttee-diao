@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', 'angular2/common', './login.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2/common', './login.service', '../services/token.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, core_2, common_1, login_service_1;
+    var core_1, router_1, core_2, common_1, login_service_1, token_service_1;
     var NavbarComponent;
     return {
         setters:[
@@ -26,13 +26,17 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
             },
             function (login_service_1_1) {
                 login_service_1 = login_service_1_1;
+            },
+            function (token_service_1_1) {
+                token_service_1 = token_service_1_1;
             }],
         execute: function() {
             // declare var jQuery: JQueryStatic;
             NavbarComponent = (function () {
-                function NavbarComponent(el, _loginservice) {
+                function NavbarComponent(el, _loginservice, _tokenservice) {
                     this.el = el;
                     this._loginservice = _loginservice;
+                    this._tokenservice = _tokenservice;
                     this.loginObj = {
                         "confirmed": true,
                         "expiration": 3600,
@@ -64,6 +68,8 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                     $('.modal-trigger').leanModal();
                     $(".dropdown-button").dropdown();
                     this.chuan.emit("whatthefuck");
+                    this._tokenservice.setToken("fuckyoumotehrfucker");
+                    this._tokenservice.setTokenLife(3600);
                 };
                 __decorate([
                     core_1.Output(), 
@@ -76,7 +82,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         styleUrls: ['app/other/nav.css'],
                         directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService])
+                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
                 ], NavbarComponent);
                 return NavbarComponent;
             }());

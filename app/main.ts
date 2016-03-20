@@ -1,11 +1,11 @@
 import {bootstrap}    from 'angular2/platform/browser'
 import {AppComponent} from './app.component'
 import {Component, provide} from 'angular2/core';
-
+import {TokenService} from './services/token.service'
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http'
 
-bootstrap(AppComponent, [ROUTER_PROVIDERS,HTTP_PROVIDERS,
+bootstrap(AppComponent, [ROUTER_PROVIDERS,HTTP_PROVIDERS, TokenService,
 	provide(LocationStrategy, { useClass: HashLocationStrategy })]);
 
 // import { bootstrap } from 'angular2/platform/browser';

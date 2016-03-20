@@ -4,6 +4,7 @@ import {AboutComponent} from '../about/about.component'
 import {AfterViewInit, ElementRef} from 'angular2/core'
 import { FORM_DIRECTIVES } from 'angular2/common';
  import {LoginService,loginObj} from './login.service'
+ import {TokenService} from '../services/token.service'
 
 
 // declare var jQuery: JQueryStatic;
@@ -26,10 +27,12 @@ export class NavbarComponent implements AfterViewInit {
     "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
     "username": "root"
 }
+
 	@Output() private chuan = new EventEmitter();
 
 
-	constructor(private el: ElementRef, private _loginservice: LoginService) {
+	constructor(private el: ElementRef, private _loginservice: LoginService,private _tokenservice :TokenService) {
+
     }
 
 
@@ -53,7 +56,9 @@ export class NavbarComponent implements AfterViewInit {
 		$(this.el.nativeElement).find(".button-collapse").sideNav();
 		$('.modal-trigger').leanModal();
 		$(".dropdown-button").dropdown();
-           this.chuan.emit("whatthefuck");
+         this.chuan.emit("whatthefuck");
+         this._tokenservice.setToken("fuckyoumotehrfucker");
+         this._tokenservice.setTokenLife(3600);
 	}
 
 
