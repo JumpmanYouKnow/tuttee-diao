@@ -20,12 +20,12 @@ export class LoginService {
 
 }
 
-	postLogin(email:string,password:string) {
+	postLogin(signInfo:string) {
 		var headers = new Headers();
-		headers.append('Content-Type','application/json');
+		headers.append('Authorization','Basic '+signInfo);
 
-		return this._http.post('/login',
-			JSON.stringify({email:email,password:password}),headers)
+		return this._http.post('127.0.0.1:5000/api/login','',
+			{headers:headers})
 		   .map(res => res.json());		
 	}
 

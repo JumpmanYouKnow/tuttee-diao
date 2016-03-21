@@ -25,10 +25,10 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1, context_
                 function LoginService(_http) {
                     this._http = _http;
                 }
-                LoginService.prototype.postLogin = function (email, password) {
+                LoginService.prototype.postLogin = function (signInfo) {
                     var headers = new http_1.Headers();
-                    headers.append('Content-Type', 'application/json');
-                    return this._http.post('/login', JSON.stringify({ email: email, password: password }), headers)
+                    headers.append('Authorization', 'Basic ' + signInfo);
+                    return this._http.post('127.0.0.1:5000/api/login', '', { headers: headers })
                         .map(function (res) { return res.json(); });
                 };
                 LoginService.prototype.postSignUp = function (email, password) {

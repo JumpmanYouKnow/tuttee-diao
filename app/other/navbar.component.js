@@ -33,48 +33,46 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
         execute: function() {
             // declare var jQuery: JQueryStatic;
             NavbarComponent = (function () {
-                function NavbarComponent(el, _loginservice, _tokenservice) {
+                //     private loginObj:loginObj  = {
+                //     "confirmed": true,
+                //     "expiration": 3600,
+                //     "id": 3,
+                //     "is_tutor": true,
+                //     "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
+                //     "username": "root"
+                // }
+                // @Output() private chuan = new EventEmitter();
+                function NavbarComponent(el, _loginservice, _tokenservice, window) {
                     this.el = el;
                     this._loginservice = _loginservice;
                     this._tokenservice = _tokenservice;
-                    this.loginObj = {
-                        "confirmed": true,
-                        "expiration": 3600,
-                        "id": 3,
-                        "is_tutor": true,
-                        "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
-                        "username": "root"
-                    };
-                    this.chuan = new core_1.EventEmitter();
+                    this.window = window;
                 }
-                NavbarComponent.prototype.login = function (value) {
-                    var _this = this;
-                    this._loginservice.postLogin(value.email, value.password)
-                        .subscribe(function (data) {
-                        _this.loginObj = data;
-                        _this.chuan.emit(_this.loginObj);
-                    });
+                NavbarComponent.prototype.login = function () {
+                    console.log("fuck");
+                    //   var signInfo = window.btoa(value.email+":"+value.password);
+                    // this._loginservice.postLogin(signInfo)
+                    // .subscribe( data => {
+                    //        console.log(data);
+                    // //this.loginObj = data;
+                    //      //  this.chuan.emit(this.loginObj);
+                    // });
                 };
-                NavbarComponent.prototype.register = function (value) {
-                    var _this = this;
-                    this._loginservice.postLogin(value.email, value.password)
-                        .subscribe(function (data) {
-                        console.log(data);
-                        _this.loginObj = data;
-                    });
-                };
+                //  register (value:any) {
+                // 	this._loginservice.postLogin(value.email,value.password)
+                // 	.subscribe( data => {
+                // 		console.log(data);
+                // 		this.loginObj = data;
+                // 	});
+                // }
                 NavbarComponent.prototype.ngAfterViewInit = function () {
                     $(this.el.nativeElement).find(".button-collapse").sideNav();
                     $('.modal-trigger').leanModal();
                     $(".dropdown-button").dropdown();
-                    this.chuan.emit("whatthefuck");
-                    this._tokenservice.setToken("fuckyoumotehrfucker");
-                    this._tokenservice.setTokenLife(3600);
+                    // this.chuan.emit("whatthefuck");
+                    // this._tokenservice.setToken("fuckyoumotehrfucker");
+                    // this._tokenservice.setTokenLife(3600);
                 };
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], NavbarComponent.prototype, "chuan", void 0);
                 NavbarComponent = __decorate([
                     core_1.Component({
                         selector: 'navbar',
@@ -82,7 +80,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         styleUrls: ['app/other/nav.css'],
                         directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
+                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService, Window])
                 ], NavbarComponent);
                 return NavbarComponent;
             }());
