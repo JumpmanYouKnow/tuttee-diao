@@ -16,7 +16,6 @@ import { FORM_DIRECTIVES } from 'angular2/common';
 	styleUrls: ['app/other/nav.css'], 
 	directives:[ROUTER_DIRECTIVES,FORM_DIRECTIVES]
 	
-	
 })
 
 

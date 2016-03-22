@@ -57,9 +57,6 @@ declare var jQuery: JQueryStatic;
 		{ path: '/mytutor/...', name: 'Mytutor', component: MytutorComponent},
 
 
-
-
-
 ])
 export class AppComponent implements AfterViewInit {
 
