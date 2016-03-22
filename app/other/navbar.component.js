@@ -34,11 +34,10 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
             // declare var jQuery: JQueryStatic;
             NavbarComponent = (function () {
                 // @Output() private chuan = new EventEmitter();
-                function NavbarComponent(el, _loginservice, _tokenservice, window) {
+                function NavbarComponent(el, _loginservice, _tokenservice) {
                     this.el = el;
                     this._loginservice = _loginservice;
                     this._tokenservice = _tokenservice;
-                    this.window = window;
                     this.loginObj = {
                         "confirmed": true,
                         "expiration": 3600,
@@ -48,6 +47,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         "username": "root"
                     };
                     this.logon = false;
+                    this.wrong = false;
                 }
                 NavbarComponent.prototype.tryLogin = function (value) {
                     var _this = this;
@@ -74,7 +74,13 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         console.log(data);
                         console.log(_this.is_tutor);
                         $('#modal1').closeModal();
-                    }, function (err) { return console.log(JSON.parse(err._body).message); });
+                    }, function (err) {
+                        var error = JSON.parse(err._body).message;
+                        console.log(error);
+                        if (error == "Unauthorized access") {
+                            _this.wrong = true;
+                        }
+                    });
                 };
                 // logint () {
                 //     console.log("fuck");
@@ -114,7 +120,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         styleUrls: ['app/other/nav.css'],
                         directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService, Window])
+                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
                 ], NavbarComponent);
                 return NavbarComponent;
             }());

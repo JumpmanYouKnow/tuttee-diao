@@ -1,4 +1,4 @@
-import {Component,Input,Output,EventEmitter}  from 'angular2/core';
+    import {Component,Input,Output,EventEmitter}  from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit,OnInit, ElementRef} from 'angular2/core'
@@ -31,6 +31,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     private username:string;
     private is_tutor:boolean;
     private logon:boolean = false;
+    private wrong:boolean = false;
 
 
 	// @Output() private chuan = new EventEmitter();
@@ -39,7 +40,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
 	constructor(private el: ElementRef
         , private _loginservice: LoginService
         ,private _tokenservice :TokenService
-        ,private window: Window) {
+        ) {
 
     }
 
@@ -77,7 +78,14 @@ export class NavbarComponent implements AfterViewInit,OnInit{
                       $('#modal1').closeModal();
 
           },
-          err=>console.log(JSON.parse(err._body).message));
+          err=> {
+            var error = JSON.parse(err._body).message;
+            console.log(error);
+            if (error == "Unauthorized access") {
+              this.wrong = true;
+            }
+
+          });
     }
 
 

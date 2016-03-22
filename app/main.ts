@@ -5,7 +5,7 @@ import {TokenService} from './services/token.service'
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http'
 import 'rxjs/Rx';
- import {LocalStorageSubscriber} from './angular2-localstorage/LocalStorageEmitter';
+import {LocalStorageSubscriber} from './angular2-localstorage/LocalStorageEmitter';
 
 var appPromise = bootstrap(AppComponent, [ROUTER_PROVIDERS,HTTP_PROVIDERS, TokenService,
 	provide(LocationStrategy, { useClass: HashLocationStrategy }),
