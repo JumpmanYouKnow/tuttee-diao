@@ -28,7 +28,7 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1, context_
                 LoginService.prototype.postLogin = function (signInfo) {
                     var headers = new http_1.Headers();
                     headers.append('Authorization', 'Basic ' + signInfo);
-                    return this._http.post('127.0.0.1:5000/api/login', '', { headers: headers })
+                    return this._http.post('http://127.0.0.1:5000/api/login', '', { headers: headers })
                         .map(function (res) { return res.json(); });
                 };
                 LoginService.prototype.postSignUp = function (email, password) {

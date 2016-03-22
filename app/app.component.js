@@ -93,7 +93,7 @@ System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.se
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        template: "\n\t<navbar (chuan) = \"getLogin($event)\"></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
+                        template: "\n\t<navbar></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
                         directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, footer_component_1.FooterComponent],
                         providers: [tutprofile_service_1.TutProfileService, courses_service_1.CoursesService, subject_service_1.SubjectService, timeslot_service_1.TimeslotService, tutorclass_service_1.TutorclassService, login_service_1.LoginService]
                     }),

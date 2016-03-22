@@ -9,13 +9,14 @@
     <ul class="right hide-on-med-and-down">
 
         <li><a [routerLink] = "['Betutor']">我要当教师</a></li>
+
         <li><a [routerLink] = "['Courses']">浏览课程</a></li>
         <li><a [routerLink] = "['About']">About Us</a></li>
-         <li><a class = "modal-trigger" href="#modal2">注册</a></li>
-        <li><a class = "modal-trigger" href = "#modal1">登录</a></li>
-          <li><a class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
+         <li><a  [hidden]="logon" class = "modal-trigger" href="#modal2">注册</a></li>
+        <li><a   [hidden]="logon" class = "modal-trigger" href = "#modal1">登录</a></li>
+          <li><a  [hidden]="!logon || is_tutor" class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
 
-           <li><a class="dropdown-button" data-activates="dropdown2">I'm Tutor<i class="material-icons right">arrow_drop_down</i></a></li>
+           <li><a [hidden]="!logon || !is_tutor" class="dropdown-button" data-activates="dropdown2">I'm Tutor<i class="material-icons right">arrow_drop_down</i></a></li>
 
       
     </ul>
@@ -53,7 +54,7 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h3>Sign in</h3>
-            <form class="col s12" #login="ngForm" (ngSubmit)="login()"  >
+            <form class="col s12" #login="ngForm" (ngSubmit)="tryLogin(login.value)"  >
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" type="email" class="validate" ngControl="email">
@@ -78,7 +79,7 @@
     <div id="modal2" class="modal">
         <div class="modal-content">
             <h3>Sign up</h3>
-            <form class="col s12 " #register="ngForm" (ngSubmit)="register(register.value)">
+            <form class="col s12 " #register="ngForm" (ngSubmit)="tryRegister(register.value)">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" type="email" class="validate" required> 

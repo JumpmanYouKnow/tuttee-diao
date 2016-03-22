@@ -33,31 +33,59 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
         execute: function() {
             // declare var jQuery: JQueryStatic;
             NavbarComponent = (function () {
-                //     private loginObj:loginObj  = {
-                //     "confirmed": true,
-                //     "expiration": 3600,
-                //     "id": 3,
-                //     "is_tutor": true,
-                //     "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
-                //     "username": "root"
-                // }
                 // @Output() private chuan = new EventEmitter();
                 function NavbarComponent(el, _loginservice, _tokenservice, window) {
                     this.el = el;
                     this._loginservice = _loginservice;
                     this._tokenservice = _tokenservice;
                     this.window = window;
+                    this.loginObj = {
+                        "confirmed": true,
+                        "expiration": 3600,
+                        "id": 3,
+                        "is_tutor": true,
+                        "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
+                        "username": "root"
+                    };
+                    this.logon = false;
                 }
-                NavbarComponent.prototype.login = function () {
-                    console.log("fuck");
-                    //   var signInfo = window.btoa(value.email+":"+value.password);
-                    // this._loginservice.postLogin(signInfo)
-                    // .subscribe( data => {
-                    //        console.log(data);
-                    // //this.loginObj = data;
-                    //      //  this.chuan.emit(this.loginObj);
-                    // });
+                NavbarComponent.prototype.tryLogin = function (value) {
+                    var _this = this;
+                    localStorage.setItem('fuck', 'fuckedhaha');
+                    console.log("fuck is " + localStorage.getItem('fuck'));
+                    console.log("shit");
+                    var signInfo = window.btoa(value.email + ":" + value.password);
+                    console.log(signInfo);
+                    this._loginservice.postLogin(signInfo)
+                        .subscribe(function (data) {
+                        _this.username = data.username;
+                        _this._tokenservice.setUsername(data.username);
+                        if (data.is_tutor) {
+                            _this.is_tutor = true;
+                            _this._tokenservice.setIs_tutor(true);
+                        }
+                        else {
+                            _this.is_tutor = false;
+                            _this._tokenservice.setIs_tutor(false);
+                        }
+                        _this.logon = true;
+                        _this._tokenservice.setToken(data.token);
+                        _this._tokenservice.setTokenLife(Date.now() + data.expiration * 1000);
+                        console.log(data);
+                        console.log(_this.is_tutor);
+                        $('#modal1').closeModal();
+                    }, function (err) { return console.log(JSON.parse(err._body).message); });
                 };
+                // logint () {
+                //     console.log("fuck");
+                //  //   var signInfo = window.btoa(value.email+":"+value.password);
+                // 	// this._loginservice.postLogin(signInfo)
+                // 	// .subscribe( data => {
+                //  //        console.log(data);
+                // 	// //this.loginObj = data;
+                //  //      //  this.chuan.emit(this.loginObj);
+                // 	// });
+                // }
                 //  register (value:any) {
                 // 	this._loginservice.postLogin(value.email,value.password)
                 // 	.subscribe( data => {
@@ -65,13 +93,19 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                 // 		this.loginObj = data;
                 // 	});
                 // }
+                NavbarComponent.prototype.ngOnInit = function () {
+                    if (this._tokenservice.initLogin()) {
+                        this.username = this._tokenservice.getUsername();
+                        this.is_tutor = this._tokenservice.getIs_tutor();
+                        this.logon = true;
+                        console.log(this.username);
+                    }
+                    ;
+                };
                 NavbarComponent.prototype.ngAfterViewInit = function () {
                     $(this.el.nativeElement).find(".button-collapse").sideNav();
                     $('.modal-trigger').leanModal();
                     $(".dropdown-button").dropdown();
-                    // this.chuan.emit("whatthefuck");
-                    // this._tokenservice.setToken("fuckyoumotehrfucker");
-                    // this._tokenservice.setTokenLife(3600);
                 };
                 NavbarComponent = __decorate([
                     core_1.Component({

@@ -1,0 +1,85 @@
+System.register(['./LocalStorageEmitter'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var LocalStorageEmitter_1;
+    function LocalStorage(storageKey) {
+        return function decoratorFactory(target, decoratedPropertyName) {
+            var _this = this;
+            if (!localStorage) {
+                return;
+            }
+            if (!storageKey) {
+                storageKey = '' + '/' + decoratedPropertyName;
+            }
+            Object.defineProperty(target, '_' + decoratedPropertyName + '_mapped', {
+                enumerable: false,
+                configurable: true,
+                writable: true,
+                value: false
+            });
+            var instances = [];
+            var values = {};
+            var storageValue = localStorage.getItem(storageKey) || null;
+            var storageValueJSON = storageValue;
+            if ('string' === typeof storageValue) {
+                try {
+                    storageValue = JSON.parse(storageValue);
+                }
+                catch (e) {
+                    storageValue = null;
+                    storageValueJSON = 'null';
+                }
+            }
+            var oldJSONValues = {};
+            Object.defineProperty(target, decoratedPropertyName, {
+                get: function () {
+                    if (false === this['_' + decoratedPropertyName + '_mapped']) {
+                        this['_' + decoratedPropertyName + '_mapped'] = instances.length;
+                        //first registration triggers a setting to localStorage value
+                        values[instances.length] = storageValue;
+                        oldJSONValues[instances.length] = storageValueJSON;
+                        instances.push(this);
+                    }
+                    return values[this['_' + decoratedPropertyName + '_mapped']];
+                },
+                set: function (newValue) {
+                    if (false === this['_' + decoratedPropertyName + '_mapped']) {
+                        this['_' + decoratedPropertyName + '_mapped'] = instances.length;
+                        //first registration triggers a setting to localStorage value
+                        values[instances.length] = storageValue;
+                        oldJSONValues[instances.length] = storageValueJSON;
+                        instances.push(this);
+                        //first 'set' call is ignored if we have already a value from the localStorage
+                        if (storageValue) {
+                            return;
+                        }
+                    }
+                    values[this['_' + decoratedPropertyName + '_mapped']] = newValue;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            LocalStorageEmitter_1.LocalStorageEmitter.subscribe(function () {
+                for (var _i = 0, instances_1 = instances; _i < instances_1.length; _i++) {
+                    var instance = instances_1[_i];
+                    var currentValue = JSON.stringify(instance[decoratedPropertyName]);
+                    var oldJSONValue = oldJSONValues[_this['_' + decoratedPropertyName + '_mapped']];
+                    if (currentValue !== oldJSONValue) {
+                        oldJSONValues[_this['_' + decoratedPropertyName + '_mapped']] = currentValue;
+                        localStorage.setItem(storageKey, currentValue);
+                    }
+                }
+            });
+        };
+    }
+    exports_1("LocalStorage", LocalStorage);
+    return {
+        setters:[
+            function (LocalStorageEmitter_1_1) {
+                LocalStorageEmitter_1 = LocalStorageEmitter_1_1;
+            }],
+        execute: function() {
+        }
+    }
+});
+//# sourceMappingURL=LocalStorage.js.map
