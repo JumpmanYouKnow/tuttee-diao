@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,99 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, http_1;
     var TokenService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             TokenService = (function () {
-                function TokenService() {
+                function TokenService(_http) {
+                    this._http = _http;
                 }
                 TokenService.prototype.setToken = function (token) {
                     this.token = token;
+                    localStorage.setItem('token', token);
+                    console.log(localStorage.getItem('token'));
+                };
+                TokenService.prototype.setUsername = function (username) {
+                    this.username = username;
+                    localStorage.setItem('username', username);
+                    console.log(localStorage.getItem('username'));
+                };
+                TokenService.prototype.setIs_tutor = function (is_tutor) {
+                    this.is_tutor = is_tutor;
+                    if (is_tutor) {
+                        localStorage.setItem('is_tutor', 'true');
+                    }
+                    else
+                        localStorage.setItem('is_tutor', 'false');
+                    console.log(localStorage.getItem('is_tutor'));
                 };
                 TokenService.prototype.setTokenLife = function (life) {
                     this.tokenLife = life;
+                    localStorage.setItem('tokenLife', life.toString());
+                    console.log(localStorage.getItem('tokenLife'));
                 };
                 TokenService.prototype.getToken = function () {
                     return this.token;
+                };
+                TokenService.prototype.getUsername = function () {
+                    return this.username;
+                };
+                TokenService.prototype.getIs_tutor = function () {
+                    return this.is_tutor;
+                };
+                TokenService.prototype.initLogin = function () {
+                    console.log(localStorage.getItem('token'));
+                    console.log(localStorage.getItem('fuck'));
+                    var tokenLife = parseInt(localStorage.getItem('tokenLife'));
+                    console.log(tokenLife);
+                    console.log(Date.now());
+                    if (tokenLife) {
+                        if (Date.now() > tokenLife) {
+                            console.log("cleared"); //not working
+                            localStorage.clear();
+                            return false;
+                        }
+                        else {
+                            this.token = localStorage.getItem('token');
+                            this.tokenLife = tokenLife;
+                            if (localStorage.getItem('is_tutor') == 'true') {
+                                this.is_tutor = true;
+                            }
+                            else
+                                this.is_tutor = false;
+                            this.username = localStorage.getItem('username');
+                            return true;
+                        }
+                    }
+                    else
+                        return false;
+                };
+                TokenService.prototype.checkExp = function (token) {
+                    var _this = this;
+                    if (Date.now() > this.tokenLife) {
+                        var headers = new http_1.Headers();
+                        headers.append('Authorization', this.token);
+                        this._http.get('/token', { headers: headers }).map(function (res) { return res.json(); })
+                            .subscribe(function (data) {
+                            _this.token = data.token;
+                            _this.tokenLife = (Date.now() + data.expiration);
+                        }, function (err) { return console.log(err); });
+                    }
                 };
                 TokenService.prototype.getTokenLife = function () {
                     return this.tokenLife;
                 };
                 TokenService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], TokenService);
                 return TokenService;
             }());

@@ -3,7 +3,7 @@
 #jum {
     /*width: 100%;
     height:100%;*/
-    background-image: url("../../home.JPG");
+    background-image: url("./home.JPG");
     background-repeat:no-repeat;
     background-position: center center;
     background-size:cover;

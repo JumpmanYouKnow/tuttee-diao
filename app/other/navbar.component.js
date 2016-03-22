@@ -33,10 +33,12 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
         execute: function() {
             // declare var jQuery: JQueryStatic;
             NavbarComponent = (function () {
-                function NavbarComponent(el, _loginservice, _tokenservice) {
+                // @Output() private chuan = new EventEmitter();
+                function NavbarComponent(el, _loginservice, _tokenservice, window) {
                     this.el = el;
                     this._loginservice = _loginservice;
                     this._tokenservice = _tokenservice;
+                    this.window = window;
                     this.loginObj = {
                         "confirmed": true,
                         "expiration": 3600,
@@ -45,36 +47,66 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
                         "username": "root"
                     };
-                    this.chuan = new core_1.EventEmitter();
+                    this.logon = false;
                 }
-                NavbarComponent.prototype.login = function (value) {
+                NavbarComponent.prototype.tryLogin = function (value) {
                     var _this = this;
-                    this._loginservice.postLogin(value.email, value.password)
+                    localStorage.setItem('fuck', 'fuckedhaha');
+                    console.log("fuck is " + localStorage.getItem('fuck'));
+                    console.log("shit");
+                    var signInfo = window.btoa(value.email + ":" + value.password);
+                    console.log(signInfo);
+                    this._loginservice.postLogin(signInfo)
                         .subscribe(function (data) {
-                        _this.loginObj = data;
-                        _this.chuan.emit(_this.loginObj);
-                    });
-                };
-                NavbarComponent.prototype.register = function (value) {
-                    var _this = this;
-                    this._loginservice.postLogin(value.email, value.password)
-                        .subscribe(function (data) {
+                        _this.username = data.username;
+                        _this._tokenservice.setUsername(data.username);
+                        if (data.is_tutor) {
+                            _this.is_tutor = true;
+                            _this._tokenservice.setIs_tutor(true);
+                        }
+                        else {
+                            _this.is_tutor = false;
+                            _this._tokenservice.setIs_tutor(false);
+                        }
+                        _this.logon = true;
+                        _this._tokenservice.setToken(data.token);
+                        _this._tokenservice.setTokenLife(Date.now() + data.expiration * 1000);
                         console.log(data);
-                        _this.loginObj = data;
-                    });
+                        console.log(_this.is_tutor);
+                        $('#modal1').closeModal();
+                    }, function (err) { return console.log(JSON.parse(err._body).message); });
+                };
+                // logint () {
+                //     console.log("fuck");
+                //  //   var signInfo = window.btoa(value.email+":"+value.password);
+                // 	// this._loginservice.postLogin(signInfo)
+                // 	// .subscribe( data => {
+                //  //        console.log(data);
+                // 	// //this.loginObj = data;
+                //  //      //  this.chuan.emit(this.loginObj);
+                // 	// });
+                // }
+                //  register (value:any) {
+                // 	this._loginservice.postLogin(value.email,value.password)
+                // 	.subscribe( data => {
+                // 		console.log(data);
+                // 		this.loginObj = data;
+                // 	});
+                // }
+                NavbarComponent.prototype.ngOnInit = function () {
+                    if (this._tokenservice.initLogin()) {
+                        this.username = this._tokenservice.getUsername();
+                        this.is_tutor = this._tokenservice.getIs_tutor();
+                        this.logon = true;
+                        console.log(this.username);
+                    }
+                    ;
                 };
                 NavbarComponent.prototype.ngAfterViewInit = function () {
                     $(this.el.nativeElement).find(".button-collapse").sideNav();
                     $('.modal-trigger').leanModal();
                     $(".dropdown-button").dropdown();
-                    this.chuan.emit("whatthefuck");
-                    this._tokenservice.setToken("fuckyoumotehrfucker");
-                    this._tokenservice.setTokenLife(3600);
                 };
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], NavbarComponent.prototype, "chuan", void 0);
                 NavbarComponent = __decorate([
                     core_1.Component({
                         selector: 'navbar',
@@ -82,7 +114,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         styleUrls: ['app/other/nav.css'],
                         directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
+                    __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService, Window])
                 ], NavbarComponent);
                 return NavbarComponent;
             }());

@@ -32,7 +32,7 @@ declare var jQuery: JQueryStatic;
 @Component({
 	selector: 'app',
 	template: `
-	<navbar (chuan) = "getLogin($event)"></navbar>
+	<navbar></navbar>
 	<router-outlet></router-outlet>
 	<footer></footer>
 	`,
