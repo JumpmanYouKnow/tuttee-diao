@@ -1,14 +1,14 @@
-/*#jum {
+#jum {
     width: 100%;
     height:100%;
-    background-image: url("course.JPG");
+    background-image: url("app/courses/course.JPG");
     background-repeat:no-repeat;
     background-position: center center;
     background-size:cover;
     height: 600px;
     position: relative;
     top: -150px;
-}*/
+}
 
 
 .card-image {
