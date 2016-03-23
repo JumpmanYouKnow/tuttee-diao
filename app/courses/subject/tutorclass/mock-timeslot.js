@@ -32,7 +32,7 @@ System.register([], function(exports_1, context_1) {
                     description: "FUCK"
                 },
                 {
-                    tutor_name: "老2",
+                    tutor_name: "XX",
                     id: 4,
                     subject: "math137",
                     time: new Date(232132131432432),
@@ -47,10 +47,10 @@ System.register([], function(exports_1, context_1) {
             exports_1("COMMENT", COMMENT = [
                 { faculty: "math1A",
                     time: new Date(43214321412),
-                    content: "fuckthisshit" },
+                    content: "XXXXXXXXXX" },
                 { faculty: "SE1B",
                     time: new Date(21324324),
-                    content: "你是傻逼" }
+                    content: "XXXXXXXXXX" }
             ]);
         }
     }

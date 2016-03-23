@@ -10,6 +10,7 @@
             </div>
 
               <div class = "row center-align">
+              老板
               {{TutProfile.username}}
             </div>
 
@@ -41,9 +42,9 @@
 
         <div id = "rightCol" class = "col s12 m8 offset-m1">
 
-            <!-- <h4>个人介绍</h4>
+            <h4>个人介绍</h4>
 
-            <p>{{TutProfile.description}}</p> -->
+            <p>我是老板，老板很帅</p>
 
             <h4>课程</h4>
 
@@ -54,10 +55,10 @@
                     </div>
 
                     <div class = "description col m7">
-                       <div class = "m12">开始与 </div>
+                       <div class = "m12">开始于 </div>
                        <div class = "m12">{{timeslots.start_time | date:"medium"}}</div>
-                       <div class = "m12">结束于 </div>
-                       <div class = "m12">{{timeslots.end_time | date:"medium"}}</div>
+                    <!--    <div class = "m12">结束于 </div>
+                       <div class = "m12">{{timeslots.end_time | date:"medium"}}</div> -->
                     </div>
 
                     <div class = "col m2">
@@ -76,11 +77,11 @@
     <h5>Comments</h5>
 
    <div id = "comment" *ngFor = "#courses of Courses" class = "row">
-    <div class="container">
-      <h3>{{courses.id}}</h3>
+   <!--  <div class="container"> -->
+      <h4>{{courses.id}}</h4>
         <div *ngFor = "#reviews of Courses[0].reviews">
 
-       <div class = "col m2 center-align">
+       <div class = "col m3 center-align">
            <div class ="row">
                <img src = "http://placehold.it/50x50">
            </div>
@@ -95,7 +96,7 @@
            <p>{{reviews.text}}</p>
        </div>
    </div>
- </div>
+ <!-- </div> -->
 </div> 
 
 </div> 

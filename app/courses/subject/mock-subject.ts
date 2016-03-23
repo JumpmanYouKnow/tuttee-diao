@@ -34,16 +34,16 @@ export var SUBJECT: Subject[] =
 		teacher: [
 		{
             id:3,
-		    name: "老大",
-		    teacher_descripition: "很傻很天真",
+		    name: "XX",
+		    teacher_descripition: "霸道王者",
             imageURL: "http://placehold.it/500x300",
 			sales: "299",
 			avgpr: "888"
 		},
 		{
             id:4,
-		    name: "老2",
-		    teacher_descripition: "no傻很天真",
+		    name: "XX",
+		    teacher_descripition: "帅气总裁",
             imageURL: "http://placehold.it/500x300",
 			sales: "299",
 			avgpr: "888"
