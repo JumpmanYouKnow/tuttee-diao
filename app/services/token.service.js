@@ -28,12 +28,12 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                 TokenService.prototype.setToken = function (token) {
                     this.token = token;
                     localStorage.setItem('token', token);
-                    console.log(localStorage.getItem('token'));
+                    //	console.log(localStorage.getItem('token'));
                 };
                 TokenService.prototype.setUsername = function (username) {
                     this.username = username;
                     localStorage.setItem('username', username);
-                    console.log(localStorage.getItem('username'));
+                    //			console.log(localStorage.getItem('username'));
                 };
                 TokenService.prototype.setIs_tutor = function (is_tutor) {
                     this.is_tutor = is_tutor;
@@ -42,12 +42,12 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                     }
                     else
                         localStorage.setItem('is_tutor', 'false');
-                    console.log(localStorage.getItem('is_tutor'));
+                    //		console.log(localStorage.getItem('is_tutor'));
                 };
                 TokenService.prototype.setTokenLife = function (life) {
                     this.tokenLife = life;
                     localStorage.setItem('tokenLife', life.toString());
-                    console.log(localStorage.getItem('tokenLife'));
+                    //	console.log(localStorage.getItem('tokenLife'));
                 };
                 TokenService.prototype.getToken = function () {
                     return this.token;
@@ -59,11 +59,11 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                     return this.is_tutor;
                 };
                 TokenService.prototype.initLogin = function () {
-                    console.log(localStorage.getItem('token'));
-                    console.log(localStorage.getItem('fuck'));
+                    //	console.log(localStorage.getItem('token'));
+                    //	console.log(localStorage.getItem('fuck'));
                     var tokenLife = parseInt(localStorage.getItem('tokenLife'));
-                    console.log(tokenLife);
-                    console.log(Date.now());
+                    //	console.log(tokenLife);
+                    //	console.log(Date.now());
                     if (tokenLife) {
                         if (Date.now() > tokenLife) {
                             console.log("cleared"); //not working

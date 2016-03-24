@@ -32,7 +32,7 @@ export class LoginService {
 		var headers = new Headers();
 		headers.append('Content-Type','application/json');
 
-		return this._http.post('/register',
+		return this._http.post('http://127.0.0.1:5000/api/register',
 			JSON.stringify({email:email,password:password}),{headers:headers})
 		   .map(res => res.json());
 	}

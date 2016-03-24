@@ -16,13 +16,13 @@ export class TokenService {
 	public setToken(token:string)  {
 		this.token = token;
 		localStorage.setItem('token',token);
-		console.log(localStorage.getItem('token'));
+	//	console.log(localStorage.getItem('token'));
 	}
 
 		public setUsername(username:string)  {
 		this.username = username;
 		localStorage.setItem('username',username);
-				console.log(localStorage.getItem('username'));
+	//			console.log(localStorage.getItem('username'));
 	}
 
 	public setIs_tutor(is_tutor:boolean)  {
@@ -31,13 +31,13 @@ export class TokenService {
 			localStorage.setItem('is_tutor','true');
 		}
 		else localStorage.setItem('is_tutor','false');
-			console.log(localStorage.getItem('is_tutor'));
+	//		console.log(localStorage.getItem('is_tutor'));
 	}
 
 	public setTokenLife (life:number) {
 		this.tokenLife = life;
 		localStorage.setItem('tokenLife',life.toString())
-		console.log(localStorage.getItem('tokenLife'));
+	//	console.log(localStorage.getItem('tokenLife'));
 	}
 
 	public getToken() {
@@ -57,13 +57,13 @@ export class TokenService {
 
 
 	public initLogin() {
-		console.log(localStorage.getItem('token'));
+	//	console.log(localStorage.getItem('token'));
 
-		console.log(localStorage.getItem('fuck'));
+	//	console.log(localStorage.getItem('fuck'));
 
 		var tokenLife = parseInt(localStorage.getItem('tokenLife'));
-		console.log(tokenLife);
-		console.log(Date.now());
+	//	console.log(tokenLife);
+	//	console.log(Date.now());
 		if(tokenLife) {
 		if (Date.now() > tokenLife) {
 			console.log("cleared"); //not working

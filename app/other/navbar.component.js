@@ -49,6 +49,14 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                     this.logon = false;
                     this.wrong = false;
                 }
+                NavbarComponent.prototype.tryRegister = function (value) {
+                    console.log(value.email);
+                    console.log(value.password);
+                    this._loginservice.postSignUp(value.email, value.password)
+                        .subscribe(function (data) {
+                        console.log(data);
+                    }, function (err) { return console.log(err); });
+                };
                 NavbarComponent.prototype.tryLogin = function (value) {
                     var _this = this;
                     localStorage.setItem('fuck', 'fuckedhaha');
@@ -81,6 +89,10 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                             _this.wrong = true;
                         }
                     });
+                };
+                NavbarComponent.prototype.logout = function () {
+                    localStorage.clear();
+                    this.logon = false;
                 };
                 // logint () {
                 //     console.log("fuck");

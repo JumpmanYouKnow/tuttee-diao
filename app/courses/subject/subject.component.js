@@ -33,10 +33,14 @@ System.register(['angular2/core', 'angular2/router', './subject.service'], funct
                 SubjectComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var a = this._routeParams.get('subject');
-                    this._subjectService.getSubject(a).then(function (data) {
-                        _this.Subject = data;
-                        _this.Teacher = _this.Subject.teacher;
-                    });
+                    this._subjectService.getSubject(a).subscribe(function (data) {
+                        console.log(data);
+                        _this.Subject = { id: data.name };
+                        _this.Teacher = data.tutors;
+                        console.log(_this.Teacher);
+                        // this.Subject = data;
+                        // this.Teacher = this.Subject.teacher;
+                    }, function (err) { return console.log(err); });
                 };
                 SubjectComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
                     this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);

@@ -27,25 +27,25 @@ import {TutProfile,Comment} from './tutprofile.service'
 var REVIEWS:Reviews[] =
 [
 {
-	id: 1;
-	rating: 4.999;
-	text: "用了都说好";
-	timestamp: new Date(12);
+	id: 1,
+	rating: 4.999,
+	text: "用了都说好",
+	timestamp: new Date(12),
 },
 {
-	id: 2;
-	rating: 0.67;
-	text: "大家都说好";
-	timestamp: new Date(124324);
+	id: 2,
+	rating: 0.67,
+	text: "大家都说好",
+	timestamp: new Date(124324),
 }]
 
 var COURESES: Courses[] =
 [
 {
-	id: "math137";
-	name: "math";
-	"number": 137;
-	reviews: REVIEWS;
+	id: "math137",
+	name: "math",
+	"number": 137,
+	reviews: REVIEWS,
 }]
 
 var TIMESLOTS :Timeslots[]= [
@@ -64,10 +64,10 @@ var TIMESLOTS :Timeslots[]= [
 
 export var  TUTPROFILES :TutProfile[]=[
 {
-	courses: COURESES;
-	favourite: true;
-	id: 1;
-	overall_rating: 4.56;
-	timeslots: TIMESLOTS;
-	username: "老大大";
+	courses: COURESES,
+	favourite: true,
+	id: 1,
+	overall_rating: 4.56,
+	timeslots: TIMESLOTS,
+	username: "老大大",
 }]

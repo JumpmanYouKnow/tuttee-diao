@@ -37,6 +37,7 @@
       <li class="divider"></li>
       <li><a [routerLink]="['Mytuttee','Favorite']">Favorite</a></li>
       <li><a [routerLink]="['Mytuttee','Setting']">Setting</a></li>
+      <li><a  (click) ="logout()">logOUT</a></li>
     </ul>
 
         <ul id="dropdown2" class="dropdown-content">
@@ -45,7 +46,8 @@
       <li class="divider"></li>
      
       <li><a [routerLink]="['Mytutor','Setting']">Setting</a></li>
-            <li><a [routerLink]="['Mytutor','Post']">Post</a></li>
+        <li><a [routerLink]="['Mytutor','Post']">Post</a></li>
+        <li ><a  (click) ="logout()">logOUT</a></li>
     </ul>
 
 
@@ -85,7 +87,7 @@
             <form class="col s12 " #register="ngForm" (ngSubmit)="tryRegister(register.value)">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" required> 
+                        <input id="email" type="email" class="validate" ngControl="email" required> 
                         <label for="email">Email</label>
                     </div>
                 </div>

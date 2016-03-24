@@ -16,10 +16,11 @@
         <div *ngFor="#teacher of Teacher" class="col s12 m4">
           <div class="card">
               <div class="card-image s12 m12 l12">
-                
-              <a class="btn-floating btn waves-effect waves-light red bookmark"><i class="fa fa-2x fa-bookmark bookmark-icon" ></i></a>       
+               
+              <a class="btn-floating btn waves-effect waves-light red bookmark"><i class="fa fa-2x fa-bookmark bookmark-icon" ></i></a> 
+                   <img src="http://placehold.it/500x500" id="image">         
                <img src="{{teacher.imageURL}}" id="image">       
-               <span class="card-title" style="z-index:3">{{teacher.name}} </span>   
+               <span class="card-title" style="z-index:3">{{teacher.username}} </span>   
               </div>
                          
              <div class="card-content ">

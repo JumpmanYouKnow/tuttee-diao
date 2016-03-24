@@ -1,4 +1,4 @@
-import {Component,OnInit} from 'angular2/core';
+import {Component,OnInit,AfterViewInit} from 'angular2/core';
 import {CoursesService,Course} from './courses.service';
 import {Router,RouteData} from 'angular2/router';
 import {NavbarComponent} from '../other/navbar.component'
@@ -13,8 +13,9 @@ import {TokenService} from '../services/token.service'
 })
 
 
-export class CoursesComponent implements OnInit {
+export class CoursesComponent implements OnInit, AfterViewInit{
 	public Courses: Course[];
+	public test :string;
     public token: string;
 	constructor(private _router: Router,
 	            private _coursesservices: CoursesService,
@@ -22,15 +23,40 @@ export class CoursesComponent implements OnInit {
 	) {}
 
 	getCourse() {
-		this._coursesservices.getCourses()
-		.then(data => this.Courses = data);
+		// this._coursesservices.getCourses()
+		// .then(data => this.Courses = data);
 
-		//this._coursesservice.getCourses().subscribe(data => this.Courses = data)
+
+		
+			this._coursesservices.getCourses().subscribe(data => {
+				this.Courses = data.courses;
+		//	console.log(data);
+		//	console.log("runed");
+			this.test = data.courses[0].name;
+			// console.log(data.courses);
+			// console.log(data.courses[0].name);
+			// this.Courses[0].name = data.courses[0].name;
+			// for (var i=0;i<data.courses.length;i++) {
+			// 	this.Courses[i].name = data.courses[i].name;
+			// 	// this.Courses[i].favorited = data.courses[i].favorited;
+			// 	// this.Courses[i].total_tutors = data.courses[i].total_tutors;
+			// 	// this.Courses[i].tutors = data.courses[i].tutors;
+			// }
+			//console.log(this.Courses);
+		},
+		err => console.log(err));
+	
 	}
 	ngOnInit() {
-		this.getCourse();
+				this.getCourse();
+
+		//this.getCourse();
 		// console.log("the token is",this.token);
-		console.log("the token is : " + this._tokenservice.getToken());
+	//	console.log("the token is : " + this._tokenservice.getToken());
+	}
+
+	ngAfterViewInit () {
+
 	}
 
 

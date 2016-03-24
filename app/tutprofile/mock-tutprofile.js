@@ -29,20 +29,20 @@ System.register([], function(exports_1, context_1) {
                     id: 1,
                     rating: 4.999,
                     text: "用了都说好",
-                    timestamp: new Date(12)
+                    timestamp: new Date(12),
                 },
                 {
                     id: 2,
                     rating: 0.67,
                     text: "大家都说好",
-                    timestamp: new Date(124324)
+                    timestamp: new Date(124324),
                 }];
             COURESES = [
                 {
                     id: "math137",
                     name: "math",
                     "number": 137,
-                    reviews: REVIEWS
+                    reviews: REVIEWS,
                 }];
             TIMESLOTS = [
                 {
@@ -64,7 +64,7 @@ System.register([], function(exports_1, context_1) {
                     id: 1,
                     overall_rating: 4.56,
                     timeslots: TIMESLOTS,
-                    username: "老大大"
+                    username: "老大大",
                 }]);
         }
     }

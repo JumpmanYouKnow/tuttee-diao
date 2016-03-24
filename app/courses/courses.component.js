@@ -34,15 +34,33 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
                     this._tokenservice = _tokenservice;
                 }
                 CoursesComponent.prototype.getCourse = function () {
+                    // this._coursesservices.getCourses()
+                    // .then(data => this.Courses = data);
                     var _this = this;
-                    this._coursesservices.getCourses()
-                        .then(function (data) { return _this.Courses = data; });
-                    //this._coursesservice.getCourses().subscribe(data => this.Courses = data)
+                    this._coursesservices.getCourses().subscribe(function (data) {
+                        _this.Courses = data.courses;
+                        //	console.log(data);
+                        //	console.log("runed");
+                        _this.test = data.courses[0].name;
+                        // console.log(data.courses);
+                        // console.log(data.courses[0].name);
+                        // this.Courses[0].name = data.courses[0].name;
+                        // for (var i=0;i<data.courses.length;i++) {
+                        // 	this.Courses[i].name = data.courses[i].name;
+                        // 	// this.Courses[i].favorited = data.courses[i].favorited;
+                        // 	// this.Courses[i].total_tutors = data.courses[i].total_tutors;
+                        // 	// this.Courses[i].tutors = data.courses[i].tutors;
+                        // }
+                        //console.log(this.Courses);
+                    }, function (err) { return console.log(err); });
                 };
                 CoursesComponent.prototype.ngOnInit = function () {
                     this.getCourse();
+                    //this.getCourse();
                     // console.log("the token is",this.token);
-                    console.log("the token is : " + this._tokenservice.getToken());
+                    //	console.log("the token is : " + this._tokenservice.getToken());
+                };
+                CoursesComponent.prototype.ngAfterViewInit = function () {
                 };
                 CoursesComponent.prototype.gotoDetail = function (course_id) {
                     console.log(course_id);

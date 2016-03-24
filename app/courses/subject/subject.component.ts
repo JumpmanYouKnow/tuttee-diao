@@ -26,10 +26,16 @@ export class SubjectComponent implements OnInit{
 	ngOnInit() {
     let a = this._routeParams.get('subject');
 
-    this._subjectService.getSubject(a).then(data => {
-    this.Subject = data;
-    this.Teacher = this.Subject.teacher;
-  });
+    this._subjectService.getSubject(a).subscribe(data => {
+      console.log(data);
+      this.Subject = {id:data.name};
+      this.Teacher = data.tutors;
+      console.log(this.Teacher);
+    // this.Subject = data;
+    // this.Teacher = this.Subject.teacher;
+  },
+  err => console.log(err)
+  );
   }
 
   gotoDetail(subject_id: String,tutor_id:number) {
