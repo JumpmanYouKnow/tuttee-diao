@@ -18,6 +18,7 @@ import {TutorclassService, Timeslot, Comment} from './tutorclass.service'
 export class TutorclassComponent implements OnInit {
    Timeslots: Timeslot[];
    Subject: string;
+   username:string;
    Comment: Comment[];
 
     constructor(
@@ -29,14 +30,19 @@ export class TutorclassComponent implements OnInit {
 
   ngOnInit() {
     let subject = this._routeParams.get('subject');
+    this.Subject = subject;
     let id = this._routeParams.get('id');
 
     this._tutorclassService.getTimeslot(id).subscribe(data => {
+      this.username = data.username;
         let slots = data.timeslots;
         let timeslots:any = [];
         for (let i=0;i<slots.length;i++) {
           if (slots[i].courses_id == this.Subject || slots[i].courses_id == null) {
+             slots[i].start_time = Date.parse(slots[i].start_time);
+              slots[i].end_time = Date.parse(slots[i].end_time);
             timeslots.push(slots[i]);
+
           }
         }
         this.Timeslots = timeslots;

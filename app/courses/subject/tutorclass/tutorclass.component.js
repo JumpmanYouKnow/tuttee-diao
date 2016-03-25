@@ -32,12 +32,16 @@ System.register(['angular2/core', 'angular2/router', './tutorclass.service'], fu
                 TutorclassComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var subject = this._routeParams.get('subject');
+                    this.Subject = subject;
                     var id = this._routeParams.get('id');
                     this._tutorclassService.getTimeslot(id).subscribe(function (data) {
+                        _this.username = data.username;
                         var slots = data.timeslots;
                         var timeslots = [];
                         for (var i = 0; i < slots.length; i++) {
                             if (slots[i].courses_id == _this.Subject || slots[i].courses_id == null) {
+                                slots[i].start_time = Date.parse(slots[i].start_time);
+                                slots[i].end_time = Date.parse(slots[i].end_time);
                                 timeslots.push(slots[i]);
                             }
                         }
