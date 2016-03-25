@@ -18,15 +18,14 @@
                 </tr>
                 </thead>            
                 <tbody>
-                <tr *ngFor = "#timeslot of Tutorclass">
-                    <td  style="width:15%"class="course">{{timeslot.subject}}</td>  
-                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>                   
-                     <td  style="width:10%" class="location">{{timeslot.location}}</td>
+                <tr *ngFor = "#timeslot of Timeslots"> 
+                    <td  style="width:10%" class="time">{{timeslot.start_time}}</td>                   
+                     <td  style="width:10%" class="location">{{timeslot.address}}</td>
 
-                    <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
-                    <td  style="width:10%"><a class ="people tooltip"></a>{{timeslot.nowPeople}}</td>
-                     <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
-                    <td class="description">{{timeslot.description}}</td>
+                    <td  style="width:10%"  class="duration">{{timeslot.start_time - timeslot.end_time }}</td>
+                    <td  style="width:10%"><a class ="people"></a>{{timeslot.current_apps}}/{{timeslot.capacity}}</td>
+                     <td  style="width:10%"  class="price">{{timeslot.fee}}</td>
+                   <!--  <td class="description">{{timeslot.description}}</td> -->
                     <td><a class="btn">预订课程</a></td>                
                 </tr>
                 </tbody>
@@ -35,7 +34,7 @@
         </div>
         </section>
 
-<div class="container" id="commentbox" >
+<!-- <div class="container" id="commentbox" >
 <div id = "comment" *ngFor = "#comment of Comment" class = "row ">
        <div class = "col m2 center-align">
            <div class ="row">
@@ -55,4 +54,4 @@
    </div>
 
 </div>
-
+ -->

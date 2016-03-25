@@ -16,7 +16,7 @@ import {TutorclassService, Timeslot, Comment} from './tutorclass.service'
 
 
 export class TutorclassComponent implements OnInit {
-   Tutorclass: Timeslot[];
+   Timeslots: Timeslot[];
    Subject: string;
    Comment: Comment[];
 
@@ -30,16 +30,27 @@ export class TutorclassComponent implements OnInit {
   ngOnInit() {
     let subject = this._routeParams.get('subject');
     let id = this._routeParams.get('id');
+
+    this._tutorclassService.getTimeslot(id).subscribe(data => {
+        let slots = data.timeslots;
+        let timeslots:any = [];
+        for (let i=0;i<slots.length;i++) {
+          if (slots[i].courses_id == this.Subject || slots[i].courses_id == null) {
+            timeslots.push(slots[i]);
+          }
+        }
+        this.Timeslots = timeslots;
+    });
    
-    this._tutorclassService.getTimeslot(id).then(hero => {
-    this.Tutorclass = hero;
-  //  console.log(this.Tutorclass);
-    this.Subject = subject;
-  });
-    this._tutorclassService.getComment().then(data =>
-  { this.Comment = data 
-    console.log(this.Comment);
-  })
+  //   this._tutorclassService.getTimeslot(id).then(hero => {
+  //   this.Tutorclass = hero;
+  // //  console.log(this.Tutorclass);
+  //   this.Subject = subject;
+  // });
+  //   this._tutorclassService.getComment().then(data =>
+  // { this.Comment = data 
+  //   console.log(this.Comment);
+  // })
 
   };
 }

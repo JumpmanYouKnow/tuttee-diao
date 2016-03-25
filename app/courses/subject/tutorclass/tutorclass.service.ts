@@ -1,17 +1,21 @@
 import { Injectable } from 'angular2/core'
 import {TIMESLOTS, COMMENT} from './mock-timeslot'
-
+import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from 'angular2/http';
+import {TokenService} from '../../../services/token.service'
 
   export interface Timeslot {
-  tutor_name: string;
   id: number,
-  subject: string,
+  course: string,
+  course_id:string,
   time: Date,
-  nowPeople: number,
-  maxPeople: number,
+  start_time: number,
+    end_time: number,
+    current_apps: number,
+  capacity: number,
   duration: number,
-  location: string,
-  price: number,
+  address: string,
+  fee: number,
+  timestamp:string,
   description: string
 }
 
@@ -26,11 +30,26 @@ export interface Comment {
 @Injectable()
 export class TutorclassService { 
 
-    getTimeslot(id: number) {
-    console.log(TIMESLOTS);
-        return Promise.resolve(TIMESLOTS).then(
-        tuotr => tuotr.filter(hero => hero.id == id)
-      );   
+
+    constructor(private _tokenservice:TokenService, private _http:Http){}
+
+    getTimeslot(id: string) {
+
+   
+    // params.set('cnt', days.toString());
+    var headers = new Headers();
+    //headers.append('Content-Type','application/json');
+    headers.append('Authorization',this._tokenservice.getToken());
+
+
+    return this._http.get('http://127.0.0.1:5000/api/tutors/'+id,{headers:headers})
+       .map(res => res.json());
+
+
+    // cons  ole.log(TIMESLOTS);
+    //     return Promise.resolve(TIMESLOTS).then(
+    //     tuotr => tuotr.filter(hero => hero.id == id)
+    //   );   
   }
    getComment() {
      return Promise.resolve(COMMENT);

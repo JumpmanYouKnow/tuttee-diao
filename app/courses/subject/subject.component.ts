@@ -28,7 +28,7 @@ export class SubjectComponent implements OnInit{
 
     this._subjectService.getSubject(a).subscribe(data => {
       console.log(data);
-      this.Subject = {id:data.name};
+      this.Subject = {id:data.id,name:data.name};
       this.Teacher = data.tutors;
       console.log(this.Teacher);
     // this.Subject = data;

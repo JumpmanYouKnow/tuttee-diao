@@ -14,6 +14,7 @@ export interface Teacher {
 }
 export interface Subject {
 	id: string;	
+	name:string;
 	//course_description: string;   
 	//teacher: Teacher[];
 }

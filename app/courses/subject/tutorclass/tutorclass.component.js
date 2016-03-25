@@ -33,15 +33,25 @@ System.register(['angular2/core', 'angular2/router', './tutorclass.service'], fu
                     var _this = this;
                     var subject = this._routeParams.get('subject');
                     var id = this._routeParams.get('id');
-                    this._tutorclassService.getTimeslot(id).then(function (hero) {
-                        _this.Tutorclass = hero;
-                        //  console.log(this.Tutorclass);
-                        _this.Subject = subject;
+                    this._tutorclassService.getTimeslot(id).subscribe(function (data) {
+                        var slots = data.timeslots;
+                        var timeslots = [];
+                        for (var i = 0; i < slots.length; i++) {
+                            if (slots[i].courses_id == _this.Subject || slots[i].courses_id == null) {
+                                timeslots.push(slots[i]);
+                            }
+                        }
+                        _this.Timeslots = timeslots;
                     });
-                    this._tutorclassService.getComment().then(function (data) {
-                        _this.Comment = data;
-                        console.log(_this.Comment);
-                    });
+                    //   this._tutorclassService.getTimeslot(id).then(hero => {
+                    //   this.Tutorclass = hero;
+                    // //  console.log(this.Tutorclass);
+                    //   this.Subject = subject;
+                    // });
+                    //   this._tutorclassService.getComment().then(data =>
+                    // { this.Comment = data 
+                    //   console.log(this.Comment);
+                    // })
                 };
                 ;
                 TutorclassComponent = __decorate([

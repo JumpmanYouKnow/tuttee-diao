@@ -35,7 +35,7 @@ System.register(['angular2/core', 'angular2/router', './subject.service'], funct
                     var a = this._routeParams.get('subject');
                     this._subjectService.getSubject(a).subscribe(function (data) {
                         console.log(data);
-                        _this.Subject = { id: data.name };
+                        _this.Subject = { id: data.id, name: data.name };
                         _this.Teacher = data.tutors;
                         console.log(_this.Teacher);
                         // this.Subject = data;
