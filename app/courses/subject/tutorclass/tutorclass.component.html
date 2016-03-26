@@ -19,10 +19,10 @@
                 </thead>            
                 <tbody>
                 <tr *ngFor = "#timeslot of Timeslots"> 
-                    <td  style="width:10%" class="time">{{timeslot.start_time | date:'EEE,Mdyyyy h:mm a'}}</td>                   
+                    <td  style="width:10%" class="time">{{timeslot.start_time | date}}</td>                   
                      <td  style="width:10%" class="location">{{timeslot.address}}</td>
 
-                    <td  style="width:10%"  class="duration">{{ timeslot.end_time - timeslot.start_time }}}}</td>
+                    <td  style="width:10%"  class="duration">{{ timeslot.end_time - timeslot.start_time }}</td>
                     <td  style="width:10%"><a class ="people"></a>{{timeslot.current_apps}}/{{timeslot.capacity}}</td>
                      <td  style="width:10%"  class="price">{{timeslot.fee}}</td>
                    <!--  <td class="description">{{timeslot.description}}</td> -->

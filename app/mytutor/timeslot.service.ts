@@ -1,5 +1,7 @@
 import { Injectable } from 'angular2/core'
 import {TIMESLOTS} from './mock-timeslot'
+import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from 'angular2/http';
+import {TokenService} from '../services/token.service'
 
 export interface tuttee {
 	name:string;
@@ -25,8 +27,20 @@ export interface Timeslot {
 
 @Injectable()
 export class TimeslotService { 
+    constructor(private _tokenservice:TokenService, private _http:Http){}
 
-	getTimeslot() {
-		return Promise.resolve(TIMESLOTS);
+	getTimeslot() {   
+		console.log("fuck");
+		console.log(this._tokenservice.getToken());
+    // params.set('cnt', days.toString());
+    var headers = new Headers();
+    //headers.append('Content-Type','application/json');
+    headers.append('Authorization',this._tokenservice.getToken());
+
+
+    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots',{headers:headers})
+       .map(res => res.json());
+
+		// return Promise.resolve(TIMESLOTS);
 	}
 }

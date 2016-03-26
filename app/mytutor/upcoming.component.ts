@@ -24,14 +24,20 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 	) {}
 
 	getTimeSlots() {
-		this._timeslotservice.getTimeslot().then(timeslot => {
-			console.log(timeslot);
-			this.Timeslots = timeslot;
-			setTimeout( function() {
+		console.log("fuck");
+
+		this._timeslotservice.getTimeslot().subscribe(data => console.log(data)
+			, err=> console.log(err));
+
+		// this._timeslotservice.getTimeslot().then(timeslot => {
+		// 	console.log(timeslot);
+		// 	this.Timeslots = timeslot;
+		// 	setTimeout( function() {
+
 			// $('.tooltip').tooltipster();
 			$('.modal-trigger').leanModal();
-		}, 500);
-		});
+		// }, 500);
+		// });
 
 	}
 

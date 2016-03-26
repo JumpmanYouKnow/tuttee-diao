@@ -1,4 +1,4 @@
-System.register(['angular2/core', './mock-timeslot'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', '../services/token.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,39 @@ System.register(['angular2/core', './mock-timeslot'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_timeslot_1;
+    var core_1, http_1, token_service_1;
     var TimeslotService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (mock_timeslot_1_1) {
-                mock_timeslot_1 = mock_timeslot_1_1;
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (token_service_1_1) {
+                token_service_1 = token_service_1_1;
             }],
         execute: function() {
             TimeslotService = (function () {
-                function TimeslotService() {
+                function TimeslotService(_tokenservice, _http) {
+                    this._tokenservice = _tokenservice;
+                    this._http = _http;
                 }
                 TimeslotService.prototype.getTimeslot = function () {
-                    return Promise.resolve(mock_timeslot_1.TIMESLOTS);
+                    console.log("fuck");
+                    console.log(this._tokenservice.getToken());
+                    // params.set('cnt', days.toString());
+                    var headers = new http_1.Headers();
+                    //headers.append('Content-Type','application/json');
+                    headers.append('Authorization', this._tokenservice.getToken());
+                    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots', { headers: headers })
+                        .map(function (res) { return res.json(); });
+                    // return Promise.resolve(TIMESLOTS);
                 };
                 TimeslotService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [token_service_1.TokenService, http_1.Http])
                 ], TimeslotService);
                 return TimeslotService;
             }());

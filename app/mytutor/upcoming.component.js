@@ -29,15 +29,16 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
                     this._timeslotservice = _timeslotservice;
                 }
                 UpcomingComponent.prototype.getTimeSlots = function () {
-                    var _this = this;
-                    this._timeslotservice.getTimeslot().then(function (timeslot) {
-                        console.log(timeslot);
-                        _this.Timeslots = timeslot;
-                        setTimeout(function () {
-                            // $('.tooltip').tooltipster();
-                            $('.modal-trigger').leanModal();
-                        }, 500);
-                    });
+                    console.log("fuck");
+                    this._timeslotservice.getTimeslot().subscribe(function (data) { return console.log(data); }, function (err) { return console.log(err); });
+                    // this._timeslotservice.getTimeslot().then(timeslot => {
+                    // 	console.log(timeslot);
+                    // 	this.Timeslots = timeslot;
+                    // 	setTimeout( function() {
+                    // $('.tooltip').tooltipster();
+                    $('.modal-trigger').leanModal();
+                    // }, 500);
+                    // });
                 };
                 UpcomingComponent.prototype.ngOnInit = function () {
                     this.getTimeSlots();
