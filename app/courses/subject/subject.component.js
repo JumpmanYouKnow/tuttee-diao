@@ -29,11 +29,13 @@ System.register(['angular2/core', 'angular2/router', './subject.service'], funct
                     this._router = _router;
                     this._subjectService = _subjectService;
                     this._routeParams = _routeParams;
+                    this.loading = true;
                 }
                 SubjectComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var a = this._routeParams.get('subject');
                     this._subjectService.getSubject(a).subscribe(function (data) {
+                        _this.loading = false;
                         console.log(data);
                         _this.Subject = { id: data.id, name: data.name };
                         _this.Teacher = data.tutors;

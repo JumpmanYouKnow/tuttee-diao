@@ -2,18 +2,37 @@
     <!-- <navbar></navbar> -->
 </div>
 <h4 class="center">课程总览</h4>
+
+
 <section id="classcatbox">
+
+
 
     <div>               
       <div class="row">
+      
+       <div *ngIf = "loading" class="preloader-wrapper big active col offset-s6">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
+
+
     
-        <div *ngFor="#course of Courses" class="col s12 m4">
+        <div *ngFor="#course of Courses| paginate: { itemsPerPage: 3, currentPage: p }" class="col s12 m6 l4">
           <div class="card">
               <div class="card-image s12 m12 l12">
                 
               <a class="btn-floating btn waves-effect waves-light red bookmark"><i class="fa fa-2x fa-bookmark bookmark-icon" ></i></a>       
                <img src="http://placehold.it/500x500" id="image">       
-               <span class="card-title" style="z-index:3">{{course.name}} </span>   
+               <span class="card-title" style="z-index:3">{{course.id}} - {{course.name}} </span>   
               </div>
                           
              <div class="card-content ">
@@ -30,5 +49,9 @@
       </div>         
     </div>
     <section>
+
+    <pagination-controls (pageChange)="p = $event" #api></pagination-controls>
+
+
 
 

@@ -14,13 +14,13 @@
   ],
   "dependencies": {
     "angular": "~1.4.7",
-    "bootstrap": "~3.3.4",
+    "bootstrap": "~3.3.6",
     "jquery": "~2.1.4",
     "jquery-ui": "~1.11.4",
     "moment": "~2.10.6",
     "react": "~0.13.3",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "handlebars": "~4.0.5",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
   }
 }
-
-

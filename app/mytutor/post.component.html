@@ -1,48 +1,70 @@
   <h4>开新课</h4>
-  <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your options</option>
-      <option value="1">Math 135</option>
-      <option value="2">Math 147</option>
-      <option value="3">CS 146</option>
-    </select>
-    <label>Select the courses</label>
-  </div>
+  <form #slotSetting="ngForm" id="myForm" (ngSubmit) = "postSlot(slotSetting.value)">
 
 
-   <div class="input-field col s6">
- 	<input id="datetimepicker" type="text" ><br>
+
+<div class="form-group col s6 m6 l6">
+  <label for="power">Course</label>
+  <select class="form-control" ngControl = "course_id" required [(ngModel)] = "course_id">
+     <option value="math135">math135</option>
+      <option value="cs135">cs135</option>
+      <option value="econ101">econ101</option>
+  </select>
+</div>
+
+
+
+
+
+   <div class="input-field col s6 m6 l6">
+ 	<input  id="datetimepicker"  name = "start_time" type="text" ngControl = "start_time" [(ngModel)] = "start_time" >
  <label>Select the Time</label>
  </div>
 
- <div class="input-field col s6">
- <select>
-      <option value="" disabled selected>Choose your options</option>
-      <option value="1">1</option>
+  <div class="input-field col s6 m6 l6">
+  <input type="number" ngControl = "duration" [(ngModel)] = "duration">
+ <label>Duration (in minutes)</label>
+ </div>
+
+ <div class="form-group col s6 m6 l6">
+  <label for="power">Capacity</label>
+  <select class="form-control" required [(ngModel)] = "capacity">
+    <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
        <option value="4">4</option>
         <option value="5">5</option>
-    </select>
-        <label>Select number of students</label>
+  </select>
+</div>
+
+ 
+
+  <div class="input-field col s6 m6 l6">
+       	<input  type="text" ngControl="address" [(ngModel)] = "address">
+        <label>Address</label>
  </div>
 
-  <div class="input-field col s6">
-       	<input  type="text" ><br>
-        <label>Location</label>
- </div>
-
-   <div class="input-field col s6">
-       	<input  type="text" ><br>
-        <label>Price</label>
+   <div class="input-field col s6 m6 l6" >
+       	<input  type="number" ngControl="fee" [(ngModel)] = "fee">
+        <label>Fee</label>
  </div>
 
  <div class="input-field col s12">
-       	<input  type="text" ><br>
+       	<input  type="text" id="ss">
         <label>Description - no more than 20 chars</label>
  </div>
 
- <a class = "btn">Post</a>
- 
+ <button type="submit"  class = "btn col s12">Post</button>
+
+ </form>
+
+
+
+ {{capacity}}
+ {{address}}
+ {{course_id}}
+ {{start_time}}
+
+ {{slotSetting.dirty}}
 
 

@@ -82,6 +82,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                         console.log(data);
                         console.log(_this.is_tutor);
                         $('#modal1').closeModal();
+                        location.reload();
                     }, function (err) {
                         var error = JSON.parse(err._body).message;
                         console.log(error);
@@ -112,6 +113,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './login
                 // 	});
                 // }
                 NavbarComponent.prototype.ngOnInit = function () {
+                    // console.log(this._tokenservice.initLogin());
                     if (this._tokenservice.initLogin()) {
                         this.username = this._tokenservice.getUsername();
                         this.is_tutor = this._tokenservice.getIs_tutor();

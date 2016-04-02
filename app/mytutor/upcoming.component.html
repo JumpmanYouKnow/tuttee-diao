@@ -3,45 +3,65 @@
  <a class = "col btn" [routerLink]= "['Post']">开新课</a>
 
 </div>
-             <div id = "modifyBox"*ngIf= "modSlot">
-                <div class="input-field col s6">
-                    <input id="datetimepicker" value = "{{modSlot.time | date:'EEE,Mdyyyy h:mm a'}}" type="text" ><br>
+
+
+             <form    [hidden]= "!modSlot"  (ngSubmit) ="modify()">
+             <div id="modifyBox">
+             <div class="row">
+                <div class="input-field col s6 m6">
+                    <input id="datetimepicker" ngControl = "start_time" [(ngModel)] = "modSlot.start_time" name="start_time" value = "{{modSlot.start_time}}" type="text" required ><br>
                      <label class="active">Select the Time</label>
                  </div>
 
-                 <div class="input-field col s6">
-                 <select>
-                      <option value="{{modSlot.maxPeople}}" disabled selected>{{modSlot.maxPeople}}</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
+                  <div class="form-group col s6 m6 l6">
+                    <label for="power">Capacity</label>
+                    <select ngControl = "capacity" [(ngModel)] = "modSlot.capacity"  class="form-control" required >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                           <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
-                        <label >Select number of students</label>
-                 </div>
+                  </div>
+             </div>
+               <div class = "row">
+               <div class="input-field col s6 m6">
+                  <input  ngControl = "duration"  [(ngModel)] = "modSlot.duration"  type="text" ><br>
+                    <label class = "active">Duration</label>
+               </div>
+               </div>
 
-                  <div class="input-field col s6">
-                        <input  value = "{{modSlot.location}}" type="text" ><br>
-                        <label class="active">Location</label>
-                 </div>
+             <div class = "row">
 
-                    <div class="input-field col s6">
-                    <input  value = "{{modSlot.price}}" type="text" ><br>
-                    <label class = "active">Price</label>
+                   <div class="input-field col s6 m6">
+                    <input  ngControl = "fee" [(ngModel)] ="modSlot.fee" type="text" ><br>
+                    <label class = "active">Fee</label>
                     </div>
 
-                     <div class="input-field col s12">
+
+                  <div class="input-field col s6 m6">
+                        <input  ngControl = "address" [(ngModel)] = "modSlot.address" type="text" ><br>
+                        <label class="active">Address</label>
+                 </div>
+              </div>
+                   
+<!-- 
+                     <div class="input-field col s12 ">
                     <input  value = "{{modSlot.description}}" type="text" ><br>
                     <label class = "active" length="20">Description - no more than 20 chars</label>
-                    </div>
+                    </div> -->
 
-            <a class = "btn">save</a>
+            <button type="submit" class = "btn">save</button>
             <a class="btn" (click)="closeModify()">close</a>
+            <a class="btn red" (click)="deleteSlot(modSlot.id)">DELETE</a>
+            </div>
 
- 
-
-             </div>
+             </form>
 
          
              <div id="no-more-tables">
@@ -60,14 +80,14 @@
              
                 <tbody>
                 <tr *ngFor = "#timeslot of Timeslots">
-                    <td  style="width:15%"class="course">{{timeslot.course}}</td>  
-                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>
-                    <td  style="width:10%" class="location">{{timeslot.location}}</td>
-                    <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
-                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn modal-trigger" >{{timeslot.nowPeople.length}}/{{timeslot.maxPeople}}</a></td>
-                     <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
+                    <td  style="width:15%"class="course">{{timeslot.course_id}}</td>  
+                    <td  style="width:10%" class="time">{{timeslot.start_time | date: 'medium'}}</td>
+                    <td  style="width:10%" class="location">{{timeslot.address}}</td>
+                    <td  style="width:10%"  class="duration">{{(timeslot.end_time - timeslot.start_time)/1000/60}}</td>
+                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn modal-trigger" >{{timeslot.current_apps}}/{{timeslot.capacity}}</a></td>
+                     <td  style="width:10%"  class="price">{{timeslot.fee }}</td>
                     <td class="description">{{timeslot.description}}</td>
-                    <td style="width:1%"> <a class = "btn" (click)="modify(timeslot)"> modify</a></td>
+                    <td style="width:1%"> <a class = "btn" (click)="modifyOpen(timeslot)"> modify</a></td>
                       <!-- Modal Trigger -->
                   <!-- Modal Structure -->
                   <div id="{{timeslot.id}}" class="modal">
@@ -82,10 +102,10 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="#people of timeslot.nowPeople">
-                          <td>{{people.name}}</td>
-                          <td>{{people.email}}</td>
-                          <td>{{people.wechat}}</td>
+                        <tr *ngFor="#app of timeslot.appointments">
+                          <td>{{app.student.id}}</td>
+                          <td>{{app.student.username}}</td>
+                          <td>{{app.timestamp}}</td>
                           <td><a class="btn">删</a></td>
                         </tr>
                       </tbody>

@@ -72,6 +72,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                         }
                         else {
                             this.token = localStorage.getItem('token');
+                            console.log(this.token);
                             this.tokenLife = tokenLife;
                             if (localStorage.getItem('is_tutor') == 'true') {
                                 this.is_tutor = true;

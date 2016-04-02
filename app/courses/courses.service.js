@@ -31,7 +31,8 @@ System.register(['angular2/core', 'angular2/http', '../services/token.service'],
                 }
                 CoursesService.prototype.getCourses = function () {
                     var params = new http_1.URLSearchParams();
-                    params.set('limit', "6");
+                    params.set('limit', "100");
+                    params.set('_', (new Date().getTime()).toString());
                     // params.set('cnt', days.toString());
                     var headers = new http_1.Headers();
                     //headers.append('Content-Type','application/json');
