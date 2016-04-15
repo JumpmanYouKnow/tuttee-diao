@@ -33,7 +33,8 @@ export class CoursesService {
 
 	getCourses() {
 		 let params: URLSearchParams = new URLSearchParams();
-		 params.set('limit', "6");
+		 params.set('limit', "100");
+		 params.set('_',(new Date().getTime()).toString());
 		// params.set('cnt', days.toString());
 		var headers = new Headers();
 		//headers.append('Content-Type','application/json');

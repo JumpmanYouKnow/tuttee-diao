@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.service', 'angular2/router', '../services/token.service', './search-pipe'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.service', 'angular2/router', '../services/token.service', './search-pipe', 'ng2-pagination'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_service_1, router_1, token_service_1, search_pipe_1;
+    var core_1, courses_service_1, router_1, token_service_1, search_pipe_1, ng2_pagination_1;
     var CoursesComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
             },
             function (search_pipe_1_1) {
                 search_pipe_1 = search_pipe_1_1;
+            },
+            function (ng2_pagination_1_1) {
+                ng2_pagination_1 = ng2_pagination_1_1;
             }],
         execute: function() {
             CoursesComponent = (function () {
@@ -35,12 +38,14 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
                     this._router = _router;
                     this._coursesservices = _coursesservices;
                     this._tokenservice = _tokenservice;
+                    this.loading = true;
                 }
                 CoursesComponent.prototype.getCourse = function () {
                     // this._coursesservices.getCourses()
                     // .then(data => this.Courses = data);
                     var _this = this;
                     this._coursesservices.getCourses().subscribe(function (data) {
+                        _this.loading = false;
                         _this.Courses = data.courses;
                         //	console.log(data);
                         //	console.log("runed");
@@ -74,7 +79,10 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
                         selector: 'course',
                         pipes: [search_pipe_1.SearchPipe],
                         styleUrls: ['./app/courses/courses.component.css'],
-                        templateUrl: './app/courses/courses.component.html'
+                        templateUrl: './app/courses/courses.component.html',
+                        providers: [ng2_pagination_1.PaginationService],
+                        directives: [ng2_pagination_1.PaginationControlsCmp],
+                        pipes: [ng2_pagination_1.PaginatePipe]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, token_service_1.TokenService])
                 ], CoursesComponent);

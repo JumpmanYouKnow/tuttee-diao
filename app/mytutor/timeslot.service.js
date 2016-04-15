@@ -31,12 +31,14 @@ System.register(['angular2/core', 'angular2/http', '../services/token.service'],
                 }
                 TimeslotService.prototype.getTimeslot = function () {
                     console.log("fuck");
-                    console.log(this._tokenservice.getToken());
+                    console.log(window.btoa(this._tokenservice.getToken() + ":"));
+                    var params = new http_1.URLSearchParams();
+                    params.set('limit', "100");
                     // params.set('cnt', days.toString());
                     var headers = new http_1.Headers();
                     //headers.append('Content-Type','application/json');
-                    headers.append('Authorization', this._tokenservice.getToken());
-                    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots', { headers: headers })
+                    headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+                    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots', { headers: headers }, { search: params })
                         .map(function (res) { return res.json(); });
                     // return Promise.resolve(TIMESLOTS);
                 };

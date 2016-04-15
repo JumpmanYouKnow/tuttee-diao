@@ -74,6 +74,7 @@ export class TokenService {
 	
 		else {
 			this.token = localStorage.getItem('token');
+			console.log(this.token);
 			this.tokenLife = tokenLife;
 
 			if(localStorage.getItem('is_tutor') == 'true') {

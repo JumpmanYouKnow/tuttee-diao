@@ -1,6 +1,6 @@
 import {Component, AfterViewInit, ElementRef,OnDestroy} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-
+import {CoursesService,Course} from '../courses/courses.service';
 
 // declare var jQuery: JQueryStatic;
 
@@ -15,7 +15,10 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 export class HomeComponent {
   // Set our default values
   data = { value: '' };
+  courseList:any = [];
   // TypeScript public modifiers
+
+  constructor (private _coursesservice: CoursesService) {}
 
 
   ngOnInit() {
@@ -36,7 +39,78 @@ export class HomeComponent {
   }
       else $('nav').addClass("trans");
     });
+
+
+
+    this.getCoursesList();
+
+
+
+    var fds = [{course:'math135'},{course:'psych101'},{course:'che102'}];
+
+   
+
+}
+
+
+  getCoursesList () {
+    this._coursesservice.getCourses().subscribe( data => {
+       var listLength = data.courses.length;
+       for(var i=0;i<listLength;i++) {
+         this.courseList.push({course:data.courses[i].id})
+       }
+       console.log(this.courseList);
+
+        var states = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('course'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      // `states` is an array of state names defined in "The Basics"
+      local: this.courseList
+    });
+
+      $('.typeahead').typeahead(null,
+          {
+            name: 'states',
+            source: states,
+            display:'course',
+            templates: {
+        empty: [
+          '<div style="color:black" class="empty-message">',
+            'unable to find any courses that match the current query',
+          '</div>'
+        ].join('\n'),
+          suggestion: Handlebars.compile('<div><a href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
+        
+          }
+      });
+
+      $(".tt-menu").css({  width: "422px",
+  margin: "12px 0",
+  padding: "8px 0",
+ "background-color":" #fff",
+  "border": "1px solid #ccc",
+  "border": "1px solid rgba(0, 0, 0, 0.2)",
+  "-webkit-border-radius": "8px",
+    " -moz-border-radius": "8px",
+         "border-radius": "8px",
+  "-webkit-box-shadow":" 0 5px 10px rgba(0,0,0,.2)",
+     "-moz-box-shadow":" 0 5px 10px rgba(0,0,0,.2)",
+        "box-shadow": "0 5px 10px rgba(0,0,0,.2)"});
+
+    });
+
+    $(".tt-suggestion").css({
+      "padding": "3px 20px",
+     "font-size": "18px",
+      "line-height": "24px"
+    });
+
+
+
+    err =>console.log(err)
+    );
   }
+  
 
   ngOnDestroy() {
     $(window).unbind("scroll");

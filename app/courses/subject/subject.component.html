@@ -1,4 +1,4 @@
-
+  
 <section *ngIf="Subject">
     <div class="container">
         <div class="row">
@@ -13,6 +13,19 @@
 <section>
  <div>
       <div class="row">
+          
+       <div *ngIf = "loading" class="preloader-wrapper big active col offset-s6">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
         <div *ngFor="#teacher of Teacher" class="col s12 m4">
           <div class="card">
               <div class="card-image s12 m12 l12">

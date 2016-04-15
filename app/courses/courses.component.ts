@@ -6,11 +6,17 @@ import {NavbarComponent} from '../other/navbar.component'
 import {TokenService} from '../services/token.service'
 import{SearchPipe} from './search-pipe'
 
+import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
+
+
 @Component({
 	selector: 'course',
 	pipes:[SearchPipe],
 	styleUrls: ['./app/courses/courses.component.css'],
-	templateUrl: './app/courses/courses.component.html'
+	templateUrl: './app/courses/courses.component.html',
+	  providers: [PaginationService],
+	    directives: [PaginationControlsCmp],
+	     pipes: [PaginatePipe]
 
 })
 
@@ -19,6 +25,8 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 	public Courses: Course[];
 	public test :string;
     public token: string;
+    public loading: boolean = true;        
+
 	constructor(private _router: Router,
 	            private _coursesservices: CoursesService,
 	            private _tokenservice:TokenService
@@ -31,6 +39,7 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 
 		
 			this._coursesservices.getCourses().subscribe(data => {
+				this.loading = false;
 				this.Courses = data.courses;
 		//	console.log(data);
 		//	console.log("runed");

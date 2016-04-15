@@ -15,6 +15,7 @@ import {SubjectService, Subject, Teacher} from './subject.service';
 export class SubjectComponent implements OnInit{
 	Subject: Subject;
   Teacher: Teacher[];
+  loading: boolean = true;
 
     constructor(
     private _router: Router,
@@ -27,6 +28,7 @@ export class SubjectComponent implements OnInit{
     let a = this._routeParams.get('subject');
 
     this._subjectService.getSubject(a).subscribe(data => {
+      this.loading = false;
       console.log(data);
       this.Subject = {id:data.id,name:data.name};
       this.Teacher = data.tutors;

@@ -1,10 +1,10 @@
-    import {Component,Input,Output,EventEmitter}  from 'angular2/core';
+import {Component,Input,Output,EventEmitter}  from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit,OnInit, ElementRef} from 'angular2/core'
 import { FORM_DIRECTIVES } from 'angular2/common';
- import {LoginService,loginObj} from './login.service'
- import {TokenService} from '../services/token.service'
+import {LoginService,loginObj} from './login.service'
+import {TokenService} from '../services/token.service'
 
 
 
@@ -88,6 +88,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
                   console.log(this.is_tutor);
                   
                       $('#modal1').closeModal();
+                      location.reload();
 
           },
           err=> {
@@ -128,6 +129,8 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     // }
 
 	ngOnInit () {
+
+     // console.log(this._tokenservice.initLogin());
 	
 
         if(this._tokenservice.initLogin()) {
