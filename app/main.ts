@@ -1,6 +1,7 @@
-import {bootstrap}    from 'angular2/platform/browser'
+
 import {AppComponent} from './app.component'
 import {Component, provide} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser'
 import {TokenService} from './services/token.service'
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http'
@@ -14,7 +15,7 @@ var appPromise = bootstrap(AppComponent, [ROUTER_PROVIDERS,HTTP_PROVIDERS, Token
 
  // LocalStorageSubscriber(appPromise);
 
-// import { bootstrap } from 'angular2/platform/browser';
+// import { bootstrap } from 'angular2/p latform/browser';
 // import { bind } from 'angular2/core';
 
 // import { ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy } from 'angular2/router';

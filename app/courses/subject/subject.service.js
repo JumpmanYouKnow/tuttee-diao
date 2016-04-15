@@ -38,7 +38,8 @@ System.register(['angular2/core', 'angular2/http', '../../services/token.service
                     headers.append('Authorization', this._tokenservice.getToken());
                     return this._http.get('http://127.0.0.1:5000/api/courses/' + id, { headers: headers })
                         .map(function (res) { return res.json(); });
-                    ;
+                    // return	Promise.resolve(SUBJECT).then(
+                    // 	heroes => heroes.filter(hero => hero.id === id)[0]	 
                 };
                 SubjectService = __decorate([
                     core_1.Injectable(), 

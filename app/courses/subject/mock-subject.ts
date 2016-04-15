@@ -10,10 +10,10 @@ export var SUBJECT: Subject[] =
 			{
 		    id:1,
             name: "老板",
-	        teacher_descripition: "很黄很暴力",
+            teacher_descripition: "很黄很暴力",
             imageURL: "http://placehold.it/500x300",
             sales: "2344",
-			avgpr: "998"
+	avgpr: "998"
 		},
 
         {

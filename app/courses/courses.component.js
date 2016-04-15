@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.service', 'angular2/router', '../services/token.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.service', 'angular2/router', '../services/token.service', './search-pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_service_1, router_1, token_service_1;
+    var core_1, courses_service_1, router_1, token_service_1, search_pipe_1;
     var CoursesComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
             },
             function (token_service_1_1) {
                 token_service_1 = token_service_1_1;
+            },
+            function (search_pipe_1_1) {
+                search_pipe_1 = search_pipe_1_1;
             }],
         execute: function() {
             CoursesComponent = (function () {
@@ -69,6 +72,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'course',
+                        pipes: [search_pipe_1.SearchPipe],
                         styleUrls: ['./app/courses/courses.component.css'],
                         templateUrl: './app/courses/courses.component.html'
                     }), 

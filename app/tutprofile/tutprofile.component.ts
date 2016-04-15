@@ -26,20 +26,20 @@ export class TutProfileComponent implements OnInit {
 	//	this.TutProfile = data;
 	// }
 
-	getTutProfile(id: number) {
-		this._tutProfileService.getTutProfile().then(TutProfiles => {
-			this.TutProfile = TutProfiles;
-			this.Timeslots = TutProfiles[0].timeslots;
-			this.Courses = TutProfiles[0].courses;
-
-
-			console.log(this.Timeslots);
-		});
-	}
+	
 
 
 	ngOnInit() {
 		let id = +this._routeParams.get('id');
 		 this.getTutProfile(id);
 	} 
+
+	getTutProfile(id: number) {
+		this._tutProfileService.getTutProfile().then(TutProfiles => {
+			this.TutProfile = TutProfiles;
+			this.Timeslots = TutProfiles[0].timeslots;
+			this.Courses = TutProfiles[0].courses;
+			
+		});
+	}
 }

@@ -41,7 +41,6 @@ export class SubjectService {
 
 
 		// return	Promise.resolve(SUBJECT).then(
-		// 	heroes => heroes.filter(hero => hero.id === id)[0]
-		);	 
+		// 	heroes => heroes.filter(hero => hero.id === id)[0]	 
 	}
 }

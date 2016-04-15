@@ -46,11 +46,23 @@ var COURESES: Courses[] =
 	name: "math",
 	"number": 137,
 	reviews: REVIEWS,
+},
+{
+	id: "math135",
+	name: "math",
+	"number": 135,
+	reviews: REVIEWS,
+},
+{
+	id: "math145",
+	name: "math",
+	"number": 145,
+	reviews: REVIEWS,
 }]
 
 var TIMESLOTS :Timeslots[]= [
 {
-  address: "铁岭",
+  address: "dajiba",
   capacity: 20,
   course: "math137",
   course_id: 1,

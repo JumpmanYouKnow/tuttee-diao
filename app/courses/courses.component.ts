@@ -4,9 +4,11 @@ import {Router,RouteData} from 'angular2/router';
 import {NavbarComponent} from '../other/navbar.component'
 //import {SubjectComponent} from 'subject/subject.component';
 import {TokenService} from '../services/token.service'
+import{SearchPipe} from './search-pipe'
 
 @Component({
 	selector: 'course',
+	pipes:[SearchPipe],
 	styleUrls: ['./app/courses/courses.component.css'],
 	templateUrl: './app/courses/courses.component.html'
 

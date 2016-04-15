@@ -7,18 +7,7 @@ System.register([], function(exports_1, context_1) {
         execute: function() {
             //var comment1 = { faculty: "math1A", time: new Date(43214321412), content: "fuckthisshit" };
             //var comment2 = { faculty: "SE1B", time: new Date(21324324), content: "你是傻逼" };
-            exports_1("TIMESLOTS", TIMESLOTS = [{
-                    tutor_name: "老大",
-                    id: 3,
-                    subject: "math137",
-                    time: new Date(213131432432),
-                    nowPeople: 2,
-                    maxPeople: 5,
-                    duration: 1,
-                    location: "DC",
-                    price: 10,
-                    description: "Final",
-                },
+            exports_1("TIMESLOTS", TIMESLOTS = [
                 {
                     tutor_name: "老大",
                     id: 3,
@@ -30,6 +19,18 @@ System.register([], function(exports_1, context_1) {
                     location: "UBD",
                     price: 30,
                     description: "FUCK"
+                },
+                {
+                    tutor_name: "laoda",
+                    id: 3,
+                    subject: "math137",
+                    time: new Date(213131432432),
+                    nowPeople: 2,
+                    maxPeople: 5,
+                    duration: 1,
+                    location: "DC",
+                    price: 10,
+                    description: "Final",
                 },
                 {
                     tutor_name: "XX",
@@ -50,8 +51,7 @@ System.register([], function(exports_1, context_1) {
                     content: "XXXXXXXXXX" },
                 { faculty: "SE1B",
                     time: new Date(21324324),
-                    content: "XXXXXXXXXX" }
-            ]);
+                    content: "XXXXXXXXXX" }]);
         }
     }
 });

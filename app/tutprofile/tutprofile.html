@@ -74,20 +74,24 @@
     </section>
 </div>
 <div class="container">
-    <h5>Comments</h5>
+    <h3>Comments</h3>
 
+    
    <div id = "comment" *ngFor = "#courses of Courses" class = "row">
    <!--  <div class="container"> -->
       <h4>{{courses.id}}</h4>
-        <div *ngFor = "#reviews of Courses[0].reviews">
-
+        <div *ngFor = "#reviews of Courses[0].reviews" id="commentbox">
+         
+         <div class ="row">
+       <!-- <h4>{{courses.id}}</h4> -->
        <div class = "col m3 center-align">
-           <div class ="row">
+           
                <img src = "http://placehold.it/50x50">
-           </div>
-           <div class ="row">
+        <!--    </div> -->
+         <!--   <div class ="row"> -->
               <p>{{reviews.rating}}</p>
-           </div>
+             
+          <!--  </div> -->
 
        </div>
 
@@ -95,6 +99,7 @@
             <p>{{reviews.timestamp|date:"medium"}}</p>
            <p>{{reviews.text}}</p>
        </div>
+       
    </div>
  <!-- </div> -->
 </div> 

@@ -34,18 +34,17 @@ System.register(['angular2/core', 'angular2/router', './tutprofile.service'], fu
                 // 		.subscribe( data => {
                 //	this.TutProfile = data;
                 // }
+                TutProfileComponent.prototype.ngOnInit = function () {
+                    var id = +this._routeParams.get('id');
+                    this.getTutProfile(id);
+                };
                 TutProfileComponent.prototype.getTutProfile = function (id) {
                     var _this = this;
                     this._tutProfileService.getTutProfile().then(function (TutProfiles) {
                         _this.TutProfile = TutProfiles;
                         _this.Timeslots = TutProfiles[0].timeslots;
                         _this.Courses = TutProfiles[0].courses;
-                        console.log(_this.Timeslots);
                     });
-                };
-                TutProfileComponent.prototype.ngOnInit = function () {
-                    var id = +this._routeParams.get('id');
-                    this.getTutProfile(id);
                 };
                 TutProfileComponent = __decorate([
                     core_1.Component({
