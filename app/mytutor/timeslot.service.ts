@@ -32,15 +32,15 @@ export class TimeslotService {
 	getTimeslot() {   
 		console.log("fuck");
 		console.log(window.btoa(this._tokenservice.getToken()+":"));
-		 let params: URLSearchParams = new URLSearchParams();
-		 params.set('limit', "100");
+	 // let params: URLSearchParams = new URLSearchParams();
+	 // params.set('limit', "100");
     // params.set('cnt', days.toString());
     var headers = new Headers();
     //headers.append('Content-Type','application/json');
     headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
 
-    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots',{headers:headers},{search:params})
+    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots',{headers:headers})
        .map(res => res.json());
 
 		// return Promise.resolve(TIMESLOTS);

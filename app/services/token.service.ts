@@ -91,23 +91,23 @@ export class TokenService {
 	
 	}
 
-	public checkExp(token:string) {
+	// public checkExp(token:string) {
 
-		if (Date.now() > this.tokenLife) {
+	// 	if (Date.now() > this.tokenLife) {
 
-			var headers = new Headers();
-			headers.append('Authorization',this.token);
+	// 		var headers = new Headers();
+	// 		headers.append('Authorization',this.token);
 
-			this._http.get('/token',{headers:headers}).map(res=>res.json())
-			.subscribe( data => 
-				{this.token = data.token;
-				 this.tokenLife=(Date.now()+data.expiration);
-				},
-				err => console.log(err)
-				);
-		}
+	// 		this._http.get('/token',{headers:headers}).map(res=>res.json())
+	// 		.subscribe( data => 
+	// 			{this.token = data.token;
+	// 			 this.tokenLife=(Date.now()+data.expiration);
+	// 			},
+	// 			err => console.log(err)
+	// 			);
+	// 	}
 
-	}
+	// }
 
 
 
