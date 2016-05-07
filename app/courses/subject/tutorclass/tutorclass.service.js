@@ -1,4 +1,4 @@
-System.register(['angular2/core', './mock-timeslot', 'angular2/http', '../../../services/token.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', '../../../services/token.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['angular2/core', './mock-timeslot', 'angular2/http', '../../../
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_timeslot_1, http_1, token_service_1;
+    var core_1, http_1, token_service_1;
     var TutorclassService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (mock_timeslot_1_1) {
-                mock_timeslot_1 = mock_timeslot_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -44,8 +41,20 @@ System.register(['angular2/core', './mock-timeslot', 'angular2/http', '../../../
                     //     tuotr => tuotr.filter(hero => hero.id == id)
                     //   );   
                 };
-                TutorclassService.prototype.getComment = function () {
-                    return Promise.resolve(mock_timeslot_1.COMMENT);
+                TutorclassService.prototype.postAppointement = function (PostObj) {
+                    var params = new http_1.URLSearchParams();
+                    // params.set('id', PostObj.id);
+                    params.set('course_id', PostObj.course_id);
+                    var appointment = JSON.stringify({
+                        // id: PostObj.id,
+                        course_id: PostObj.course_id
+                    });
+                    console.log(appointment);
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+                    return this._http.post('http://127.0.0.1:5000/api/appointments/' + PostObj.id, appointment, { headers: headers, search: params })
+                        .map(function (res) { return res.json(); });
                 };
                 TutorclassService = __decorate([
                     core_1.Injectable(), 

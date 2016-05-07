@@ -26,6 +26,11 @@ export interface Comment {
   content: string;
 }
 
+export interface PostObj {
+  id: any;
+  course_id: string;
+}
+
 
 @Injectable()
 export class TutorclassService { 
@@ -51,8 +56,28 @@ export class TutorclassService {
     //     tuotr => tuotr.filter(hero => hero.id == id)
     //   );   
   }
-   getComment() {
-     return Promise.resolve(COMMENT);
+
+  postAppointement(PostObj:PostObj){
+    let params: URLSearchParams = new URLSearchParams();
+    // params.set('id', PostObj.id);
+    params.set('course_id', PostObj.course_id);
+
+    let appointment = JSON.stringify
+    ({
+      // id: PostObj.id,
+      course_id: PostObj.course_id
+    });
+    console.log(appointment);
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+
+    return this._http.post('http://127.0.0.1:5000/api/appointments/' + PostObj.id, appointment, { headers: headers,search:params })
+    .map(res => res.json());
   }
+  //  getComment() {
+  //    return Promise.resolve(COMMENT);
+  // }
 }
 

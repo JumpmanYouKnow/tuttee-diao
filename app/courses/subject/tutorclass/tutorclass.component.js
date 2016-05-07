@@ -29,6 +29,18 @@ System.register(['angular2/core', 'angular2/router', './tutorclass.service'], fu
                     this._routeParams = _routeParams;
                     this._tutorclassService = _tutorclassService;
                 }
+                TutorclassComponent.prototype.postAppointment = function (timeslot) {
+                    this.timeid = timeslot.id;
+                    this.timecourseid = timeslot.course_id;
+                    // console.log(this.timeid);
+                    // console.log(this.Subject);
+                    var PostObj = {
+                        id: this.timeid,
+                        course_id: this.Subject
+                    };
+                    console.log(PostObj);
+                    this._tutorclassService.postAppointement(PostObj).subscribe(function (data) { return console.log(data); }, function (err) { return console.log(err); });
+                };
                 TutorclassComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var subject = this._routeParams.get('subject');

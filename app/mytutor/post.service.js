@@ -30,13 +30,13 @@ System.register(['angular2/core', 'angular2/http', '../services/token.service'],
                     this._tokenservice = _tokenservice;
                 }
                 PostService.prototype.postTimeslot = function (postObj) {
-                    var params = new http_1.URLSearchParams();
-                    params.set('start_time', postObj.start_time);
-                    params.set('end_time', postObj.end_time);
-                    params.set('course_id', postObj.course_id);
-                    params.set('capacity', postObj.capacity.toString());
-                    params.set('fee', postObj.fee.toString());
-                    params.set('address', postObj.address);
+                    // let params: URLSearchParams = new URLSearchParams();
+                    // params.set('start_time', postObj.start_time);
+                    //  params.set('end_time',postObj.end_time);
+                    //  params.set('course_id',postObj.course_id);
+                    //  params.set('capacity',postObj.capacity.toString());
+                    //  params.set('fee',postObj.fee.toString());
+                    //  params.set('address',postObj.address);
                     var slot = JSON.stringify({ start_time: postObj.start_time,
                         end_time: postObj.end_time,
                         course_id: postObj.course_id,
