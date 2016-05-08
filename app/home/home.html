@@ -9,7 +9,10 @@
              <div id = "search" class="row">
 
           <div class=" m6 offset-m6" id="custom-templates">
-                  <input type="text" class="form-control typeahead " placeholder="Search Courses" >
+          <form (ngSubmit) = "search()">
+                  <input id = "searchInput" type="text" class="form-control typeahead" placeholder="Search Courses" >
+                  <input class="btn" type="submit" value="submit" style="display:none">
+          </form>
           </div>
              <!--  <input class="typeahead m6 offset-m6"  type="text" placeholder="Search Courses"> -->
           </div>

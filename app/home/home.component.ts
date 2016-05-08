@@ -52,26 +52,36 @@ export class HomeComponent {
 
 }
 
+  search() {
+        $(".tt-suggestion:first-child").trigger('click');
+  }
+
 
   getCoursesList () {
-    this._coursesservice.getCourses().subscribe( data => {
+    this._coursesservice.getCourses().subscribe(data => {
        var listLength = data.courses.length;
        for(var i=0;i<listLength;i++) {
          this.courseList.push({course:data.courses[i].id})
        }
        console.log(this.courseList);
 
-        var states = new Bloodhound({
+        var courses = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('course'),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       // `states` is an array of state names defined in "The Basics"
       local: this.courseList
     });
 
-      $('.typeahead').typeahead(null,
+      $('.typeahead').typeahead({
+        autoselect: true,
+          hint: true,  
+  highlight: true,  
+  minLength: 1  
+      },
           {
-            name: 'states',
-            source: states,
+            name: 'courses',
+            source: courses,
+            //course in each object in courses
             display:'course',
             templates: {
         empty: [
@@ -84,31 +94,49 @@ export class HomeComponent {
           }
       });
 
+
       $(".tt-menu").css({  width: "422px",
-  margin: "12px 0",
-  padding: "8px 0",
- "background-color":" #fff",
-  "border": "1px solid #ccc",
-  "border": "1px solid rgba(0, 0, 0, 0.2)",
-  "-webkit-border-radius": "8px",
-    " -moz-border-radius": "8px",
-         "border-radius": "8px",
-  "-webkit-box-shadow":" 0 5px 10px rgba(0,0,0,.2)",
-     "-moz-box-shadow":" 0 5px 10px rgba(0,0,0,.2)",
-        "box-shadow": "0 5px 10px rgba(0,0,0,.2)"});
+        margin: "12px 0",
+        padding: "8px 0",
+       "background-color":" #fff",
+        "border": "1px solid rgba(0, 0, 0, 0.2)",
+        "-webkit-border-radius": "8px",
+          " -moz-border-radius": "8px",
+               "border-radius": "8px",
+        "-webkit-box-shadow":" 0 5px 10px rgba(0,0,0,.2)",
+           "-moz-box-shadow":" 0 5px 10px rgba(0,0,0,.2)",
+              "box-shadow": "0 5px 10px rgba(0,0,0,.2)"});
 
-    });
+      // $(".tt-suggestion").css({
+      //   "color":"black",
+      //   "padding": "3px 20px",
+      //  "font-size": "18px",
+      //   "line-height": "24px"
+      // });
+      $(".ttsuggestion.tt-cursor").css({
+      color: "#fff",
+      "background-color": "#0097cf"
+      })
 
-    $(".tt-suggestion").css({
-      "padding": "3px 20px",
-     "font-size": "18px",
-      "line-height": "24px"
-    });
+      $('#searchInput').bind('typeahead:selected', function(obj, datum, name) { 
+        console.log(datum);
+        window.location.href = "./#/subject/"+datum.course;
+});
+
+        $('#searchInput').bind('typeahead:autocompleted', function(obj,datum,name) { 
+          console.log(datum);
+          window.location.href = "./#/subject/"+datum.course;
+});
 
 
 
-    err =>console.log(err)
-    );
+        },err => console.log(err)
+      );
+
+
+
+
+
   }
   
 

@@ -34,7 +34,7 @@ export class TimeslotService {
 		console.log(window.btoa(this._tokenservice.getToken()+":"));
 	 // let params: URLSearchParams = new URLSearchParams();
 	 // params.set('limit', "100");
-    // params.set('cnt', days.toString());
+     // params.set('cnt', days.toString());
     var headers = new Headers();
     //headers.append('Content-Type','application/json');
     headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));

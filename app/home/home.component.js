@@ -51,6 +51,9 @@ System.register(['angular2/core', 'angular2/router', '../courses/courses.service
                     this.getCoursesList();
                     var fds = [{ course: 'math135' }, { course: 'psych101' }, { course: 'che102' }];
                 };
+                HomeComponent.prototype.search = function () {
+                    $(".tt-suggestion:first-child").trigger('click');
+                };
                 HomeComponent.prototype.getCoursesList = function () {
                     var _this = this;
                     this._coursesservice.getCourses().subscribe(function (data) {
@@ -59,15 +62,21 @@ System.register(['angular2/core', 'angular2/router', '../courses/courses.service
                             _this.courseList.push({ course: data.courses[i].id });
                         }
                         console.log(_this.courseList);
-                        var states = new Bloodhound({
+                        var courses = new Bloodhound({
                             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('course'),
                             queryTokenizer: Bloodhound.tokenizers.whitespace,
                             // `states` is an array of state names defined in "The Basics"
                             local: _this.courseList
                         });
-                        $('.typeahead').typeahead(null, {
-                            name: 'states',
-                            source: states,
+                        $('.typeahead').typeahead({
+                            autoselect: true,
+                            hint: true,
+                            highlight: true,
+                            minLength: 1
+                        }, {
+                            name: 'courses',
+                            source: courses,
+                            //course in each object in courses
                             display: 'course',
                             templates: {
                                 empty: [
@@ -82,7 +91,6 @@ System.register(['angular2/core', 'angular2/router', '../courses/courses.service
                             margin: "12px 0",
                             padding: "8px 0",
                             "background-color": " #fff",
-                            "border": "1px solid #ccc",
                             "border": "1px solid rgba(0, 0, 0, 0.2)",
                             "-webkit-border-radius": "8px",
                             " -moz-border-radius": "8px",
@@ -90,14 +98,25 @@ System.register(['angular2/core', 'angular2/router', '../courses/courses.service
                             "-webkit-box-shadow": " 0 5px 10px rgba(0,0,0,.2)",
                             "-moz-box-shadow": " 0 5px 10px rgba(0,0,0,.2)",
                             "box-shadow": "0 5px 10px rgba(0,0,0,.2)" });
-                    });
-                    $(".tt-suggestion").css({
-                        "padding": "3px 20px",
-                        "font-size": "18px",
-                        "line-height": "24px"
-                    });
-                    (function (err) { return console.log(err); });
-                    ;
+                        // $(".tt-suggestion").css({
+                        //   "color":"black",
+                        //   "padding": "3px 20px",
+                        //  "font-size": "18px",
+                        //   "line-height": "24px"
+                        // });
+                        $(".ttsuggestion.tt-cursor").css({
+                            color: "#fff",
+                            "background-color": "#0097cf"
+                        });
+                        $('#searchInput').bind('typeahead:selected', function (obj, datum, name) {
+                            console.log(datum);
+                            window.location.href = "./#/subject/" + datum.course;
+                        });
+                        $('#searchInput').bind('typeahead:autocompleted', function (obj, datum, name) {
+                            console.log(datum);
+                            window.location.href = "./#/subject/" + datum.course;
+                        });
+                    }, function (err) { return console.log(err); });
                 };
                 HomeComponent.prototype.ngOnDestroy = function () {
                     $(window).unbind("scroll");
