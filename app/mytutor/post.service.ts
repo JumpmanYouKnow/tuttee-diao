@@ -25,13 +25,13 @@ export class PostService {
 	  }
 
 	postTimeslot(postObj:postObj) {
-		 let params: URLSearchParams = new URLSearchParams();
-		 params.set('start_time', postObj.start_time);
-		  params.set('end_time',postObj.end_time);
-		  params.set('course_id',postObj.course_id);
-		  params.set('capacity',postObj.capacity.toString());
-		  params.set('fee',postObj.fee.toString());
-		  params.set('address',postObj.address);
+		 // let params: URLSearchParams = new URLSearchParams();
+		 // params.set('start_time', postObj.start_time);
+		 //  params.set('end_time',postObj.end_time);
+		 //  params.set('course_id',postObj.course_id);
+		 //  params.set('capacity',postObj.capacity.toString());
+		 //  params.set('fee',postObj.fee.toString());
+		 //  params.set('address',postObj.address);
 
  			let slot = JSON.stringify ({start_time:postObj.start_time,
 				end_time:postObj.end_time,

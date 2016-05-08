@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router, RouteParams} from 'angular2/router';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {TutorclassService, Timeslot, Comment} from './tutorclass.service'
+import {TutorclassService, Timeslot, Comment,PostObj} from './tutorclass.service'
 
 
 @Component({
@@ -20,12 +20,32 @@ export class TutorclassComponent implements OnInit {
    Subject: string;
    username:string;
    Comment: Comment[];
+   timeid: any;
+   timecourseid: any;
 
     constructor(
     private _routeParams: RouteParams,
     private _tutorclassService: TutorclassService
   ) {
   }
+
+  postAppointment(timeslot: Timeslot) {
+    
+     this.timeid = timeslot.id;
+     this.timecourseid = timeslot.course_id;
+     // console.log(this.timeid);
+     // console.log(this.Subject);
+     let PostObj: PostObj = {
+       id: this.timeid,
+       course_id: this.Subject
+     }
+     console.log(PostObj);
+     this._tutorclassService.postAppointement(PostObj).subscribe(
+       data => console.log(data),
+ 
+       err => console.log(err),
+       )
+      }
 
 
   ngOnInit() {
@@ -59,5 +79,7 @@ export class TutorclassComponent implements OnInit {
   // })
 
   };
+
+
 }
 
