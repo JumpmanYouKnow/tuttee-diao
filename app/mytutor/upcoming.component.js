@@ -37,8 +37,8 @@ System.register(['angular2/core', './timeslot.service', 'angular2/common', 'angu
                     this.modSlot = false;
                 }
                 UpcomingComponent.prototype.getTimeSlots = function () {
+                    // console.log("fuck");
                     var _this = this;
-                    console.log("fuck");
                     this._timeslotservice.getTimeslot().subscribe(function (data) {
                         console.log(data.timeslots);
                         var slots = data.timeslots;

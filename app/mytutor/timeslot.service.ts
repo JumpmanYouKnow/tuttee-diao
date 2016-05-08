@@ -12,16 +12,16 @@ export interface tuttee {
 
 
 export interface Timeslot {
-	id:number,
-	course: string,
-	time: Date,
-	nowPeople: tuttee[];
-	maxPeople: number,
-	duration: number,
-	location: string,
-	tutor_id: number,
-	price: number,
-	description: string
+	// id:number,
+	// course: string,
+	// time: Date,
+	// nowPeople: tuttee[];
+	// maxPeople: number,
+	// duration: number,
+	// location: string,
+	// tutor_id: number,
+	// price: number,
+	// description: string
 }
 
 
@@ -45,8 +45,5 @@ export class TimeslotService {
 
 		// return Promise.resolve(TIMESLOTS);
 	}
-
-
-
 
 }

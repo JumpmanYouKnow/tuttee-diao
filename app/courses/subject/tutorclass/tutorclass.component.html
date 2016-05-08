@@ -26,7 +26,7 @@
                     <td  style="width:10%"><a class ="people"></a>{{timeslot.current_apps}}/{{timeslot.capacity}}</td>
                      <td  style="width:10%"  class="price">{{timeslot.fee}}</td>
                    <!--  <td class="description">{{timeslot.description}}</td> -->
-                    <td><a class="btn" type="submit" (click)="postAppointment(timeslot)" >预订课程</a></td>                
+                    <td><a class="btn" type="submit" (click)="postAppointment(timeslot)"  *ngIf="timeslot.current_apps != timeslot.capacity">预订课程</a></td>                
                 </tr>
                 </tbody>
             </table>    

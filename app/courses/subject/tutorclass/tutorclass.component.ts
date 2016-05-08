@@ -30,22 +30,26 @@ export class TutorclassComponent implements OnInit {
   }
 
   postAppointment(timeslot: Timeslot) {
-    
-     this.timeid = timeslot.id;
-     this.timecourseid = timeslot.course_id;
-     // console.log(this.timeid);
-     // console.log(this.Subject);
-     let PostObj: PostObj = {
-       id: this.timeid,
-       course_id: this.Subject
-     }
-     console.log(PostObj);
-     this._tutorclassService.postAppointement(PostObj).subscribe(
-       data => console.log(data),
- 
-       err => console.log(err),
-       )
+    // if (timeslot.current_apps == timeslot.capacity) {
+    //   alert("the class is full");
+    // }
+    // else {
+      this.timeid = timeslot.id;
+      this.timecourseid = timeslot.course_id;
+      // console.log(this.timeid);
+      // console.log(this.Subject);
+      let PostObj: PostObj = {
+        id: this.timeid,
+        course_id: this.Subject
       }
+      console.log(PostObj);
+      this._tutorclassService.postAppointement(PostObj).subscribe(
+        data => console.log(data),
+
+        err => console.log(err),
+      )
+    }
+    // }
 
 
   ngOnInit() {

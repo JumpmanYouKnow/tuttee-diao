@@ -26,7 +26,7 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 	) {}
 
 	getTimeSlots() {
-		console.log("fuck");
+		// console.log("fuck");
 
 		this._timeslotservice.getTimeslot().subscribe(data => {
 			console.log(data.timeslots);
@@ -103,7 +103,7 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 		this._postservice.deleteSlot(id).subscribe(data=> {
 			console.log(data);
 			this.closeModify();
-			this.Timeslots = this.Timeslots.filter( obj => return obj.id != id);    //O(n)
+			this.Timeslots = this.Timeslots.filter(obj => return obj.id != id);    //O(n)
 		}, err=>console.log(err));
 	}
 

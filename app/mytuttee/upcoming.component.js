@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../mytutor/timeslot.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../mytuttee/timeslot.service', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../mytutor/timeslot.service'], function(expor
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, timeslot_service_1;
+    var core_1, timeslot_service_1, router_1;
     var UpcomingComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', '../mytutor/timeslot.service'], function(expor
             },
             function (timeslot_service_1_1) {
                 timeslot_service_1 = timeslot_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             UpcomingComponent = (function () {
@@ -27,10 +30,24 @@ System.register(['angular2/core', '../mytutor/timeslot.service'], function(expor
                 }
                 UpcomingComponent.prototype.getTimeSlots = function () {
                     var _this = this;
-                    this._timeslotservice.getTimeslot().then(function (timeslot) {
-                        console.log(timeslot);
-                        _this.Timeslots = timeslot;
-                    });
+                    this._timeslotservice.getTimeslot().subscribe(function (data) {
+                        // console.log(data.appointments);
+                        var slots = data.appointments;
+                        for (var i = 0; i < slots.length; i++) {
+                            slots[i].start_time = Date.parse(slots[i].start_time);
+                            slots[i].end_time = Date.parse(slots[i].end_time);
+                        }
+                        _this.Timeslots = slots;
+                        console.log(_this.Timeslots);
+                    }, function (err) { return console.log(err); });
+                };
+                UpcomingComponent.prototype.cancel = function (id) {
+                    var _this = this;
+                    this._timeslotservice.cancel(id).subscribe(function (data) {
+                        console.log(data);
+                        _this.getTimeSlots();
+                        // this.Timeslots = this.Timeslots.filter(obj => return obj.id != id);    
+                    }, function (err) { return console.log(err); });
                 };
                 UpcomingComponent.prototype.ngOnInit = function () {
                     this.getTimeSlots();
@@ -39,7 +56,9 @@ System.register(['angular2/core', '../mytutor/timeslot.service'], function(expor
                     core_1.Component({
                         selector: 'upcoming',
                         templateUrl: './app/mytuttee/upcoming.component.html',
-                        styleUrls: ['./app/mytuttee/upcoming.component.css']
+                        styleUrls: ['./app/mytuttee/upcoming.component.css'],
+                        directives: [router_1.ROUTER_DIRECTIVES],
+                        providers: [timeslot_service_1.TimeslotService],
                     }), 
                     __metadata('design:paramtypes', [timeslot_service_1.TimeslotService])
                 ], UpcomingComponent);

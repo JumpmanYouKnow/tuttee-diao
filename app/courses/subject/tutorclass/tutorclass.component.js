@@ -30,6 +30,10 @@ System.register(['angular2/core', 'angular2/router', './tutorclass.service'], fu
                     this._tutorclassService = _tutorclassService;
                 }
                 TutorclassComponent.prototype.postAppointment = function (timeslot) {
+                    // if (timeslot.current_apps == timeslot.capacity) {
+                    //   alert("the class is full");
+                    // }
+                    // else {
                     this.timeid = timeslot.id;
                     this.timecourseid = timeslot.course_id;
                     // console.log(this.timeid);
@@ -41,6 +45,7 @@ System.register(['angular2/core', 'angular2/router', './tutorclass.service'], fu
                     console.log(PostObj);
                     this._tutorclassService.postAppointement(PostObj).subscribe(function (data) { return console.log(data); }, function (err) { return console.log(err); });
                 };
+                // }
                 TutorclassComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var subject = this._routeParams.get('subject');
