@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', './post.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './post.service', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,24 @@ System.register(['angular2/core', 'angular2/common', './post.service'], function
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, post_service_1;
+    var core_1, post_service_1, router_1;
     var PostComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
-            },
             function (post_service_1_1) {
                 post_service_1 = post_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             PostComponent = (function () {
-                function PostComponent(_postservice) {
+                function PostComponent(_postservice, _router) {
                     this._postservice = _postservice;
+                    this._router = _router;
                     this.modal = {};
                 }
                 PostComponent.prototype.ngAfterViewInit = function () {
@@ -54,6 +55,7 @@ System.register(['angular2/core', 'angular2/common', './post.service'], function
                     });
                 };
                 PostComponent.prototype.postSlot = function (value) {
+                    var _this = this;
                     var start_time = moment(document.getElementById('datetimepicker').value);
                     var end_time = start_time.valueOf() + this.duration * 60 * 1000;
                     this.end_time = moment(end_time).format('YYYY-MM-DD[T]HH:mm:ss.SSSZ');
@@ -70,7 +72,11 @@ System.register(['angular2/core', 'angular2/common', './post.service'], function
                         duration: this.duration
                     };
                     console.log(postObj);
-                    this._postservice.postTimeslot(postObj).subscribe(function (data) { return console.log(data); }, function (err) { return console.log(err); });
+                    this._postservice.postTimeslot(postObj).subscribe(function (data) {
+                        console.log(data);
+                        alert("发布成功！");
+                        _this._router.navigate(['Upcoming']);
+                    }, function (err) { return alert(JSON.stringify(err._body)); });
                     // console.log("this si invoded");
                     // console.log(value);
                 };
@@ -79,9 +85,8 @@ System.register(['angular2/core', 'angular2/common', './post.service'], function
                         selector: 'post',
                         templateUrl: './app/mytutor/post.component.html',
                         styleUrls: ['./app/mytutor/post.component.css'],
-                        directives: [common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [post_service_1.PostService])
+                    __metadata('design:paramtypes', [post_service_1.PostService, router_1.Router])
                 ], PostComponent);
                 return PostComponent;
             }());

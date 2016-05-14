@@ -8,6 +8,10 @@
 }
 html{
     box-sizing:border-box;
+    background-color: #FFE0B2;
+}
+#main{
+    background-color: #FFE0B2;
 }
 
 
@@ -28,13 +32,14 @@ nav a.button-collapse i {
 }
 
 .introbox{
-
+    
   /*height:300px;*/
     /*width:150px;*/
     border-radius: 20%;
     border: 1px solid grey;
     margin-top:50px;
     margin-bottom:50px;
+    margin-right:20px;
 }
 
 
@@ -52,4 +57,10 @@ nav a.button-collapse i {
 
 #intro{
     margin-top:100px;
+}
+
+#aboutUsBox {
+    padding:40px;
+    font-size: 18px;
+    line-height: 25px;
 }

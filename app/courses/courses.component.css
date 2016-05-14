@@ -37,6 +37,11 @@ height:100%;
 	  top:-0.1rem;
 	  right:0.1rem;
 }
+
+.courseBtn{
+  margin:10px;
+  text-align: center;
+}
 /*
 .preloader-wrapper {
   height:1000px;

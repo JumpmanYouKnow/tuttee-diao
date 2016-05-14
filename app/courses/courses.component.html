@@ -24,13 +24,18 @@
         </div>
 
 
-
+        <div class = "">
+          
+        </div>
     
 
       <!--   <div *ngFor="#course of Courses | search: term " class="col s12 m4"> -->
 
-        <div *ngFor="#course of Courses| paginate: { itemsPerPage: 9, currentPage: p }" class="col s12 m6 l4">
-
+        <div *ngFor="#course of Courses| paginate: { itemsPerPage: 36, currentPage: p }" class="col s12 m6 l2">
+        <div class = "courseBtn">
+          <a class="btn orange darken-2" (click)="gotoDetail(course.id)">{{course.id}}</a>
+          </div>
+<!--  
           <div class="card">
               <div class="card-image s12 m12 l12">
                 
@@ -48,8 +53,9 @@
               <a>老师数量：{{course.total_tutors}}</a>
               <a>销量：{{course.sales}}</a>
             </div>
-          </div>
+          </div> -->
         </div>
+
       </div>         
     </div>
     <section>

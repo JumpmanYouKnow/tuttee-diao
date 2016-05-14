@@ -5,7 +5,7 @@
 <div class="row">
 <div class="form-group col s6 m6 l6">
   <label for="power">Course</label>
-  <select class="form-control" ngControl = "course_id" required [(ngModel)] = "course_id">
+  <select class="form-control" required ngControl = "course_id" required [(ngModel)] = "course_id">
      <option value="math135">math135</option>
       <option value="cs135">cs135</option>
       <option value="econ101">econ101</option>
@@ -17,13 +17,13 @@
 
 
    <div class="input-field col s6 m6 l6">
- 	<input  id="datetimepicker"  name = "start_time" type="text" ngControl = "start_time" [(ngModel)] = "start_time" >
+ 	<input  id="datetimepicker"  required name = "start_time" type="text" ngControl = "start_time" [(ngModel)] = "start_time" >
  <label>Select the Time</label>
  </div>
  </div>
 <div class="row">
   <div class="input-field col s6 m6 l6">
-  <input type="number" ngControl = "duration" [(ngModel)] = "duration">
+  <input type="number" required ngControl = "duration" [(ngModel)] = "duration">
  <label>Duration (in minutes)</label>
  </div>
 
@@ -42,13 +42,13 @@
  
 <div class="row">
   <div class="input-field col s6 m6 l6">
-       	<input  type="text" ngControl="address" [(ngModel)] = "address">
+       	<input  type="text" required ngControl="address" [(ngModel)] = "address">
         <label>Address</label>
  </div>
 
 
    <div class="input-field col s6 m6 l6" >
-       	<input  type="number" ngControl="fee" [(ngModel)] = "fee">
+       	<input  type="number" required ngControl="fee" [(ngModel)] = "fee">
         <label>Fee</label>
  </div>
 </div>

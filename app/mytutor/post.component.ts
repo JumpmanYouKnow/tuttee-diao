@@ -1,12 +1,12 @@
     import {Component,AfterViewInit} from 'angular2/core';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
 import {PostService,postObj} from './post.service'
+import {Router} from 'angular2/router'
 
 @Component({
 	selector:'post',
 	templateUrl: './app/mytutor/post.component.html',
 	styleUrls: ['./app/mytutor/post.component.css'],
-	directives:[FORM_DIRECTIVES]
 
 })
 
@@ -26,7 +26,7 @@ export class PostComponent {
 	public modal:Object = {};
 
 
-	constructor (private _postservice: PostService) {
+	constructor (private _postservice: PostService, private _router: Router) {
 
 	}
 
@@ -89,8 +89,12 @@ postSlot(value:any) {
   	}
 
  	console.log(postObj);
-  	this._postservice.postTimeslot(postObj).subscribe(data => console.log(data),
-      err => console.log(err));
+  	this._postservice.postTimeslot(postObj).subscribe(data => {
+      console.log(data);
+      alert("发布成功！");
+      this._router.navigate(['Upcoming']);
+    },
+      err => alert(JSON.stringify(err._body)));
 	// console.log("this si invoded");
 	// console.log(value);
 	
