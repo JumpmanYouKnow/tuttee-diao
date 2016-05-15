@@ -11,12 +11,12 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 
 @Component({
 	selector: 'course',
-	pipes:[SearchPipe],
+
 	styleUrls: ['./app/courses/courses.component.css'],
 	templateUrl: './app/courses/courses.component.html',
 	  providers: [PaginationService],
 	    directives: [PaginationControlsCmp],
-	     pipes: [PaginatePipe]
+	     pipes: [PaginatePipe,SearchPipe]
 
 })
 
@@ -25,7 +25,8 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 	public Courses: Course[];
 	public test :string;
     public token: string;
-    public loading: boolean = true;        
+    public loading: boolean = true;
+    public categories:string[];     
 
 	constructor(private _router: Router,
 	            private _coursesservices: CoursesService,
@@ -59,7 +60,9 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 	
 	}
 	ngOnInit() {
-				this.getCourse();
+		this.getCourse();
+
+		this.categories = ["actsc","art","cs","math","science","stat"];
 
 		//this.getCourse();
 		// console.log("the token is",this.token);

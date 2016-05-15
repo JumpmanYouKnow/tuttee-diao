@@ -64,6 +64,7 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
                 };
                 CoursesComponent.prototype.ngOnInit = function () {
                     this.getCourse();
+                    this.categories = ["actsc", "art", "cs", "math", "science", "stat"];
                     //this.getCourse();
                     // console.log("the token is",this.token);
                     //	console.log("the token is : " + this._tokenservice.getToken());
@@ -77,12 +78,11 @@ System.register(['angular2/core', './courses.service', 'angular2/router', '../se
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'course',
-                        pipes: [search_pipe_1.SearchPipe],
                         styleUrls: ['./app/courses/courses.component.css'],
                         templateUrl: './app/courses/courses.component.html',
                         providers: [ng2_pagination_1.PaginationService],
                         directives: [ng2_pagination_1.PaginationControlsCmp],
-                        pipes: [ng2_pagination_1.PaginatePipe]
+                        pipes: [ng2_pagination_1.PaginatePipe, search_pipe_1.SearchPipe]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, token_service_1.TokenService])
                 ], CoursesComponent);
