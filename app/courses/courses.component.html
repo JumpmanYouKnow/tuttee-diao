@@ -1,17 +1,9 @@
-<div  id = "jum">
-    <!-- <navbar></navbar> -->
-</div>
+<!-- <div  id = "jum">
+    <navbar></navbar>
+</div> -->
 <h4 class="center">课程总览</h4>
-
-
 <section id="classcatbox">
-
-
-
-    <div>               
-      <div class="row">
-      
-       <div *ngIf = "loading" class="preloader-wrapper big active col offset-s6">
+     <div *ngIf = "loading" class="preloader-wrapper big active col offset-s6">
           <div class="spinner-layer spinner-blue-only">
             <div class="circle-clipper left">
               <div class="circle"></div>
@@ -24,14 +16,24 @@
         </div>
 
 
-        <div class = "">
-          
-        </div>
+    <div>               
+      <div class="row">
+        
+    <div *ngFor ="#category of categories" class = "col s12 m6 l2 courseBtn">
+
+            <p class = "amber row">{{category|uppercase}}</p>
+
+
     
+      
+
+
+
+
 
       <!--   <div *ngFor="#course of Courses | search: term " class="col s12 m4"> -->
-
-        <div *ngFor="#course of Courses| paginate: { itemsPerPage: 36, currentPage: p }" class="col s12 m6 l2">
+    
+        <div *ngFor="#course of (Courses|search:category)" class = "row">
         <div class = "courseBtn">
           <a class="btn orange darken-2" (click)="gotoDetail(course.id)">{{course.id}}</a>
           </div>
@@ -55,13 +57,14 @@
             </div>
           </div> -->
         </div>
+        </div>
 
       </div>         
     </div>
     <section>
 
-    <pagination-controls (pageChange)="p = $event" #api></pagination-controls>
-
+<!--     <pagination-controls (pageChange)="p = $event" #api></pagination-controls>
+ -->
 
 
 

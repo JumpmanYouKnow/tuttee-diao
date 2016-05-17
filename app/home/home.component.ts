@@ -89,7 +89,7 @@ export class HomeComponent {
             'unable to find any courses that match the current query',
           '</div>'
         ].join('\n'),
-          suggestion: Handlebars.compile('<div><a href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
+          suggestion: Handlebars.compile('<div><a style="color:red" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
         
           }
       });

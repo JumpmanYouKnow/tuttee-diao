@@ -22,8 +22,31 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function SearchPipe() {
                 }
                 SearchPipe.prototype.transform = function (value, _a) {
-                    var term = _a[0];
-                    return value.filter(function (item) { return item.startsWith(term); });
+                    var cat = _a[0];
+                    if (!value) {
+                        return null;
+                    }
+                    else {
+                        console.log(value);
+                        if (cat == "art") {
+                            var artsList = ["econ", "afm"];
+                            var courses = [];
+                            for (var i = 0; i < artsList.length; i++) {
+                                courses = courses.concat(value.filter(function (item) { return item.id.startsWith(artsList[i]); }));
+                            }
+                            return courses;
+                        }
+                        else if (cat == "science") {
+                            var sciList = ["chem", "biol", "che"];
+                            var courses = [];
+                            for (var i = 0; i < sciList.length; i++) {
+                                courses = courses.concat(value.filter(function (item) { return item.id.startsWith(sciList[i]); }));
+                            }
+                            return courses;
+                        }
+                        else
+                            return value.filter(function (item) { return item.id.startsWith(cat); });
+                    }
                 };
                 SearchPipe = __decorate([
                     core_1.Pipe({
