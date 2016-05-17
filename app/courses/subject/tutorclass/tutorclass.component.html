@@ -4,7 +4,8 @@
 
 <section>
     <div class="container" id="table">
-            <div id="table-scroll">
+            <!-- <div id="table-scroll"> -->
+            <div class="card">
             <table class="highlight center">
                 <thead>
                 <tr>
@@ -25,11 +26,12 @@
                     <td  style="width:10%"  class="duration">{{ (timeslot.end_time - timeslot.start_time)/1000/60 }}</td>
                     <td  style="width:10%"><a class ="people"></a>{{timeslot.current_apps}}/{{timeslot.capacity}}</td>
                      <td  style="width:10%"  class="price">{{timeslot.fee}}</td>
-                   <!--  <td class="description">{{timeslot.description}}</td> -->
+                    <td class="description">{{timeslot.description}}</td>
                     <td><a class="btn" type="submit" (click)="postAppointment(timeslot)"  *ngIf="timeslot.current_apps != timeslot.capacity">预订课程</a></td>                
                 </tr>
                 </tbody>
             </table>    
+            <!-- </div> -->
             </div>
         </div>
         </section>

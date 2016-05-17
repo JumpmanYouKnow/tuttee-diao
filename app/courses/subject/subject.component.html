@@ -11,7 +11,7 @@
 </section>
 
 <section>
- <div>
+
       <div class="row">
           
        <div *ngIf = "loading" class="preloader-wrapper big active col offset-s6">
@@ -26,8 +26,9 @@
           </div>
         </div>
 
-        <div *ngFor="#teacher of Teacher" class="col s12 m4">
-          <div class="card">
+        <div *ngFor="#teacher of Teacher" >
+
+<!--           <div class="card">
               <div class="card-image s12 m12 l12">
                
               <a class="btn-floating btn waves-effect waves-light red bookmark"><i class="fa fa-2x fa-bookmark bookmark-icon" ></i></a> 
@@ -48,8 +49,41 @@
               <a>均价：{{teacher.avgpr}}</a>
               <a>销量：{{teacher.sales}}</a>
             </div>
-          </div>
+          </div> -->
+          
+          <div class=" card " > 
+
+          <div class="row">
+
+          <div class="col s12 m12 l2  border-left center">
+       <!--    <div class="row"> -->
+          <img src="http://placehold.it/100x100" class="circle pic">
+       <!--    </div> -->
+          <!-- <div class="row"> -->
+         <h4 class="center"> {{teacher.username}} </h4>
+          <!-- </div> -->
         </div>
+
+        <div class="col s12 m12 l7">
+         {{teacher.teacher_descripition}} 
+         <div style="font-size: 20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It 
+         </div>
+        </div>
+
+        <div class="col s12 m12 l3 ">
+        <div class="border-right center">
+         <h5>均价：{{teacher.avgpr}}</h5>
+         <h5>销量：{{teacher.sales}}</h5>
+         
+         <a class="waves-effect waves-light btn" (click)="gotoDetail(Subject.id,teacher.id)"> 
+              Check Timeslot
+            </a>
+        </div>
+        </div>
+
+       </div>
+        </div>
+        
       </div>                 
     </div>
 
