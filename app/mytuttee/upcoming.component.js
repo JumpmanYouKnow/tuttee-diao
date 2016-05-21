@@ -32,12 +32,14 @@ System.register(['angular2/core', '../mytuttee/timeslot.service', 'angular2/rout
                     var _this = this;
                     this._timeslotservice.getTimeslot().subscribe(function (data) {
                         // console.log(data.appointments);
+                        console.log(data);
                         var slots = data.appointments;
+                        console.log(slots);
                         for (var i = 0; i < slots.length; i++) {
-                            slots[i].start_time = Date.parse(slots[i].start_time);
-                            slots[i].end_time = Date.parse(slots[i].end_time);
+                            slots[i].timeslot.start_time = Date.parse(slots[i].timeslot.start_time);
+                            slots[i].timeslot.end_time = Date.parse(slots[i].timeslot.end_time);
                         }
-                        _this.Timeslots = slots;
+                        _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time > Date.now(); });
                         console.log(_this.Timeslots);
                     }, function (err) { return console.log(err); });
                 };

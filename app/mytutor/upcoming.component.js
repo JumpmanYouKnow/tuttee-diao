@@ -46,7 +46,7 @@ System.register(['angular2/core', './timeslot.service', 'angular2/common', 'angu
                             slots[i].start_time = Date.parse(slots[i].start_time);
                             slots[i].end_time = Date.parse(slots[i].end_time);
                         }
-                        _this.Timeslots = slots;
+                        _this.Timeslots = slots.filter(function (item) { return item.start_time > Date.now(); });
                     }, function (err) { return console.log(err); });
                     // this._timeslotservice.getTimeslot().then(timeslot => {
                     // 	console.log(timeslot);

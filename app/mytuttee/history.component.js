@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../mytutor/timeslot.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../mytuttee/timeslot.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27,14 +27,18 @@ System.register(['angular2/core', '../mytutor/timeslot.service'], function(expor
                 }
                 HistoryComponent.prototype.getTimeSlots = function () {
                     var _this = this;
-                    this._timeslotservice.getTimeslot().then(function (timeslot) {
-                        console.log(timeslot);
-                        _this.Timeslots = timeslot;
-                        setTimeout(function () {
-                            // $('.tooltip').tooltipster();
-                            $('.modal-trigger').leanModal();
-                        }, 500);
-                    });
+                    this._timeslotservice.getTimeslot().subscribe(function (data) {
+                        // console.log(data.appointments);
+                        console.log(data);
+                        var slots = data.appointments;
+                        console.log(slots);
+                        for (var i = 0; i < slots.length; i++) {
+                            slots[i].timeslot.start_time = Date.parse(slots[i].timeslot.start_time);
+                            slots[i].timeslot.end_time = Date.parse(slots[i].timeslot.end_time);
+                        }
+                        _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time < Date.now(); });
+                        console.log(_this.Timeslots);
+                    }, function (err) { return console.log(err); });
                 };
                 HistoryComponent.prototype.ngOnInit = function () {
                     this.getTimeSlots();
@@ -43,7 +47,8 @@ System.register(['angular2/core', '../mytutor/timeslot.service'], function(expor
                     core_1.Component({
                         selector: 'history',
                         templateUrl: './app/mytuttee/history.component.html',
-                        styleUrls: ['./app/mytuttee/history.component.css']
+                        styleUrls: ['./app/mytuttee/history.component.css'],
+                        providers: [timeslot_service_1.TimeslotService],
                     }), 
                     __metadata('design:paramtypes', [timeslot_service_1.TimeslotService])
                 ], HistoryComponent);

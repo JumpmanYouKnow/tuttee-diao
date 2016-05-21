@@ -20,15 +20,14 @@
                 </thead>
              
                 <tbody>
-                <tr *ngFor = "#timeslot of Timeslots">
-                    <td  style="width:15%"class="course">{{timeslot.course}}</td>  
-                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>
-                    <td  style="width:10%" class="location">{{timeslot.location}}</td>
-                    <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
-                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn modal-trigger" >{{timeslot.nowPeople.length}}/{{timeslot.maxPeople}}</a></td>
-                     <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
+                       <tr *ngFor = "#timeslot of Timeslots">
+                    <td  style="width:15%"class="course">{{timeslot.course_id}}</td>  
+                    <td  style="width:10%" class="time">{{timeslot.start_time | date: 'medium'}}</td>
+                    <td  style="width:10%" class="location">{{timeslot.address}}</td>
+                    <td  style="width:10%"  class="duration">{{(timeslot.end_time - timeslot.start_time)/1000/60}}</td>
+                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn orange darken-2 modal-trigger" >{{timeslot.current_apps}}/{{timeslot.capacity}}</a></td>
+                     <td  style="width:10%"  class="price">{{timeslot.fee }}</td>
                     <td class="description">{{timeslot.description}}</td>
-                   
                       <!-- Modal Trigger -->
                   <!-- Modal Structure -->
                   <div id="{{timeslot.id}}" class="modal">
@@ -43,17 +42,16 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="#people of timeslot.nowPeople">
-                          <td>{{people.name}}</td>
-                          <td>{{people.email}}</td>
-                          <td>{{people.wechat}}</td>
+                        <tr *ngFor="#app of timeslot.appointments">
+                          <td>{{app.student.id}}</td>
+                          <td>{{app.student.username}}</td>
+                          <td>{{app.timestamp}}</td>
+                          <td><a class="btn orange darken-2">删</a></td>
                         </tr>
                       </tbody>
                              </table>
                     </div>
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
+  
                   </div>
 
                                  

@@ -30,14 +30,18 @@ System.register(['angular2/core', './timeslot.service', 'angular2/router'], func
                 }
                 HistoryComponent.prototype.getTimeSlots = function () {
                     var _this = this;
-                    this._timeslotservice.getTimeslot().then(function (timeslot) {
-                        console.log(timeslot);
-                        _this.Timeslots = timeslot;
-                        setTimeout(function () {
-                            // $('.tooltip').tooltipster();
-                            $('.modal-trigger').leanModal();
-                        }, 500);
-                    });
+                    this._timeslotservice.getTimeslot().subscribe(function (data) {
+                        console.log(data.timeslots);
+                        var slots = data.timeslots;
+                        for (var i = 0; i < slots.length; i++) {
+                            slots[i].start_time = Date.parse(slots[i].start_time);
+                            slots[i].end_time = Date.parse(slots[i].end_time);
+                        }
+                        _this.Timeslots = slots.filter(function (item) { return item.start_time < Date.now(); });
+                    }, function (err) { return console.log(err); });
+                    setTimeout(function () {
+                        return $('.modal-trigger').leanModal();
+                    }, 500);
                 };
                 HistoryComponent.prototype.ngOnInit = function () {
                     this.getTimeSlots();

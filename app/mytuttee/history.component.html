@@ -20,19 +20,21 @@
                 </thead>
              
                 <tbody>
-                <tr *ngFor = "#timeslot of Timeslots">
-                    <td  style="width:15%"class="course">{{timeslot.course}}</td>  
-                    <td  style="width:10%" class="time">{{timeslot.time| date:'EEE,Mdyyyy h:mm a'}}</td>
-                    <td  style="width:10%" class="location">{{timeslot.location}}</td>
-                    <td  style="width:10%"  class="duration">{{timeslot.duration}}</td>
-                    <td  style="width:10%"><a  >{{timeslot.nowPeople.length}}/{{timeslot.maxPeople}}</a></td>
-                     <td  style="width:10%"  class="price">{{timeslot.price | currency:'USD':true}}</td>
-                    <td class="description">{{timeslot.description}}</td>
-                    <td class= "review  modal-trigger" [attr.data-target]="timeslot.id"><a class="btn">评价</a></td>
+                <tr  *ngFor = "#timeslot of Timeslots">
+                    <td  style="width:15%"class="course">{{timeslot.timeslot.course}}</td>  
+                    <td  style="width:10%" class="time">{{timeslot.timeslot.start_time| date: 'medium'}}</td>
+                    <td  style="width:10%" class="location">{{timeslot.timeslot.address}}</td>
+                    <td  style="width:10%"  class="duration">{{(timeslot.timeslot.end_time- timeslot.timeslot.start_time)/1000/60}}</td>
+                    <td  style="width:10%">{{timeslot.timeslot.current_apps}}/{{timeslot.timeslot.capacity}} </td>
+                     <td  style="width:10%"  class="price">{{timeslot.timeslot.fee | currency:'USD':true}}</td>
+                    <td class="description">{{timeslot.timeslot.description}}</td>
+                     <td class= "review  modal-trigger" [attr.data-target]="timeslot.id"><a class="btn orange darken-2">评价</a></td>
+             
+                   
                    
                       <!-- Modal Trigger -->
                       <!-- Modal Structure -->
-                  <div id="{{timeslot.id}}" class="modal">
+                  <div id="{{timeslot.timeslot.id}}" class="modal">
 
                     <div class="modal-content">
                    <form class="col s12">
@@ -51,5 +53,5 @@
             
 
             </div>
-
+                </tr>
 

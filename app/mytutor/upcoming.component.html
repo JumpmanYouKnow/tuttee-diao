@@ -1,6 +1,6 @@
 <div class = "row">
 <h4 class = "col">即将上的</h4>
- <a class = "col btn" [routerLink]= "['Post']">开新课</a>
+ <a class = "col btn orange darken-2" [routerLink]= "['Post']">开新课</a>
 
 </div>
 
@@ -21,7 +21,7 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                           <option value="6">6</option>
+                        <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
                         <option value="9">9</option>
@@ -56,16 +56,19 @@
                     <label class = "active" length="20">Description - no more than 20 chars</label>
                     </div> -->
 
-            <button type="submit" class = "btn">save</button>
-            <a class="btn" (click)="closeModify()">close</a>
+            <button type="submit" class = "btn orange darken-2">save</button>
+            <a class="btn orange darken-2" (click)="closeModify()">close</a>
             <a class="btn red" (click)="deleteSlot(modSlot.id)">DELETE</a>
             </div>
 
              </form>
+             <div *ngIf = "!Timeslots">
+                  你没课
+             </div>
 
          
-             <div id="no-more-tables">
-            <table class="responsive-table">
+             <div *ngIf = "Timeslots" id="no-more-tables">
+            <table class="responsive-table card">
                 <thead>
                 <tr>
                     <th data-field="course">课名</th>  
@@ -84,10 +87,10 @@
                     <td  style="width:10%" class="time">{{timeslot.start_time | date: 'medium'}}</td>
                     <td  style="width:10%" class="location">{{timeslot.address}}</td>
                     <td  style="width:10%"  class="duration">{{(timeslot.end_time - timeslot.start_time)/1000/60}}</td>
-                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn modal-trigger" >{{timeslot.current_apps}}/{{timeslot.capacity}}</a></td>
+                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn orange darken-2 modal-trigger" >{{timeslot.current_apps}}/{{timeslot.capacity}}</a></td>
                      <td  style="width:10%"  class="price">{{timeslot.fee }}</td>
                     <td class="description">{{timeslot.description}}</td>
-                    <td style="width:1%"> <a class = "btn" (click)="modifyOpen(timeslot)"> modify</a></td>
+                    <td style="width:1%"> <a class = "btn orange darken-2" (click)="modifyOpen(timeslot)"> modify</a></td>
                       <!-- Modal Trigger -->
                   <!-- Modal Structure -->
                   <div id="{{timeslot.id}}" class="modal">
@@ -106,13 +109,10 @@
                           <td>{{app.student.id}}</td>
                           <td>{{app.student.username}}</td>
                           <td>{{app.timestamp}}</td>
-                          <td><a class="btn">删</a></td>
+                          <td><a class="btn orange darken-2">删</a></td>
                         </tr>
                       </tbody>
                              </table>
-                    </div>
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
                     </div>
                   </div>
 

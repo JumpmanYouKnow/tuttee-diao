@@ -20,13 +20,15 @@ export class UpcomingComponent {
 		
 		this._timeslotservice.getTimeslot().subscribe(data => {
 			// console.log(data.appointments);
+			console.log(data);
 			let slots = data.appointments;
+			console.log(slots);
 			for (let i = 0; i < slots.length; i++) {
-				slots[i].start_time = Date.parse(slots[i].start_time);
-				slots[i].end_time = Date.parse(slots[i].end_time);
+				slots[i].timeslot.start_time = Date.parse(slots[i].timeslot.start_time);
+				slots[i].timeslot.end_time = Date.parse(slots[i].timeslot.end_time);
 			}
+			this.Timeslots = slots.filter(item => item.timeslot.start_time > Date.now());
 
-			this.Timeslots = slots;
 			console.log(this.Timeslots);
 
 		}

@@ -36,7 +36,7 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
               slots[i].end_time = Date.parse(slots[i].end_time);
           }
         
-			this.Timeslots = slots;
+		this.Timeslots = slots.filter(item => item.start_time > Date.now());
 
 			}
 			, err=> console.log(err));
