@@ -30,7 +30,9 @@ var TutorclassComponent = (function () {
             course_id: this.Subject
         };
         console.log(PostObj);
-        this._tutorclassService.postAppointement(PostObj).subscribe(function (data) { return console.log(data); }, function (err) { return console.log(err); });
+        this._tutorclassService.postAppointement(PostObj).subscribe(function (data) { return (console.log(data),
+            alert(data.student.username + ' successfully book this course')); }, function (err) { return (console.log(err),
+            alert(err._body)); });
     };
     // }
     TutorclassComponent.prototype.ngOnInit = function () {
