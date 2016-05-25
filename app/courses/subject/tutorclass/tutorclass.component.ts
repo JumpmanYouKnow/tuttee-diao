@@ -45,15 +45,15 @@ export class TutorclassComponent implements OnInit {
       console.log(PostObj);
       this._tutorclassService.postAppointement(PostObj).subscribe(
       
-      data => (console.log(data),
-                     alert(data.student.username + ' successfully book this course' )
-),
-              
-        err => (console.log(err),
-      alert(err._body)
-      ),
+      data => { console.log(data);
+                alert(data.student.username + ' successfully book this course');},
+        err => {console.log(err);
+                alert(err._body);
+              }
+
+    );
     }
-    // }
+
 
 
   ngOnInit() {

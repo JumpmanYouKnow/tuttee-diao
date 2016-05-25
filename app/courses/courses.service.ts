@@ -32,19 +32,21 @@ export class CoursesService {
 	  }
 
 	getCourses() {
-		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
-  console.log(data);
-});
+// 		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
+//   console.log(data);
+// });
+       
+
 		 // let params: URLSearchParams = new URLSearchParams();
 		 // params.set('limit', "100");
 		 //params.set('_',(new Date().getTime()).toString());
 		// params.set('cnt', days.toString());
-		var headers = new Headers();
+	//	var headers = new Headers();
 		//headers.append('Content-Type','application/json');
-		headers.append('Authorization',this._tokenservice.getToken());
+		//headers.append('Authorization',this._tokenservice.getToken());
 
 
-		return this._http.get('http://127.0.0.1:5000/api/courses',{headers:headers})
+		return this._http.get('http://127.0.0.1:5000/api/courses')
 		   .map(res => res.json());
 
 		//return Promise.resolve(COURSES);

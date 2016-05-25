@@ -13,15 +13,24 @@ var http_1 = require('@angular/http');
 var BetutorComponent = (function () {
     function BetutorComponent(_http) {
         this._http = _http;
-        this.fuck = "default";
+        this.Python = "Python";
+        this.Node = "Node";
     }
     BetutorComponent.prototype.test = function () {
         var _this = this;
         this._http.get("http://localhost:5000").toPromise().then(function (data) {
             console.log(data);
-            _this.fuck = data._body;
+            _this.Python = data._body;
         });
-        // map(res => res.json()).subscribe(data => this.fuck = JSON.stringify(data));
+    };
+    ;
+    BetutorComponent.prototype.testA = function () {
+        var _this = this;
+        this._http.get("http://localhost:5500/shit").toPromise().then(function (data) {
+            console.log(data);
+            _this.Node = data._body;
+            // map(res => res.json()).subscribe(data => this.fuck = JSON.stringify(data));
+        });
     };
     BetutorComponent = __decorate([
         core_1.Component({

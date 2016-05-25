@@ -13,6 +13,7 @@ var courses_service_1 = require('./courses.service');
 var router_deprecated_1 = require('@angular/router-deprecated');
 //import {SubjectComponent} from 'subject/subject.component';
 var token_service_1 = require('../services/token.service');
+var search_pipe_1 = require('./search-pipe');
 // import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 var CoursesComponent = (function () {
     function CoursesComponent(_router, _coursesservices, _tokenservice) {
@@ -61,6 +62,9 @@ var CoursesComponent = (function () {
             selector: 'course',
             styleUrls: ['./app/courses/courses.component.css'],
             templateUrl: './app/courses/courses.component.html',
+            // providers: [PaginationService],
+            //   directives: [PaginationControlsCmp],
+            pipes: [search_pipe_1.SearchPipe]
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, courses_service_1.CoursesService, token_service_1.TokenService])
     ], CoursesComponent);

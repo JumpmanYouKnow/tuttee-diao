@@ -9,14 +9,22 @@ import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
 
 
 export class BetutorComponent {
-	fuck:string = "default";
+	Python:string = "Python";
+	Node:string = "Node";
+
 	constructor(private _http: Http) {}
 
 	test() {
 		this._http.get("http://localhost:5000").toPromise().then(data => {
 			console.log(data);
-			this.fuck = data._body;
-		});
+			this.Python = data._body;
+		})};
+
+	testA(){
+		this._http.get("http://localhost:5500/shit").toPromise().then(data => {
+			console.log(data);
+			this.Node = data._body;
 		// map(res => res.json()).subscribe(data => this.fuck = JSON.stringify(data));
+	})
 	}
 }

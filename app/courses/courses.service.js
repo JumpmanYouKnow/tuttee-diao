@@ -17,17 +17,17 @@ var CoursesService = (function () {
         this._tokenservice = _tokenservice;
     }
     CoursesService.prototype.getCourses = function () {
-        $.get("http://127.0.0.1:5000/api/courses", function (data) {
-            console.log(data);
-        });
+        // 		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
+        //   console.log(data);
+        // });
         // let params: URLSearchParams = new URLSearchParams();
         // params.set('limit', "100");
         //params.set('_',(new Date().getTime()).toString());
         // params.set('cnt', days.toString());
-        var headers = new http_1.Headers();
+        //	var headers = new Headers();
         //headers.append('Content-Type','application/json');
-        headers.append('Authorization', this._tokenservice.getToken());
-        return this._http.get('http://127.0.0.1:5000/api/courses', { headers: headers })
+        //headers.append('Authorization',this._tokenservice.getToken());
+        return this._http.get('http://127.0.0.1:5000/api/courses')
             .map(function (res) { return res.json(); });
         //return Promise.resolve(COURSES);
     };

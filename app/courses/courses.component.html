@@ -33,7 +33,7 @@
 
       <!--   <div *ngFor="#course of Courses | search: term " class="col s12 m4"> -->
     
-        <div *ngFor="let course of (Courses|search:category)" class = "row">
+        <div *ngFor="let course of (Courses| search:category)" class = "row">
         <div class = "courseBtn">
           <a class="btn orange darken-2" (click)="gotoDetail(course.id)">{{course.id}}</a>
           </div>

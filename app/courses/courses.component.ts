@@ -15,7 +15,7 @@ import{SearchPipe} from './search-pipe'
 	templateUrl: './app/courses/courses.component.html',
 	  // providers: [PaginationService],
 	  //   directives: [PaginationControlsCmp],
-	  //    pipes: [PaginatePipe,SearchPipe]
+	     pipes: [SearchPipe]
 
 })
 
