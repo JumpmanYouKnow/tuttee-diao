@@ -1,6 +1,6 @@
-import {Injectable} from 'angular2/core';
-// import {LocalStorage} from "../angular2-localstorage/LocalStorage";
-import {HTTP_PROVIDERS,Http,Headers} from 'angular2/http';
+import {Injectable} from '@angular/core';
+// import {LocalStorage} from "../@angular-localstorage/LocalStorage";
+import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
 
 @Injectable()
 export class TokenService {

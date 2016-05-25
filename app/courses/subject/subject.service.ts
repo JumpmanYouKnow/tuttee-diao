@@ -1,6 +1,6 @@
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
 import {SUBJECT} from './mock-subject';
-import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from 'angular2/http';
+import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from '@angular/http';
 import {TokenService} from '../../services/token.service'
 
 export interface Teacher {

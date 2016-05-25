@@ -1,6 +1,6 @@
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
 import {TUTPROFILES} from './mock-tutprofile'
-import {HTTP_PROVIDERS,Http,Headers} from 'angular2/http';
+import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
 
 
 export interface Reviews {

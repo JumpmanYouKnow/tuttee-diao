@@ -1,22 +1,21 @@
-import {Component,OnInit,AfterViewInit} from 'angular2/core';
+import {Component,OnInit,AfterViewInit} from '@angular/core';
 import {CoursesService,Course} from './courses.service';
-import {Router,RouteData} from 'angular2/router';
+import {Router,RouteData} from '@angular/router-deprecated';
 import {NavbarComponent} from '../other/navbar.component'
 //import {SubjectComponent} from 'subject/subject.component';
 import {TokenService} from '../services/token.service'
 import{SearchPipe} from './search-pipe'
 
-import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
-
+// import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 
 @Component({
 	selector: 'course',
 
 	styleUrls: ['./app/courses/courses.component.css'],
 	templateUrl: './app/courses/courses.component.html',
-	  providers: [PaginationService],
-	    directives: [PaginationControlsCmp],
-	     pipes: [PaginatePipe,SearchPipe]
+	  // providers: [PaginationService],
+	  //   directives: [PaginationControlsCmp],
+	  //    pipes: [PaginatePipe,SearchPipe]
 
 })
 

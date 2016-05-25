@@ -1,6 +1,6 @@
-import {Component,OnInit,AfterViewInit,} from 'angular2/core';
+import {Component,OnInit,AfterViewInit,} from '@angular/core';
 import {TimeslotService,Timeslot} from './timeslot.service';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {PostService} from './post.service'
 
 

@@ -1,7 +1,7 @@
-    import {Component,AfterViewInit} from 'angular2/core';
-import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
+    import {Component,AfterViewInit} from '@angular/core';
+import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import {PostService,postObj} from './post.service'
-import {Router} from 'angular2/router'
+import {Router} from '@angular/router-deprecated'
 
 @Component({
 	selector:'post',

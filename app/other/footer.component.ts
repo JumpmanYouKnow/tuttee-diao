@@ -1,4 +1,4 @@
-import {Component,AfterViewInit}  from 'angular2/core';
+import {Component,AfterViewInit}  from '@angular/core';
 
 @Component({
 	selector: 'footer',

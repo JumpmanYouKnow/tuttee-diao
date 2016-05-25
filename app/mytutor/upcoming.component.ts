@@ -1,8 +1,8 @@
 
-import {Component,OnInit,AfterViewInit,} from 'angular2/core';
+import {Component,OnInit,AfterViewInit,} from '@angular/core';
 import {TimeslotService,Timeslot} from './timeslot.service';
-import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {PostService} from './post.service'
 
 
@@ -103,7 +103,8 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 		this._postservice.deleteSlot(id).subscribe(data=> {
 			console.log(data);
 			this.closeModify();
-			this.Timeslots = this.Timeslots.filter(obj => return obj.id != id);    //O(n)
+			this.Timeslots = this.Timeslots.filter(obj => {
+			return obj.id != id;});    //O(n)
 		}, err=>console.log(err));
 	}
 

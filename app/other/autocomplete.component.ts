@@ -1,4 +1,4 @@
-import {Component,AfterViewInit,ElementRef}  from 'angular2/core';
+import {Component,AfterViewInit,ElementRef}  from '@angular/core';
 
 @Component({
 	selector: 'autocomplete',

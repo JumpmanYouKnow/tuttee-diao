@@ -1,48 +1,32 @@
-System.register(['./app.component', 'angular2/core', 'angular2/platform/browser', './services/token.service', 'angular2/router', 'angular2/http', 'rxjs/Rx'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var app_component_1, core_1, browser_1, token_service_1, router_1, http_1;
-    var appPromise;
-    return {
-        setters:[
-            function (app_component_1_1) {
-                app_component_1 = app_component_1_1;
-            },
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (browser_1_1) {
-                browser_1 = browser_1_1;
-            },
-            function (token_service_1_1) {
-                token_service_1 = token_service_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
-            function (_1) {}],
-        execute: function() {
-            // import {LocalStorageSubscriber} from './angular2-localstorage/LocalStorageEmitter';
-            appPromise = browser_1.bootstrap(app_component_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, token_service_1.TokenService,
-                core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy }),
-                core_1.provide(Window, { useValue: window })]);
-        }
-    }
-});
-// LocalStorageSubscriber(appPromise);
-// import { bootstrap } from 'angular2/p latform/browser';
-// import { bind } from 'angular2/core';
-// import { ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy } from 'angular2/router';
-// // import { HTTP_PROVIDERS } from 'angular2/http';
-// import { AppComponent } from './app.component';
-// bootstrap(AppComponent, [
-//     ROUTER_PROVIDERS,
-//     bind(LocationStrategy).toClass(HashLocationStrategy)
-// ]).then(
-//     success => console.log('AppComponent bootstrapped!'),
-//     error => console.log(error)
-// 	); 
+"use strict";
+// import {AppComponent} from './app.component'
+var core_1 = require('@angular/core');
+// import {bootstrap}    from 'angular2/platform/browser'
+var token_service_1 = require('./services/token.service');
+// import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from '@angular/router-deprecated';
+// import {HTTP_PROVIDERS} from 'angular2/http'	
+require('./rxjs-operators');
+// // import {LocalStorageSubscriber} from './angular2-localstorage/LocalStorageEmitter';
+// var appPromise = bootstrap(AppComponent, [ROUTER_PROVIDERS,HTTP_PROVIDERS, TokenService,
+// 	provide(LocationStrategy, { useClass: HashLocationStrategy }),
+// 	provide(Window, {useValue: window})]);
+//  // LocalStorageSubscriber(appPromise);
+// // import { bootstrap } from 'angular2/platform/browser';
+// // import { bind } from 'angular2/core';
+var router_deprecated_1 = require('@angular/router-deprecated');
+var http_1 = require('@angular/http');
+// // import { AppComponent } from './app.component';
+// // bootstrap(AppComponent, [
+// //     ROUTER_PROVIDERS,
+// //     bind(LocationStrategy).toClass(HashLocationStrategy)
+// // ]).then(
+// //     success => console.log('AppComponent bootstrapped!'),
+// //     error => console.log(error)
+// // 	);
+var common_1 = require('@angular/common');
+var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
+// import {Component, provide} from '@angular/core';
+var app_component_1 = require('./app.component');
+platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [router_deprecated_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, token_service_1.TokenService,
+    core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })]);
 //# sourceMappingURL=main.js.map

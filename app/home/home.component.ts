@@ -1,5 +1,5 @@
-import {Component, AfterViewInit, ElementRef,OnDestroy} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component, AfterViewInit, ElementRef,OnDestroy} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {CoursesService,Course} from '../courses/courses.service';
 
 // declare var jQuery: JQueryStatic;
@@ -40,7 +40,7 @@ export class HomeComponent {
       else $('nav').addClass("trans");
     });
 
-
+    console.log("getting!");
 
     this.getCoursesList();
 

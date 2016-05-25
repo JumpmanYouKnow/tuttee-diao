@@ -1,5 +1,5 @@
-import {Injectable,} from 'angular2/core';
-import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from 'angular2/http';
+import {Injectable,} from '@angular/core';
+import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from '@angular/http';
 
 import {TokenService} from '../services/token.service'
 

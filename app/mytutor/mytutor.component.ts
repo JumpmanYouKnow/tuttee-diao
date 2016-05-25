@@ -1,5 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
+import {Component, OnInit} from '@angular/core';
+import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 import {UpcomingComponent} from './upcoming.component'
 import {HistoryComponent} from './history.component'
 import {SettingComponent} from './setting.component'

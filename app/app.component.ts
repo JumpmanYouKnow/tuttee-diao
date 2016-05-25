@@ -2,8 +2,8 @@
  * Angular 2 decorators and services
  */
 
-import { Component, AfterViewInit} from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
+import { Component, AfterViewInit} from '@angular/core';
+import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 import {TutProfileService} from './tutprofile/tutprofile.service'
 import {NavbarComponent} from './other/navbar.component'
 import {FooterComponent} from './other/footer.component'
@@ -22,6 +22,7 @@ import {TimeslotService} from './mytutor/timeslot.service'
 import {TutorclassComponent} from'./courses/subject/tutorclass/tutorclass.component';
 import {TutorclassService} from'./courses/subject/tutorclass/tutorclass.service'; 
 import {PostService} from './mytutor/post.service'
+import './rxjs-operators';
 // import {RegisterComponent} from 
 //import {PaginationService} from 'ng2-pagination'
 
@@ -79,7 +80,7 @@ export class AppComponent implements AfterViewInit {
 
 
 /*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
+ * Please review the https://github.com/AngularClass/@angular-examples/ repo for
  * more angular app examples that you may copy/paste
  * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
  * For help or questions please contact us at @AngularClass on twitter

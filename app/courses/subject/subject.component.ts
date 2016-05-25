@@ -1,6 +1,6 @@
-import {Component, OnInit,Pipe} from 'angular2/core';
-import {Router, RouteParams} from 'angular2/router';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {Component, OnInit,Pipe} from '@angular/core';
+import {Router, RouteParams} from '@angular/router-deprecated';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {SubjectService, Subject, Teacher} from './subject.service';
 
 

@@ -1,128 +1,79 @@
 /*
  * Angular 2 decorators and services
  */
-System.register(['angular2/core', 'angular2/router', './tutprofile/tutprofile.service', './other/navbar.component', './other/footer.component', './tutprofile/tutprofile.component', './home/home.component', './about/about.component', './courses/subject/subject.service', './courses/courses.service', "./other/login.service", './mytutor/mytutor.component', './betutor/betutor.component', './courses/courses.component', './mytuttee/mytuttee.component', './courses/subject/subject.component', './mytutor/timeslot.service', './courses/subject/tutorclass/tutorclass.component', './courses/subject/tutorclass/tutorclass.service', './mytutor/post.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, router_1, tutprofile_service_1, navbar_component_1, footer_component_1, tutprofile_component_1, home_component_1, about_component_1, subject_service_1, courses_service_1, login_service_1, mytutor_component_1, betutor_component_1, courses_component_1, mytuttee_component_1, subject_component_1, timeslot_service_1, tutorclass_component_1, tutorclass_service_1, post_service_1;
-    var AppComponent;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (tutprofile_service_1_1) {
-                tutprofile_service_1 = tutprofile_service_1_1;
-            },
-            function (navbar_component_1_1) {
-                navbar_component_1 = navbar_component_1_1;
-            },
-            function (footer_component_1_1) {
-                footer_component_1 = footer_component_1_1;
-            },
-            function (tutprofile_component_1_1) {
-                tutprofile_component_1 = tutprofile_component_1_1;
-            },
-            function (home_component_1_1) {
-                home_component_1 = home_component_1_1;
-            },
-            function (about_component_1_1) {
-                about_component_1 = about_component_1_1;
-            },
-            function (subject_service_1_1) {
-                subject_service_1 = subject_service_1_1;
-            },
-            function (courses_service_1_1) {
-                courses_service_1 = courses_service_1_1;
-            },
-            function (login_service_1_1) {
-                login_service_1 = login_service_1_1;
-            },
-            function (mytutor_component_1_1) {
-                mytutor_component_1 = mytutor_component_1_1;
-            },
-            function (betutor_component_1_1) {
-                betutor_component_1 = betutor_component_1_1;
-            },
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
-            },
-            function (mytuttee_component_1_1) {
-                mytuttee_component_1 = mytuttee_component_1_1;
-            },
-            function (subject_component_1_1) {
-                subject_component_1 = subject_component_1_1;
-            },
-            function (timeslot_service_1_1) {
-                timeslot_service_1 = timeslot_service_1_1;
-            },
-            function (tutorclass_component_1_1) {
-                tutorclass_component_1 = tutorclass_component_1_1;
-            },
-            function (tutorclass_service_1_1) {
-                tutorclass_service_1 = tutorclass_service_1_1;
-            },
-            function (post_service_1_1) {
-                post_service_1 = post_service_1_1;
-            }],
-        execute: function() {
-            /*
-             * App Component
-             * Top Level Component
-             */
-            AppComponent = (function () {
-                function AppComponent() {
-                    this.token = "";
-                }
-                AppComponent.prototype.getLogin = function (arg) {
-                    console.log(arg);
-                    this.token = arg;
-                };
-                AppComponent.prototype.ngAfterViewInit = function () {
-                    //	jQuery(this.elementRef.nativeElement).find("p").append("fuckjasdjlfdsa");
-                };
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: 'app',
-                        template: "\n\t<navbar></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
-                        directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, footer_component_1.FooterComponent],
-                        providers: [tutprofile_service_1.TutProfileService, courses_service_1.CoursesService, subject_service_1.SubjectService, timeslot_service_1.TimeslotService, tutorclass_service_1.TutorclassService, login_service_1.LoginService, post_service_1.PostService]
-                    }),
-                    router_1.RouteConfig([
-                        { path: '/', name: 'Home', component: home_component_1.HomeComponent },
-                        // { path: '/about', component: About, name: 'About' },
-                        // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-                        { path: '/about', name: 'About', component: about_component_1.AboutComponent },
-                        { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent },
-                        { path: '/subject/:subject', name: 'Subject', component: subject_component_1.SubjectComponent },
-                        { path: '/betutor', name: 'Betutor', component: betutor_component_1.BetutorComponent },
-                        { path: '/subject/:subject/:id', name: 'Tutorclass', component: tutorclass_component_1.TutorclassComponent },
-                        { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent },
-                        { path: '/mytuttee/...', name: 'Mytuttee', component: mytuttee_component_1.MytutteeComponent },
-                        { path: '/mytutor/...', name: 'Mytutor', component: mytutor_component_1.MytutorComponent },
-                    ]), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
-            }());
-            exports_1("AppComponent", AppComponent);
-        }
-    }
-});
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var tutprofile_service_1 = require('./tutprofile/tutprofile.service');
+var navbar_component_1 = require('./other/navbar.component');
+var footer_component_1 = require('./other/footer.component');
+var tutprofile_component_1 = require('./tutprofile/tutprofile.component');
+var home_component_1 = require('./home/home.component');
+var about_component_1 = require('./about/about.component');
+var subject_service_1 = require('./courses/subject/subject.service');
+var courses_service_1 = require('./courses/courses.service');
+var login_service_1 = require("./other/login.service");
+var mytutor_component_1 = require('./mytutor/mytutor.component');
+var betutor_component_1 = require('./betutor/betutor.component');
+var courses_component_1 = require('./courses/courses.component');
+var mytuttee_component_1 = require('./mytuttee/mytuttee.component');
+var subject_component_1 = require('./courses/subject/subject.component');
+var timeslot_service_1 = require('./mytutor/timeslot.service');
+var tutorclass_component_1 = require('./courses/subject/tutorclass/tutorclass.component');
+var tutorclass_service_1 = require('./courses/subject/tutorclass/tutorclass.service');
+var post_service_1 = require('./mytutor/post.service');
+require('./rxjs-operators');
 /*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
+ * App Component
+ * Top Level Component
+ */
+var AppComponent = (function () {
+    function AppComponent() {
+        this.token = "";
+    }
+    AppComponent.prototype.getLogin = function (arg) {
+        console.log(arg);
+        this.token = arg;
+    };
+    AppComponent.prototype.ngAfterViewInit = function () {
+        //	jQuery(this.elementRef.nativeElement).find("p").append("fuckjasdjlfdsa");
+    };
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'app',
+            template: "\n\t<navbar></navbar>\n\t<router-outlet></router-outlet>\n\t<footer></footer>\n\t",
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, footer_component_1.FooterComponent],
+            providers: [tutprofile_service_1.TutProfileService, courses_service_1.CoursesService, subject_service_1.SubjectService, timeslot_service_1.TimeslotService, tutorclass_service_1.TutorclassService, login_service_1.LoginService, post_service_1.PostService]
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: '/', name: 'Home', component: home_component_1.HomeComponent },
+            // { path: '/about', component: About, name: 'About' },
+            // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
+            { path: '/about', name: 'About', component: about_component_1.AboutComponent },
+            { path: '/courses', name: 'Courses', component: courses_component_1.CoursesComponent },
+            { path: '/subject/:subject', name: 'Subject', component: subject_component_1.SubjectComponent },
+            { path: '/betutor', name: 'Betutor', component: betutor_component_1.BetutorComponent },
+            { path: '/subject/:subject/:id', name: 'Tutorclass', component: tutorclass_component_1.TutorclassComponent },
+            { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent },
+            { path: '/mytuttee/...', name: 'Mytuttee', component: mytuttee_component_1.MytutteeComponent },
+            { path: '/mytutor/...', name: 'Mytutor', component: mytutor_component_1.MytutorComponent },
+        ]), 
+        __metadata('design:paramtypes', [])
+    ], AppComponent);
+    return AppComponent;
+}());
+exports.AppComponent = AppComponent;
+/*
+ * Please review the https://github.com/AngularClass/@angular-examples/ repo for
  * more angular app examples that you may copy/paste
  * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
  * For help or questions please contact us at @AngularClass on twitter

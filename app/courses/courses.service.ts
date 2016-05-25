@@ -1,5 +1,5 @@
-import {Injectable} from 'angular2/core';
-import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from 'angular2/http';
+import {Injectable} from '@angular/core';
+import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from '@angular/http';
 import {COURSES} from'./mock-courses';
 import {TokenService} from '../services/token.service'
 
@@ -32,16 +32,19 @@ export class CoursesService {
 	  }
 
 	getCourses() {
-		 let params: URLSearchParams = new URLSearchParams();
-		 params.set('limit', "100");
-		 params.set('_',(new Date().getTime()).toString());
+		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
+  console.log(data);
+});
+		 // let params: URLSearchParams = new URLSearchParams();
+		 // params.set('limit', "100");
+		 //params.set('_',(new Date().getTime()).toString());
 		// params.set('cnt', days.toString());
 		var headers = new Headers();
 		//headers.append('Content-Type','application/json');
 		headers.append('Authorization',this._tokenservice.getToken());
 
 
-		return this._http.get('http://127.0.0.1:5000/api/courses',{headers:headers,search:params})
+		return this._http.get('http://127.0.0.1:5000/api/courses',{headers:headers})
 		   .map(res => res.json());
 
 		//return Promise.resolve(COURSES);

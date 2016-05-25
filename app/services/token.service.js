@@ -1,115 +1,102 @@
-System.register(['angular2/core', 'angular2/http'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, http_1;
-    var TokenService;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            }],
-        execute: function() {
-            TokenService = (function () {
-                function TokenService(_http) {
-                    this._http = _http;
-                }
-                TokenService.prototype.setToken = function (token) {
-                    this.token = token;
-                    localStorage.setItem('token', token);
-                    //	console.log(localStorage.getItem('token'));
-                };
-                TokenService.prototype.setUsername = function (username) {
-                    this.username = username;
-                    localStorage.setItem('username', username);
-                    //			console.log(localStorage.getItem('username'));
-                };
-                TokenService.prototype.setIs_tutor = function (is_tutor) {
-                    this.is_tutor = is_tutor;
-                    if (is_tutor) {
-                        localStorage.setItem('is_tutor', 'true');
-                    }
-                    else
-                        localStorage.setItem('is_tutor', 'false');
-                    //		console.log(localStorage.getItem('is_tutor'));
-                };
-                TokenService.prototype.setTokenLife = function (life) {
-                    this.tokenLife = life;
-                    localStorage.setItem('tokenLife', life.toString());
-                    //	console.log(localStorage.getItem('tokenLife'));
-                };
-                TokenService.prototype.getToken = function () {
-                    return this.token;
-                };
-                TokenService.prototype.getUsername = function () {
-                    return this.username;
-                };
-                TokenService.prototype.getIs_tutor = function () {
-                    return this.is_tutor;
-                };
-                TokenService.prototype.initLogin = function () {
-                    //	console.log(localStorage.getItem('token'));
-                    //	console.log(localStorage.getItem('fuck'));
-                    var tokenLife = parseInt(localStorage.getItem('tokenLife'));
-                    //	console.log(tokenLife);
-                    //	console.log(Date.now());
-                    if (tokenLife) {
-                        if (Date.now() > tokenLife) {
-                            console.log("cleared"); //not working
-                            localStorage.clear();
-                            return false;
-                        }
-                        else {
-                            this.token = localStorage.getItem('token');
-                            console.log(this.token);
-                            this.tokenLife = tokenLife;
-                            if (localStorage.getItem('is_tutor') == 'true') {
-                                this.is_tutor = true;
-                            }
-                            else
-                                this.is_tutor = false;
-                            this.username = localStorage.getItem('username');
-                            return true;
-                        }
-                    }
-                    else
-                        return false;
-                };
-                // public checkExp(token:string) {
-                // 	if (Date.now() > this.tokenLife) {
-                // 		var headers = new Headers();
-                // 		headers.append('Authorization',this.token);
-                // 		this._http.get('/token',{headers:headers}).map(res=>res.json())
-                // 		.subscribe( data => 
-                // 			{this.token = data.token;
-                // 			 this.tokenLife=(Date.now()+data.expiration);
-                // 			},
-                // 			err => console.log(err)
-                // 			);
-                // 	}
-                // }
-                TokenService.prototype.getTokenLife = function () {
-                    return this.tokenLife;
-                };
-                TokenService = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
-                ], TokenService);
-                return TokenService;
-            }());
-            exports_1("TokenService", TokenService);
-        }
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+// import {LocalStorage} from "../@angular-localstorage/LocalStorage";
+var http_1 = require('@angular/http');
+var TokenService = (function () {
+    function TokenService(_http) {
+        this._http = _http;
     }
-});
+    TokenService.prototype.setToken = function (token) {
+        this.token = token;
+        localStorage.setItem('token', token);
+        //	console.log(localStorage.getItem('token'));
+    };
+    TokenService.prototype.setUsername = function (username) {
+        this.username = username;
+        localStorage.setItem('username', username);
+        //			console.log(localStorage.getItem('username'));
+    };
+    TokenService.prototype.setIs_tutor = function (is_tutor) {
+        this.is_tutor = is_tutor;
+        if (is_tutor) {
+            localStorage.setItem('is_tutor', 'true');
+        }
+        else
+            localStorage.setItem('is_tutor', 'false');
+        //		console.log(localStorage.getItem('is_tutor'));
+    };
+    TokenService.prototype.setTokenLife = function (life) {
+        this.tokenLife = life;
+        localStorage.setItem('tokenLife', life.toString());
+        //	console.log(localStorage.getItem('tokenLife'));
+    };
+    TokenService.prototype.getToken = function () {
+        return this.token;
+    };
+    TokenService.prototype.getUsername = function () {
+        return this.username;
+    };
+    TokenService.prototype.getIs_tutor = function () {
+        return this.is_tutor;
+    };
+    TokenService.prototype.initLogin = function () {
+        //	console.log(localStorage.getItem('token'));
+        //	console.log(localStorage.getItem('fuck'));
+        var tokenLife = parseInt(localStorage.getItem('tokenLife'));
+        //	console.log(tokenLife);
+        //	console.log(Date.now());
+        if (tokenLife) {
+            if (Date.now() > tokenLife) {
+                console.log("cleared"); //not working
+                localStorage.clear();
+                return false;
+            }
+            else {
+                this.token = localStorage.getItem('token');
+                console.log(this.token);
+                this.tokenLife = tokenLife;
+                if (localStorage.getItem('is_tutor') == 'true') {
+                    this.is_tutor = true;
+                }
+                else
+                    this.is_tutor = false;
+                this.username = localStorage.getItem('username');
+                return true;
+            }
+        }
+        else
+            return false;
+    };
+    // public checkExp(token:string) {
+    // 	if (Date.now() > this.tokenLife) {
+    // 		var headers = new Headers();
+    // 		headers.append('Authorization',this.token);
+    // 		this._http.get('/token',{headers:headers}).map(res=>res.json())
+    // 		.subscribe( data => 
+    // 			{this.token = data.token;
+    // 			 this.tokenLife=(Date.now()+data.expiration);
+    // 			},
+    // 			err => console.log(err)
+    // 			);
+    // 	}
+    // }
+    TokenService.prototype.getTokenLife = function () {
+        return this.tokenLife;
+    };
+    TokenService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], TokenService);
+    return TokenService;
+}());
+exports.TokenService = TokenService;
 //# sourceMappingURL=token.service.js.map

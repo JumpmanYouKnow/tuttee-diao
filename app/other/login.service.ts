@@ -1,5 +1,5 @@
-import {HTTP_PROVIDERS,Http,Headers} from 'angular2/http';
-import { Injectable } from 'angular2/core'
+import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
+import { Injectable } from '@angular/core'
 
 
 export interface loginObj {

@@ -1,8 +1,8 @@
-import {Component,Input,Output,EventEmitter}  from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component,Input,Output,EventEmitter}  from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import {AboutComponent} from '../about/about.component'
-import {AfterViewInit,OnInit, ElementRef} from 'angular2/core'
-import { FORM_DIRECTIVES } from 'angular2/common';
+import {AfterViewInit,OnInit, ElementRef} from '@angular/core'
+import { FORM_DIRECTIVES } from '@angular/common';
 import {LoginService,loginObj} from './login.service'
 import {TokenService} from '../services/token.service'
 
@@ -17,4 +17,6 @@ import {TokenService} from '../services/token.service'
 	directives:[ROUTER_DIRECTIVES,FORM_DIRECTIVES]
 	
 })
+
+export class Register{}
 
