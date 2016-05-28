@@ -41,8 +41,12 @@ export class SubjectComponent implements OnInit{
   }
 
   gotoDetail(subject_id: String,tutor_id:number) {
-    this._router.navigate(['Tutorclass', { subject: subject_id , id:tutor_id }]);
+    this._router.navigate(['Tutorclass', {subject: subject_id , id:tutor_id }]);
     //this._router.navigate(['About']);
+  }
+
+  seeProfile(tutor_id: number) {
+    this._router.navigate(['TutProfile', {id:tutor_id}]);
   }
 
 }

@@ -37,8 +37,8 @@ export class CoursesService {
 // });
        
 
-		 // let params: URLSearchParams = new URLSearchParams();
-		 // params.set('limit', "100");
+		 let params: URLSearchParams = new URLSearchParams();
+		 params.set('limit', "100");
 		 //params.set('_',(new Date().getTime()).toString());
 		// params.set('cnt', days.toString());
 	//	var headers = new Headers();
@@ -46,7 +46,7 @@ export class CoursesService {
 		//headers.append('Authorization',this._tokenservice.getToken());
 
 
-		return this._http.get('http://127.0.0.1:5000/api/courses')
+		return this._http.get('http://127.0.0.1:5000/api/courses',{search:params})
 		   .map(res => res.json());
 
 		//return Promise.resolve(COURSES);

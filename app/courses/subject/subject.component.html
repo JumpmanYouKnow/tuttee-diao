@@ -2,10 +2,10 @@
 <section *ngIf="Subject">
     <div class="container">
         <div class="row">
-            <div class="col l10">
-        <h3 class="center"> {{Subject.id}} </h3>
-                <p class="center">{{Subject.course_description}}</p>
-            </div>
+<!--             <div class="center-align"> -->
+                <h3 class="center-align"> {{Subject.id | uppercase}} </h3>
+              <!--   <p class="center">{{Subject.course_description}}</p> -->
+<!--             </div> -->
         </div>
     </div>
 </section>
@@ -60,7 +60,7 @@
           <img src="http://placehold.it/100x100" class="circle pic">
        <!--    </div> -->
           <!-- <div class="row"> -->
-         <h4 class="center"> {{teacher.username}} </h4>
+         <h4 class="center"><a (click)="seeProfile(teacher.id)">{{teacher.username}}</a></h4>
           <!-- </div> -->
         </div>
 

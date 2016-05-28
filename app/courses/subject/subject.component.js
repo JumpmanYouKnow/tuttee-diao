@@ -35,6 +35,9 @@ var SubjectComponent = (function () {
         this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);
         //this._router.navigate(['About']);
     };
+    SubjectComponent.prototype.seeProfile = function (tutor_id) {
+        this._router.navigate(['TutProfile', { id: tutor_id }]);
+    };
     SubjectComponent = __decorate([
         core_1.Component({
             selector: 'subject',
