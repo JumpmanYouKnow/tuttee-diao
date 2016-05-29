@@ -2,7 +2,7 @@
 import {Component,OnInit,AfterViewInit,} from '@angular/core';
 import {TimeslotService,Timeslot} from './timeslot.service';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import {PostService} from './post.service'
 
 

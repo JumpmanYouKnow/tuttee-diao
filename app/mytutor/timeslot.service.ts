@@ -30,10 +30,10 @@ export class TimeslotService {
     constructor(private _tokenservice:TokenService, private _http:Http){}
 
 	getTimeslot() {   
-		console.log("fuck");
+	this._tokenservice.checkExp();
 		console.log(window.btoa(this._tokenservice.getToken()+":"));
 	 let params: URLSearchParams = new URLSearchParams();
-	 params.set('limit', "15");
+	 params.set('limit', "100");
      // params.set('cnt', days.toString());
     var headers = new Headers();
     //headers.append('Content-Type','application/json');

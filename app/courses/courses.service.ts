@@ -32,6 +32,7 @@ export class CoursesService {
 	  }
 
 	getCourses() {
+	    this._tokenservice.checkExp();
 // 		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
 //   console.log(data);
 // });

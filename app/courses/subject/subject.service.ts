@@ -27,8 +27,10 @@ export class SubjectService {
 
 	getSubject(id: string) {
 
+		this._tokenservice.checkExp();
+
 		 let params: URLSearchParams = new URLSearchParams();
-		 params.set('limit', "6");
+		 params.set('limit', "10");
 		// params.set('cnt', days.toString());
 		var headers = new Headers();
 		//headers.append('Content-Type','application/json');

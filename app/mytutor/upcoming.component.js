@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var timeslot_service_1 = require('./timeslot.service');
 var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var post_service_1 = require('./post.service');
 var UpcomingComponent = (function () {
     function UpcomingComponent(_timeslotservice, _postservice) {
@@ -92,7 +92,7 @@ var UpcomingComponent = (function () {
             selector: 'upcoming',
             templateUrl: './app/mytutor/upcoming.component.html',
             styleUrls: ['./app/mytutor/upcoming.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES],
         }), 
         __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, post_service_1.PostService])
     ], UpcomingComponent);

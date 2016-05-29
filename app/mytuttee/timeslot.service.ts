@@ -28,6 +28,7 @@ export class TimeslotService {
     constructor(private _tokenservice: TokenService, private _http: Http) { }
 
 	getTimeslot() {
+		this._tokenservice.checkExp();
 		// console.log("fuck you ");
 		console.log(window.btoa(this._tokenservice.getToken() + ":"));
 		var headers = new Headers();

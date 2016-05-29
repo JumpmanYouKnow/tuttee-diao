@@ -6,16 +6,15 @@
   top:-7rem;
   z-index: 1;
   height:600px;
-    display: block;
+  display: block;
+  -webkit-clip-path: polygon(0 0, 2500px 0,2500px 87%, 0 100%);
 
-  -webkit-clip-path: polygon(0 0, 1600px 0, 1600px 87%, 0 100%);
-
-/*     -webkit-filter: blur(5px);
+/*-webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);*/
- background: url(app/home/home.JPG) no-repeat;
+  background: url(app/home/home.JPG) no-repeat;
   background-size: cover;
 /*    background-repeat:no-repeat;
     background-position: center center;*/

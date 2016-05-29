@@ -17,8 +17,9 @@ var SubjectService = (function () {
         this._http = _http;
     }
     SubjectService.prototype.getSubject = function (id) {
+        this._tokenservice.checkExp();
         var params = new http_1.URLSearchParams();
-        params.set('limit', "6");
+        params.set('limit', "10");
         // params.set('cnt', days.toString());
         var headers = new http_1.Headers();
         //headers.append('Content-Type','application/json');

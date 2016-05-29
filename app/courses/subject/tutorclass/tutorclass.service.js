@@ -29,6 +29,7 @@ var TutorclassService = (function () {
         //   );   
     };
     TutorclassService.prototype.postAppointement = function (PostObj) {
+        this._tokenservice.checkExp();
         var params = new http_1.URLSearchParams();
         // params.set('id', PostObj.id);
         params.set('course_id', PostObj.course_id);

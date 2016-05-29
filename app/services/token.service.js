@@ -76,19 +76,19 @@ var TokenService = (function () {
         else
             return false;
     };
-    // public checkExp(token:string) {
-    // 	if (Date.now() > this.tokenLife) {
-    // 		var headers = new Headers();
-    // 		headers.append('Authorization',this.token);
-    // 		this._http.get('/token',{headers:headers}).map(res=>res.json())
-    // 		.subscribe( data => 
-    // 			{this.token = data.token;
-    // 			 this.tokenLife=(Date.now()+data.expiration);
-    // 			},
-    // 			err => console.log(err)
-    // 			);
-    // 	}
-    // }
+    TokenService.prototype.checkExp = function (token) {
+        var _this = this;
+        if (Date.now() > this.tokenLife) {
+            console.log("expired!");
+            var headers = new http_1.Headers();
+            headers.append('Authorization', this.token);
+            this._http.get('/token', { headers: headers }).map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                _this.token = data.token;
+                _this.tokenLife = (Date.now() + data.expiration);
+            }, function (err) { return console.log(err); });
+        }
+    };
     TokenService.prototype.getTokenLife = function () {
         return this.tokenLife;
     };
