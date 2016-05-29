@@ -11,19 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var timeslot_service_1 = require('./timeslot.service');
 var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var post_service_1 = require('./post.service');
+var courses_service_1 = require('../courses/courses.service');
 var UpcomingComponent = (function () {
-    function UpcomingComponent(_timeslotservice, _postservice) {
+    function UpcomingComponent(_coursesservice, _timeslotservice, _postservice) {
+        this._coursesservice = _coursesservice;
         this._timeslotservice = _timeslotservice;
         this._postservice = _postservice;
         this.modSlot = false;
     }
+    UpcomingComponent.prototype.getCoursesList = function () {
+        this._coursesservice.getCourses().subscribe(function (data) {
+            var listLength = data.courses.length;
+            console.log(data);
+        });
+    };
     UpcomingComponent.prototype.getTimeSlots = function () {
         // console.log("fuck");
         var _this = this;
         this._timeslotservice.getTimeslot().subscribe(function (data) {
-            console.log(data.timeslots);
+            // console.log(data.timeslots);
             var slots = data.timeslots;
             for (var i = 0; i < slots.length; i++) {
                 slots[i].start_time = Date.parse(slots[i].start_time);
@@ -39,9 +47,12 @@ var UpcomingComponent = (function () {
             $('.modal-trigger').leanModal();
         }, 500);
     };
+    ;
     UpcomingComponent.prototype.ngOnInit = function () {
         this.getTimeSlots();
+        this.getCoursesList();
     };
+    ;
     UpcomingComponent.prototype.closeModify = function () {
         this.modSlot = false;
     };
@@ -92,9 +103,9 @@ var UpcomingComponent = (function () {
             selector: 'upcoming',
             templateUrl: './app/mytutor/upcoming.component.html',
             styleUrls: ['./app/mytutor/upcoming.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES],
         }), 
-        __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, post_service_1.PostService])
+        __metadata('design:paramtypes', [courses_service_1.CoursesService, timeslot_service_1.TimeslotService, post_service_1.PostService])
     ], UpcomingComponent);
     return UpcomingComponent;
 }());

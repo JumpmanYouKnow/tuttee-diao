@@ -8,17 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// import { Injectable } from '@angular/core';
+// import {TUTPROFILES} from './mock-tutprofile'
+// import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
 var core_1 = require('@angular/core');
-var mock_tutprofile_1 = require('./mock-tutprofile');
+var http_1 = require('@angular/http');
+var token_service_1 = require('../services/token.service');
 var TutProfileService = (function () {
-    function TutProfileService() {
+    function TutProfileService(_tokenservice, _http) {
+        this._tokenservice = _tokenservice;
+        this._http = _http;
     }
-    TutProfileService.prototype.getTutProfile = function () {
-        return Promise.resolve(mock_tutprofile_1.TUTPROFILES);
+    TutProfileService.prototype.getTimeslot = function (id) {
+        var headers = new http_1.Headers();
+        headers.append('Authorization', this._tokenservice.getToken());
+        return this._http.get('http://127.0.0.1:5000/api/tutors/' + id, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     TutProfileService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [token_service_1.TokenService, http_1.Http])
     ], TutProfileService);
     return TutProfileService;
 }());

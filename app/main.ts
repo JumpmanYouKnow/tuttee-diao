@@ -12,9 +12,6 @@ import './rxjs-operators';
 // 	provide(LocationStrategy, { useClass: HashLocationStrategy }),
 // 	provide(Window, {useValue: window})]);
 
-
-//  // LocalStorageSubscriber(appPromise);
-
 // // import { bootstrap } from 'angular2/platform/browser';
 // // import { bind } from 'angular2/core';
 
@@ -25,11 +22,6 @@ import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 // // bootstrap(AppComponent, [
 // //     ROUTER_PROVIDERS,
 
-// //     bind(LocationStrategy).toClass(HashLocationStrategy)
-// // ]).then(
-// //     success => console.log('AppComponent bootstrapped!'),
-// //     error => console.log(error)
-// // 	);
 
 import {  
   PlatformLocation,  

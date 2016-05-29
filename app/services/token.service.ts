@@ -52,10 +52,6 @@ export class TokenService {
 		return this.is_tutor;
 	}
 
-
-
-
-
 	public initLogin() {
 	//	console.log(localStorage.getItem('token'));
 

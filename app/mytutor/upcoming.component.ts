@@ -2,8 +2,9 @@
 import {Component,OnInit,AfterViewInit,} from '@angular/core';
 import {TimeslotService,Timeslot} from './timeslot.service';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import {PostService} from './post.service'
+import {CoursesService, Course} from '../courses/courses.service';
 
 
 @Component({
@@ -22,14 +23,23 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 		Timeslots : Timeslot[];
 		public modSlot : any = false;
 
-		constructor(private _timeslotservice:TimeslotService, private _postservice: PostService
+		constructor(private _coursesservice: CoursesService,
+			private _timeslotservice:TimeslotService, 
+			private _postservice: PostService
 	) {}
+              
+		getCoursesList() {
+			this._coursesservice.getCourses().subscribe(data => {
+				var listLength = data.courses.length;
+				console.log(data)
+			});
+		}
 
 	getTimeSlots() {
 		// console.log("fuck");
 
 		this._timeslotservice.getTimeslot().subscribe(data => {
-			console.log(data.timeslots);
+			// console.log(data.timeslots);
 			let slots = data.timeslots;
 			for (let i=0;i<slots.length;i++) {  
               slots[i].start_time = Date.parse(slots[i].start_time);
@@ -51,12 +61,12 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 		 }, 500);
 		 
 
-	}
+		};
 
 	ngOnInit() {
 		this.getTimeSlots();
-       
-	}
+		this.getCoursesList() 
+		};
 
 	closeModify() {
 		this.modSlot = false;
