@@ -5,7 +5,6 @@ var core_1 = require('@angular/core');
 var token_service_1 = require('./services/token.service');
 // import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from '@angular/router-deprecated';
 // import {HTTP_PROVIDERS} from 'angular2/http'	
-require('./rxjs-operators');
 // // import {LocalStorageSubscriber} from './angular2-localstorage/LocalStorageEmitter';
 // var appPromise = bootstrap(AppComponent, [ROUTER_PROVIDERS,HTTP_PROVIDERS, TokenService,
 // 	provide(LocationStrategy, { useClass: HashLocationStrategy }),

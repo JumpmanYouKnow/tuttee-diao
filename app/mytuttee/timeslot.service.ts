@@ -27,6 +27,16 @@ export interface Timeslot {
 export class TimeslotService {
     constructor(private _tokenservice: TokenService, private _http: Http) { }
 
+    getTimeslotByID (id:Number) {
+		this._tokenservice.checkExp();
+		console.log(window.btoa(this._tokenservice.getToken() + ":"));
+		var headers = new Headers();
+		headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+
+		return this._http.get('http://127.0.0.1:5000/api/timeslots/' + id, { headers: headers })
+			.map(res => res.json());
+    }
+
 	getTimeslot() {
 		this._tokenservice.checkExp();
 		// console.log("fuck you ");
@@ -44,8 +54,5 @@ export class TimeslotService {
 		return this._http.delete('http://127.0.0.1:5000/api/appointments/' + id, { headers: headers })
 			.map(res => res.json());
 
-	}
-
-
-	
+	}	
 }

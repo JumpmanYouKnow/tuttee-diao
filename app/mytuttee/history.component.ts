@@ -1,18 +1,20 @@
 import {Component,OnInit,AfterViewInit} from '@angular/core';
 import {TimeslotService, Timeslot} from '../mytuttee/timeslot.service';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-
+import {ReviewService} from './review.service'
 @Component({
 	selector: 'history',
 	templateUrl: './app/mytuttee/history.component.html',
 	styleUrls: ['./app/mytuttee/history.component.css'],
-	             providers: [TimeslotService],
+	             providers: [TimeslotService,ReviewService],
 })
 
 
 export class HistoryComponent {
 	Timeslots : Timeslot[];
-	constructor(private _timeslotservice:TimeslotService
+	rating: Number;
+	comment: string;
+	constructor(private _timeslotservice:TimeslotService, private _reviewservice:ReviewService
 	) {}
 
 	getTimeSlots() {
@@ -30,12 +32,29 @@ export class HistoryComponent {
 
 			console.log(this.Timeslots);
 
+			setTimeout(function() {
+			$('.modal-trigger').leanModal();
+		 }, 500);
+
 		}
 			, err => console.log(err));
 
 	}
 
+	postComment(timeslot_id:Number) {
+		this._timeslotservice.getTimeslotByID(timeslot_id).subscribe(data =>
+		{
+			console.log(data);
+			this._reviewservice.postReview(this.rating,data.course_id,data.tutor_id,this.comment)
+			.subscribe(re => {
+				console.log (re);
+			},
+			err => console.log(err));
+		});
+	}
+
 	ngOnInit() {
 		this.getTimeSlots();
 	}
+
 }

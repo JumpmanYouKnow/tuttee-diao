@@ -1,57 +1,55 @@
 <div class = "row">
-<h4 class = "col">上过的课</h4>
-
+   <h4 class = "col">上过的课</h4>
 </div>
-          
+<div id="table-scroll">
+<table class="highlight center">
+<thead>
+   <tr>
+      <th data-field="course">课名</th>
+      <th data-field="time">时间</th>
+      <th data-field="location">地点</th>
+      <th data-field="duration">时长</th>
+      <th data-filed="people">人数</th>
+      <th data-filed="price">价格</th>
+      <th data-field="description">描述</th>
+   </tr>
+</thead>
+<tbody>
+   <tr  *ngFor = "#timeslot of Timeslots">
+      <td  style="width:15%"class="course">{{timeslot.timeslot.course}}</td>
+      <td  style="width:10%" class="time">{{timeslot.timeslot.start_time| date: 'medium'}}</td>
+      <td  style="width:10%" class="location">{{timeslot.timeslot.address}}</td>
+      <td  style="width:10%"  class="duration">{{(timeslot.timeslot.end_time- timeslot.timeslot.start_time)/1000/60}}</td>
+      <td  style="width:10%">{{timeslot.timeslot.current_apps}}/{{timeslot.timeslot.capacity}} </td>
+      <td  style="width:10%"  class="price">{{timeslot.timeslot.fee | currency:'USD':true}}</td>
+      <td class="description">{{timeslot.timeslot.description}}</td>
+      <td ><a [attr.data-target]="timeslot.timeslot.id" class="btn orange darken-2 review modal-trigger" >评价{{timeslot.timeslot.id}}</a></td>
+      <!-- Modal Trigger -->
+      <!-- Modal Structure -->
+      <div id="{{timeslot.timeslot.id}}" class="modal">
 
-         
-            <div id="table-scroll">
-            <table class="highlight center">
-                <thead>
-                <tr>
-                    <th data-field="course">课名</th>  
-                    <th data-field="time">时间</th>
-                    <th data-field="location">地点</th>
-                    <th data-field="duration">时长</th>
-                    <th data-filed="people">人数</th>
-                    <th data-filed="price">价格</th>
-                    <th data-field="description">描述</th>                                    
-                </tr>
-                </thead>
-             
-                <tbody>
-                <tr  *ngFor = "#timeslot of Timeslots">
-                    <td  style="width:15%"class="course">{{timeslot.timeslot.course}}</td>  
-                    <td  style="width:10%" class="time">{{timeslot.timeslot.start_time| date: 'medium'}}</td>
-                    <td  style="width:10%" class="location">{{timeslot.timeslot.address}}</td>
-                    <td  style="width:10%"  class="duration">{{(timeslot.timeslot.end_time- timeslot.timeslot.start_time)/1000/60}}</td>
-                    <td  style="width:10%">{{timeslot.timeslot.current_apps}}/{{timeslot.timeslot.capacity}} </td>
-                     <td  style="width:10%"  class="price">{{timeslot.timeslot.fee | currency:'USD':true}}</td>
-                    <td class="description">{{timeslot.timeslot.description}}</td>
-                     <td class= "review  modal-trigger" [attr.data-target]="timeslot.id"><a class="btn orange darken-2">评价</a></td>
-             
-                   
-                   
-                      <!-- Modal Trigger -->
-                      <!-- Modal Structure -->
-                  <div id="{{timeslot.timeslot.id}}" class="modal">
-
-                    <div class="modal-content">
-                   <form class="col s12">
-                     <div class="input-field col s12">
-                            <input id="comment" type="text" class="validate">
-                            <label for="comment">请输入评价，对同学们很有帮助哦~</label>
-                        </div>
-                   </form>
-
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
-                    </div>
+            <form class="col s12" (ngSubmit) = "postComment(timeslot.timeslot.id)">
+                     <div class="modal-content">
+                  <div class="form-group col s6 m6 l6">
+                     <label for="power">Rating</label>
+                     <select class="form-control" required [(ngModel)] = "rating">
+                     <option value="0">0</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     </select>
                   </div>
-
-                                 
-            
-
+                  <div class="input-field col s12">
+                  <input id="comment" type="text" [(ngModel)] = "review" class="validate">
+                  <label for="comment">请输入评价，对同学们很有帮助哦~</label>
+                  </div>
+   
             </div>
-                </tr>
-
+            <div class="modal-footer">
+               <button type = "submit" class="waves-effect waves-green btn-flat" >Submit</button>
+            </div>
+          </form>
+          </div>
+   </tr>

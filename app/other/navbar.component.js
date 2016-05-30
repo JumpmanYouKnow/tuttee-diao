@@ -32,14 +32,16 @@ var NavbarComponent = (function () {
         this.logon = false;
         this.wrong = false;
     }
-    NavbarComponent.prototype.tryRegister = function (value) {
-        console.log(value.email);
-        console.log(value.password);
-        this._loginservice.postSignUp(value.email, value.password)
-            .subscribe(function (data) {
-            console.log(data);
-        }, function (err) { return console.log(err); });
-    };
+    // tryRegister(value:any) {
+    //   console.log(value.email);
+    //   console.log(value.password);
+    //   this._loginservice.postSignUp(value.email,value.password)
+    //     .subscribe(data => {  
+    //       console.log(data);
+    //     },
+    //     err => console.log(err)
+    //     )
+    // }
     NavbarComponent.prototype.tryLogin = function (value) {
         var _this = this;
         localStorage.setItem('fuck', 'fuckedhaha');

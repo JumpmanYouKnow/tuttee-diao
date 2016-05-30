@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var timeslot_service_1 = require('../mytuttee/timeslot.service');
+var review_service_1 = require('./review.service');
 var HistoryComponent = (function () {
-    function HistoryComponent(_timeslotservice) {
+    function HistoryComponent(_timeslotservice, _reviewservice) {
         this._timeslotservice = _timeslotservice;
+        this._reviewservice = _reviewservice;
     }
     HistoryComponent.prototype.getTimeSlots = function () {
         var _this = this;
@@ -27,7 +29,20 @@ var HistoryComponent = (function () {
             }
             _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time < Date.now(); });
             console.log(_this.Timeslots);
+            setTimeout(function () {
+                $('.modal-trigger').leanModal();
+            }, 500);
         }, function (err) { return console.log(err); });
+    };
+    HistoryComponent.prototype.postComment = function (timeslot_id) {
+        var _this = this;
+        this._timeslotservice.getTimeslotByID(timeslot_id).subscribe(function (data) {
+            console.log(data);
+            _this._reviewservice.postReview(_this.rating, data.course_id, data.tutor_id, _this.comment)
+                .subscribe(function (re) {
+                console.log(re);
+            }, function (err) { return console.log(err); });
+        });
     };
     HistoryComponent.prototype.ngOnInit = function () {
         this.getTimeSlots();
@@ -37,9 +52,9 @@ var HistoryComponent = (function () {
             selector: 'history',
             templateUrl: './app/mytuttee/history.component.html',
             styleUrls: ['./app/mytuttee/history.component.css'],
-            providers: [timeslot_service_1.TimeslotService],
+            providers: [timeslot_service_1.TimeslotService, review_service_1.ReviewService],
         }), 
-        __metadata('design:paramtypes', [timeslot_service_1.TimeslotService])
+        __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, review_service_1.ReviewService])
     ], HistoryComponent);
     return HistoryComponent;
 }());

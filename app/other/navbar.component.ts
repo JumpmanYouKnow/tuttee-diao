@@ -44,17 +44,17 @@ export class NavbarComponent implements AfterViewInit,OnInit{
 
     }
 
-    tryRegister(value:any) {
-      console.log(value.email);
-      console.log(value.password);
-      this._loginservice.postSignUp(value.email,value.password)
-        .subscribe(data => {  
-          console.log(data);
-        },
-        err => console.log(err)
+    // tryRegister(value:any) {
+    //   console.log(value.email);
+    //   console.log(value.password);
+    //   this._loginservice.postSignUp(value.email,value.password)
+    //     .subscribe(data => {  
+    //       console.log(data);
+    //     },
+    //     err => console.log(err)
 
-        )
-    }
+    //     )
+    // }
 
     tryLogin(value:any) {
         localStorage.setItem('fuck','fuckedhaha');
