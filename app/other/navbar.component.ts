@@ -1,5 +1,5 @@
 import {Component,Input,Output,EventEmitter}  from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit,OnInit, ElementRef} from '@angular/core'
 import { FORM_DIRECTIVES } from '@angular/common';
@@ -40,28 +40,24 @@ export class NavbarComponent implements AfterViewInit,OnInit{
 	constructor(private el: ElementRef
         , private _loginservice: LoginService
         ,private _tokenservice :TokenService
+        ,private _router:Router
         ) {
 
     }
 
-    tryRegister(value:any) {
-      console.log(value.email);
-      console.log(value.password);
-      this._loginservice.postSignUp(value.email,value.password)
-        .subscribe(data => {  
-          console.log(data);
-        },
-        err => console.log(err)
+    // tryRegister(value:any) {
+    //   console.log(value.email);
+    //   console.log(value.password);
+    //   this._loginservice.postSignUp(value.email,value.password)
+    //     .subscribe(data => {  
+    //       console.log(data);
+    //     },
+    //     err => console.log(err)
 
-        )
-    }
+    //     )
+    // }
 
     tryLogin(value:any) {
-        localStorage.setItem('fuck','fuckedhaha');
-        console.log("fuck is "+localStorage.getItem('fuck'));
-
-
-        console.log("shit");
         var signInfo = window.btoa(value.email+":"+value.password);
         console.log(signInfo);
            this._loginservice.postLogin(signInfo)
@@ -90,8 +86,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
                   console.log(data);
                   console.log(this.is_tutor);
                   
-                      $('#modal1').closeModal();
-                      location.reload();
+                  $('#modal1').closeModal();
 
           },
           err=> {
@@ -107,7 +102,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     logout() {
       localStorage.clear();
       this.logon = false;
-
+      this._router.navigate(['Home']);
     }
 
 

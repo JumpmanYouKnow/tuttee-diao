@@ -72,7 +72,8 @@ var HomeComponent = (function () {
                         'unable to find any courses that match the current query',
                         '</div>'
                     ].join('\n'),
-                    suggestion: Handlebars.compile('<div><a style="color:black;text-transform: uppercase;" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
+                    suggestion: Handlebars
+                        .compile('<div><a style="color:black;text-transform: uppercase;" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
                 }
             });
             $(".tt-menu").css({ width: "422px",

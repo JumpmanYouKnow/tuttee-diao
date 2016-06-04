@@ -17,10 +17,11 @@ var token_service_1 = require('../services/token.service');
 // declare var jQuery: JQueryStatic;
 var NavbarComponent = (function () {
     // @Output() private chuan = new EventEmitter();
-    function NavbarComponent(el, _loginservice, _tokenservice) {
+    function NavbarComponent(el, _loginservice, _tokenservice, _router) {
         this.el = el;
         this._loginservice = _loginservice;
         this._tokenservice = _tokenservice;
+        this._router = _router;
         this.loginObj = {
             "confirmed": true,
             "expiration": 3600,
@@ -32,19 +33,18 @@ var NavbarComponent = (function () {
         this.logon = false;
         this.wrong = false;
     }
-    NavbarComponent.prototype.tryRegister = function (value) {
-        console.log(value.email);
-        console.log(value.password);
-        this._loginservice.postSignUp(value.email, value.password)
-            .subscribe(function (data) {
-            console.log(data);
-        }, function (err) { return console.log(err); });
-    };
+    // tryRegister(value:any) {
+    //   console.log(value.email);
+    //   console.log(value.password);
+    //   this._loginservice.postSignUp(value.email,value.password)
+    //     .subscribe(data => {  
+    //       console.log(data);
+    //     },
+    //     err => console.log(err)
+    //     )
+    // }
     NavbarComponent.prototype.tryLogin = function (value) {
         var _this = this;
-        localStorage.setItem('fuck', 'fuckedhaha');
-        console.log("fuck is " + localStorage.getItem('fuck'));
-        console.log("shit");
         var signInfo = window.btoa(value.email + ":" + value.password);
         console.log(signInfo);
         this._loginservice.postLogin(signInfo)
@@ -66,7 +66,6 @@ var NavbarComponent = (function () {
             console.log(data);
             console.log(_this.is_tutor);
             $('#modal1').closeModal();
-            location.reload();
         }, function (err) {
             var error = JSON.parse(err._body).message;
             console.log(error);
@@ -78,6 +77,7 @@ var NavbarComponent = (function () {
     NavbarComponent.prototype.logout = function () {
         localStorage.clear();
         this.logon = false;
+        this._router.navigate(['Home']);
     };
     // logint () {
     //     console.log("fuck");
@@ -117,7 +117,7 @@ var NavbarComponent = (function () {
             styleUrls: ['app/other/nav.css'],
             directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
+        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService, router_deprecated_1.Router])
     ], NavbarComponent);
     return NavbarComponent;
 }());

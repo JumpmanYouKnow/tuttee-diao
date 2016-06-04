@@ -2,14 +2,15 @@ import {Component,OnInit,AfterViewInit,} from '@angular/core';
 import {TimeslotService,Timeslot} from './timeslot.service';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import {PostService} from './post.service'
-
+import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 
 @Component({
 	selector:'history',
 	templateUrl: './app/mytutor/history.component.html',
 	styleUrls: ['./app/mytutor/history.component.css'],
-	directives:[ROUTER_DIRECTIVES]
-
+	directives:[ROUTER_DIRECTIVES,PaginationControlsCmp],
+	pipes: [PaginatePipe],
+    providers: [PaginationService,TimeslotService]
 })
 
 
@@ -31,7 +32,12 @@ export class HistoryComponent implements OnInit {
               slots[i].end_time = Date.parse(slots[i].end_time);
           }
         
-		this.Timeslots = slots.filter(item => item.start_time < Date.now());
+		this.Timeslots = slots.filter(item => item.start_time < Date.now())
+		.sort((a,b) => a.start_time>b.start_time?-1:1);
+		
+		if (this.Timeslots.length == 0) {
+			this.Timeslots = null;
+			}
 
 		}
 		, err=> console.log(err));

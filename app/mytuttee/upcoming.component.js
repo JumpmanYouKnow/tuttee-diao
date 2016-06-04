@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var timeslot_service_1 = require('../mytuttee/timeslot.service');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var token_service_1 = require('../services/token.service');
+var ng2_pagination_1 = require('ng2-pagination');
 var UpcomingComponent = (function () {
     function UpcomingComponent(_timeslotservice, _tokenservice) {
         this._timeslotservice = _timeslotservice;
@@ -28,7 +29,11 @@ var UpcomingComponent = (function () {
                 slots[i].timeslot.start_time = Date.parse(slots[i].timeslot.start_time);
                 slots[i].timeslot.end_time = Date.parse(slots[i].timeslot.end_time);
             }
-            _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time > Date.now(); });
+            _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time > Date.now(); })
+                .sort(function (a, b) { return a.start_time > b.start_time ? -1 : 1; });
+            if (_this.Timeslots.length == 0) {
+                _this.Timeslots = null;
+            }
             console.log(_this.Timeslots);
         }, function (err) { return console.log(err); });
     };
@@ -48,8 +53,9 @@ var UpcomingComponent = (function () {
             selector: 'upcoming',
             templateUrl: './app/mytuttee/upcoming.component.html',
             styleUrls: ['./app/mytuttee/upcoming.component.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-            providers: [timeslot_service_1.TimeslotService, token_service_1.TokenService],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, ng2_pagination_1.PaginationControlsCmp],
+            pipes: [ng2_pagination_1.PaginatePipe],
+            providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService, token_service_1.TokenService]
         }), 
         __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, token_service_1.TokenService])
     ], UpcomingComponent);

@@ -5,7 +5,7 @@
 </div>
 
 
-             <form    [hidden]= "!modSlot"  (ngSubmit) ="modify()">
+             <form [hidden]= "!modSlot"  (ngSubmit) ="modify()">
              <div id="modifyBox">
              <div class="row">
                 <div class="input-field col s6 m6">
@@ -68,7 +68,7 @@
 
          
              <div *ngIf = "Timeslots" id="no-more-tables">
-            <table class="responsive-table card">
+            <table class="highlight center card">
                 <thead>
                 <tr>
                     <th data-field="course">课名</th>  
@@ -82,7 +82,7 @@
                 </thead>
              
                 <tbody>
-                <tr *ngFor = "#timeslot of Timeslots">
+                <tr *ngFor = "let timeslot of Timeslots | paginate: { itemsPerPage: 5, currentPage: p }">
                     <td  style="width:15%"class="course">{{timeslot.course_id}}</td>  
                     <td  style="width:10%" class="time">{{timeslot.start_time | date: 'medium'}}</td>
                     <td  style="width:10%" class="location">{{timeslot.address}}</td>
@@ -118,12 +118,10 @@
 
                                  
                 </tr>
-                            <pagination-controls (pageChange)="p = $event">
-                            </pagination-controls>
-
-
                 </tbody>
-            </table>  
+            </table> 
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ 
             </div>  
 
  

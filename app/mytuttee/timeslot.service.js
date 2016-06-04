@@ -16,6 +16,14 @@ var TimeslotService = (function () {
         this._tokenservice = _tokenservice;
         this._http = _http;
     }
+    TimeslotService.prototype.getTimeslotByID = function (id) {
+        this._tokenservice.checkExp();
+        console.log(window.btoa(this._tokenservice.getToken() + ":"));
+        var headers = new http_1.Headers();
+        headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+        return this._http.get('http://127.0.0.1:5000/api/timeslots/' + id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     TimeslotService.prototype.getTimeslot = function () {
         this._tokenservice.checkExp();
         // console.log("fuck you ");

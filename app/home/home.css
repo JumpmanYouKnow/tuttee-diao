@@ -130,11 +130,11 @@ nav a.button-collapse i {
     line-height: 50px;
 }
 
+/*
+.tt-menu{
+    margin: "12px 0",
+}*/
 
-/*.tt-menu{
-    border: 5px solid red;
-}
-*/
 
 .typeahead,
 .tt-query,

@@ -76,7 +76,7 @@ var TokenService = (function () {
         else
             return false;
     };
-    TokenService.prototype.checkExp = function (token) {
+    TokenService.prototype.checkExp = function () {
         var _this = this;
         if (Date.now() > this.tokenLife) {
             console.log("expired!");

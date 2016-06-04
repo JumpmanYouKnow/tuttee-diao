@@ -15,6 +15,7 @@ var ConditionsComponent = (function () {
     ConditionsComponent = __decorate([
         core_1.Component({
             selector: 'conditions',
+            styleUrls: ['app/other/conditions.css'],
             templateUrl: 'app/other/conditions.html',
         }), 
         __metadata('design:paramtypes', [])

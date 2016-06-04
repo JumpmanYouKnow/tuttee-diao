@@ -27,20 +27,6 @@ var PostComponent = (function () {
     ;
     PostComponent.prototype.ngAfterViewInit = function () {
         $('#datetimepicker').datetimepicker();
-        // $('#datetimepicker').datetimepicker({ 
-        //     format:'m-d-Y h:m',
-        // 		});
-        // 	setTimeout(function() {
-        // 	   $('select').material_select();
-        // }, 500);
-        // $('#course_id').change (function() {
-        // 	this.course_id = $(this).val();
-        // 	console.log(this.course_id);
-        // });
-        // $('#capacity').change (function() {
-        // 	this.capacity = $(this).val();
-        // 	console.log(this.capacity);
-        // });
         $('#datetimepicker').focusout(function () {
             var start_time = $('#datetimepicker').data("DateTimePicker").date();
             console.log(start_time.format('YYYY-MM-DD[T]HH:mm:ss.SSSZ'));

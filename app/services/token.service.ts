@@ -87,7 +87,7 @@ export class TokenService {
 	
 	}
 
-	public checkExp(token:string) {
+	public checkExp() {
 
 		if (Date.now() > this.tokenLife) {
 			console.log("expired!");

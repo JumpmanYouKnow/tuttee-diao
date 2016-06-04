@@ -23,7 +23,11 @@ var RegisterComponent = (function () {
         this._loginservice.postSignUp(value.email, value.password)
             .subscribe(function (data) {
             console.log(data);
-        }, function (err) { return console.log(err); });
+            alert(data._body);
+        }, function (err) {
+            console.log(err);
+            alert(err._body);
+        });
     };
     RegisterComponent = __decorate([
         core_1.Component({
