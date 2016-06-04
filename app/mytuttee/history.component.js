@@ -10,7 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var timeslot_service_1 = require('../mytuttee/timeslot.service');
+var router_1 = require('@angular/router');
 var review_service_1 = require('./review.service');
+var ng2_pagination_1 = require('ng2-pagination');
 var HistoryComponent = (function () {
     function HistoryComponent(_timeslotservice, _reviewservice) {
         this._timeslotservice = _timeslotservice;
@@ -27,7 +29,11 @@ var HistoryComponent = (function () {
                 slots[i].timeslot.start_time = Date.parse(slots[i].timeslot.start_time);
                 slots[i].timeslot.end_time = Date.parse(slots[i].timeslot.end_time);
             }
-            _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time < Date.now(); });
+            _this.Timeslots = slots.filter(function (item) { return item.timeslot.start_time < Date.now(); })
+                .sort(function (a, b) { return a.start_time > b.start_time ? -1 : 1; });
+            if (_this.Timeslots.length == 0) {
+                _this.Timeslots = null;
+            }
             console.log(_this.Timeslots);
             setTimeout(function () {
                 $('.modal-trigger').leanModal();
@@ -52,7 +58,9 @@ var HistoryComponent = (function () {
             selector: 'history',
             templateUrl: './app/mytuttee/history.component.html',
             styleUrls: ['./app/mytuttee/history.component.css'],
-            providers: [timeslot_service_1.TimeslotService, review_service_1.ReviewService],
+            directives: [router_1.ROUTER_DIRECTIVES, ng2_pagination_1.PaginationControlsCmp],
+            pipes: [ng2_pagination_1.PaginatePipe],
+            providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService, review_service_1.ReviewService]
         }), 
         __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, review_service_1.ReviewService])
     ], HistoryComponent);

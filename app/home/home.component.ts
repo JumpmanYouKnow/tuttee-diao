@@ -59,13 +59,13 @@ export class HomeComponent {
 
   getCoursesList () {
     this._coursesservice.getCourses().subscribe(data => {
-       var listLength = data.courses.length;
-       for(var i=0;i<listLength;i++) {
-         this.courseList.push({course:data.courses[i].id})
-       }
-       console.log(this.courseList);
+    var listLength = data.courses.length;
+    for(var i=0;i<listLength;i++) {
+      this.courseList.push({course:data.courses[i].id})
+    }
+    console.log(this.courseList);
 
-        var courses = new Bloodhound({
+      var courses = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('course'),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       // `states` is an array of state names defined in "The Basics"
@@ -74,24 +74,25 @@ export class HomeComponent {
 
       $('.typeahead').typeahead({
         autoselect: true,
-          hint: true,  
-  highlight: true,  
-  minLength: 1  
+        hint: true,  
+        highlight: true,  
+        minLength: 1  
       },
-          {
-            name: 'courses',
-            source: courses,
-            //course in each object in courses
-            display:'course',
-            templates: {
+      {
+        name: 'courses',
+        source: courses,
+        //course in each object in courses
+        display:'course',
+        templates: {
         empty: [
-          '<div style="color:black" class="empty-message">',
-            'unable to find any courses that match the current query',
-          '</div>'
+        '<div style="color:black" class="empty-message">',
+          'unable to find any courses that match the current query',
+        '</div>'
         ].join('\n'),
-          suggestion: Handlebars.compile('<div><a style="color:black;text-transform: uppercase;" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
-        
-          }
+        suggestion: Handlebars
+        .compile('<div><a style="color:black;text-transform: uppercase;" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
+    
+      }
       });
 
 

@@ -29,7 +29,10 @@ export class RegisterComponent{
           console.log(data);
           alert(data._body);
         },
-        err => console.log(err)
+        err => {
+          console.log(err);
+           alert(err._body);
+        }
         )
     }
 

@@ -4,14 +4,16 @@ import {TimeslotService,Timeslot} from './timeslot.service';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import {PostService} from './post.service'
+import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 
 
 @Component({
 	selector:'upcoming',
 	templateUrl: './app/mytutor/upcoming.component.html',
 	styleUrls: ['./app/mytutor/upcoming.component.css'],
-	directives:[ROUTER_DIRECTIVES,FORM_DIRECTIVES],
-
+	directives:[ROUTER_DIRECTIVES,PaginationControlsCmp,FORM_DIRECTIVES],
+	pipes: [PaginatePipe],
+    providers: [PaginationService,TimeslotService]
 
 
 
@@ -36,9 +38,13 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
               slots[i].end_time = Date.parse(slots[i].end_time);
           }
         
-		this.Timeslots = slots.filter(item => item.start_time > Date.now());
+		this.Timeslots = slots.filter(item => item.start_time > Date.now())
+		.sort((a,b) => a.start_time>b.start_time?-1:1);
+		if (this.Timeslots.length == 0) {
+			this.Timeslots = null;
 
-			}
+		
+		}
 			, err=> console.log(err));
 
 		// this._timeslotservice.getTimeslot().then(timeslot => {

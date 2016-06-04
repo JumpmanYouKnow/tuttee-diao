@@ -2,7 +2,7 @@
    <h4 class = "col">上过的课</h4>
 </div>
 <div id="table-scroll">
-<table class="highlight center">
+<table class="highlight center card">
 <thead>
    <tr>
       <th data-field="course">课名</th>
@@ -15,7 +15,7 @@
    </tr>
 </thead>
 <tbody>
-   <tr  *ngFor = "#timeslot of Timeslots">
+   <tr  *ngFor = "let timeslot of Timeslots | paginate: { itemsPerPage: 5, currentPage: p }">
       <td  style="width:15%"class="course">{{timeslot.timeslot.course}}</td>
       <td  style="width:10%" class="time">{{timeslot.timeslot.start_time| date: 'medium'}}</td>
       <td  style="width:10%" class="location">{{timeslot.timeslot.address}}</td>
@@ -53,3 +53,7 @@
           </form>
           </div>
    </tr>
+   </tbody>
+   </table>
+   <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   </div>

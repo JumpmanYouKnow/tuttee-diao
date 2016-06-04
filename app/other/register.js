@@ -24,7 +24,10 @@ var RegisterComponent = (function () {
             .subscribe(function (data) {
             console.log(data);
             alert(data._body);
-        }, function (err) { return console.log(err); });
+        }, function (err) {
+            console.log(err);
+            alert(err._body);
+        });
     };
     RegisterComponent = __decorate([
         core_1.Component({

@@ -13,6 +13,7 @@ var timeslot_service_1 = require('./timeslot.service');
 var common_1 = require('@angular/common');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var post_service_1 = require('./post.service');
+var ng2_pagination_1 = require('ng2-pagination');
 var UpcomingComponent = (function () {
     function UpcomingComponent(_timeslotservice, _postservice) {
         this._timeslotservice = _timeslotservice;
@@ -29,7 +30,11 @@ var UpcomingComponent = (function () {
                 slots[i].start_time = Date.parse(slots[i].start_time);
                 slots[i].end_time = Date.parse(slots[i].end_time);
             }
-            _this.Timeslots = slots.filter(function (item) { return item.start_time > Date.now(); });
+            _this.Timeslots = slots.filter(function (item) { return item.start_time > Date.now(); })
+                .sort(function (a, b) { return a.start_time > b.start_time ? -1 : 1; });
+            if (_this.Timeslots.length == 0) {
+                _this.Timeslots = null;
+            }
         }, function (err) { return console.log(err); });
         // this._timeslotservice.getTimeslot().then(timeslot => {
         // 	console.log(timeslot);
@@ -92,7 +97,9 @@ var UpcomingComponent = (function () {
             selector: 'upcoming',
             templateUrl: './app/mytutor/upcoming.component.html',
             styleUrls: ['./app/mytutor/upcoming.component.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, ng2_pagination_1.PaginationControlsCmp, common_1.FORM_DIRECTIVES],
+            pipes: [ng2_pagination_1.PaginatePipe],
+            providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService]
         }), 
         __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, post_service_1.PostService])
     ], UpcomingComponent);
