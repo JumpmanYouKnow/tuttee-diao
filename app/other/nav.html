@@ -13,6 +13,7 @@
         <li><a [routerLink] = "['Courses']">浏览课程</a></li>
         <li><a [routerLink] = "['About']">About Us</a></li>
          <li><a  [hidden]="logon" class = "modal-trigger" href="#modal2">注册</a></li>
+         <li><a [hidden]="logon" [routerLink] = "['Register']">牛逼注册</a></li>
         <li><a   [hidden]="logon" class = "modal-trigger" href = "#modal1">登录</a></li>
           <li><a  [hidden]="!logon || is_tutor" class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
 

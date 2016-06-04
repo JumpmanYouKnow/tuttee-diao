@@ -17,6 +17,7 @@ var TimeslotService = (function () {
         this._http = _http;
     }
     TimeslotService.prototype.getTimeslot = function () {
+        this._tokenservice.checkExp();
         // console.log("fuck you ");
         console.log(window.btoa(this._tokenservice.getToken() + ":"));
         var headers = new http_1.Headers();

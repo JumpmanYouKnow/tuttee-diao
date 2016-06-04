@@ -2,6 +2,7 @@
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import {PostService,postObj} from './post.service'
 import {Router} from '@angular/router-deprecated'
+import {CoursesService, Course} from '../courses/courses.service';
 
 @Component({
 	selector:'post',
@@ -23,15 +24,20 @@ export class PostComponent {
 	fee:number;
 	address:string;
 
-	public modal:Object = {};
+       public modal: Object = {};
+       Courses:any = [];
+       // public test: String;
 
-
-	constructor (private _postservice: PostService, private _router: Router) {
-
+	constructor (private _postservice: PostService, 
+    private _router: Router, 
+    private _coursesservice: CoursesService) {
 	}
 
-	ngAfterViewInit() {
+       ngOnInit() {
+    this.getCoursesList()
+};
 
+	ngAfterViewInit() {
   $('#datetimepicker').datetimepicker();
 			// $('#datetimepicker').datetimepicker({ 
 			//     format:'m-d-Y h:m',
@@ -66,8 +72,23 @@ export class PostComponent {
 
 }
 
+  getCoursesList() {
+    this._coursesservice.getCourses().subscribe(data => {
+     var listLength = data.courses.length;
+      //  this.Courses = data.courses;
+      // console.log(this.Courses);
+      // this.test = data.courses[0].id;
+      // console.log(this.test)
+    // console.log(data.courses);
+        for (let i = 0; i < listLength; i++){
+      this.Courses.push(data.courses[i].id);
+      }
+    this.Courses.sort();
+      console.log(this.Courses);
+      });
+    }
 
-postSlot(value:any) {
+postSlot(value: any) {
     let start_time = moment(document.getElementById('datetimepicker').value);
     let end_time = start_time.valueOf() + this.duration*60*1000;
 

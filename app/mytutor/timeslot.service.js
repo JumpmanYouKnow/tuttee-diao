@@ -17,10 +17,10 @@ var TimeslotService = (function () {
         this._http = _http;
     }
     TimeslotService.prototype.getTimeslot = function () {
-        console.log("fuck");
+        this._tokenservice.checkExp();
         console.log(window.btoa(this._tokenservice.getToken() + ":"));
         var params = new http_1.URLSearchParams();
-        params.set('limit', "15");
+        params.set('limit', "100");
         // params.set('cnt', days.toString());
         var headers = new http_1.Headers();
         //headers.append('Content-Type','application/json');

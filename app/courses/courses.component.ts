@@ -33,11 +33,6 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 	) {}
 
 	getCourse() {
-		// this._coursesservices.getCourses()
-		// .then(data => this.Courses = data);
-
-
-		
 			this._coursesservices.getCourses().subscribe(data => {
 				this.loading = false;
 				this.Courses = data.courses;

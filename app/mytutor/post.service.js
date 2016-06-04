@@ -17,6 +17,7 @@ var PostService = (function () {
         this._tokenservice = _tokenservice;
     }
     PostService.prototype.postTimeslot = function (postObj) {
+        this._tokenservice.checkExp();
         // let params: URLSearchParams = new URLSearchParams();
         // params.set('start_time', postObj.start_time);
         //  params.set('end_time',postObj.end_time);
@@ -39,6 +40,7 @@ var PostService = (function () {
         //return Promise.resolve(COURSES);
     };
     PostService.prototype.modifyTimeslot = function (modObj) {
+        this._tokenservice.checkExp();
         var slot = JSON.stringify({
             id: modObj.id,
             start_time: modObj.start_time,
@@ -55,6 +57,7 @@ var PostService = (function () {
             .map(function (res) { return res.json(); });
     };
     PostService.prototype.deleteSlot = function (id) {
+        this._tokenservice.checkExp();
         var headers = new http_1.Headers();
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
         return this._http.delete('http://127.0.0.1:5000/api/timeslots/' + id, { headers: headers })

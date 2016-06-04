@@ -22,6 +22,8 @@ import {TimeslotService} from './mytutor/timeslot.service'
 import {TutorclassComponent} from'./courses/subject/tutorclass/tutorclass.component';
 import {TutorclassService} from'./courses/subject/tutorclass/tutorclass.service'; 
 import {PostService} from './mytutor/post.service'
+import {RegisterComponent} from './other/register'
+import {ConditionsComponent} from './other/conditions'
 import './rxjs-operators';
 // import {RegisterComponent} from 
 //import {PaginationService} from 'ng2-pagination'
@@ -58,7 +60,8 @@ declare var jQuery: JQueryStatic;
 		{ path: '/tutor/:id', name: 'TutProfile', component: TutProfileComponent},
 		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
 		{ path: '/mytutor/...', name: 'Mytutor', component: MytutorComponent},
-		// { path: '/register', name: 'Register', component:RegisterComponent}
+		{ path: '/register', name: 'Register', component:RegisterComponent},
+		{ path: '/conditions', name: 'Conditions', component:ConditionsComponent}
 
 
 ])

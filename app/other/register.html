@@ -1,4 +1,5 @@
- <div id = "registerCard">
+ <div class = "row">
+ <div id = "registerCard" class = "card center-align col s4 offset-s4">
  <h3>Sign up</h3>
             <form class="col s12 " #register="ngForm" (ngSubmit)="tryRegister(register.value)">
                 <div class="row">
@@ -28,5 +29,9 @@
 
                  <button type="submit" [ngClass]="{disabled: register.value.password!=register.value.repassword || !register.valid }" class=" modal-action  waves-effect waves-green btn-large">Sign Up!</button>
 
+                 <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                 <label for="filled-in-box">我已经同意<a [routerLink] = "['Conditions']">使用条款</a></label>
+
             </form>
+</div>
 </div>

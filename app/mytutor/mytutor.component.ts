@@ -5,6 +5,7 @@ import {HistoryComponent} from './history.component'
 import {SettingComponent} from './setting.component'
 import {PostComponent} from './post.component'
 import {TimeslotService,Timeslot} from './timeslot.service'
+import {TokenService} from '../services/token.service'
 
 
 
@@ -27,7 +28,16 @@ import {TimeslotService,Timeslot} from './timeslot.service'
 ])
 
 export class MytutorComponent {
+	public username: string;
 
+
+	constructor(private _tokenservice: TokenService
+	) { }
+
+	ngOnInit() {
+		this.username = this._tokenservice.getUsername();
+		console.log(this.username)
+	}
 
 
 

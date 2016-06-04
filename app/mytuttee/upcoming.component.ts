@@ -1,6 +1,7 @@
 import {Component,OnInit,AfterViewInit} from '@angular/core';
 import {TimeslotService, Timeslot} from '../mytuttee/timeslot.service';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import {TokenService} from '../services/token.service'
 
 
 @Component({
@@ -8,12 +9,15 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 	templateUrl: './app/mytuttee/upcoming.component.html',
 	styleUrls: ['./app/mytuttee/upcoming.component.css'],
              directives: [ROUTER_DIRECTIVES],
-             providers: [TimeslotService],
+             providers: [TimeslotService, TokenService],
 })
 
 export class UpcomingComponent {
 	Timeslots : Timeslot[];
-	constructor(private _timeslotservice:TimeslotService
+	public username: string;
+
+	constructor(private _timeslotservice:TimeslotService,
+		private _tokenservice: TokenService
 	) {}
 
 	getTimeSlots() {
@@ -44,6 +48,7 @@ export class UpcomingComponent {
 		}, err => console.log(err));
 	}
 	
+
 
 	ngOnInit() {
 		this.getTimeSlots();

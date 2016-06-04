@@ -57,6 +57,8 @@ export class TutorclassService {
   }
 
   postAppointement(PostObj:PostObj){
+     this._tokenservice.checkExp();
+
     let params: URLSearchParams = new URLSearchParams();
     // params.set('id', PostObj.id);
     params.set('course_id', PostObj.course_id);

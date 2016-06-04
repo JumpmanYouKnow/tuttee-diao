@@ -4,6 +4,7 @@ import {UpcomingComponent} from './upcoming.component'
 import {FavoriteComponent} from './favorite.component'
 import {HistoryComponent} from './history.component'
 import {SettingComponent} from './setting.component'
+import {TokenService} from '../services/token.service'
 
 
 
@@ -28,7 +29,15 @@ import {SettingComponent} from './setting.component'
 ])
 
 export class MytutteeComponent {
+	public username: string;
 
 
+	constructor( private _tokenservice: TokenService
+	) { }
+
+	ngOnInit() {
+		this.username = this._tokenservice.getUsername();
+		console.log(this.username)
+	}
 
 }

@@ -11,12 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var post_service_1 = require('./post.service');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var courses_service_1 = require('../courses/courses.service');
 var PostComponent = (function () {
-    function PostComponent(_postservice, _router) {
+    // public test: String;
+    function PostComponent(_postservice, _router, _coursesservice) {
         this._postservice = _postservice;
         this._router = _router;
+        this._coursesservice = _coursesservice;
         this.modal = {};
+        this.Courses = [];
     }
+    PostComponent.prototype.ngOnInit = function () {
+        this.getCoursesList();
+    };
+    ;
     PostComponent.prototype.ngAfterViewInit = function () {
         $('#datetimepicker').datetimepicker();
         // $('#datetimepicker').datetimepicker({ 
@@ -39,6 +47,22 @@ var PostComponent = (function () {
             //  var start_time = $('#datetimepicker').datetimepicker('getValue').toISOString();
             $('input[name="start_time"]').val(start_time.format('YYYY-MM-DD[T]HH:mm:ss.SSSZ'));
             // console.log($('#datetimepicker').datetimepicker('getValue').toISOString());
+        });
+    };
+    PostComponent.prototype.getCoursesList = function () {
+        var _this = this;
+        this._coursesservice.getCourses().subscribe(function (data) {
+            var listLength = data.courses.length;
+            //  this.Courses = data.courses;
+            // console.log(this.Courses);
+            // this.test = data.courses[0].id;
+            // console.log(this.test)
+            // console.log(data.courses);
+            for (var i = 0; i < listLength; i++) {
+                _this.Courses.push(data.courses[i].id);
+            }
+            _this.Courses.sort();
+            console.log(_this.Courses);
         });
     };
     PostComponent.prototype.postSlot = function (value) {
@@ -73,7 +97,7 @@ var PostComponent = (function () {
             templateUrl: './app/mytutor/post.component.html',
             styleUrls: ['./app/mytutor/post.component.css'],
         }), 
-        __metadata('design:paramtypes', [post_service_1.PostService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [post_service_1.PostService, router_deprecated_1.Router, courses_service_1.CoursesService])
     ], PostComponent);
     return PostComponent;
 }());

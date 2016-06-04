@@ -31,6 +31,8 @@ var timeslot_service_1 = require('./mytutor/timeslot.service');
 var tutorclass_component_1 = require('./courses/subject/tutorclass/tutorclass.component');
 var tutorclass_service_1 = require('./courses/subject/tutorclass/tutorclass.service');
 var post_service_1 = require('./mytutor/post.service');
+var register_1 = require('./other/register');
+var conditions_1 = require('./other/conditions');
 require('./rxjs-operators');
 /*
  * App Component
@@ -65,6 +67,8 @@ var AppComponent = (function () {
             { path: '/tutor/:id', name: 'TutProfile', component: tutprofile_component_1.TutProfileComponent },
             { path: '/mytuttee/...', name: 'Mytuttee', component: mytuttee_component_1.MytutteeComponent },
             { path: '/mytutor/...', name: 'Mytutor', component: mytutor_component_1.MytutorComponent },
+            { path: '/register', name: 'Register', component: register_1.RegisterComponent },
+            { path: '/conditions', name: 'Conditions', component: conditions_1.ConditionsComponent }
         ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

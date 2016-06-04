@@ -9,22 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
+var login_service_1 = require('./login.service');
 // declare var jQuery: JQueryStatic;
-var Register = (function () {
-    function Register() {
+var RegisterComponent = (function () {
+    function RegisterComponent(_loginservice) {
+        this._loginservice = _loginservice;
     }
-    Register = __decorate([
+    RegisterComponent.prototype.tryRegister = function (value) {
+        console.log(value.email);
+        console.log(value.password);
+        this._loginservice.postSignUp(value.email, value.password)
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (err) { return console.log(err); });
+    };
+    RegisterComponent = __decorate([
         core_1.Component({
             selector: 'register',
-            templateUrl: 'app/other/nav.html',
-            styleUrls: ['app/other/nav.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'app/other/register.html',
+            styleUrls: ['app/other/register.css'],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
-    ], Register);
-    return Register;
+        __metadata('design:paramtypes', [login_service_1.LoginService])
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.Register = Register;
+exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.js.map

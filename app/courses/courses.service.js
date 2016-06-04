@@ -17,6 +17,7 @@ var CoursesService = (function () {
         this._tokenservice = _tokenservice;
     }
     CoursesService.prototype.getCourses = function () {
+        this._tokenservice.checkExp();
         // 		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
         //   console.log(data);
         // });

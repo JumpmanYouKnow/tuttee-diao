@@ -24,8 +24,11 @@ export class PostService {
 	
  	constructor(private _http: Http,private _tokenservice:TokenService) {
 	  }
-
+               
+	  
+	  
 	postTimeslot(postObj:postObj) {
+		this._tokenservice.checkExp();
 		 // let params: URLSearchParams = new URLSearchParams();
 		 // params.set('start_time', postObj.start_time);
 		 //  params.set('end_time',postObj.end_time);
@@ -56,6 +59,7 @@ export class PostService {
 	}
 
 	modifyTimeslot(modObj) {
+				this._tokenservice.checkExp();
 		let slot = JSON.stringify ({
 			id: modObj.id,
 			start_time:modObj.start_time,
@@ -77,6 +81,7 @@ export class PostService {
 	}
 
 		deleteSlot(id) {
+		this._tokenservice.checkExp();
 		 var headers = new Headers();
 		 headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 		  return this._http.delete('http://127.0.0.1:5000/api/timeslots/'+id,{headers:headers})

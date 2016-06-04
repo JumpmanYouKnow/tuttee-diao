@@ -35,6 +35,8 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 			});
 		}
 
+		
+
 	getTimeSlots() {
 		// console.log("fuck");
 

@@ -50,6 +50,7 @@ var NavbarComponent = (function () {
         this._loginservice.postLogin(signInfo)
             .subscribe(function (data) {
             _this.username = data.username;
+            // console.log(this.username);
             _this._tokenservice.setUsername(data.username);
             if (data.is_tutor) {
                 _this.is_tutor = true;
@@ -101,7 +102,6 @@ var NavbarComponent = (function () {
             this.username = this._tokenservice.getUsername();
             this.is_tutor = this._tokenservice.getIs_tutor();
             this.logon = true;
-            console.log(this.username);
         }
         ;
     };
