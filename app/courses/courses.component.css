@@ -1,13 +1,27 @@
 #jum {
+  position:absolute;
+  z-index: -100;
     width: 100%;
-    height:100%;
-    background-image: url("app/courses/course.JPG");
+    height: 200px;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+    background-image: url("app/images/backgrounds/16pic_hd.png");
     background-repeat:no-repeat;
     background-position: center center;
     background-size:cover;
-    height: 100px;
+
   /*  position: relative;
     top: -150px;*/
+}
+
+.jumWord {
+  margin:auto auto;
+  color:white;
+  padding-top:70px;
+  padding-bottom: 70px;
 }
 
 
