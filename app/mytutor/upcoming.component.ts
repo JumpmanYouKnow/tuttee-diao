@@ -42,8 +42,7 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 		.sort((a,b) => a.start_time>b.start_time?-1:1);
 		if (this.Timeslots.length == 0) {
 			this.Timeslots = null;
-
-		
+			}
 		}
 			, err=> console.log(err));
 
