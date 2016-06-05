@@ -14,9 +14,15 @@ var upcoming_component_1 = require('./upcoming.component');
 var history_component_1 = require('./history.component');
 var setting_component_1 = require('./setting.component');
 var post_component_1 = require('./post.component');
+var token_service_1 = require('../services/token.service');
 var MytutorComponent = (function () {
-    function MytutorComponent() {
+    function MytutorComponent(_tokenservice) {
+        this._tokenservice = _tokenservice;
     }
+    MytutorComponent.prototype.ngOnInit = function () {
+        this.username = this._tokenservice.getUsername();
+        console.log(this.username);
+    };
     MytutorComponent = __decorate([
         core_1.Component({
             selector: 'mytutor',
@@ -30,7 +36,7 @@ var MytutorComponent = (function () {
             { path: '/history', name: 'History', component: history_component_1.HistoryComponent },
             { path: '/post', name: 'Post', component: post_component_1.PostComponent },
         ]), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [token_service_1.TokenService])
     ], MytutorComponent);
     return MytutorComponent;
 }());

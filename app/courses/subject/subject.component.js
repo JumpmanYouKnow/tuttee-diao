@@ -33,7 +33,6 @@ var SubjectComponent = (function () {
     };
     SubjectComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
         this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);
-        //this._router.navigate(['About']);
     };
     SubjectComponent.prototype.seeProfile = function (tutor_id) {
         this._router.navigate(['TutProfile', { id: tutor_id }]);

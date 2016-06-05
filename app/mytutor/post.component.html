@@ -6,10 +6,15 @@
 <div class="form-group col s6 m6 l6">
   <label for="power">Course</label>
   <select class="form-control" required ngControl = "course_id" required [(ngModel)] = "course_id">
-     <option value="math135">math135</option>
-      <option value="cs135">cs135</option>
-      <option value="econ101">econ101</option>
-  </select>
+<!--   <div > -->
+<!-- {{course}} -->
+      <option *ngFor ="let course of Courses" >{{course}}</option> 
+<!--       <option value="cs125">cs125</option>  -->
+  <!--     <option value="cs135">cs135</option>
+      <option value="econ101">econ101</option> --> 
+
+<!--       </div> -->
+      </select> 
 </div>
 
 

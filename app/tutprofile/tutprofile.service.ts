@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
-import {TUTPROFILES} from './mock-tutprofile'
-import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
+// import { Injectable } from '@angular/core';
+// import {TUTPROFILES} from './mock-tutprofile'
+// import {HTTP_PROVIDERS,Http,Headers} from '@angular/http';
+import { Injectable } from '@angular/core'
+import {HTTP_PROVIDERS, Http, Headers, URLSearchParams} from '@angular/http';
+import {TokenService} from '../services/token.service'
 
 
 export interface Reviews {
@@ -41,9 +44,16 @@ export interface TutProfile {
 
 @Injectable()
 export class TutProfileService { 
-	getTutProfile() {
-		return Promise.resolve(TUTPROFILES);
+	constructor(private _tokenservice: TokenService, private _http: Http) { }
+
+	getTimeslot(id: string) {
+		var headers = new Headers();
+		headers.append('Authorization', this._tokenservice.getToken());
+		return this._http.get('http://127.0.0.1:5000/api/tutors/' + id, { headers: headers })
+			.map(res => res.json());
 	}
+	// 	return Promise.resolve(TUTPROFILES);
+	// }
 
 }
 // @Injectable()

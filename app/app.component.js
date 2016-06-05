@@ -47,7 +47,6 @@ var AppComponent = (function () {
         this.token = arg;
     };
     AppComponent.prototype.ngAfterViewInit = function () {
-        //	jQuery(this.elementRef.nativeElement).find("p").append("fuckjasdjlfdsa");
     };
     AppComponent = __decorate([
         core_1.Component({

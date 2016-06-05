@@ -13,18 +13,26 @@ var timeslot_service_1 = require('./timeslot.service');
 var common_1 = require('@angular/common');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var post_service_1 = require('./post.service');
+var courses_service_1 = require('../courses/courses.service');
 var ng2_pagination_1 = require('ng2-pagination');
 var UpcomingComponent = (function () {
-    function UpcomingComponent(_timeslotservice, _postservice) {
+    function UpcomingComponent(_coursesservice, _timeslotservice, _postservice) {
+        this._coursesservice = _coursesservice;
         this._timeslotservice = _timeslotservice;
         this._postservice = _postservice;
         this.modSlot = false;
     }
+    UpcomingComponent.prototype.getCoursesList = function () {
+        this._coursesservice.getCourses().subscribe(function (data) {
+            var listLength = data.courses.length;
+            console.log(data);
+        });
+    };
     UpcomingComponent.prototype.getTimeSlots = function () {
         // console.log("fuck");
         var _this = this;
         this._timeslotservice.getTimeslot().subscribe(function (data) {
-            console.log(data.timeslots);
+            // console.log(data.timeslots);
             var slots = data.timeslots;
             for (var i = 0; i < slots.length; i++) {
                 slots[i].start_time = Date.parse(slots[i].start_time);
@@ -44,9 +52,12 @@ var UpcomingComponent = (function () {
             $('.modal-trigger').leanModal();
         }, 500);
     };
+    ;
     UpcomingComponent.prototype.ngOnInit = function () {
         this.getTimeSlots();
+        this.getCoursesList();
     };
+    ;
     UpcomingComponent.prototype.closeModify = function () {
         this.modSlot = false;
     };
@@ -101,7 +112,7 @@ var UpcomingComponent = (function () {
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService]
         }), 
-        __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, post_service_1.PostService])
+        __metadata('design:paramtypes', [courses_service_1.CoursesService, timeslot_service_1.TimeslotService, post_service_1.PostService])
     ], UpcomingComponent);
     return UpcomingComponent;
 }());

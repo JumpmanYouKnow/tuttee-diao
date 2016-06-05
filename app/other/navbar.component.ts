@@ -63,6 +63,9 @@ export class NavbarComponent implements AfterViewInit,OnInit{
            this._loginservice.postLogin(signInfo)
               .subscribe( data => {
                   this.username = data.username;
+                  // console.log(this.username);
+                 
+
                   this._tokenservice.setUsername(data.username);
          
                   if (data.is_tutor) {
@@ -132,7 +135,10 @@ export class NavbarComponent implements AfterViewInit,OnInit{
             this.username = this._tokenservice.getUsername();
             this.is_tutor = this._tokenservice.getIs_tutor();
             this.logon = true;
-            console.log(this.username);
+            // console.log(this.username);
+            // localStorage.setItem('username', this.username);
+            // let fuck = localStorage.getItem('username');
+            // console.log(fuck)
         };
 
 

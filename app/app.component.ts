@@ -77,8 +77,8 @@ export class AppComponent implements AfterViewInit {
 
 
 	ngAfterViewInit () {
-	//	jQuery(this.elementRef.nativeElement).find("p").append("fuckjasdjlfdsa");
 	}
+
 }
 
 

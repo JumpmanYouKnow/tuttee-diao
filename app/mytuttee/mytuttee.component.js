@@ -14,9 +14,15 @@ var upcoming_component_1 = require('./upcoming.component');
 var favorite_component_1 = require('./favorite.component');
 var history_component_1 = require('./history.component');
 var setting_component_1 = require('./setting.component');
+var token_service_1 = require('../services/token.service');
 var MytutteeComponent = (function () {
-    function MytutteeComponent() {
+    function MytutteeComponent(_tokenservice) {
+        this._tokenservice = _tokenservice;
     }
+    MytutteeComponent.prototype.ngOnInit = function () {
+        this.username = this._tokenservice.getUsername();
+        console.log(this.username);
+    };
     MytutteeComponent = __decorate([
         core_1.Component({
             selector: 'mytuttee',
@@ -30,7 +36,7 @@ var MytutteeComponent = (function () {
             { path: '/setting', name: 'Setting', component: setting_component_1.SettingComponent },
             { path: '/history', name: 'History', component: history_component_1.HistoryComponent },
         ]), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [token_service_1.TokenService])
     ], MytutteeComponent);
     return MytutteeComponent;
 }());

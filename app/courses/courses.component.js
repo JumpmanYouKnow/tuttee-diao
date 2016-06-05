@@ -23,8 +23,6 @@ var CoursesComponent = (function () {
         this.loading = true;
     }
     CoursesComponent.prototype.getCourse = function () {
-        // this._coursesservices.getCourses()
-        // .then(data => this.Courses = data);
         var _this = this;
         this._coursesservices.getCourses().subscribe(function (data) {
             _this.loading = false;
