@@ -2,11 +2,22 @@
 <!-- <navbar></navbar> -->
  <div class="background-image"></div>
     <div id= "jumword">
+    <br>
+    <div class="row ">
+    <div class="word">
     <h3 >欢迎学生</h3>
-        <br>
-        <a class="waves-effect waves-light orange darken-2 btn-large" id="main" [routerLink] = "['Courses']" >浏览课程</a>
+    </div>
+    </div>
+    <hr size = "10" width="90%">
+    <div class="row">
+    <div class = "word">
+    <p style="font-size: 30px">  徒邸是一个致力于以学生之间互补的方式提升其学业水平的专业教育平台。 与一般教育平台及机构相比，我们的优势在于以下三点：XXX</p>    
+    </div>
+      </div>
 
-             <div id = "search" class="row">
+  <div class="row">
+<!-- <a class="left waves-effect waves-light orange darken-2 btn-large" id="main" [routerLink] = "['Courses']" >浏览课程</a> -->
+          <div id = "search" class="row col s9 left">
 
           <div class=" m6 offset-m6" id="custom-templates">
           <form (ngSubmit) = "search()">
@@ -15,11 +26,13 @@
           </form>
           </div>
              <!--  <input class="typeahead m6 offset-m6"  type="text" placeholder="Search Courses"> -->
-          </div>
-        
-   
+          </div>   
+            <img src="app/images/icons/icon_search.png" id="icon" style="width:80px">
+</div>
+
 
 </div>
+
 
 <!-- </div> -->
 
