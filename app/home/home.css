@@ -5,16 +5,16 @@
   right: 0;
   top:-7rem;
   z-index: 1;
-  height:600px;
+  height:800px;
   display: block;
-  -webkit-clip-path: polygon(0 0, 2500px 0,2500px 87%, 0 100%);
+/*  -webkit-clip-path: polygon(0 0, 2500px 0,2500px 87%, 0 100%);*/
 
 /*-webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);*/
-  background: url(app/home/home.JPG) no-repeat;
+  background: url(app/images/backgrounds/4pic_hd.png) no-repeat;
   background-size: cover;
 /*    background-repeat:no-repeat;
     background-position: center center;*/
@@ -33,16 +33,24 @@
 }
 
 */
+.row{
+  padding-left: 50px;
+}
+.word{
+    text-align: left;
+}
+
 #search {
     position: relative;
     top:4rem;
 }
 #jumword {
- 
+    background-color: rgba(104,104,104,0.75);
     color:white;
+    height:300px;
     position: relative;
-
-    margin-top: 7%;
+    margin-left:40%;
+    margin-top: 10%;
     text-align: center;
      z-index: 2
 }
@@ -138,8 +146,8 @@ nav a.button-collapse i {
 .typeahead,
 .tt-query,
 .tt-hint {
-  width: 396px;
-  height: 30px;
+  width: 500px;
+  height: 40px;
   padding: 8px 12px;
   font-size: 24px;
   line-height: 30px;
@@ -148,6 +156,7 @@ nav a.button-collapse i {
      -moz-border-radius: 8px;
           border-radius: 8px;
   outline: none;
+/*  text-align: right*/
 }
 
 .typeahead {
