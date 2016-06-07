@@ -27,7 +27,7 @@ var CoursesComponent = (function () {
         this._coursesservices.getCourses().subscribe(function (data) {
             _this.loading = false;
             _this.Courses = data.courses;
-            //	console.log(data);
+            console.log(data);
             //	console.log("runed");
             _this.test = data.courses[0].name;
             // console.log(data.courses);

@@ -25,16 +25,15 @@ var HomeComponent = (function () {
         // this.title.getData().subscribe(data => this.data = data);
     };
     HomeComponent.prototype.ngAfterViewInit = function () {
-        $('nav').addClass("trans");
-        var sectionsPos = $("#main").offset().top;
-        $(window).scroll(function () {
-            var currPos = $(window).scrollTop();
-            if (sectionsPos < currPos) {
-                $('nav').removeClass("trans");
-            }
-            else
-                $('nav').addClass("trans");
-        });
+        //   $('nav').addClass("trans");
+        //   var sectionsPos = $("#main").offset().top;
+        //   $(window).scroll(function() {
+        //   var currPos = $(window).scrollTop();
+        //   if (sectionsPos < currPos) {
+        //       $('nav').removeClass("trans");
+        // }
+        //     else $('nav').addClass("trans");
+        //   });
         console.log("getting!");
         this.getCoursesList();
         var fds = [{ course: 'math135' }, { course: 'psych101' }, { course: 'che102' }];
@@ -76,7 +75,7 @@ var HomeComponent = (function () {
                         .compile('<div><a style="color:black;text-transform: uppercase;" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
                 }
             });
-            $(".tt-menu").css({ width: "422px",
+            $(".tt-menu").css({ width: "520px",
                 margin: "12px 0",
                 padding: "8px 0",
                 "background-color": " #fff",

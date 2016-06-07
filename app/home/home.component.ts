@@ -29,16 +29,16 @@ export class HomeComponent {
 
 
   ngAfterViewInit() {
-    $('nav').addClass("trans");
-    var sectionsPos = $("#main").offset().top;
-    $(window).scroll(function() {
-    var currPos = $(window).scrollTop();
-    if (sectionsPos < currPos) {
+  //   $('nav').addClass("trans");
+  //   var sectionsPos = $("#main").offset().top;
+  //   $(window).scroll(function() {
+  //   var currPos = $(window).scrollTop();
+  //   if (sectionsPos < currPos) {
        
-        $('nav').removeClass("trans");
-  }
-      else $('nav').addClass("trans");
-    });
+  //       $('nav').removeClass("trans");
+  // }
+  //     else $('nav').addClass("trans");
+  //   });
 
     console.log("getting!");
 
@@ -96,7 +96,7 @@ export class HomeComponent {
       });
 
 
-      $(".tt-menu").css({  width: "422px",
+      $(".tt-menu").css({  width: "520px",
         margin: "12px 0",
         padding: "8px 0",
        "background-color":" #fff",

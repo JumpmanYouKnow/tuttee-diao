@@ -36,7 +36,7 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 			this._coursesservices.getCourses().subscribe(data => {
 				this.loading = false;
 				this.Courses = data.courses;
-		//	console.log(data);
+		console.log(data);
 		//	console.log("runed");
 			this.test = data.courses[0].name;
 			// console.log(data.courses);
