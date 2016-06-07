@@ -1,13 +1,18 @@
+@font-face {
+    font-family: 'Trajan'; /*a name to be used later*/
+    src: url('fonts/Trajan-Pro-Regular.ttf'); /*URL to font*/
+}
+
 #jum {
   position:absolute;
   z-index: -100;
     width: 100%;
     height: 200px;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
     background-image: url("app/images/backgrounds/16pic_hd.png");
     background-repeat:no-repeat;
     background-position: center center;
@@ -21,7 +26,7 @@
   margin:auto auto;
   color:white;
   padding-top:70px;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 
@@ -54,7 +59,28 @@ height:100%;
 
 .courseBtn{
   text-align: center;
+        width:120px;
+      height:30px;
+/*
+    background-image: url("app/images/elements_courses/course-button.png");*/
+
 }
+
+#categoryHead {
+  background-image: url("app/images/elements_courses/small-bar.png");
+  font-family: 'Trajan';
+  font-size:35px;
+  width:100%;
+  -webkit-clip-path: polygon(0 0, 100% 0,100% 50%, 0 100%);
+  height:60px;
+  color:white;
+}
+
+.row .col {
+      padding: 0 0;
+}
+
+
 /*
 .preloader-wrapper {
   height:1000px;

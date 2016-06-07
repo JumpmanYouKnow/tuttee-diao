@@ -18,9 +18,9 @@
     <div>               
       <div class="row">
         
-    <div *ngFor ="let category of categories" class = "col s12 m6 l2 courseBtn">
+    <div *ngFor ="let category of categories" class = "col s12 m6 l2 center-align">
 
-            <p class = "amber row">{{category|uppercase}}</p>
+            <p class = "row" id ="categoryHead">{{category|uppercase}}</p>
 
 
     
@@ -33,9 +33,8 @@
       <!--   <div *ngFor="#course of Courses | search: term " class="col s12 m4"> -->
     
         <div *ngFor="let course of (Courses| search:category)" class = "row">
-        <div class = "courseBtn">
-          <a class="btn orange darken-2" (click)="gotoDetail(course.id)">{{course.id}}</a>
-          </div>
+          <a class = "courseBtn btn green accent-3"(click)="gotoDetail(course.id)">{{course.id}}</a>
+
 <!--  
           <div class="card">
               <div class="card-image s12 m12 l12">
