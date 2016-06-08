@@ -33,7 +33,7 @@
       <!--   <div *ngFor="#course of Courses | search: term " class="col s12 m4"> -->
     
         <div *ngFor="let course of (Courses| search:category)" class = "row">
-          <a class = "courseBtn btn green accent-3"(click)="gotoDetail(course.id)">{{course.id}}</a>
+          <a class = "courseBtn btn btn-lg"(click)="gotoDetail(course.id)">{{course.id}}</a>
 
 <!--  
           <div class="card">
