@@ -39,6 +39,19 @@ var TimeslotService = (function () {
         return this._http.delete('http://127.0.0.1:5000/api/appointments/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    TimeslotService.prototype.PutProfile = function (postObj) {
+        var headers = new http_1.Headers();
+        var slot = JSON.stringify({
+            grad_year: postObj.grad_year,
+            phone: postObj.phone,
+            program: postObj.program,
+            wechat: postObj.wechat
+        });
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+        return this._http.put('http://127.0.0.1:5000/api/profile', slot, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     TimeslotService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [token_service_1.TokenService, http_1.Http])

@@ -39,11 +39,6 @@ var PostComponent = (function () {
         var _this = this;
         this._coursesservice.getCourses().subscribe(function (data) {
             var listLength = data.courses.length;
-            //  this.Courses = data.courses;
-            // console.log(this.Courses);
-            // this.test = data.courses[0].id;
-            // console.log(this.test)
-            // console.log(data.courses);
             for (var i = 0; i < listLength; i++) {
                 _this.Courses.push(data.courses[i].id);
             }
@@ -51,7 +46,7 @@ var PostComponent = (function () {
             console.log(_this.Courses);
         });
     };
-    PostComponent.prototype.postSlot = function (value) {
+    PostComponent.prototype.postSlot = function () {
         var _this = this;
         var start_time = moment(document.getElementById('datetimepicker').value);
         var end_time = start_time.valueOf() + this.duration * 60 * 1000;

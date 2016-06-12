@@ -1,4 +1,4 @@
-    import {Component,AfterViewInit} from '@angular/core';
+ import {Component,AfterViewInit} from '@angular/core';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import {PostService,postObj} from './post.service'
 import {Router} from '@angular/router-deprecated'
@@ -52,11 +52,6 @@ export class PostComponent {
   getCoursesList() {
     this._coursesservice.getCourses().subscribe(data => {
      var listLength = data.courses.length;
-      //  this.Courses = data.courses;
-      // console.log(this.Courses);
-      // this.test = data.courses[0].id;
-      // console.log(this.test)
-    // console.log(data.courses);
         for (let i = 0; i < listLength; i++){
       this.Courses.push(data.courses[i].id);
       }
@@ -65,7 +60,7 @@ export class PostComponent {
       });
     }
 
-postSlot(value: any) {
+postSlot() {
     let start_time = moment(document.getElementById('datetimepicker').value);
     let end_time = start_time.valueOf() + this.duration*60*1000;
 

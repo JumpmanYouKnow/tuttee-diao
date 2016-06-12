@@ -1,5 +1,5 @@
   <h4>开新课</h4>
-  <form #slotSetting="ngForm" id="myForm" (ngSubmit) = "postSlot(slotSetting.value)">
+  <form #slotSetting="ngForm" id="myForm" (ngSubmit) = "postSlot()">
 
 
 <div class="row">
@@ -9,11 +9,6 @@
 <!--   <div > -->
 <!-- {{course}} -->
       <option *ngFor ="let course of Courses" >{{course}}</option> 
-<!--       <option value="cs125">cs125</option>  -->
-  <!--     <option value="cs135">cs135</option>
-      <option value="econ101">econ101</option> --> 
-
-<!--       </div> -->
       </select> 
 </div>
 

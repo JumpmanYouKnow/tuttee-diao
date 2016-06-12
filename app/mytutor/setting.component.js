@@ -11,7 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SettingComponent = (function () {
     function SettingComponent() {
+        this.modal = {};
     }
+    SettingComponent.prototype.PostProfile = function () {
+        var postObj = {
+            grad_year: this.grad_year,
+            phone: this.phone,
+            program: this.program,
+            wechat: this.wechat,
+        };
+        console.log(postObj);
+    };
     SettingComponent = __decorate([
         core_1.Component({
             selector: 'setting',

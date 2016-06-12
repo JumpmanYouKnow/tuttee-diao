@@ -22,6 +22,13 @@ export interface Timeslot {
 	// description: string
 }
 
+export interface postObj {
+ grad_year: number;
+phone: number;
+program: string;
+wechat: string;
+}
+
 
 @Injectable()
 export class TimeslotService {
@@ -54,5 +61,23 @@ export class TimeslotService {
 		return this._http.delete('http://127.0.0.1:5000/api/appointments/' + id, { headers: headers })
 			.map(res => res.json());
 
-	}	
+	}
+
+	PutProfile(postObj: postObj){
+		var headers = new Headers();
+		let slot = JSON.stringify({
+      grad_year: postObj.grad_year,
+      phone: postObj.phone,
+      program: postObj.program,
+      wechat: postObj.wechat
+		});
+
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+
+    return this._http.put('http://127.0.0.1:5000/api/profile',slot,{ headers: headers })
+      .map(res => res.json());
+	}
+
+
 }
