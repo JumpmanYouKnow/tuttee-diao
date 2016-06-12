@@ -25,6 +25,7 @@ var TimeslotService = (function () {
         var headers = new http_1.Headers();
         //headers.append('Content-Type','application/json');
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
+        console.log("token isss:" + "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
         return this._http.get('http://127.0.0.1:5000/api/profile/timeslots', { headers: headers, search: params })
             .map(function (res) { return res.json(); });
         // return Promise.resolve(TIMESLOTS);

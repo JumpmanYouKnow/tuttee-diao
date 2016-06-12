@@ -20,12 +20,18 @@ var UpcomingComponent = (function () {
         this._coursesservice = _coursesservice;
         this._timeslotservice = _timeslotservice;
         this._postservice = _postservice;
+        this.Courses = [];
         this.modSlot = false;
     }
     UpcomingComponent.prototype.getCoursesList = function () {
+        var _this = this;
         this._coursesservice.getCourses().subscribe(function (data) {
             var listLength = data.courses.length;
-            console.log(data);
+            for (var i = 0; i < listLength; i++) {
+                _this.Courses.push(data.courses[i].id);
+            }
+            _this.Courses.sort();
+            console.log(_this.Courses);
         });
     };
     UpcomingComponent.prototype.getTimeSlots = function () {
@@ -62,7 +68,6 @@ var UpcomingComponent = (function () {
         this.modSlot = false;
     };
     UpcomingComponent.prototype.modifyOpen = function (timeslot) {
-        console.log('fuck');
         this.modSlot = jQuery.extend({}, timeslot);
         console.log(this.modSlot);
         this.modSlot.duration = moment(this.modSlot.end_time - this.modSlot.start_time) / 1000 / 60;

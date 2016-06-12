@@ -17,7 +17,6 @@
     background-repeat:no-repeat;
     background-position: center center;
     background-size:cover;
-
   /*  position: relative;
     top: -150px;*/
 }
@@ -27,6 +26,7 @@
   color:white;
   padding-top:70px;
   padding-bottom: 60px;
+  margin: -10px -10px -10px -10px;
 }
 
 
@@ -72,7 +72,7 @@ height:100%;
   background-image: url("app/images/elements_courses/small-bar.png");
   font-family: 'Trajan';
   font-size:35px;
-  width:100%;
+  width:102%;
   -webkit-clip-path: polygon(0 0, 100% 0,100% 50%, 0 100%);
   height:60px;
   color:white;

@@ -14,7 +14,7 @@
                  </div>
 
                   <div class="form-group col s6 m6 l6">
-                    <label for="power">Capacity</label>
+                    <label for="capacity">Capacity</label>
                     <select ngControl = "capacity" [(ngModel)] = "modSlot.capacity"  class="form-control" required >
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -30,6 +30,12 @@
                   </div>
              </div>
                <div class = "row">
+               <div class="form-group col s6 m6 l6">
+                    <label for="course">Course</label>
+                    <select class="form-control" required ngControl = "course_id" required [(ngModel)] = "modSlot.course_id">
+                <option *ngFor ="let course of Courses" >{{course}}</option> 
+                </select> 
+                </div>
                <div class="input-field col s6 m6">
                   <input  ngControl = "duration"  [(ngModel)] = "modSlot.duration"  type="text" ><br>
                     <label class = "active">Duration</label>

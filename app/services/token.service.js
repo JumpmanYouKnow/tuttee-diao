@@ -45,6 +45,12 @@ var TokenService = (function () {
     TokenService.prototype.getUsername = function () {
         return this.username;
     };
+    TokenService.prototype.getProfile = function () {
+        var token = "Basic " + window.btoa(this.getToken() + ":");
+        var headers = new http_1.Headers();
+        headers.append('Authorization', token);
+        return this._http.get("http://localhost:5000/api/profile", { headers: headers }).map(function (res) { return res.json(); });
+    };
     TokenService.prototype.getIs_tutor = function () {
         return this.is_tutor;
     };

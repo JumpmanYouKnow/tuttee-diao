@@ -18,9 +18,15 @@ var token_service_1 = require('../services/token.service');
 var MytutorComponent = (function () {
     function MytutorComponent(_tokenservice) {
         this._tokenservice = _tokenservice;
+        this.photoURL = "http://placehold.it/150x150";
     }
     MytutorComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.username = this._tokenservice.getUsername();
+        this._tokenservice.getProfile().subscribe(function (data) {
+            _this.photoURL = "http://localhost:5000/photo/" + data.photo;
+            _this.username = data.username;
+        });
         console.log(this.username);
     };
     MytutorComponent = __decorate([

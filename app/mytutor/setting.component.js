@@ -9,16 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var uploader_service_1 = require('./uploader.service');
 var SettingComponent = (function () {
-    function SettingComponent() {
+    function SettingComponent(_uploader) {
+        this._uploader = _uploader;
+        this.URL = 'http://localhost:5000/api/profile/photo';
     }
+    SettingComponent.prototype.fileChangeEvent = function (fileInput) {
+        this.photoToUpload = fileInput.target.files[0];
+        console.log(this.photoToUpload);
+    };
+    SettingComponent.prototype.upload = function () {
+        this._uploader.upload(this.URL, this.photoToUpload)
+            .then(function (data) { return alert(data); })
+            .catch(function (err) { return alert(err); });
+    };
     SettingComponent = __decorate([
         core_1.Component({
             selector: 'setting',
             templateUrl: './app/mytutor/setting.component.html',
-            styleUrls: ['./app/mytutor/setting.component.css']
+            styleUrls: ['./app/mytutor/setting.component.css'],
+            providers: [uploader_service_1.UploaderService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [uploader_service_1.UploaderService])
     ], SettingComponent);
     return SettingComponent;
 }());

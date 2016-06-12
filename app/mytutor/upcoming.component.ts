@@ -24,19 +24,26 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 export class UpcomingComponent implements OnInit, AfterViewInit {
 
 		Timeslots : Timeslot[];
+		Courses: any = [];
 		public modSlot : any = false;
+
 
 		constructor(private _coursesservice: CoursesService,
 			private _timeslotservice:TimeslotService, 
 			private _postservice: PostService
 	) {}
-              
-		getCoursesList() {
-			this._coursesservice.getCourses().subscribe(data => {
-				var listLength = data.courses.length;
-				console.log(data)
-			});
-		}
+
+
+		  getCoursesList() {
+		    this._coursesservice.getCourses().subscribe(data => {
+		     var listLength = data.courses.length;
+		        for (let i = 0; i < listLength; i++){
+		      this.Courses.push(data.courses[i].id);
+		      }
+		    this.Courses.sort();
+		      console.log(this.Courses);
+		      });
+		    }
 
 		
 
@@ -81,7 +88,6 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 	}
 
 	modifyOpen(timeslot:Timeslot) {
-		console.log('fuck');
 		this.modSlot = jQuery.extend({}, timeslot);
 	
 		console.log(this.modSlot);

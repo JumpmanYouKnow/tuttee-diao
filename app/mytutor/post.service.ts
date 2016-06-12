@@ -21,7 +21,6 @@ export interface postObj {
 @Injectable()
 export class PostService {
 
-<<<<<<< HEAD
 	
  	constructor(private _http: Http,private _tokenservice:TokenService) {
 	  }

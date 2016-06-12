@@ -39,11 +39,6 @@ var PostComponent = (function () {
         var _this = this;
         this._coursesservice.getCourses().subscribe(function (data) {
             var listLength = data.courses.length;
-            //  this.Courses = data.courses;
-            // console.log(this.Courses);
-            // this.test = data.courses[0].id;
-            // console.log(this.test)
-            // console.log(data.courses);
             for (var i = 0; i < listLength; i++) {
                 _this.Courses.push(data.courses[i].id);
             }

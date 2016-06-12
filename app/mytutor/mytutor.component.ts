@@ -29,6 +29,7 @@ import {TokenService} from '../services/token.service'
 
 export class MytutorComponent {
 	public username: string;
+	public photoURL:string = "http://placehold.it/150x150";
 
 
 	constructor(private _tokenservice: TokenService
@@ -36,6 +37,10 @@ export class MytutorComponent {
 
 	ngOnInit() {
 		this.username = this._tokenservice.getUsername();
+		this._tokenservice.getProfile().subscribe(data => {
+			this.photoURL = "http://localhost:5000/photo/"+ data.photo;
+			this.username = data.username;
+		});
 		console.log(this.username)
 	}
 

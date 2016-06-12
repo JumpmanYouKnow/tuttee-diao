@@ -48,6 +48,13 @@ export class TokenService {
 		return this.username;
 	}
 
+	public getProfile() {
+		var token = "Basic "+window.btoa(this.getToken()+":");
+		var headers = new Headers();
+		headers.append('Authorization',token);
+		return this._http.get("http://localhost:5000/api/profile",{headers:headers}).map(res=>res.json());
+	}
+
 	public getIs_tutor() {
 		return this.is_tutor;
 	}
