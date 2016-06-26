@@ -43,7 +43,7 @@ export class HistoryComponent {
 
 			setTimeout(function() {
 			$('.modal-trigger').leanModal();
-		 }, 500);
+		 }, 3000);
 		}
 			, err => console.log(err));
 

@@ -37,7 +37,7 @@ var HistoryComponent = (function () {
             console.log(_this.Timeslots);
             setTimeout(function () {
                 $('.modal-trigger').leanModal();
-            }, 500);
+            }, 3000);
         }, function (err) { return console.log(err); });
     };
     HistoryComponent.prototype.postComment = function (timeslot_id) {
