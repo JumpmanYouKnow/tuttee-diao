@@ -11,18 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var courses_service_1 = require('../courses/courses.service');
+var router_deprecated_2 = require('@angular/router-deprecated');
 // declare var jQuery: JQueryStatic;
 var HomeComponent = (function () {
     // TypeScript public modifiers
-    function HomeComponent(_coursesservice) {
+    function HomeComponent(_coursesservice, _router) {
         this._coursesservice = _coursesservice;
+        this._router = _router;
         // Set our default values
         this.data = { value: '' };
         this.courseList = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
-        console.log('hello `Home` component');
+        // console.log('hello `Home` component');
         // this.title.getData().subscribe(data => this.data = data);
+    };
+    HomeComponent.prototype.clicksearch = function () {
+        this._router.navigate(['Courses']);
     };
     HomeComponent.prototype.ngAfterViewInit = function () {
         //   $('nav').addClass("trans");
@@ -118,7 +123,7 @@ var HomeComponent = (function () {
             templateUrl: 'app/home/home.html',
             directives: [router_deprecated_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [courses_service_1.CoursesService])
+        __metadata('design:paramtypes', [courses_service_1.CoursesService, router_deprecated_2.Router])
     ], HomeComponent);
     return HomeComponent;
 }());

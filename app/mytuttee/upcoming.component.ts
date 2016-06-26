@@ -1,7 +1,6 @@
 import {Component,OnInit,AfterViewInit} from '@angular/core';
 import {TimeslotService, Timeslot} from '../mytuttee/timeslot.service';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import {TokenService} from '../services/token.service'
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 
 
@@ -10,22 +9,16 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 	selector:'upcoming',
 	templateUrl: './app/mytuttee/upcoming.component.html',
 	styleUrls: ['./app/mytuttee/upcoming.component.css'],
-
-
-
-    directives:[ROUTER_DIRECTIVES,PaginationControlsCmp],
+  directives:[ROUTER_DIRECTIVES,PaginationControlsCmp],
 	pipes: [PaginatePipe],
-    providers: [PaginationService,TimeslotService,TokenService]
+    providers: [PaginationService,TimeslotService]
 
 })
 
 export class UpcomingComponent {
 	Timeslots : Timeslot[];
 	public username: string;
-
-	constructor(private _timeslotservice:TimeslotService,
-		private _tokenservice: TokenService
-	) {}
+	constructor(private _timeslotservice:TimeslotService) {}
 
 	getTimeSlots() {
 		

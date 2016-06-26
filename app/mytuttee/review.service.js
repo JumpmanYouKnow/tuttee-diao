@@ -24,7 +24,7 @@ var ReviewService = (function () {
             tutor_id: tutor_id,
             text: comment
         });
-        // params.set('cnt', days.toString());
+        console.log(review);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));

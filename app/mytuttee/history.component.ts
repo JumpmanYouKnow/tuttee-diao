@@ -17,7 +17,7 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 export class HistoryComponent {
 	Timeslots : Timeslot[];
 	rating: Number;
-	comment: string;
+	text: string;
 	constructor(private _timeslotservice:TimeslotService, private _reviewservice:ReviewService
 	) {}
 
@@ -44,7 +44,6 @@ export class HistoryComponent {
 			setTimeout(function() {
 			$('.modal-trigger').leanModal();
 		 }, 500);
-
 		}
 			, err => console.log(err));
 
@@ -54,7 +53,7 @@ export class HistoryComponent {
 		this._timeslotservice.getTimeslotByID(timeslot_id).subscribe(data =>
 		{
 			console.log(data);
-			this._reviewservice.postReview(this.rating,data.course_id,data.tutor_id,this.comment)
+			this._reviewservice.postReview(this.rating,data.course_id,data.tutor_id,this.text)
 			.subscribe(re => {
 				console.log (re);
 			},

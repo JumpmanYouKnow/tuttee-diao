@@ -11,12 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var timeslot_service_1 = require('../mytuttee/timeslot.service');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var token_service_1 = require('../services/token.service');
 var ng2_pagination_1 = require('ng2-pagination');
 var UpcomingComponent = (function () {
-    function UpcomingComponent(_timeslotservice, _tokenservice) {
+    function UpcomingComponent(_timeslotservice) {
         this._timeslotservice = _timeslotservice;
-        this._tokenservice = _tokenservice;
     }
     UpcomingComponent.prototype.getTimeSlots = function () {
         var _this = this;
@@ -55,9 +53,9 @@ var UpcomingComponent = (function () {
             styleUrls: ['./app/mytuttee/upcoming.component.css'],
             directives: [router_deprecated_1.ROUTER_DIRECTIVES, ng2_pagination_1.PaginationControlsCmp],
             pipes: [ng2_pagination_1.PaginatePipe],
-            providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService, token_service_1.TokenService]
+            providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService]
         }), 
-        __metadata('design:paramtypes', [timeslot_service_1.TimeslotService, token_service_1.TokenService])
+        __metadata('design:paramtypes', [timeslot_service_1.TimeslotService])
     ], UpcomingComponent);
     return UpcomingComponent;
 }());

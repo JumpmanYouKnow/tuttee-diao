@@ -10,7 +10,7 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 	styleUrls: ['./app/mytutor/history.component.css'],
 	directives:[ROUTER_DIRECTIVES,PaginationControlsCmp],
 	pipes: [PaginatePipe],
-    providers: [PaginationService,TimeslotService]
+              providers: [PaginationService,TimeslotService]
 })
 
 

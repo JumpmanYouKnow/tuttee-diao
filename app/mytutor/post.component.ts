@@ -1,4 +1,4 @@
-    import {Component,AfterViewInit} from '@angular/core';
+ import {Component,AfterViewInit} from '@angular/core';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import {PostService,postObj} from './post.service'
 import {Router} from '@angular/router-deprecated'
@@ -60,7 +60,7 @@ export class PostComponent {
       });
     }
 
-postSlot(value: any) {
+postSlot() {
     let start_time = moment(document.getElementById('datetimepicker').value);
     let end_time = start_time.valueOf() + this.duration*60*1000;
 

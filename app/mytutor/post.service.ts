@@ -1,6 +1,5 @@
 import {Injectable,} from '@angular/core';
 import {HTTP_PROVIDERS,Http,Headers,URLSearchParams} from '@angular/http';
-
 import {TokenService} from '../services/token.service'
 
 
@@ -14,7 +13,6 @@ export interface postObj {
     capacity:number;
     fee:number;
     address:string;
-
 }
 
 

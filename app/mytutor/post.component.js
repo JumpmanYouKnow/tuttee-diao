@@ -46,7 +46,7 @@ var PostComponent = (function () {
             console.log(_this.Courses);
         });
     };
-    PostComponent.prototype.postSlot = function (value) {
+    PostComponent.prototype.postSlot = function () {
         var _this = this;
         var start_time = moment(document.getElementById('datetimepicker').value);
         var end_time = start_time.valueOf() + this.duration * 60 * 1000;

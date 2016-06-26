@@ -44,7 +44,7 @@ var HistoryComponent = (function () {
         var _this = this;
         this._timeslotservice.getTimeslotByID(timeslot_id).subscribe(function (data) {
             console.log(data);
-            _this._reviewservice.postReview(_this.rating, data.course_id, data.tutor_id, _this.comment)
+            _this._reviewservice.postReview(_this.rating, data.course_id, data.tutor_id, _this.text)
                 .subscribe(function (re) {
                 console.log(re);
             }, function (err) { return console.log(err); });

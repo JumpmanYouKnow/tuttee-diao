@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass, NgStyle} from '@angular/common';
 import {UploaderService} from './uploader.service';
 
-
 @Component({
 	selector:'setting',
 	templateUrl: './app/mytutor/setting.component.html',
@@ -11,6 +10,7 @@ import {UploaderService} from './uploader.service';
 })
 
 export class SettingComponent {
+
 	URL:string = 'http://localhost:5000/api/profile/photo';
 	photoToUpload: File;
 
@@ -26,8 +26,4 @@ export class SettingComponent {
     .then(data => alert(data))
     .catch(err => alert(err));
   }
-
-
-
-
 }

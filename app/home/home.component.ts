@@ -1,6 +1,8 @@
 import {Component, AfterViewInit, ElementRef,OnDestroy} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {CoursesService,Course} from '../courses/courses.service';
+import {Router} from '@angular/router-deprecated'
+
 
 // declare var jQuery: JQueryStatic;
 
@@ -18,15 +20,18 @@ export class HomeComponent {
   courseList:any = [];
   // TypeScript public modifiers
 
-  constructor (private _coursesservice: CoursesService) {}
+  constructor (private _coursesservice: CoursesService,
+    private _router: Router) {}
 
 
   ngOnInit() {
-    console.log('hello `Home` component');
+    // console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
   }
 
-
+  clicksearch(){
+    this._router.navigate(['Courses']);
+  }
 
   ngAfterViewInit() {
   //   $('nav').addClass("trans");
