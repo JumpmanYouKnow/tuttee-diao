@@ -44,36 +44,12 @@ export interface TutProfile {
 
 @Injectable()
 export class TutProfileService { 
-	constructor(private _tokenservice: TokenService, private _http: Http) { }
+	constructor(private _tokenservice: TokenService, private _http: Http) {}
 
-	getTimeslot(id: string) {
-		var headers = new Headers();
-		headers.append('Authorization', this._tokenservice.getToken());
-		return this._http.get('http://127.0.0.1:5000/api/tutors/' + id, { headers: headers })
+	getTutProfile(id: string) {
+		return this._http.get('http://127.0.0.1:5000/api/tutors/' + id)
 			.map(res => res.json());
 	}
-	// 	return Promise.resolve(TUTPROFILES);
-	// }
+
 
 }
-// @Injectable()
-// export class TutProfileService { 
-// 	public token: string;
-
-//     constructor(private _http: Http) {
-// 	}
-
-// 	getTutProfile() {
-// 		return Promise.resolve(TUTPROFILES);
-// 	}
-
-// 	getTutProfile(id:number) {
-// 		var headers = new Headers();
-// 		headers.append('Authorization',this.token);
-
-// 		return this._http.get('/tutors'+ id,
-// 			, { headers: headers })
-// 		   .map(res => res.json());		
-// 	}
-
-// }

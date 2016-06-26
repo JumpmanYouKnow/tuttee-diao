@@ -73,7 +73,7 @@
              </div>
 
          
-             <div *ngIf = "Timeslots" id="no-more-tables">
+             <div [hidden] = "!Timeslots">
             <table class="highlight center card">
                 <thead>
                 <tr>
@@ -93,12 +93,12 @@
                     <td  style="width:10%" class="time">{{timeslot.start_time | date: 'medium'}}</td>
                     <td  style="width:10%" class="location">{{timeslot.address}}</td>
                     <td  style="width:10%"  class="duration">{{(timeslot.end_time - timeslot.start_time)/1000/60}}</td>
-                    <td  style="width:10%"><a [attr.data-target]="timeslot.id" class="btn orange darken-2 modal-trigger" >{{timeslot.current_apps}}/{{timeslot.capacity}}</a></td>
+                    <td  style="width:10%"><button [attr.data-target]="timeslot.id" class="btn orange darken-2 modal-trigger" >{{timeslot.current_apps}}/{{timeslot.capacity}}</button></td>
+                      
                      <td  style="width:10%"  class="price">{{timeslot.fee }}</td>
                     <td class="description">{{timeslot.description}}</td>
                     <td style="width:1%"> <a class = "btn orange darken-2" (click)="modifyOpen(timeslot)"> modify</a></td>
-                      <!-- Modal Trigger -->
-                  <!-- Modal Structure -->
+
                   <div id="{{timeslot.id}}" class="modal">
                     <div class="modal-content">
                     <p>{{timeslot.course}}</p>
@@ -106,16 +106,21 @@
                       <thead>
                         <tr>
                           <th data-field= "name">名字</th>
-                          <th data-field= "email">Email</th>
+                          <th data-field="grad_year">毕业年级</th>
+                          <th data-field="program">专业</th>
+                           <th data-field = "phone">手机号</th>
                           <th data-field = "wechat">微信号</th>
+                          <th data-field = "time">预定时间</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="#app of timeslot.appointments">
-                          <td>{{app.student.id}}</td>
+                        <tr *ngFor="let app of timeslot.appointments">
                           <td>{{app.student.username}}</td>
+                          <td>{{app.student.grad_year}}</td>
+                          <td>{{app.student.program}}</td>
+                          <td>{{app.student.phone}}</td>
+                          <td>{{app.student.wechat}}</td>
                           <td>{{app.timestamp}}</td>
-                          <td><a class="btn orange darken-2">删</a></td>
                         </tr>
                       </tbody>
                              </table>
@@ -124,11 +129,13 @@
 
                                  
                 </tr>
+
                 </tbody>
             </table> 
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
  
             </div>  
+
 
  
 

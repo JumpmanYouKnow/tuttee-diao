@@ -30,10 +30,11 @@ var HistoryComponent = (function () {
             if (_this.Timeslots.length == 0) {
                 _this.Timeslots = null;
             }
+            setTimeout(function () {
+                $('.modal-trigger').leanModal();
+                console.log("triggered!");
+            }, 500);
         }, function (err) { return console.log(err); });
-        setTimeout(function () {
-            return $('.modal-trigger').leanModal();
-        }, 500);
     };
     HistoryComponent.prototype.ngOnInit = function () {
         this.getTimeSlots();

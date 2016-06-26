@@ -11,53 +11,35 @@ import {TutProfile, Reviews, Timeslots, Courses} from './tutprofile.service';
 @Component({
 	selector: 'tutprofile',
 	templateUrl: './app/tutprofile/tutprofile.html',
-	// template: "<p> a </p>",
 	styleUrls: ['./app/tutprofile/tutprofile.css'],
 })
 
 export class TutProfileComponent implements OnInit {
 
-    public TutProfile: TutProfile[];
-    public Courses: Courses[];
-    public Timeslots: Timeslots[];
+    public TutProfile: TutProfile;
+    public Courses: Courses[] = [];
+    public photoURL: string;
 
 	constructor(private _router: Router, 
 		private _routeParams: RouteParams, 
 		private _tutProfileService: TutProfileService
 	) { }
-	// templateUrl: './app/tutprofile/tutprofile.html',
-	// getTutProfile(id:number) {
-	// 	this._tutProfileService.getTutProfile()
-	// 		.subscribe( data => {
-	//	this.TutProfile = data;
-	// }
-
 	
 
 
 	ngOnInit() {
 		 let id = this._routeParams.get('id');
-		 this._tutProfileService.getTimeslot(id).subscribe(data => {
-			 // this.loading = false;
-			 // console.log(data);
-			 // this.Subject = { id: data.id, name: data.name };
-			 // this.Teacher = data.tutors;
+		 this._tutProfileService.getTutProfile(id).subscribe(data => {
+			 this.TutProfile = data;
+			 this.photoURL = "http://127.0.0.1:5000/photo/"+ data.photo;
+			 this.Courses = data.courses;
+
 			 console.log(data);
-			 // this.Subject = data;
-			 // this.Teacher = this.Subject.teacher;
 		 },
 			 err => console.log(err)
 		 );
 	} 
 
-	// getTutProfile(id: number) {
-		// this._tutProfileService.getTutProfile().then(TutProfiles => {
-		// 	this.TutProfile = TutProfiles;
-		// 	this.Timeslots = TutProfiles[0].timeslots;
-		// 	this.Courses = TutProfiles[0].courses;
-			
-		// });
-	// }
 
 	gotoDetail(subject_id: String, tutor_id: number) {
 		this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);

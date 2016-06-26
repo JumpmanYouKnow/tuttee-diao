@@ -18,32 +18,18 @@ var TutProfileComponent = (function () {
         this._router = _router;
         this._routeParams = _routeParams;
         this._tutProfileService = _tutProfileService;
+        this.Courses = [];
     }
-    // templateUrl: './app/tutprofile/tutprofile.html',
-    // getTutProfile(id:number) {
-    // 	this._tutProfileService.getTutProfile()
-    // 		.subscribe( data => {
-    //	this.TutProfile = data;
-    // }
     TutProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
         var id = this._routeParams.get('id');
-        this._tutProfileService.getTimeslot(id).subscribe(function (data) {
-            // this.loading = false;
-            // console.log(data);
-            // this.Subject = { id: data.id, name: data.name };
-            // this.Teacher = data.tutors;
+        this._tutProfileService.getTutProfile(id).subscribe(function (data) {
+            _this.TutProfile = data;
+            _this.photoURL = "http://127.0.0.1:5000/photo/" + data.photo;
+            _this.Courses = data.courses;
             console.log(data);
-            // this.Subject = data;
-            // this.Teacher = this.Subject.teacher;
         }, function (err) { return console.log(err); });
     };
-    // getTutProfile(id: number) {
-    // this._tutProfileService.getTutProfile().then(TutProfiles => {
-    // 	this.TutProfile = TutProfiles;
-    // 	this.Timeslots = TutProfiles[0].timeslots;
-    // 	this.Courses = TutProfiles[0].courses;
-    // });
-    // }
     TutProfileComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
         this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);
     };
@@ -51,7 +37,6 @@ var TutProfileComponent = (function () {
         core_1.Component({
             selector: 'tutprofile',
             templateUrl: './app/tutprofile/tutprofile.html',
-            // template: "<p> a </p>",
             styleUrls: ['./app/tutprofile/tutprofile.css'],
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, router_deprecated_1.RouteParams, tutprofile_service_1.TutProfileService])

@@ -19,10 +19,8 @@ var TutProfileService = (function () {
         this._tokenservice = _tokenservice;
         this._http = _http;
     }
-    TutProfileService.prototype.getTimeslot = function (id) {
-        var headers = new http_1.Headers();
-        headers.append('Authorization', this._tokenservice.getToken());
-        return this._http.get('http://127.0.0.1:5000/api/tutors/' + id, { headers: headers })
+    TutProfileService.prototype.getTutProfile = function (id) {
+        return this._http.get('http://127.0.0.1:5000/api/tutors/' + id)
             .map(function (res) { return res.json(); });
     };
     TutProfileService = __decorate([
@@ -32,20 +30,4 @@ var TutProfileService = (function () {
     return TutProfileService;
 }());
 exports.TutProfileService = TutProfileService;
-// @Injectable()
-// export class TutProfileService { 
-// 	public token: string;
-//     constructor(private _http: Http) {
-// 	}
-// 	getTutProfile() {
-// 		return Promise.resolve(TUTPROFILES);
-// 	}
-// 	getTutProfile(id:number) {
-// 		var headers = new Headers();
-// 		headers.append('Authorization',this.token);
-// 		return this._http.get('/tutors'+ id,
-// 			, { headers: headers })
-// 		   .map(res => res.json());		
-// 	}
-// } 
 //# sourceMappingURL=tutprofile.service.js.map

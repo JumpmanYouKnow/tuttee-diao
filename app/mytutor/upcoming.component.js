@@ -49,14 +49,12 @@ var UpcomingComponent = (function () {
             if (_this.Timeslots.length == 0) {
                 _this.Timeslots = null;
             }
+            console.log(_this.Timeslots);
+            setTimeout(function () {
+                $('.modal-trigger').leanModal();
+                console.log("triggered!");
+            }, 500);
         }, function (err) { return console.log(err); });
-        // this._timeslotservice.getTimeslot().then(timeslot => {
-        // 	console.log(timeslot);
-        // 	this.Timeslots = timeslot;
-        setTimeout(function () {
-            // $('.tooltip').tooltipster();
-            $('.modal-trigger').leanModal();
-        }, 500);
     };
     ;
     UpcomingComponent.prototype.ngOnInit = function () {

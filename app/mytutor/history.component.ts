@@ -39,12 +39,16 @@ export class HistoryComponent implements OnInit {
 			this.Timeslots = null;
 			}
 
+		setTimeout( function() {
+			$('.modal-trigger').leanModal();
+			console.log ("triggered!")
+		 }, 500);
+
 		}
 		, err=> console.log(err));
 
 
-	 	setTimeout( () =>
-			$('.modal-trigger').leanModal(), 500);
+
 		 
 
 	}

@@ -1,114 +1,48 @@
-
-<div id="jum">
-</div>
-
+<div id="jum"></div>
 <div *ngIf = "TutProfile" class = "container">
-    <section class = "row">
-        <div id = "leftCol" class = "col s12 m3">
-            <div class = "row center-align">
-                <img id="photo" src = "http://placehold.it/150x150">
-            </div>
-
-              <div class = "row center-align">
-              老板
-              {{TutProfile.username}}
-            </div>
-
-            <div class = "row center-align">
-                <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-            </div>
-         
-            <div class = "row center-align">
-                职位: PhD
-            </div>
-
-            <div class = "row center-align">
-                加入时间: 15年
-            </div>
-
-            <div class = "row center-align">
-                认证：<i class="fa fa-check-circle-o"></i>
-            </div>
-
-            <div class = "row center-align">
-                <a class="waves-effect waves-light btn" id="main" href="catalog.html">联系我</a>
-            </div>
-
-            <div class = "row center-align">
-                <a class="waves-effect waves-light btn" id="main" href="catalog.html">收藏</a>
-            </div>
-       <!--  </div> -->
-        </div>
-
-        <div id = "rightCol" class = "col s12 m8 offset-m1">
-
-            <h4>个人介绍</h4>
-
-            <p>我是老板，老板很帅</p>
-
-            <h4>课程</h4>
-
-            <div *ngFor = "#timeslots of Timeslots" class = "course">
-                <div class = "row">
-                    <div class = "col m3">
-                       {{timeslots.course}}
-                    </div>
-
-                    <div class = "description col m7">
-                       <div class = "m12">开始于 </div>
-                       <div class = "m12">{{timeslots.start_time | date:"medium"}}</div>
-                    <!--    <div class = "m12">结束于 </div>
-                       <div class = "m12">{{timeslots.end_time | date:"medium"}}</div> -->
-                    </div>
-
-                    <div class = "col m2">
-                            <a class="btn" (click)="gotoDetail(Subject.id,teacher.id)">check!</a>
-                    </div>
-
-                </div>
-            </div>
-
-            </div>
-
-
-    </section>
+   <section class = "row">
+      <div id = "leftCol" class = "col s12 m3">
+         <div class = "row center-align">
+            <img *ngIf = "TutProfile.photo" class="photo" [src] = "photoURL">
+            <img *ngIf = "!TutProfile.photo" class="photo" src = "http://placehold.it/150x150">
+         </div>
+         <div class = "row center-align">
+            {{TutProfile.username}}
+         </div>
+         <div class = "row center-align">
+            毕业时间: {{TutProfile.grad_year}}
+         </div>
+         <div class = "row center-align">
+            Phone: {{TutProfile.phone}}
+         </div>
+         <div class = "row center-align">
+            WeChat: {{TutProfile.wechat}}
+         </div>
+      </div>
+      <div id = "rightCol" class = "col s12 m8 offset-m1">
+         <h4>个人介绍</h4>
+         <p>我是老板，老板很帅</p>
+         <h4>课程</h4>
+         <div  *ngFor = "#course of Courses" class = "course">
+            <a class = "col m3 btn" (click)="gotoDetail(course.id,TutProfile.id)">{{course.id}}</a>
+         </div>
+      </div>
+   </section>
 </div>
 <div class="container">
-    <h3>Comments</h3>
-
-    
-   <div id = "comment" *ngFor = "#courses of Courses" class = "row">
-   <!--  <div class="container"> -->
-      <h4>{{courses.id}}</h4>
-        <div *ngFor = "#reviews of Courses[0].reviews" id="commentbox">
-         
-         <div class ="row">
-       <!-- <h4>{{courses.id}}</h4> -->
-       <div class = "col m3 center-align">
-           
-               <img src = "http://placehold.it/50x50">
-        <!--    </div> -->
-         <!--   <div class ="row"> -->
-              <p>{{reviews.rating}}</p>
-             
-          <!--  </div> -->
-
-       </div>
-
-       <div class = "commentContent col m9">
-            <p>{{reviews.timestamp|date:"medium"}}</p>
-           <p>{{reviews.text}}</p>
-       </div>
-       
+<h3>Comments</h3>
+<div id = "comment" *ngFor = "#course of Courses" class = "row">
+   <h4>{{course.id | uppercase}}</h4>
+   <div *ngFor = "let review of course.reviews" id="commentbox">
+      <div class ="row">
+         <div class = "col m3 center-align">
+            <img src = "http://placehold.it/50x50">
+            <p>{{review.rating}}</p>
+         </div>
+         <div class = "commentContent col m9">
+            <p>{{review.timestamp|date:"medium"}}</p>
+            <p>{{review.text}}</p>
+         </div>
+      </div>
    </div>
- <!-- </div> -->
-</div> 
-
-</div> 
-
-
-
-
-
-
-
+</div>
