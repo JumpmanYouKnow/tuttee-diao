@@ -9,7 +9,6 @@ export class SearchPipe{
 	     	 return null;
 	    }
 	    else {
-	    	console.log(value);
 	    	if (cat == "art") {
 	    		var artsList = ["econ","afm"];
 	    		var courses:string[] = [];

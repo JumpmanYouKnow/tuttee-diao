@@ -45,9 +45,6 @@ var CoursesComponent = (function () {
     CoursesComponent.prototype.ngOnInit = function () {
         this.getCourse();
         this.categories = ["actsc", "art", "cs", "math", "science", "stat"];
-        //this.getCourse();
-        // console.log("the token is",this.token);
-        //	console.log("the token is : " + this._tokenservice.getToken());
     };
     CoursesComponent.prototype.ngAfterViewInit = function () {
     };

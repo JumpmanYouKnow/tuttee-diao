@@ -3,32 +3,28 @@
             <div class="row">
                 <h4>个人资料</h4>
 
-                <form class="col s12">
-                    <div class="row">
-                    Photo
-                     <input type="file" (change)="fileChangeEvent($event)" />
-                     <button (click) = "upload()">hahahaah</button>
-                    </div>
+                     <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input  id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
+                            <input id="first_name" type="text" class="validate" [(ngModel)] = "grad_year">
+                            <label for="first_name">毕业年级</label>
                         </div>
-                        <div class="input-field col s6">
-                            <input  id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
+                         
+                         <div class="input-field col s6">
+                            <input  id="last_name" type="text" class="validate" [(ngModel)] = "program">
+                            <label for="last_name">专业</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input  id="last_name" type="text" class="validate">
+                            <input  id="last_name" type="text" class="validate"  [(ngModel)] = "phone">
                             <label for="last_name">手机</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input  id="last_name" type="text" class="validate">
+                            <input  id="last_name" type="text" class="validate" [(ngModel)] = "wechat">
                             <label for="last_name">微信号</label>
                         </div>
-                    </div>
+                        </div>
                     <div class="row">
                         <form class="col s12">
                             <div class="row">
@@ -41,9 +37,9 @@
                     </div>
 
                 </form>
+                <a class = "btn" (click)="PostProfile()" >保存更改</a>
 
-
-                <h4>修改密码</h4>
+                <!-- <h4>修改密码</h4>
                 <form>
                     <div class="input-field col s6">
                         <input  id="last_name" type="text" class="validate">
@@ -54,7 +50,7 @@
                         <label for="last_name">再次输入</label>
                     </div>
                 </form>
-                <a class = "btn">保存更改</a>
+                <a class = "btn" (click)="PostProfile()" >保存更改</a> -->
             </div>
 
 

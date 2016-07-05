@@ -12,8 +12,8 @@
 
         <li><a [routerLink] = "['Courses']">浏览课程</a></li>
         <li><a [routerLink] = "['About']">About Us</a></li>
-         <li><a  [hidden]="logon" class = "modal-trigger" href="#modal2">注册</a></li>
-         <li><a [hidden]="logon" [routerLink] = "['Register']">牛逼注册</a></li>
+
+         <li><a [hidden]="logon" [routerLink] = "['Register']">注册</a></li>
         <li><a   [hidden]="logon" class = "modal-trigger" href = "#modal1">登录</a></li>
           <li><a  [hidden]="!logon || is_tutor" class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
 
@@ -23,10 +23,27 @@
     </ul>
     <ul  class="side-nav" id="mobile-demo">
         <li><a [routerLink] = "['Courses']">浏览课程</a></li>
-        <li><a href="/#/betutor">我要当教师</a></li>
-        <li><a href="/#/about">关于我们</a></li>
-        <li><a class = "modal-trigger" href="#modal2">注册</a></li>
-        <li><a class = "modal-trigger" href = "#modal1">登录</a></li>
+        <li><a [routerLink] = "['Betutor']">我要当教师</a></li>
+        <li><a [routerLink] = "['About']">关于我们</a></li>
+        <li [hidden]="logon" ><a  [routerLink] = "['Register']">注册</a></li>
+        <li [hidden]="logon"> <a   class = "modal-trigger" href = "#modal1">登录</a></li>
+        <div [hidden]="!logon || is_tutor">
+          <li><a [routerLink]="['Mytuttee','Upcoming']">Upcoming</a></li>
+          <li><a [routerLink]="['Mytuttee','History']">History</a></li>
+          <li class="divider"></li>
+          <li><a [routerLink]="['Mytuttee','Favorite']">Favorite</a></li>
+          <li><a [routerLink]="['Mytuttee','Setting']">Setting</a></li>
+          <li><a  (click) ="logout()">logOUT</a></li>
+        </div>
+
+        <div [hidden]="!logon || !is_tutor">
+         <li><a [routerLink]="['Mytutor','Upcoming']">Upcoming</a></li>
+         <li><a [routerLink]="['Mytutor','History']">History</a></li>
+         <li class="divider"></li>
+         <li><a [routerLink]="['Mytutor','Setting']">Setting</a></li>
+         <li><a [routerLink]="['Mytutor','Post']">Post</a></li>
+         <li ><a  (click) ="logout()">logOUT</a></li>
+        </div>
     </ul>
     </div>
         </nav>
@@ -82,38 +99,4 @@
         </div>
     </div>
 
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <h3>Sign up</h3>
-            <form class="col s12 " #register="ngForm" (ngSubmit)="tryRegister(register.value)">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" ngControl="email" required> 
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" ngControl="password" required>
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="repassword" type="password" class="validate" ngControl="repassword" required>
-                        <label for="repassword">Re-enter Password</label>
-                    </div>
-
-                    
-                </div>
-    
-                   <div  [hidden] = "register.value.password==register.value.repassword || register.pristine" >
-                         两次输入不一致
-                        </div>
-             
-
-                 <button type="submit" [ngClass]="{disabled: register.value.password!=register.value.repassword || !register.valid }" class=" modal-action  waves-effect waves-green btn-large">Sign Up!</button>
-
-            </form>
-     
-        </div>
-    </div>
+  

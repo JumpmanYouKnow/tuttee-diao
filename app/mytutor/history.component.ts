@@ -10,7 +10,7 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 	styleUrls: ['./app/mytutor/history.component.css'],
 	directives:[ROUTER_DIRECTIVES,PaginationControlsCmp],
 	pipes: [PaginatePipe],
-              providers: [PaginationService,TimeslotService]
+    providers: [PaginationService,TimeslotService]
 })
 
 
@@ -41,7 +41,6 @@ export class HistoryComponent implements OnInit {
 
 		setTimeout( function() {
 			$('.modal-trigger').leanModal();
-			console.log ("triggered!")
 		 }, 500);
 
 		}

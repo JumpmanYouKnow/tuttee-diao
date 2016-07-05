@@ -32,7 +32,6 @@ var HistoryComponent = (function () {
             }
             setTimeout(function () {
                 $('.modal-trigger').leanModal();
-                console.log("triggered!");
             }, 500);
         }, function (err) { return console.log(err); });
     };

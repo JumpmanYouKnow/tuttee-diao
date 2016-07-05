@@ -46,14 +46,21 @@ var TutorclassComponent = (function () {
         this._tutorclassService.getTimeslot(id).subscribe(function (data) {
             _this.username = data.username;
             var slots = data.timeslots;
+            console.log(data);
             var timeslots = [];
             for (var i = 0; i < slots.length; i++) {
-                if (slots[i].courses_id == _this.Subject || slots[i].courses_id == null) {
+                if (slots[i].course_id == _this.Subject || slots[i].course_id == null) {
                     slots[i].start_time = Date.parse(slots[i].start_time);
                     slots[i].end_time = Date.parse(slots[i].end_time);
                     timeslots.push(slots[i]);
                 }
             }
+            for (var i = 0; i < data.courses.length; i++) {
+                if (data.courses[i].id == _this.Subject) {
+                    _this.Comments = data.courses[i].reviews;
+                }
+            }
+            console.log(_this.Comments);
             _this.Timeslots = timeslots;
         });
         //   this._tutorclassService.getTimeslot(id).then(hero => {

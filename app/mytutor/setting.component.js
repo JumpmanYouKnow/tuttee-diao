@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var timeslot_service_1 = require('./timeslot.service');
 var uploader_service_1 = require('./uploader.service');
 var SettingComponent = (function () {
-    function SettingComponent(_uploader) {
+    function SettingComponent(_uploader, _postservice) {
         this._uploader = _uploader;
+        this._postservice = _postservice;
         this.URL = 'http://localhost:5000/api/profile/photo';
     }
     SettingComponent.prototype.fileChangeEvent = function (fileInput) {
@@ -24,6 +26,19 @@ var SettingComponent = (function () {
             .then(function (data) { return alert(data); })
             .catch(function (err) { return alert(err); });
     };
+    SettingComponent.prototype.PostProfile = function () {
+        var postObj = {
+            grad_year: this.grad_year,
+            phone: this.phone,
+            program: this.program,
+            wechat: this.wechat,
+        };
+        console.log(postObj);
+        this._postservice.PutProfile(postObj).subscribe(function (data) {
+            console.log(data);
+            alert("发布成功！");
+        }, function (err) { return alert(JSON.stringify(err._body)); });
+    };
     SettingComponent = __decorate([
         core_1.Component({
             selector: 'setting',
@@ -31,7 +46,7 @@ var SettingComponent = (function () {
             styleUrls: ['./app/mytutor/setting.component.css'],
             providers: [uploader_service_1.UploaderService]
         }), 
-        __metadata('design:paramtypes', [uploader_service_1.UploaderService])
+        __metadata('design:paramtypes', [uploader_service_1.UploaderService, timeslot_service_1.TimeslotService])
     ], SettingComponent);
     return SettingComponent;
 }());

@@ -36,8 +36,8 @@
         </div>
         </section>
 
-<!-- <div class="container" id="commentbox" >
-<div id = "comment" *ngFor = "#comment of Comment" class = "row ">
+<div class="container" id="commentbox" >
+<div id = "comment" *ngFor = "let comment of Comments" class = "row ">
        <div class = "col m2 center-align">
            <div class ="row">
                <img src = "http://placehold.it/50x50">
@@ -45,15 +45,15 @@
            <div class ="row">
               <p>{{comment.faculty}}</p>
 
-           </div>
+           </div> 
        </div>
 
        <div class = "commentContent col m10">
-            <p>{{comment.time}}</p>
-           <p>{{comment.content}}</p>
+            <p>{{comment.timestamp}}</p>
+           <p>{{comment.rating}}:{{comment.text}}</p>
        </div>
 
    </div>
 
 </div>
- -->
+

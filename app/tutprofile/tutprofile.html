@@ -23,7 +23,7 @@
          <h4>个人介绍</h4>
          <p>我是老板，老板很帅</p>
          <h4>课程</h4>
-         <div  *ngFor = "#course of Courses" class = "course">
+         <div  *ngFor = "let course of Courses" class = "course">
             <a class = "col m3 btn" (click)="gotoDetail(course.id,TutProfile.id)">{{course.id}}</a>
          </div>
       </div>

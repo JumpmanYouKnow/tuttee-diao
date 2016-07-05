@@ -63,7 +63,7 @@ export class UpcomingComponent implements OnInit, AfterViewInit {
 		if (this.Timeslots.length == 0) {
 			this.Timeslots = null;
 			}
-			console.log (this.Timeslots)
+			console.log (this.Timeslots);
 
 		setTimeout( function() {
 			$('.modal-trigger').leanModal();
