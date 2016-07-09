@@ -1,7 +1,18 @@
 section {
-	background-color:#333333;
+	background-color: #6b7a8f;
 }
 
 #contactUs {
+	padding-top: 1px;
+	color: #e6e7e8;
+}
+
+.icon {
+	height:50px;
+	width:50px;
+
+}
+
+.copyright {
 	color:white;
 }
