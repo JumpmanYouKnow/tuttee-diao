@@ -14,7 +14,7 @@
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);*/
-  background: url(app/images/backgrounds/4pic_hd.png) no-repeat;
+  background: url(app/images/backgrounds/background.png) no-repeat;
   background-size: cover;
 /*    background-repeat:no-repeat;
     background-position: center center;*/
@@ -52,7 +52,7 @@
 }
 
 #jumword {
-    background-color: rgba(104,104,104,0.75);
+    background-color: rgba(220,199,170,0.75);
     color:white;
     height:20rem;
     position: relative;

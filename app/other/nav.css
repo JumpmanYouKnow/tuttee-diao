@@ -20,13 +20,12 @@
      background-color: transparent;
 }*/
 
-nav{
+nav {
     box-shadow: none;
     background-color: #fbb054;
 /*    opacity: 0.9;*/
     transition: background-color 1s;
     border:0px;
-
 }
 
 #logo {

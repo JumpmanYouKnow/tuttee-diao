@@ -50,7 +50,7 @@ html{
 
 #main{
     z-index: -10;
-    background-color: #f27c21;
+    background-color:#fbb054;
 }
 
 nav{
@@ -105,7 +105,7 @@ nav a.button-collapse i {
     font-size: 18px;
     line-height: 25px;
     color: white;
-    background-color: #fbb040;
+    background-color: #6b7a8f;
 }
 
 .row {
