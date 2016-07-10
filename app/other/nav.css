@@ -34,6 +34,11 @@ nav {
     height:40px;
 }
 
+.theme-color {
+    background-color: #fbb054;
+    border:none;
+    cursor:pointer;
+}
 
 nav,
 nav .nav-wrapper i,
