@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var tutprofile_service_1 = require('../../tutprofile/tutprofile.service');
 var subject_service_1 = require('./subject.service');
 var SubjectComponent = (function () {
-    function SubjectComponent(_router, _subjectService, _routeParams) {
+    function SubjectComponent(_router, _subjectService, _routeParams, _tutprofileService) {
         this._router = _router;
         this._subjectService = _subjectService;
         this._routeParams = _routeParams;
+        this._tutprofileService = _tutprofileService;
         this.loading = true;
     }
     SubjectComponent.prototype.ngOnInit = function () {
@@ -25,6 +27,17 @@ var SubjectComponent = (function () {
             _this.loading = false;
             console.log(data);
             _this.Subject = { id: data.id, name: data.name };
+            var _loop_1 = function(i) {
+                _this._tutprofileService.getTutProfile(data.tutors[i].id).subscribe(function (profile) {
+                    console.log(profile);
+                    if (profile.photo) {
+                        data.tutors[i].photo = "http://127.0.0.1:5000/photo/" + profile.photo;
+                    }
+                });
+            };
+            for (var i = 0; i < data.tutors.length; i++) {
+                _loop_1(i);
+            }
             _this.Teacher = data.tutors;
             console.log(_this.Teacher);
             // this.Subject = data;
@@ -42,8 +55,9 @@ var SubjectComponent = (function () {
             selector: 'subject',
             styleUrls: ['app/courses/subject/subject.component.css'],
             templateUrl: 'app/courses/subject/subject.component.html',
+            providers: [tutprofile_service_1.TutProfileService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, subject_service_1.SubjectService, router_deprecated_1.RouteParams])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, subject_service_1.SubjectService, router_deprecated_1.RouteParams, tutprofile_service_1.TutProfileService])
     ], SubjectComponent);
     return SubjectComponent;
 }());

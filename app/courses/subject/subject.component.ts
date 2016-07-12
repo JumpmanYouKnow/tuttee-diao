@@ -1,6 +1,8 @@
 import {Component, OnInit,Pipe} from '@angular/core';
 import {Router, RouteParams} from '@angular/router-deprecated';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {TutProfileService} from '../../tutprofile/tutprofile.service'
+
 import {SubjectService, Subject, Teacher} from './subject.service';
 
 
@@ -8,7 +10,7 @@ import {SubjectService, Subject, Teacher} from './subject.service';
 	selector: 'subject',
 	styleUrls: ['app/courses/subject/subject.component.css'],
 	templateUrl: 'app/courses/subject/subject.component.html',
-
+  providers: [TutProfileService]
 })
 
 
@@ -20,7 +22,8 @@ export class SubjectComponent implements OnInit{
     constructor(
     private _router: Router,
     private _subjectService: SubjectService,
-    private _routeParams: RouteParams) {
+    private _routeParams: RouteParams,
+    private _tutprofileService: TutProfileService) {
   }
 
 
@@ -31,12 +34,21 @@ export class SubjectComponent implements OnInit{
       this.loading = false;
       console.log(data);
       this.Subject = {id:data.id,name:data.name};
+      for (let i = 0; i < data.tutors.length; i++) {
+         this._tutprofileService.getTutProfile(data.tutors[i].id).subscribe(profile => {
+           console.log(profile);
+           if (profile.photo) {
+             data.tutors[i].photo = "http://127.0.0.1:5000/photo/" + profile.photo;
+           }
+           
+         });
+      }
       this.Teacher = data.tutors;
       console.log(this.Teacher);
     // this.Subject = data;
     // this.Teacher = this.Subject.teacher;
   },
-  err => console.log(err)
+    err => console.log(err)
   );
   }
 

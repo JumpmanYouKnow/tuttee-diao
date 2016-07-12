@@ -57,7 +57,8 @@
 
           <div class="col s12 m12 l2  border-left center">
        <!--    <div class="row"> -->
-          <img src="http://placehold.it/100x100" class="circle pic">
+            <img *ngIf = "teacher.photo" class="photo" [src] = "teacher.photo">
+            <img *ngIf = "!teacher.photo" class="photo" src = "http://placehold.it/150x150">
        <!--    </div> -->
           <!-- <div class="row"> -->
          <h4 class="center"><a (click)="seeProfile(teacher.id)">{{teacher.username}}</a></h4>
