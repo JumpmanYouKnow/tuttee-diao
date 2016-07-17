@@ -15,6 +15,18 @@
   background: url(app/images/elements_home/bar_right.png) no-repeat;
 }
 
+#teacher {
+  width: 100%;
+  height: 200px;
+  color: white;
+  background: url(app/images/elements_home/bar_left.png) no-repeat;
+}
+
+.bigIcon {
+  width: 200px;
+  height: 200px;
+}
+
 .row{
   padding-left: 20px;
   padding-right:20px;
