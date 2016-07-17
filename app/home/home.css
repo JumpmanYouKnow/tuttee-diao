@@ -7,55 +7,23 @@
     top: 80px;
 }
 
-/*.background-image {
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  height:100%;
-  display: block;
-  background: url(app/images/backgrounds/background.png) no-repeat;
-  background-size: cover;
-
-
-}*/
 
 #study {
   width: 100%;
   height: 200px;
+  color: white;
   background: url(app/images/elements_home/bar_right.png) no-repeat;
 }
 
-
-/*
-#jum {
-    width: 100%;
-    height:100%;
-   
-       z-index: 9999
-        height: 600px;
-        position: relative;
-        top: -15rem;
-}
-
-*/
 .row{
   padding-left: 20px;
   padding-right:20px;
   padding-bottom: 10px;
 }
-/*.word{
-    text-align: left;
-}*/
 
 #search {
     position: relative;
     top:2.5rem;
-}
-#icon{
-   position: relative;
-   top:2rem;
-   margin-left:30px;
 }
 
 #jumword {
@@ -72,24 +40,6 @@
 }
 
 
-/*
-html,body {height:100%;}
-*/
-
-
-#emptybox{
-    height: 600px;
-    width: 100%;
-}
-
-#teacherbox{
-    width:100%;
-    /*height: 700px;*/
-
-}
-
-
-
 #picture1,#picture3{
     padding-right: 1.75%;
 }
@@ -103,60 +53,13 @@ html,body {height:100%;}
     height:300px;
 }
 
-/*@media (max-width: 993px) {
-    .tpic {
-        width:100%;
-        height:200px;
-    }
-    
-    #jumword{
-      background-color: rgba(104,104,104,0.75);
-      color:white;
-      height:20rem;
-    position: relative;
-    z-index: 2
-    margin-left:10%;
-    margin-top: 10%;
-    }
 
-
-    /*#teacherbox {*/
-        /*height:500px;*/
-    /*}*/
-    /*#picture4{*/
-        /*margin-bottom: 10px;*/
-    /*}*/
-}
 
 #custom-templates .empty-message {
   padding: 5px 10px;
  text-align: center;
 }
-/*
-@media (max-width: 600px) {
-    .tpic {
-        width:100%;
-        height:200px;
-        margin:5px;
-    }
 
-    /*#teacherbox {*/
-        /*height:1000px;*/
-    /*}*/
-
-
-
-
-
-/*body {*/
-    /*display: flex;*/
-    /*min-height: 100vh;*/
-    /*flex-direction: column;*/
-/*}*/
-
-/*main {*/
-    /*flex: 1 0 auto;*/
-/*}*/
 
 nav,
 nav .nav-wrapper i,
@@ -174,7 +77,7 @@ nav a.button-collapse i {
 .typeahead,
 .tt-query,
 .tt-hint {
-  width: 500px;
+  width: 200px;
   height: 40px;
   padding: 8px 12px;
   font-size: 24px;
@@ -184,7 +87,6 @@ nav a.button-collapse i {
      -moz-border-radius: 40px;
           border-radius: 40px;
   outline: none;
-/*  text-align: right*/
 }
 
 .typeahead {
