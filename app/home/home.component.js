@@ -80,7 +80,7 @@ var HomeComponent = (function () {
                         .compile('<div><a style="color:black;text-transform: uppercase;" href="/#/subject/{{course}}"><strong>{{course}}</strong></a></div>')
                 }
             });
-            $(".tt-menu").css({ width: "520px",
+            $(".tt-menu").css({ width: "100px",
                 margin: "12px 0",
                 padding: "8px 0",
                 "background-color": " #fff",
