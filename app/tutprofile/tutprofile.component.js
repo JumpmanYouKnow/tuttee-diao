@@ -12,23 +12,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // import {ROUTER_DIRECTIVES, RouteParams} from '@angular/router-deprecated';
 var tutprofile_service_1 = require('./tutprofile.service');
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var TutProfileComponent = (function () {
-    function TutProfileComponent(_router, _routeParams, _tutProfileService) {
+    function TutProfileComponent(_router, route, _tutProfileService) {
         this._router = _router;
-        this._routeParams = _routeParams;
+        this.route = route;
         this._tutProfileService = _tutProfileService;
         this.Courses = [];
     }
     TutProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var id = this._routeParams.get('id');
-        this._tutProfileService.getTutProfile(id).subscribe(function (data) {
-            _this.TutProfile = data;
-            _this.photoURL = "http://127.0.0.1:5000/photo/" + data.photo;
-            _this.Courses = data.courses;
-            console.log(data);
-        }, function (err) { return console.log(err); });
+        this.route.params.subscribe(function (params) {
+            var id = params['id'];
+            _this._tutProfileService.getTutProfile(id).subscribe(function (data) {
+                _this.TutProfile = data;
+                _this.photoURL = "http://127.0.0.1:5000/photo/" + data.photo;
+                _this.Courses = data.courses;
+                console.log(data);
+            }, function (err) { return console.log(err); });
+        });
     };
     TutProfileComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
         this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);
@@ -39,7 +41,7 @@ var TutProfileComponent = (function () {
             templateUrl: './app/tutprofile/tutprofile.html',
             styleUrls: ['./app/tutprofile/tutprofile.css'],
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, router_deprecated_1.RouteParams, tutprofile_service_1.TutProfileService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, tutprofile_service_1.TutProfileService])
     ], TutProfileComponent);
     return TutProfileComponent;
 }());

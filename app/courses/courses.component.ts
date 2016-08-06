@@ -1,6 +1,7 @@
 import {Component,OnInit,AfterViewInit} from '@angular/core';
 import {CoursesService,Course} from './courses.service';
-import {Router,RouteData} from '@angular/router-deprecated';
+// import {Router,RouteData} from '@angular/router-deprecated';
+import {Router} from '@angular/router'
 import {NavbarComponent} from '../other/navbar.component'
 //import {SubjectComponent} from 'subject/subject.component';
 import {TokenService} from '../services/token.service'
@@ -65,6 +66,6 @@ export class CoursesComponent implements OnInit, AfterViewInit{
 
 	gotoDetail(course_id: String) {
 		console.log(course_id);
-		this._router.navigate(['Subject', {subject: course_id }]);
+		this._router.navigate(['/subject', course_id]);
 	}
 }

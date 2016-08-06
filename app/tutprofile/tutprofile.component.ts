@@ -2,7 +2,7 @@
 // import {ROUTER_DIRECTIVES, RouteParams} from '@angular/router-deprecated';
 import {TutProfileService} from './tutprofile.service';
 import {Component, OnInit, Pipe} from '@angular/core';
-import {Router, RouteParams} from '@angular/router-deprecated';
+import {Router, ActivatedRoute} from '@angular/router';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {TutProfile, Reviews, Timeslots, Courses} from './tutprofile.service';
 
@@ -21,15 +21,16 @@ export class TutProfileComponent implements OnInit {
     public photoURL: string;
 
 	constructor(private _router: Router, 
-		private _routeParams: RouteParams, 
+		private route: ActivatedRoute,
 		private _tutProfileService: TutProfileService
 	) { }
 	
 
 
 	ngOnInit() {
-		 let id = this._routeParams.get('id');
-		 this._tutProfileService.getTutProfile(id).subscribe(data => {
+		this.route.params.subscribe(params => {
+			let id = params['id'];
+			this._tutProfileService.getTutProfile(id).subscribe(data => {
 			 this.TutProfile = data;
 			 this.photoURL = "http://127.0.0.1:5000/photo/"+ data.photo;
 			 this.Courses = data.courses;
@@ -38,6 +39,10 @@ export class TutProfileComponent implements OnInit {
 		 },
 			 err => console.log(err)
 		 );
+		}
+
+		 
+		 
 	} 
 
 

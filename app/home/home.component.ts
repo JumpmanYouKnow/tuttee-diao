@@ -1,8 +1,8 @@
 import {Component, AfterViewInit, ElementRef,OnDestroy} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+// import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {CoursesService,Course} from '../courses/courses.service';
-import {Router} from '@angular/router-deprecated'
-
+// import {Router} from '@angular/router-deprecated'
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 // declare var jQuery: JQueryStatic;
 
@@ -12,7 +12,7 @@ import {Router} from '@angular/router-deprecated'
   pipes: [ ],
   styleUrls: ['app/home/home.css'], 
   templateUrl: 'app/home/home.html',
-   directives:[ROUTER_DIRECTIVES]
+   // directives:[ROUTER_DIRECTIVES]
 })
 export class HomeComponent {
   // Set our default values
@@ -21,7 +21,8 @@ export class HomeComponent {
   // TypeScript public modifiers
 
   constructor (private _coursesservice: CoursesService,
-    private _router: Router) {}
+    private _router: Router
+    ) {} 
 
 
   ngOnInit() {
@@ -30,7 +31,7 @@ export class HomeComponent {
   }
 
   clicksearch(){
-    this._router.navigate(['Courses']);
+    // this._router.navigate(['Courses']);
   }
 
   ngAfterViewInit() {

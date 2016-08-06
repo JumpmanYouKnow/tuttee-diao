@@ -1,5 +1,5 @@
 import {Component, OnInit,Pipe} from '@angular/core';
-import {Router, RouteParams} from '@angular/router-deprecated';
+import {Router, ActivatedRoute} from '@angular/router';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {TutProfileService} from '../../tutprofile/tutprofile.service'
 
@@ -22,15 +22,17 @@ export class SubjectComponent implements OnInit{
     constructor(
     private _router: Router,
     private _subjectService: SubjectService,
-    private _routeParams: RouteParams,
-    private _tutprofileService: TutProfileService) {
+    private _tutprofileService: TutProfileService,
+    private route: ActivatedRoute) {
   }
 
 
 	ngOnInit() {
-    let a = this._routeParams.get('subject');
-
-    this._subjectService.getSubject(a).subscribe(data => {
+    this.route.params.subscribe(params => {
+      
+     let subject = params['subject'];
+     console.log (subject);
+     this._subjectService.getSubject(subject).subscribe(data => {
       this.loading = false;
       console.log(data);
       this.Subject = {id:data.id,name:data.name};
@@ -50,14 +52,15 @@ export class SubjectComponent implements OnInit{
   },
     err => console.log(err)
   );
+   });
   }
 
   gotoDetail(subject_id: String,tutor_id:number) {
-    this._router.navigate(['Tutorclass', {subject: subject_id , id:tutor_id }]);
+    this._router.navigate(['/subject', subject_id , tutor_id ]);
   }
 
   seeProfile(tutor_id: number) {
-    this._router.navigate(['TutProfile', {id:tutor_id}]);
+    this._router.navigate(['/tutor', tutor_id]);
   }
 
 }

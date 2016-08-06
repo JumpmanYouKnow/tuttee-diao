@@ -1,5 +1,3 @@
-import { Component, AfterViewInit} from '@angular/core';
-// import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 import { provideRouter, RouterConfig } from '@angular/router';
 import {TutProfileService} from './tutprofile/tutprofile.service'
 import {NavbarComponent} from './other/navbar.component'
@@ -21,44 +19,26 @@ import {TutorclassService} from'./courses/subject/tutorclass/tutorclass.service'
 import {PostService} from './mytutor/post.service'
 import {RegisterComponent} from './other/register'
 import {ConditionsComponent} from './other/conditions'
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import './rxjs-operators';
-// import {RegisterComponent} from 
-//import {PaginationService} from 'ng2-pagination'
 
-declare var jQuery: JQueryStatic;
-/*
- * App Component
- * Top Level Component
- */
-
-@Component({
-	selector: 'app',
-	template: `
-	<navbar></navbar>
-	<router-outlet></router-outlet>
-	<footer></footer>
-	`,
-
-	directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
-	providers: [TutProfileService, CoursesService, SubjectService, TimeslotService,TutorclassService,LoginService,PostService]
-
-})
-
-export class AppComponent implements AfterViewInit {
-
-	public token:string = "";
-
-	getLogin(arg:any) {
-		console.log(arg);
-		this.token = arg;
-
-	}
+const routes: RouterConfig =[
+		{ path: '', component: HomeComponent},
+	// { path: '/about', component: About, name: 'About' },
+	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
+		{ path: 'about', component: AboutComponent},
+        { path: 'courses',component: CoursesComponent},
+        { path: 'subject/:subject', component: SubjectComponent},	
+        { path: 'betutor', component: BetutorComponent},
+        { path: 'subject/:subject/:id', component: TutorclassComponent},
+		{ path: 'tutor/:id', component: TutProfileComponent},
+		{ path: 'mytuttee/...', component: MytutteeComponent},
+		{ path: 'mytutor/...', component: MytutorComponent},
+		{ path: 'register', component:RegisterComponent},
+		{ path: 'conditions', component:ConditionsComponent}
 
 
-	ngAfterViewInit () {
-	}
+];
 
-}
-
+export const appRouterProviders = [
+  provideRouter(routes)
+];
 

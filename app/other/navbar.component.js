@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+// import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
+var router_1 = require('@angular/router');
 var core_2 = require('@angular/core');
-var common_1 = require('@angular/common');
 var login_service_1 = require('./login.service');
 var token_service_1 = require('../services/token.service');
 // declare var jQuery: JQueryStatic;
 var NavbarComponent = (function () {
     // @Output() private chuan = new EventEmitter();
-    function NavbarComponent(el, _loginservice, _tokenservice, _router) {
+    function NavbarComponent(el, _loginservice, _tokenservice) {
         this.el = el;
         this._loginservice = _loginservice;
         this._tokenservice = _tokenservice;
-        this._router = _router;
         this.loginObj = {
             "confirmed": true,
             "expiration": 3600,
@@ -77,7 +76,7 @@ var NavbarComponent = (function () {
     NavbarComponent.prototype.logout = function () {
         localStorage.clear();
         this.logon = false;
-        this._router.navigate(['Home']);
+        // this._router.navigate(['Home']);
     };
     // logint () {
     //     console.log("fuck");
@@ -115,9 +114,9 @@ var NavbarComponent = (function () {
             selector: 'navbar',
             templateUrl: 'app/other/nav.html',
             styleUrls: ['app/other/nav.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
     ], NavbarComponent);
     return NavbarComponent;
 }());

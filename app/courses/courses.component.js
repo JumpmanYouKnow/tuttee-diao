@@ -10,7 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var courses_service_1 = require('./courses.service');
-var router_deprecated_1 = require('@angular/router-deprecated');
+// import {Router,RouteData} from '@angular/router-deprecated';
+var router_1 = require('@angular/router');
 //import {SubjectComponent} from 'subject/subject.component';
 var token_service_1 = require('../services/token.service');
 var search_pipe_1 = require('./search-pipe');
@@ -50,7 +51,7 @@ var CoursesComponent = (function () {
     };
     CoursesComponent.prototype.gotoDetail = function (course_id) {
         console.log(course_id);
-        this._router.navigate(['Subject', { subject: course_id }]);
+        this._router.navigate(['/subject', course_id]);
     };
     CoursesComponent = __decorate([
         core_1.Component({
@@ -61,7 +62,7 @@ var CoursesComponent = (function () {
             //   directives: [PaginationControlsCmp],
             pipes: [search_pipe_1.SearchPipe]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, courses_service_1.CoursesService, token_service_1.TokenService])
+        __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService, token_service_1.TokenService])
     ], CoursesComponent);
     return CoursesComponent;
 }());

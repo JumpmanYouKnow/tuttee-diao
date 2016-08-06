@@ -8,12 +8,12 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"> <i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
 
-        <li><a [routerLink] = "['Betutor']">我要当教师</a></li>
+        <li><a routerLink = "/betutor" routerLinkActive="active">我要当教师</a></li>
 
-        <li><a [routerLink] = "['Courses']">浏览课程</a></li>
-        <li><a [routerLink] = "['About']">About Us</a></li>
+        <li><a routerLink = "/courses" routerLinkActive="active">浏览课程</a></li>
+        <li><a routerLink='/about'>关于我们</a></li>
 
-         <li><a [hidden]="logon" [routerLink] = "['Register']">注册</a></li>
+         <li><a [hidden]="logon" routerLink = "/register" routerLinkActive="active">注册</a></li>
         <li><a   [hidden]="logon" class = "modal-trigger" href = "#modal1">登录</a></li>
           <li><a  [hidden]="!logon || is_tutor" class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
 
@@ -22,26 +22,26 @@
       
     </ul>
     <ul  class="side-nav" id="mobile-demo">
-        <li><a [routerLink] = "['Courses']">浏览课程</a></li>
-        <li><a [routerLink] = "['Betutor']">我要当教师</a></li>
-        <li><a [routerLink] = "['About']">关于我们</a></li>
-        <li [hidden]="logon" ><a  [routerLink] = "['Register']">注册</a></li>
+        <li><a routerLink = "/courses" routerLinkActive="active">浏览课程</a></li>
+        <li><a routerLink = "/betutor" routerLinkActive="active">我要当教师</a></li>
+        <li><a routerLink = "/about" routerLinkActive="active">关于我们</a></li>
+        <li [hidden]="logon" ><a  routerLink = "/register" routerLinkActive="active">注册</a></li>
         <li [hidden]="logon"> <a   class = "modal-trigger" href = "#modal1">登录</a></li>
         <div [hidden]="!logon || is_tutor">
-          <li><a [routerLink]="['Mytuttee','Upcoming']">Upcoming</a></li>
-          <li><a [routerLink]="['Mytuttee','History']">History</a></li>
+          <li><a routerLink = "/mytuttee/upcoming" routerLinkActive="active">Upcoming</a></li>
+          <li><a routerLink = "/mytuttee/history" routerLinkActive="active">History</a></li>
           <li class="divider"></li>
-          <li><a [routerLink]="['Mytuttee','Favorite']">Favorite</a></li>
-          <li><a [routerLink]="['Mytuttee','Setting']">Setting</a></li>
+          <li><a routerLink = "/mytuttee/favorite" routerLinkActive="active">Favorite</a></li>
+          <li><a routerLink = "/mytuttee/setting" routerLinkActive="active">Setting</a></li>
           <li><a  (click) ="logout()">logOUT</a></li>
         </div>
 
         <div [hidden]="!logon || !is_tutor">
-         <li><a [routerLink]="['Mytutor','Upcoming']">Upcoming</a></li>
-         <li><a [routerLink]="['Mytutor','History']">History</a></li>
+         <li><a routerLink = "/mytutor/upcoming" routerLinkActive="active">Upcoming</a></li>
+         <li><a routerLink = "/mytutor/history" routerLinkActive="active">History</a></li>
          <li class="divider"></li>
-         <li><a [routerLink]="['Mytutor','Setting']">Setting</a></li>
-         <li><a [routerLink]="['Mytutor','Post']">Post</a></li>
+         <li><a routerLink = "/mytutor/setting" routerLinkActive="active">Setting</a></li>
+         <li><a routerLink = "/mytutor/post" routerLinkActive="active">Post</a></li>
          <li ><a  (click) ="logout()">logOUT</a></li>
         </div>
     </ul>
@@ -50,21 +50,21 @@
     </div>
 
     <ul id="dropdown1" class="dropdown-content">
-      <li><a [routerLink]="['Mytuttee','Upcoming']">Upcoming</a></li>
-      <li><a [routerLink]="['Mytuttee','History']">History</a></li>
+      <li><a routerLink = "/mytuttee/upcoming" routerLinkActive="active">Upcoming</a></li>
+      <li><a routerLink = "/mytuttee/history" routerLinkActive="active">History</a></li>
       <li class="divider"></li>
-      <li><a [routerLink]="['Mytuttee','Favorite']">Favorite</a></li>
-      <li><a [routerLink]="['Mytuttee','Setting']">Setting</a></li>
+      <li><a routerLink = "/mytuttee/favorite" routerLinkActive="active">Favorite</a></li>
+      <li><a routerLink = "/mytuttee/setting" routerLinkActive="active">Setting</a></li>
       <li><a  (click) ="logout()">logOUT</a></li>
     </ul>
 
         <ul id="dropdown2" class="dropdown-content">
-      <li><a [routerLink]="['Mytutor','Upcoming']">Upcoming</a></li>
-      <li><a [routerLink]="['Mytutor','History']">History</a></li>
+      <li><a routerLink = "/mytutor/upcoming" routerLinkActive="active">Upcoming</a></li>
+      <li><a routerLink = "/mytutor/history" routerLinkActive="active">History</a></li>
       <li class="divider"></li>
      
-      <li><a [routerLink]="['Mytutor','Setting']">Setting</a></li>
-        <li><a [routerLink]="['Mytutor','Post']">Post</a></li>
+      <li><a routerLink = "/mytutor/setting" routerLinkActive="active">Setting</a></li>
+        <li><a routerLink = "/mytutor/post" routerLinkActive="active">Post</a></li>
         <li ><a  (click) ="logout()">logOUT</a></li>
     </ul>
 

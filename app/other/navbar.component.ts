@@ -1,5 +1,6 @@
 import {Component,Input,Output,EventEmitter}  from '@angular/core';
-import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
+// import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit,OnInit, ElementRef} from '@angular/core'
 import { FORM_DIRECTIVES } from '@angular/common';
@@ -14,14 +15,13 @@ import {TokenService} from '../services/token.service'
 	selector: 'navbar',
 	templateUrl: 'app/other/nav.html',
 	styleUrls: ['app/other/nav.css'], 
-	directives:[ROUTER_DIRECTIVES,FORM_DIRECTIVES]
-	
+  directives:[ROUTER_DIRECTIVES]
 })
 
 
 export class NavbarComponent implements AfterViewInit,OnInit{
     private loginObj:loginObj  = {
-    "confirmed": true,
+    "confirmed": true,  
     "expiration": 3600,
     "id": 3,
     "is_tutor": true,
@@ -40,7 +40,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
 	constructor(private el: ElementRef
         , private _loginservice: LoginService
         ,private _tokenservice :TokenService
-        ,private _router:Router
+        // ,private _router:Router
         ) {
 
     }
@@ -102,7 +102,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     logout() {
       localStorage.clear();
       this.logon = false;
-      this._router.navigate(['Home']);
+      // this._router.navigate(['Home']);
     }
 
 
