@@ -9,9 +9,12 @@ var courses_component_1 = require('./courses/courses.component');
 var mytuttee_component_1 = require('./mytuttee/mytuttee.component');
 var subject_component_1 = require('./courses/subject/subject.component');
 var tutorclass_component_1 = require('./courses/subject/tutorclass/tutorclass.component');
+var mytutor_routes_1 = require('./mytutor/mytutor.routes');
+var mytuttee_routes_1 = require('./mytuttee/mytuttee.routes');
 var register_1 = require('./other/register');
+var login_1 = require('./other/login');
 var conditions_1 = require('./other/conditions');
-var routes = [
+var routes = mytutor_routes_1.mytutorRoutes.concat(mytuttee_routes_1.mytutteeRoutes, [
     { path: '', component: home_component_1.HomeComponent },
     // { path: '/about', component: About, name: 'About' },
     // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
@@ -24,8 +27,9 @@ var routes = [
     { path: 'mytuttee/...', component: mytuttee_component_1.MytutteeComponent },
     { path: 'mytutor/...', component: mytutor_component_1.MytutorComponent },
     { path: 'register', component: register_1.RegisterComponent },
+    { path: 'login', component: login_1.LoginComponent },
     { path: 'conditions', component: conditions_1.ConditionsComponent }
-];
+]);
 exports.appRouterProviders = [
     router_1.provideRouter(routes)
 ];

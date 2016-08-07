@@ -10,25 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var token_service_1 = require('../services/token.service');
-var MytutteeComponent = (function () {
-    function MytutteeComponent(_tokenservice) {
+var token_service_1 = require('./token.service');
+var MytutorGuard = (function () {
+    function MytutorGuard(_tokenservice, router) {
         this._tokenservice = _tokenservice;
+        this.router = router;
     }
-    MytutteeComponent.prototype.ngOnInit = function () {
-        this.username = this._tokenservice.getUsername();
-        console.log(this.username);
+    MytutorGuard.prototype.canActivate = function () {
+        if (this._tokenservice.initLogin() && this._tokenservice.getIs_tutor()) {
+            console.log("TURURUURR");
+            return true;
+        }
+        else {
+            console.log("NONONONONO");
+            this.router.navigate(['']);
+            return false;
+        }
     };
-    MytutteeComponent = __decorate([
-        core_1.Component({
-            selector: 'mytuttee',
-            templateUrl: './app/mytuttee/mytuttee.component.html',
-            styleUrls: ['./app/mytuttee/mytuttee.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES]
-        }), 
-        __metadata('design:paramtypes', [token_service_1.TokenService])
-    ], MytutteeComponent);
-    return MytutteeComponent;
+    MytutorGuard = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [token_service_1.TokenService, router_1.Router])
+    ], MytutorGuard);
+    return MytutorGuard;
 }());
-exports.MytutteeComponent = MytutteeComponent;
-//# sourceMappingURL=mytuttee.component.js.map
+exports.MytutorGuard = MytutorGuard;
+//# sourceMappingURL=mytutor-guard.service.js.map

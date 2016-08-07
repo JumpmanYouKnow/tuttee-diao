@@ -20,21 +20,10 @@ import {TokenService} from '../services/token.service'
 
 
 export class NavbarComponent implements AfterViewInit,OnInit{
-    private loginObj:loginObj  = {
-    "confirmed": true,  
-    "expiration": 3600,
-    "id": 3,
-    "is_tutor": true,
-    "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
-    "username": "root"
-}
     private username:string;
     private is_tutor:boolean;
     private logon:boolean = false;
     private wrong:boolean = false;
-
-
-	// @Output() private chuan = new EventEmitter();
 
 
 	constructor(private el: ElementRef
@@ -44,19 +33,6 @@ export class NavbarComponent implements AfterViewInit,OnInit{
         ) {
 
     }
-
-    // tryRegister(value:any) {
-    //   console.log(value.email);
-    //   console.log(value.password);
-    //   this._loginservice.postSignUp(value.email,value.password)
-    //     .subscribe(data => {  
-    //       console.log(data);
-    //     },
-    //     err => console.log(err)
-
-    //     )
-    // }
-
     tryLogin(value:any) {
         var signInfo = window.btoa(value.email+":"+value.password);
         console.log(signInfo);
@@ -127,25 +103,17 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     // }
 
 	ngOnInit () {
-
-     // console.log(this._tokenservice.initLogin());
-	
-
         if(this._tokenservice.initLogin()) {
             this.username = this._tokenservice.getUsername();
             this.is_tutor = this._tokenservice.getIs_tutor();
             this.logon = true;
-            // console.log(this.username);
-            // localStorage.setItem('username', this.username);
-            // let fuck = localStorage.getItem('username');
-            // console.log(fuck)
         };
 
 
 	}
 
     ngAfterViewInit() {
-            $(this.el.nativeElement).find(".button-collapse").sideNav();
+        $(this.el.nativeElement).find(".button-collapse").sideNav();
         $('.modal-trigger').leanModal();
         $(".dropdown-button").dropdown();
         

@@ -1,7 +1,7 @@
  import {Component,AfterViewInit} from '@angular/core';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import {PostService,postObj} from './post.service'
-import {Router} from '@angular/router-deprecated'
+import {Router} from '@angular/router'
 import {CoursesService, Course} from '../courses/courses.service';
 
 @Component({

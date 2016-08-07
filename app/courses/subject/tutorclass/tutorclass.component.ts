@@ -69,8 +69,8 @@ export class TutorclassComponent implements OnInit {
         let timeslots:any = [];
         for (let i=0;i<slots.length;i++) {
           if (slots[i].course_id == this.Subject || slots[i].course_id == null) {
-             slots[i].start_time = Date.parse(slots[i].start_time);
-              slots[i].end_time = Date.parse(slots[i].end_time);
+             slots[i].start_time = Math.floor(Date.parse(slots[i].start_time));
+              slots[i].end_time = Math.floor(Date.parse(slots[i].end_time));
             timeslots.push(slots[i]);
           }
         }
@@ -81,6 +81,7 @@ export class TutorclassComponent implements OnInit {
         }
         console.log(this.Comments);
         this.Timeslots = timeslots;
+        console.log (this.Timeslots);
     });
     });
 

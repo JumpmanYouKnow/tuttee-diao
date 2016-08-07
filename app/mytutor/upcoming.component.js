@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var timeslot_service_1 = require('./timeslot.service');
 var common_1 = require('@angular/common');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var post_service_1 = require('./post.service');
 var courses_service_1 = require('../courses/courses.service');
 var ng2_pagination_1 = require('ng2-pagination');
@@ -111,7 +111,7 @@ var UpcomingComponent = (function () {
             selector: 'upcoming',
             templateUrl: './app/mytutor/upcoming.component.html',
             styleUrls: ['./app/mytutor/upcoming.component.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, ng2_pagination_1.PaginationControlsCmp, common_1.FORM_DIRECTIVES],
+            directives: [router_1.ROUTER_DIRECTIVES, ng2_pagination_1.PaginationControlsCmp, common_1.FORM_DIRECTIVES],
             pipes: [ng2_pagination_1.PaginatePipe],
             providers: [ng2_pagination_1.PaginationService, timeslot_service_1.TimeslotService]
         }), 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {UpcomingComponent} from './upcoming.component'
 import {HistoryComponent} from './history.component'
 import {SettingComponent} from './setting.component'
@@ -16,16 +16,6 @@ import {TokenService} from '../services/token.service'
 	styleUrls: ['./app/mytutor/mytutor.component.css'],
 	directives: [ROUTER_DIRECTIVES]
 })
-
-
-@RouteConfig([
-	{ path: '/upcoming', name: 'Upcoming', component: UpcomingComponent, useAsDefault: true },
-	{ path: '/setting', name: 'Setting', component: SettingComponent },
-	{ path: '/history', name: 'History', component: HistoryComponent },
-	{ path: '/post', name: 'Post', component: PostComponent },
-
-
-])
 
 export class MytutorComponent {
 	public username: string;

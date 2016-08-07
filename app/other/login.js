@@ -9,21 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
 var router_1 = require('@angular/router');
-var core_2 = require('@angular/core');
+var common_1 = require('@angular/common');
 var login_service_1 = require('./login.service');
 var token_service_1 = require('../services/token.service');
 // declare var jQuery: JQueryStatic;
-var NavbarComponent = (function () {
-    function NavbarComponent(el, _loginservice, _tokenservice) {
-        this.el = el;
+var LoginComponent = (function () {
+    function LoginComponent(_loginservice, _tokenservice) {
         this._loginservice = _loginservice;
         this._tokenservice = _tokenservice;
-        this.logon = false;
-        this.wrong = false;
     }
-    NavbarComponent.prototype.tryLogin = function (value) {
+    LoginComponent.prototype.tryLogin = function (value) {
         var _this = this;
         var signInfo = window.btoa(value.email + ":" + value.password);
         console.log(signInfo);
@@ -54,51 +50,16 @@ var NavbarComponent = (function () {
             }
         });
     };
-    NavbarComponent.prototype.logout = function () {
-        localStorage.clear();
-        this.logon = false;
-        // this._router.navigate(['Home']);
-    };
-    // logint () {
-    //     console.log("fuck");
-    //  //   var signInfo = window.btoa(value.email+":"+value.password);
-    // 	// this._loginservice.postLogin(signInfo)
-    // 	// .subscribe( data => {
-    //  //        console.log(data);
-    // 	// //this.loginObj = data;
-    //  //      //  this.chuan.emit(this.loginObj);
-    // 	// });
-    // }
-    //  register (value:any) {
-    // 	this._loginservice.postLogin(value.email,value.password)
-    // 	.subscribe( data => {
-    // 		console.log(data);
-    // 		this.loginObj = data;
-    // 	});
-    // }
-    NavbarComponent.prototype.ngOnInit = function () {
-        if (this._tokenservice.initLogin()) {
-            this.username = this._tokenservice.getUsername();
-            this.is_tutor = this._tokenservice.getIs_tutor();
-            this.logon = true;
-        }
-        ;
-    };
-    NavbarComponent.prototype.ngAfterViewInit = function () {
-        $(this.el.nativeElement).find(".button-collapse").sideNav();
-        $('.modal-trigger').leanModal();
-        $(".dropdown-button").dropdown();
-    };
-    NavbarComponent = __decorate([
+    LoginComponent = __decorate([
         core_1.Component({
-            selector: 'navbar',
-            templateUrl: 'app/other/nav.html',
-            styleUrls: ['app/other/nav.css'],
-            directives: [router_1.ROUTER_DIRECTIVES]
+            selector: 'login',
+            templateUrl: 'app/other/login.html',
+            styleUrls: ['app/other/login.css'],
+            directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
-    ], NavbarComponent);
-    return NavbarComponent;
+        __metadata('design:paramtypes', [login_service_1.LoginService, token_service_1.TokenService])
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.NavbarComponent = NavbarComponent;
-//# sourceMappingURL=navbar.component.js.map
+exports.LoginComponent = LoginComponent;
+//# sourceMappingURL=login.js.map

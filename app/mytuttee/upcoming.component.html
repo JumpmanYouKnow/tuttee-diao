@@ -1,11 +1,12 @@
 <div class = "row">
 <h4 class = "col">我的预订</h4>
 </div>
-             <div id="table-scroll">
-            <div *ngIf = "!Timeslots">
-                  你没课
+<div *ngIf = "!Timeslots">
+                  你还没有预订的课程，快去<a routerLink = '../../courses'>浏览课程</a>吧！
              </div>
-            <table class="highlight center card" *ngIf= "Timeslots">
+             <div id="table-scroll" *ngIf= "Timeslots">
+            
+            <table class="highlight center card" >
                 <thead>
                 <tr>
                     <th data-field="course">课名</th>  

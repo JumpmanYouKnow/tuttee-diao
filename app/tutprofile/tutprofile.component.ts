@@ -39,7 +39,7 @@ export class TutProfileComponent implements OnInit {
 		 },
 			 err => console.log(err)
 		 );
-		}
+		});
 
 		 
 		 

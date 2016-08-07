@@ -16,11 +16,16 @@ import {SubjectComponent} from './courses/subject/subject.component';
 import {TimeslotService} from './mytutor/timeslot.service'
 import {TutorclassComponent} from'./courses/subject/tutorclass/tutorclass.component';
 import {TutorclassService} from'./courses/subject/tutorclass/tutorclass.service'; 
+import {mytutorRoutes} from './mytutor/mytutor.routes';
+import {mytutteeRoutes} from './mytuttee/mytuttee.routes';
 import {PostService} from './mytutor/post.service'
 import {RegisterComponent} from './other/register'
+import {LoginComponent} from './other/login';
 import {ConditionsComponent} from './other/conditions'
 
 const routes: RouterConfig =[
+		...mytutorRoutes,
+		...mytutteeRoutes,
 		{ path: '', component: HomeComponent},
 	// { path: '/about', component: About, name: 'About' },
 	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
@@ -33,6 +38,7 @@ const routes: RouterConfig =[
 		{ path: 'mytuttee/...', component: MytutteeComponent},
 		{ path: 'mytutor/...', component: MytutorComponent},
 		{ path: 'register', component:RegisterComponent},
+		{ path: 'login', component:LoginComponent},
 		{ path: 'conditions', component:ConditionsComponent}
 
 

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import { Control, ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import {TimeslotService, postObj} from './timeslot.service'
-import {Router} from '@angular/router-deprecated'
+import {Router} from '@angular/router'
 
 @Component({
 	selector: 'setting',

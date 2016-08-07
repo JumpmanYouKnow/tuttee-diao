@@ -13,8 +13,12 @@ h5 {
 text-align: center;
 }
 
+.tutorName {
+  cursor:hand;
+  color:#fbb054;
+}
+
 .border{
-  /*border-style: solid;*/
   border-width: 2px;
   box-shadow: 10px 10px gold;
   border-radius: 25px;

@@ -1,7 +1,5 @@
-import {Component,Input,Output,EventEmitter}  from '@angular/core';
+import {Component}  from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
-import {AboutComponent} from '../about/about.component'
-import {AfterViewInit,OnInit, ElementRef} from '@angular/core'
 import { FORM_DIRECTIVES } from '@angular/common';
 import {LoginService,loginObj} from './login.service'
 import {TokenService} from '../services/token.service'
