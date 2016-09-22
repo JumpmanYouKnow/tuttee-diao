@@ -48,7 +48,7 @@ export class PostService {
 	  headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
 
-		return this._http.post('http://127.0.0.1:5000/api/timeslots',
+		return this._http.post('http://tuttee.ca/api/timeslots',
 			   slot ,
 			{headers:headers})
 		   .map(res => res.json());
@@ -72,7 +72,7 @@ export class PostService {
 		headers.append('Content-Type','application/json');
 	 	headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
-	 	return this._http.put('http://127.0.0.1:5000/api/timeslots/'+modObj.id,
+	 	return this._http.put('http://tuttee.ca/api/timeslots/'+modObj.id,
 			   slot ,
 			{headers:headers})
 		   .map(res => res.json());
@@ -82,7 +82,7 @@ export class PostService {
 		this._tokenservice.checkExp();
 		 var headers = new Headers();
 		 headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
-		  return this._http.delete('http://127.0.0.1:5000/api/timeslots/'+id,{headers:headers})
+		  return this._http.delete('http://tuttee.ca/api/timeslots/'+id,{headers:headers})
     
     // constructor(private _http: Http,private _tokenservice:TokenService) {
     //   }
@@ -110,7 +110,7 @@ export class PostService {
     //   headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
 
-    //     return this._http.post('http://127.0.0.1:5000/api/timeslots',
+    //     return this._http.post('http://tuttee.ca/api/timeslots',
     //            slot ,
     //         {headers:headers})
     //        .map(res => res.json());
@@ -134,7 +134,7 @@ export class PostService {
     //     headers.append('Content-Type','application/json');
     //     headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
-    //     return this._http.put('http://127.0.0.1:5000/api/timeslots/'+modObj.id,
+    //     return this._http.put('http://tuttee.ca/api/timeslots/'+modObj.id,
     //            slot ,
     //         {headers:headers})
     //        .map(res => res.json());
@@ -144,7 +144,7 @@ export class PostService {
     //     this._tokenservice.checkExp();
     //      var headers = new Headers();
     //      headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
-    //       return this._http.delete('http://127.0.0.1:5000/api/timeslots/'+id,{headers:headers})
+    //       return this._http.delete('http://tuttee.ca/api/timeslots/'+id,{headers:headers})
 
        // .map(res => res.json());
 

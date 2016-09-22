@@ -40,7 +40,7 @@ export class TimeslotService {
 		var headers = new Headers();
 		headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
 
-		return this._http.get('http://127.0.0.1:5000/api/timeslots/' + id, { headers: headers })
+		return this._http.get('http://tuttee.ca/api/timeslots/' + id, { headers: headers })
 			.map(res => res.json());
     }
 
@@ -51,14 +51,14 @@ export class TimeslotService {
 		var headers = new Headers();
 		headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
 
-		return this._http.get('http://127.0.0.1:5000/api/profile/appointments', { headers: headers })
+		return this._http.get('http://tuttee.ca/api/profile/appointments', { headers: headers })
 			.map(res => res.json());
 	}
 
 	cancel(id:any) {
 		var headers = new Headers();
 		headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-		return this._http.delete('http://127.0.0.1:5000/api/appointments/' + id, { headers: headers })
+		return this._http.delete('http://tuttee.ca/api/appointments/' + id, { headers: headers })
 			.map(res => res.json());
 
 	}
@@ -75,7 +75,7 @@ export class TimeslotService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
 
-    return this._http.put('http://127.0.0.1:5000/api/profile',slot,{ headers: headers })
+    return this._http.put('http://tuttee.ca/api/profile',slot,{ headers: headers })
       .map(res => res.json());
 	}
 

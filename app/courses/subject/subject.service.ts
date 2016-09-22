@@ -37,7 +37,7 @@ export class SubjectService {
 		headers.append('Authorization',this._tokenservice.getToken());
 
 
-		return this._http.get('http://127.0.0.1:5000/api/courses/'+id,{headers:headers})
+		return this._http.get('http://tuttee.ca/api/courses/'+id,{headers:headers})
 		   .map(res => res.json());
 
 

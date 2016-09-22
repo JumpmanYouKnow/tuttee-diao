@@ -35,7 +35,7 @@ var PostService = (function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.post('http://127.0.0.1:5000/api/timeslots', slot, { headers: headers })
+        return this._http.post('http://tuttee.ca/api/timeslots', slot, { headers: headers })
             .map(function (res) { return res.json(); });
         //return Promise.resolve(COURSES);
     };
@@ -53,14 +53,14 @@ var PostService = (function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.put('http://127.0.0.1:5000/api/timeslots/' + modObj.id, slot, { headers: headers })
+        return this._http.put('http://tuttee.ca/api/timeslots/' + modObj.id, slot, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     PostService.prototype.deleteSlot = function (id) {
         this._tokenservice.checkExp();
         var headers = new http_1.Headers();
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.delete('http://127.0.0.1:5000/api/timeslots/' + id, { headers: headers });
+        return this._http.delete('http://tuttee.ca/api/timeslots/' + id, { headers: headers });
         // constructor(private _http: Http,private _tokenservice:TokenService) {
         //   }
         // postTimeslot(postObj:postObj) {
@@ -82,7 +82,7 @@ var PostService = (function () {
         //     var headers = new Headers();
         //     headers.append('Content-Type','application/json');
         //   headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
-        //     return this._http.post('http://127.0.0.1:5000/api/timeslots',
+        //     return this._http.post('http://tuttee.ca/api/timeslots',
         //            slot ,
         //         {headers:headers})
         //        .map(res => res.json());
@@ -102,7 +102,7 @@ var PostService = (function () {
         //     var headers = new Headers();
         //     headers.append('Content-Type','application/json');
         //     headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
-        //     return this._http.put('http://127.0.0.1:5000/api/timeslots/'+modObj.id,
+        //     return this._http.put('http://tuttee.ca/api/timeslots/'+modObj.id,
         //            slot ,
         //         {headers:headers})
         //        .map(res => res.json());
@@ -111,7 +111,7 @@ var PostService = (function () {
         //     this._tokenservice.checkExp();
         //      var headers = new Headers();
         //      headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
-        //       return this._http.delete('http://127.0.0.1:5000/api/timeslots/'+id,{headers:headers})
+        //       return this._http.delete('http://tuttee.ca/api/timeslots/'+id,{headers:headers})
         // .map(res => res.json());
     };
     PostService = __decorate([

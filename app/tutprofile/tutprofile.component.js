@@ -25,7 +25,7 @@ var TutProfileComponent = (function () {
         var id = this._routeParams.get('id');
         this._tutProfileService.getTutProfile(id).subscribe(function (data) {
             _this.TutProfile = data;
-            _this.photoURL = "http://127.0.0.1:5000/photo/" + data.photo;
+            _this.photoURL = "http://tuttee.ca/photo/" + data.photo;
             _this.Courses = data.courses;
             console.log(data);
         }, function (err) { return console.log(err); });

@@ -47,7 +47,7 @@ export class TutProfileService {
 	constructor(private _tokenservice: TokenService, private _http: Http) {}
 
 	getTutProfile(id: string) {
-		return this._http.get('http://127.0.0.1:5000/api/tutors/' + id)
+		return this._http.get('http://tuttee.ca/api/tutors/' + id)
 			.map(res => res.json());
 	}
 

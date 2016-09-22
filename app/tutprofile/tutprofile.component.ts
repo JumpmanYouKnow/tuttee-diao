@@ -31,7 +31,7 @@ export class TutProfileComponent implements OnInit {
 		 let id = this._routeParams.get('id');
 		 this._tutProfileService.getTutProfile(id).subscribe(data => {
 			 this.TutProfile = data;
-			 this.photoURL = "http://127.0.0.1:5000/photo/"+ data.photo;
+			 this.photoURL = "http://tuttee.ca/photo/"+ data.photo;
 			 this.Courses = data.courses;
 
 			 console.log(data);

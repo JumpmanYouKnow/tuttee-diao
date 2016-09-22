@@ -23,7 +23,7 @@ export class ReviewService {
     	headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
 
-        return this._http.post('http://127.0.0.1:5000/api/reviews',
+        return this._http.post('http://tuttee.ca/api/reviews',
                review ,
             {headers:headers})
            .map(res => res.json());

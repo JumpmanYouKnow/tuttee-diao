@@ -17,13 +17,13 @@ var LoginService = (function () {
     LoginService.prototype.postLogin = function (signInfo) {
         var headers = new http_1.Headers();
         headers.append('Authorization', 'Basic ' + signInfo);
-        return this._http.post('http://127.0.0.1:5000/api/login', '', { headers: headers })
+        return this._http.post('http://tuttee.ca/api/login', '', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     LoginService.prototype.postSignUp = function (email, password) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.post('http://127.0.0.1:5000/api/register', JSON.stringify({ email: email, password: password }), { headers: headers })
+        return this._http.post('http://tuttee.ca/api/register', JSON.stringify({ email: email, password: password }), { headers: headers })
             .map(function (res) { return res.json(); });
     };
     LoginService = __decorate([

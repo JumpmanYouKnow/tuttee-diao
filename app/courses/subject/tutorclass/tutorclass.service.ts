@@ -46,7 +46,7 @@ export class TutorclassService {
     headers.append('Authorization',this._tokenservice.getToken());
 
 
-    return this._http.get('http://127.0.0.1:5000/api/tutors/'+id,{headers:headers})
+    return this._http.get('http://tuttee.ca/api/tutors/'+id,{headers:headers})
        .map(res => res.json());
 
 
@@ -74,7 +74,7 @@ export class TutorclassService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
 
-    return this._http.post('http://127.0.0.1:5000/api/appointments/' + PostObj.id, appointment, { headers: headers,search:params })
+    return this._http.post('http://tuttee.ca/api/appointments/' + PostObj.id, appointment, { headers: headers,search:params })
     .map(res => res.json());
   }
   //  getComment() {

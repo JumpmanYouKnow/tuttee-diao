@@ -18,7 +18,7 @@ var CoursesService = (function () {
     }
     CoursesService.prototype.getCourses = function () {
         this._tokenservice.checkExp();
-        // 		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
+        // 		$.get( "http://tuttee.ca/api/courses", function( data ) {
         //   console.log(data);
         // });
         var params = new http_1.URLSearchParams();
@@ -28,7 +28,7 @@ var CoursesService = (function () {
         //	var headers = new Headers();
         //headers.append('Content-Type','application/json');
         //headers.append('Authorization',this._tokenservice.getToken());
-        return this._http.get('http://127.0.0.1:5000/api/courses', { search: params })
+        return this._http.get('http://tuttee.ca/api/courses', { search: params })
             .map(function (res) { return res.json(); });
         //return Promise.resolve(COURSES);
     };

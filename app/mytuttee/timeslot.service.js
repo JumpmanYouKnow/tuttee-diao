@@ -21,7 +21,7 @@ var TimeslotService = (function () {
         console.log(window.btoa(this._tokenservice.getToken() + ":"));
         var headers = new http_1.Headers();
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.get('http://127.0.0.1:5000/api/timeslots/' + id, { headers: headers })
+        return this._http.get('http://tuttee.ca/api/timeslots/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     TimeslotService.prototype.getTimeslot = function () {
@@ -30,13 +30,13 @@ var TimeslotService = (function () {
         console.log(window.btoa(this._tokenservice.getToken() + ":"));
         var headers = new http_1.Headers();
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.get('http://127.0.0.1:5000/api/profile/appointments', { headers: headers })
+        return this._http.get('http://tuttee.ca/api/profile/appointments', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     TimeslotService.prototype.cancel = function (id) {
         var headers = new http_1.Headers();
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.delete('http://127.0.0.1:5000/api/appointments/' + id, { headers: headers })
+        return this._http.delete('http://tuttee.ca/api/appointments/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     TimeslotService.prototype.PutProfile = function (postObj) {
@@ -49,7 +49,7 @@ var TimeslotService = (function () {
         });
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
-        return this._http.put('http://127.0.0.1:5000/api/profile', slot, { headers: headers })
+        return this._http.put('http://tuttee.ca/api/profile', slot, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     TimeslotService = __decorate([

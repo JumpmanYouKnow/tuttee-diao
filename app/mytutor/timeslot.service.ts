@@ -48,7 +48,7 @@ export class TimeslotService {
     headers.append('Authorization',"Basic "+window.btoa(this._tokenservice.getToken()+":"));
     console.log ("token isss:" + "Basic "+window.btoa(this._tokenservice.getToken()+":"));
 
-    return this._http.get('http://127.0.0.1:5000/api/profile/timeslots',{headers:headers,search:params})
+    return this._http.get('http://tuttee.ca/api/profile/timeslots',{headers:headers,search:params})
        .map(res => res.json());
 
 		// return Promise.resolve(TIMESLOTS);
@@ -65,7 +65,7 @@ export class TimeslotService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', "Basic " + window.btoa(this._tokenservice.getToken() + ":"));
 
-    return this._http.put('http://127.0.0.1:5000/api/profile',slot,{ headers: headers })
+    return this._http.put('http://tuttee.ca/api/profile',slot,{ headers: headers })
       .map(res => res.json());
 	}
 

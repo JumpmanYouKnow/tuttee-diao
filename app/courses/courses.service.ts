@@ -33,7 +33,7 @@ export class CoursesService {
 
 	getCourses() {
 	    this._tokenservice.checkExp();
-// 		$.get( "http://127.0.0.1:5000/api/courses", function( data ) {
+// 		$.get( "http://tuttee.ca/api/courses", function( data ) {
 //   console.log(data);
 // });
        
@@ -47,7 +47,7 @@ export class CoursesService {
 		//headers.append('Authorization',this._tokenservice.getToken());
 
 
-		return this._http.get('http://127.0.0.1:5000/api/courses',{search:params})
+		return this._http.get('http://tuttee.ca/api/courses',{search:params})
 		   .map(res => res.json());
 
 		//return Promise.resolve(COURSES);

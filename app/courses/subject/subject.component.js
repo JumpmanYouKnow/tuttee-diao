@@ -31,7 +31,7 @@ var SubjectComponent = (function () {
                 _this._tutprofileService.getTutProfile(data.tutors[i].id).subscribe(function (profile) {
                     console.log(profile);
                     if (profile.photo) {
-                        data.tutors[i].photo = "http://127.0.0.1:5000/photo/" + profile.photo;
+                        data.tutors[i].photo = "http://tuttee.ca/photo/" + profile.photo;
                     }
                 });
             };

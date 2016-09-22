@@ -20,7 +20,7 @@ var TutProfileService = (function () {
         this._http = _http;
     }
     TutProfileService.prototype.getTutProfile = function (id) {
-        return this._http.get('http://127.0.0.1:5000/api/tutors/' + id)
+        return this._http.get('http://tuttee.ca/api/tutors/' + id)
             .map(function (res) { return res.json(); });
     };
     TutProfileService = __decorate([

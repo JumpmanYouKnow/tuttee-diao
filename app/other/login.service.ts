@@ -23,7 +23,7 @@ export class LoginService {
 		var headers = new Headers();
 		headers.append('Authorization','Basic '+signInfo);
 
-		return this._http.post('http://127.0.0.1:5000/api/login','',{headers:headers})
+		return this._http.post('http://tuttee.ca/api/login','',{headers:headers})
 		   .map(res => res.json());		
 	}
 
@@ -32,7 +32,7 @@ export class LoginService {
 		var headers = new Headers();
 		headers.append('Content-Type','application/json');
 
-		return this._http.post('http://127.0.0.1:5000/api/register',
+		return this._http.post('http://tuttee.ca/api/register',
 			JSON.stringify({email:email,password:password}),{headers:headers})
 		   .map(res => res.json());
 	}
