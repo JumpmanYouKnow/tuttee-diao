@@ -1,5 +1,6 @@
 import {Component,Input,Output,EventEmitter}  from '@angular/core';
-import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
+// import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {AboutComponent} from '../about/about.component'
 import {AfterViewInit,OnInit, ElementRef} from '@angular/core'
 import { FORM_DIRECTIVES } from '@angular/common';
@@ -14,49 +15,24 @@ import {TokenService} from '../services/token.service'
 	selector: 'navbar',
 	templateUrl: 'app/other/nav.html',
 	styleUrls: ['app/other/nav.css'], 
-	directives:[ROUTER_DIRECTIVES,FORM_DIRECTIVES]
-	
+  directives:[ROUTER_DIRECTIVES]
 })
 
 
 export class NavbarComponent implements AfterViewInit,OnInit{
-    private loginObj:loginObj  = {
-    "confirmed": true,
-    "expiration": 3600,
-    "id": 3,
-    "is_tutor": true,
-    "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
-    "username": "root"
-}
     private username:string;
     private is_tutor:boolean;
     private logon:boolean = false;
     private wrong:boolean = false;
 
 
-	// @Output() private chuan = new EventEmitter();
-
-
 	constructor(private el: ElementRef
         , private _loginservice: LoginService
         ,private _tokenservice :TokenService
-        ,private _router:Router
+        // ,private _router:Router
         ) {
 
     }
-
-    // tryRegister(value:any) {
-    //   console.log(value.email);
-    //   console.log(value.password);
-    //   this._loginservice.postSignUp(value.email,value.password)
-    //     .subscribe(data => {  
-    //       console.log(data);
-    //     },
-    //     err => console.log(err)
-
-    //     )
-    // }
-
     tryLogin(value:any) {
         var signInfo = window.btoa(value.email+":"+value.password);
         console.log(signInfo);
@@ -102,7 +78,7 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     logout() {
       localStorage.clear();
       this.logon = false;
-      this._router.navigate(['Home']);
+      // this._router.navigate(['Home']);
     }
 
 
@@ -127,25 +103,17 @@ export class NavbarComponent implements AfterViewInit,OnInit{
     // }
 
 	ngOnInit () {
-
-     // console.log(this._tokenservice.initLogin());
-	
-
         if(this._tokenservice.initLogin()) {
             this.username = this._tokenservice.getUsername();
             this.is_tutor = this._tokenservice.getIs_tutor();
             this.logon = true;
-            // console.log(this.username);
-            // localStorage.setItem('username', this.username);
-            // let fuck = localStorage.getItem('username');
-            // console.log(fuck)
         };
 
 
 	}
 
     ngAfterViewInit() {
-            $(this.el.nativeElement).find(".button-collapse").sideNav();
+        $(this.el.nativeElement).find(".button-collapse").sideNav();
         $('.modal-trigger').leanModal();
         $(".dropdown-button").dropdown();
         

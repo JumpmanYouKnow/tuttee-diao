@@ -1,7 +1,10 @@
 <div class = "row">
    <h4 class = "col">上过的课</h4>
 </div>
-<div id="table-scroll">
+<div *ngIf = "!timeslot">
+                  你还没有上过的课程
+             </div>
+<div id="table-scroll" *ngIf = "timeslot">
 <table class="highlight center card">
 <thead>
    <tr>

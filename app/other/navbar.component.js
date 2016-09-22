@@ -9,40 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+// import {ROUTER_DIRECTIVES,Router} from '@angular/router-deprecated';
+var router_1 = require('@angular/router');
 var core_2 = require('@angular/core');
-var common_1 = require('@angular/common');
 var login_service_1 = require('./login.service');
 var token_service_1 = require('../services/token.service');
 // declare var jQuery: JQueryStatic;
 var NavbarComponent = (function () {
-    // @Output() private chuan = new EventEmitter();
-    function NavbarComponent(el, _loginservice, _tokenservice, _router) {
+    function NavbarComponent(el, _loginservice, _tokenservice) {
         this.el = el;
         this._loginservice = _loginservice;
         this._tokenservice = _tokenservice;
-        this._router = _router;
-        this.loginObj = {
-            "confirmed": true,
-            "expiration": 3600,
-            "id": 3,
-            "is_tutor": true,
-            "token": "eyJpYXQiOjE0NTgyNjI2MTEsImFsZyI6IkhTMjU2IiwiZXhwIjoxNDU4MjYzMjExfQ.eyJpZCI6M30.eJI6Gashsrn2sUeW6PUtuGJFZ_7u6SRBv9AKV6vRQ5Q",
-            "username": "root"
-        };
         this.logon = false;
         this.wrong = false;
     }
-    // tryRegister(value:any) {
-    //   console.log(value.email);
-    //   console.log(value.password);
-    //   this._loginservice.postSignUp(value.email,value.password)
-    //     .subscribe(data => {  
-    //       console.log(data);
-    //     },
-    //     err => console.log(err)
-    //     )
-    // }
     NavbarComponent.prototype.tryLogin = function (value) {
         var _this = this;
         var signInfo = window.btoa(value.email + ":" + value.password);
@@ -77,7 +57,7 @@ var NavbarComponent = (function () {
     NavbarComponent.prototype.logout = function () {
         localStorage.clear();
         this.logon = false;
-        this._router.navigate(['Home']);
+        // this._router.navigate(['Home']);
     };
     // logint () {
     //     console.log("fuck");
@@ -97,7 +77,6 @@ var NavbarComponent = (function () {
     // 	});
     // }
     NavbarComponent.prototype.ngOnInit = function () {
-        // console.log(this._tokenservice.initLogin());
         if (this._tokenservice.initLogin()) {
             this.username = this._tokenservice.getUsername();
             this.is_tutor = this._tokenservice.getIs_tutor();
@@ -115,9 +94,9 @@ var NavbarComponent = (function () {
             selector: 'navbar',
             templateUrl: 'app/other/nav.html',
             styleUrls: ['app/other/nav.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [core_2.ElementRef, login_service_1.LoginService, token_service_1.TokenService])
     ], NavbarComponent);
     return NavbarComponent;
 }());

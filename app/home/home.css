@@ -1,83 +1,64 @@
 
 .background-image {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top:-7rem;
-  z-index: 1;
-  height:800px;
-  display: block;
-/*  -webkit-clip-path: polygon(0 0, 2500px 0,2500px 87%, 0 100%);*/
-
-/*-webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);*/
-  background: url(app/images/backgrounds/background.png) no-repeat;
-  background-size: cover;
-/*    background-repeat:no-repeat;
-    background-position: center center;*/
-/*    background-image: linear-gradient(rgba(42,58,66,.6),rgba(0,0,0,.8)) center center no-repeat;
-*/
-}
-
-
-/*
-#jum {
+    height: 80%;
     width: 100%;
-    height:100%;
-   
-       z-index: 9999
-        height: 600px;
-        position: relative;
-        top: -15rem;
+    background-image: url(app/images/backgrounds/background.png);
+    padding-top: 60px;
+    top: 80px;
 }
 
-*/
-.row{
-  padding-left: 50px;
+
+#study {
+  width: 100%;
+  height: 200px;
+  color: white;
+  background: url(app/images/elements_home/bar_right.png) no-repeat;
 }
-/*.word{
-    text-align: left;
-}*/
+h2 {
+  padding: 30px;
+  margin: 0px;
+}
+#teacher {
+  width: 100%;
+  height: 200px;
+  color: white;
+  background: url(app/images/elements_home/bar_left.png) no-repeat;
+}
+
+.bigIcon {
+  width: 200px;
+  height: 200px;
+}
+
+#icon {
+  width: 60px;
+  cursor:hand;
+}
+
+.row{
+  padding-left: 20px;
+  padding-right:20px;
+  padding-bottom: 10px;
+}
 
 #search {
     position: relative;
     top:2.5rem;
-}
-#icon{
-   position: relative;
-   top:2rem;
+
 }
 
 #jumword {
     background-color: rgba(220,199,170,0.75);
     color:white;
-    height:20rem;
+    /*height:20rem;*/
     position: relative;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 10%;
+/*    margin-top: 10%;*/
+    margin-bottom: 10%;
     text-align: center;
      z-index: 2
 }
-
-html,body {height:100%;}
-
-
-
-#emptybox{
-    height: 600px;
-    width: 100%;
-}
-
-#teacherbox{
-    width:100%;
-    /*height: 700px;*/
-
-}
-
 
 
 #picture1,#picture3{
@@ -93,60 +74,13 @@ html,body {height:100%;}
     height:300px;
 }
 
-@media (max-width: 993px) {
-    .tpic {
-        width:100%;
-        height:200px;
-    }
-    
-    #jumword{
-      background-color: rgba(104,104,104,0.75);
-      color:white;
-      height:20rem;
-    position: relative;
-    z-index: 2
-    margin-left:10%;
-    margin-top: 10%;
-    }
 
-
-    /*#teacherbox {*/
-        /*height:500px;*/
-    /*}*/
-    /*#picture4{*/
-        /*margin-bottom: 10px;*/
-    /*}*/
-}
 
 #custom-templates .empty-message {
   padding: 5px 10px;
  text-align: center;
 }
 
-@media (max-width: 600px) {
-    .tpic {
-        width:100%;
-        height:200px;
-        margin:5px;
-    }
-
-    /*#teacherbox {*/
-        /*height:1000px;*/
-    /*}*/
-}
-
-
-
-
-/*body {*/
-    /*display: flex;*/
-    /*min-height: 100vh;*/
-    /*flex-direction: column;*/
-/*}*/
-
-/*main {*/
-    /*flex: 1 0 auto;*/
-/*}*/
 
 nav,
 nav .nav-wrapper i,
@@ -164,7 +98,7 @@ nav a.button-collapse i {
 .typeahead,
 .tt-query,
 .tt-hint {
-  width: 500px;
+/*  width: 150px;*/
   height: 40px;
   padding: 8px 12px;
   font-size: 24px;
@@ -174,7 +108,6 @@ nav a.button-collapse i {
      -moz-border-radius: 40px;
           border-radius: 40px;
   outline: none;
-/*  text-align: right*/
 }
 
 .typeahead {
@@ -196,7 +129,7 @@ nav a.button-collapse i {
 }
 
 .tt-menu {
-  width: 422px;
+  width: 100px;
   margin: 12px 0;
   padding: 8px 0;
   background-color: #fff;

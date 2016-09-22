@@ -1,46 +1,84 @@
  <!-- <div  id = "jum"> -->
 <!-- <navbar></navbar> -->
- <div class="background-image"></div>
-    <div id= "jumword">
+ <div class="background-image">
+    <div class = "row" id= "jumword">
     <br>
     <div class="row ">
     <div class="word">
     <h3 >欢迎学生</h3>
     </div>
     </div>
-    <hr size = "10" width="90%">
     <div class="row">
     <div class = "word">
-    <p style="font-size: 30px">  徒邸是一个致力于以学生之间互补的方式提升其学业水平的专业教育平台。</p>    
+    <p style="font-size: 30px"><!--   徒邸是一个致力于以学生之间互补的方式提升其学业水平的专业教育平台。 --></p>    
     </div>
       </div>
-
-<!--   <div class="row"> -->
-<!-- <a class="left waves-effect waves-light orange darken-2 btn-large" id="main" [routerLink] = "['Courses']" >浏览课程</a> -->
-          <div id = "search" class="row col s9 left">
-
-          <div class=" m6 offset-m6" id="custom-templates">
+     <div id = "search" class="row center-align">
+          <div class = "col s9 m5 offset-m3" >
           <form (ngSubmit) = "search()">
                   <input id = "searchInput" type="text" class="form-control typeahead" placeholder="Search Courses" >
                   <input class="btn light-blue darken-2" type="submit" value="submit" style="display:none">
           </form>
           </div>
-             <!--  <input class="typeahead m6 offset-m6"  type="text" placeholder="Search Courses"> -->
-          </div>   
-            <img src="app/images/icons/icon_search.png" id="icon" class="left"style="width:80px" (click)="search()">
-<!-- </div> -->
-
-
-</div>
-
+          <div class = "col s3 m1">
+          <img src="app/images/icons/icon_search.png" id="icon"  (click)="search()">
+          </div>
+          </div>
+          <!-- </div>    -->
 
 <!-- </div> -->
 
 
- 
-<div id="emptybox">
-
 </div>
+</div>
+
+<div class = "row center-align" id= "study">
+<h2>开启学习旅程</h2>
+</div>
+<div class = "row">
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/students/choose.png">
+    <p class = "row">选你大爷课</p>
+  </div>
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/students/schedule.png">
+    <p class = "row">选你大爷课</p>
+  </div>
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/students/signup.png">
+    <p class = "row">选你大爷课</p>
+  </div>
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/students/signupStudent.png">
+    <p class = "row">选你大爷课</p>
+  </div>
+</div>
+
+<div class = "row center-align" id= "teacher">
+<h2>开启上课旅程</h2>
+</div>
+<div class = "row">
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/teachers/contact.png">
+    <p class = "row">上你大爷课</p>
+  </div>
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/teachers/upload.png">
+    <p class = "row">上你大爷课</p>
+  </div>
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/teachers/approve.png">
+    <p class = "row">上你大爷课</p>
+  </div>
+  <div class = "col m3 center-align">
+    <img class = "row bigIcon" src = "app/images/teachers/signupTutor.png">
+    <p class = "row">上你大爷课</p>
+  </div>
+</div>
+<!-- </div> -->
+
+
+
 
 
 

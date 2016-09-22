@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
 var login_service_1 = require('./login.service');
 // declare var jQuery: JQueryStatic;
@@ -34,7 +34,7 @@ var RegisterComponent = (function () {
             selector: 'register',
             templateUrl: 'app/other/register.html',
             styleUrls: ['app/other/register.css'],
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES, common_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [login_service_1.LoginService])
     ], RegisterComponent);

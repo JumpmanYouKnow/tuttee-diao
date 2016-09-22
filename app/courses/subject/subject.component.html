@@ -61,7 +61,7 @@
             <img *ngIf = "!teacher.photo" class="photo" src = "http://placehold.it/150x150">
        <!--    </div> -->
           <!-- <div class="row"> -->
-         <h4 class="center"><a (click)="seeProfile(teacher.id)">{{teacher.username}}</a></h4>
+         <h4 class="center tutorName"><a (click)="seeProfile(teacher.id)">{{teacher.username}}</a></h4>
           <!-- </div> -->
         </div>
 
@@ -73,10 +73,8 @@
 
         <div class="col s12 m12 l3 ">
         <div class="border-right center">
-         <h5>均价：{{teacher.avgpr}}</h5>
-         <h5>销量：{{teacher.sales}}</h5>
-         
-         <a class="waves-effect waves-light btn" (click)="gotoDetail(Subject.id,teacher.id)"> 
+         <h5>评价：{{teacher.avgpr}}</h5>
+         <a class="waves-effect waves-light btn orange darken-1" (click)="gotoDetail(Subject.id,teacher.id)"> 
               Check Timeslot
             </a>
         </div>

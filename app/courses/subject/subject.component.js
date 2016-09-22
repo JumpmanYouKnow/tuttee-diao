@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var tutprofile_service_1 = require('../../tutprofile/tutprofile.service');
 var subject_service_1 = require('./subject.service');
 var SubjectComponent = (function () {
-    function SubjectComponent(_router, _subjectService, _routeParams, _tutprofileService) {
+    function SubjectComponent(_router, _subjectService, _tutprofileService, route) {
         this._router = _router;
         this._subjectService = _subjectService;
-        this._routeParams = _routeParams;
         this._tutprofileService = _tutprofileService;
+        this.route = route;
         this.loading = true;
     }
     SubjectComponent.prototype.ngOnInit = function () {
         var _this = this;
+<<<<<<< HEAD
         var a = this._routeParams.get('subject');
         this._subjectService.getSubject(a).subscribe(function (data) {
             _this.loading = false;
@@ -43,12 +44,38 @@ var SubjectComponent = (function () {
             // this.Subject = data;
             // this.Teacher = this.Subject.teacher;
         }, function (err) { return console.log(err); });
+=======
+        this.route.params.subscribe(function (params) {
+            var subject = params['subject'];
+            console.log(subject);
+            _this._subjectService.getSubject(subject).subscribe(function (data) {
+                _this.loading = false;
+                console.log(data);
+                _this.Subject = { id: data.id, name: data.name };
+                var _loop_1 = function(i) {
+                    _this._tutprofileService.getTutProfile(data.tutors[i].id).subscribe(function (profile) {
+                        console.log(profile);
+                        if (profile.photo) {
+                            data.tutors[i].photo = "http://127.0.0.1:5000/photo/" + profile.photo;
+                        }
+                    });
+                };
+                for (var i = 0; i < data.tutors.length; i++) {
+                    _loop_1(i);
+                }
+                _this.Teacher = data.tutors;
+                console.log(_this.Teacher);
+                // this.Subject = data;
+                // this.Teacher = this.Subject.teacher;
+            }, function (err) { return console.log(err); });
+        });
+>>>>>>> 57bb798ecc3eb9452e53fb96c4e10e2a6aab8967
     };
     SubjectComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
-        this._router.navigate(['Tutorclass', { subject: subject_id, id: tutor_id }]);
+        this._router.navigate(['/subject', subject_id, tutor_id]);
     };
     SubjectComponent.prototype.seeProfile = function (tutor_id) {
-        this._router.navigate(['TutProfile', { id: tutor_id }]);
+        this._router.navigate(['/tutor', tutor_id]);
     };
     SubjectComponent = __decorate([
         core_1.Component({
@@ -57,7 +84,7 @@ var SubjectComponent = (function () {
             templateUrl: 'app/courses/subject/subject.component.html',
             providers: [tutprofile_service_1.TutProfileService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, subject_service_1.SubjectService, router_deprecated_1.RouteParams, tutprofile_service_1.TutProfileService])
+        __metadata('design:paramtypes', [router_1.Router, subject_service_1.SubjectService, tutprofile_service_1.TutProfileService, router_1.ActivatedRoute])
     ], SubjectComponent);
     return SubjectComponent;
 }());

@@ -1,9 +1,6 @@
-/*
- * Angular 2 decorators and services
- */
-
 import { Component, AfterViewInit} from '@angular/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
+// import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
+import { provideRouter, RouterConfig } from '@angular/router';
 import {TutProfileService} from './tutprofile/tutprofile.service'
 import {NavbarComponent} from './other/navbar.component'
 import {FooterComponent} from './other/footer.component'
@@ -24,6 +21,7 @@ import {TutorclassService} from'./courses/subject/tutorclass/tutorclass.service'
 import {PostService} from './mytutor/post.service'
 import {RegisterComponent} from './other/register'
 import {ConditionsComponent} from './other/conditions'
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import './rxjs-operators';
 // import {RegisterComponent} from 
 //import {PaginationService} from 'ng2-pagination'
@@ -47,24 +45,6 @@ declare var jQuery: JQueryStatic;
 
 })
 
-
-@RouteConfig([
-		{ path: '/', name: 'Home',component: HomeComponent},
-	// { path: '/about', component: About, name: 'About' },
-	// Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-		{ path: '/about', name: 'About',component: AboutComponent},
-        { path: '/courses', name: 'Courses' ,component: CoursesComponent},
-        { path: '/subject/:subject', name: 'Subject',component: SubjectComponent},	
-        { path: '/betutor', name: 'Betutor', component: BetutorComponent},
-        { path: '/subject/:subject/:id', name: 'Tutorclass', component: TutorclassComponent},
-		{ path: '/tutor/:id', name: 'TutProfile', component: TutProfileComponent},
-		{ path: '/mytuttee/...', name: 'Mytuttee', component: MytutteeComponent},
-		{ path: '/mytutor/...', name: 'Mytutor', component: MytutorComponent},
-		{ path: '/register', name: 'Register', component:RegisterComponent},
-		{ path: '/conditions', name: 'Conditions', component:ConditionsComponent}
-
-
-])
 export class AppComponent implements AfterViewInit {
 
 	public token:string = "";

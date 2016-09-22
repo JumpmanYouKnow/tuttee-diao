@@ -1,6 +1,6 @@
 import {Component,OnInit,AfterViewInit} from '@angular/core';
 import {TimeslotService, Timeslot} from '../mytuttee/timeslot.service';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 
 
@@ -11,7 +11,7 @@ import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagina
 	styleUrls: ['./app/mytuttee/upcoming.component.css'],
   directives:[ROUTER_DIRECTIVES,PaginationControlsCmp],
 	pipes: [PaginatePipe],
-    providers: [PaginationService,TimeslotService]
+    providers: [PaginationService,TimeslotService],
 
 })
 

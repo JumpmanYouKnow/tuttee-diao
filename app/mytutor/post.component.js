@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var post_service_1 = require('./post.service');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var courses_service_1 = require('../courses/courses.service');
 var PostComponent = (function () {
     // public test: String;
@@ -78,7 +78,7 @@ var PostComponent = (function () {
             templateUrl: './app/mytutor/post.component.html',
             styleUrls: ['./app/mytutor/post.component.css'],
         }), 
-        __metadata('design:paramtypes', [post_service_1.PostService, router_deprecated_1.Router, courses_service_1.CoursesService])
+        __metadata('design:paramtypes', [post_service_1.PostService, router_1.Router, courses_service_1.CoursesService])
     ], PostComponent);
     return PostComponent;
 }());

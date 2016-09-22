@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, RouteParams} from '@angular/router-deprecated';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+// import {Router, RouteParams} from '@angular/router-deprecated';
+// import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router'
 import {TutorclassService, Timeslot, Comment,PostObj} from './tutorclass.service'
 
 
@@ -24,7 +25,7 @@ export class TutorclassComponent implements OnInit {
    timecourseid: any;
 
     constructor(
-    private _routeParams: RouteParams,
+    private route: ActivatedRoute,
     private _tutorclassService: TutorclassService
   ) {
   }
@@ -57,19 +58,19 @@ export class TutorclassComponent implements OnInit {
 
 
   ngOnInit() {
-    let subject = this._routeParams.get('subject');
-    this.Subject = subject;
-    let id = this._routeParams.get('id');
-
-    this._tutorclassService.getTimeslot(id).subscribe(data => {
+    this.route.params.subscribe(params => {
+       let subject = params['subject'];
+       this.Subject = subject;
+       let id = params['id'];
+           this._tutorclassService.getTimeslot(id).subscribe(data => {
       this.username = data.username;
         let slots = data.timeslots;
         console.log(data);
         let timeslots:any = [];
         for (let i=0;i<slots.length;i++) {
           if (slots[i].course_id == this.Subject || slots[i].course_id == null) {
-             slots[i].start_time = Date.parse(slots[i].start_time);
-              slots[i].end_time = Date.parse(slots[i].end_time);
+             slots[i].start_time = Math.floor(Date.parse(slots[i].start_time));
+              slots[i].end_time = Math.floor(Date.parse(slots[i].end_time));
             timeslots.push(slots[i]);
           }
         }
@@ -80,7 +81,11 @@ export class TutorclassComponent implements OnInit {
         }
         console.log(this.Comments);
         this.Timeslots = timeslots;
+        console.log (this.Timeslots);
     });
+    });
+
+
    
   //   this._tutorclassService.getTimeslot(id).then(hero => {
   //   this.Tutorclass = hero;
