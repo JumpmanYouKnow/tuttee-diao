@@ -7,14 +7,11 @@
     <a href="/#" class="brand-logo"><img id = "logo" src="app/images/logo/logo_white.png" /></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"> <i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
+        <li><a routerLink = "/courses" routerLinkActive="active">Explore Courses</a></li>
+        <li><a routerLink='/about'>About Us</a></li>
 
-        <li><a routerLink = "/betutor" routerLinkActive="active">我要当教师</a></li>
-
-        <li><a routerLink = "/courses" routerLinkActive="active">浏览课程</a></li>
-        <li><a routerLink='/about'>关于我们</a></li>
-
-         <li><a [hidden]="logon" routerLink = "/register" routerLinkActive="active">注册</a></li>
-        <li><a   [hidden]="logon" class = "modal-trigger" href = "#modal1">登录</a></li>
+         <li><a [hidden]="logon" routerLink = "/register" routerLinkActive="active">Sign Up</a></li>
+        <li><a   [hidden]="logon" class = "modal-trigger" href = "#modal1">Log in</a></li>
           <li><a  [hidden]="!logon || is_tutor" class="dropdown-button" data-activates="dropdown1">我的Tuttee<i class="material-icons right">arrow_drop_down</i></a></li>
 
            <li><a [hidden]="!logon || !is_tutor" class="dropdown-button" data-activates="dropdown2">I'm Tutor<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -22,11 +19,10 @@
       
     </ul>
     <ul  class="side-nav" id="mobile-demo">
-        <li><a routerLink = "/courses" routerLinkActive="active">浏览课程</a></li>
-        <li><a routerLink = "/betutor" routerLinkActive="active">我要当教师</a></li>
-        <li><a routerLink = "/about" routerLinkActive="active">关于我们</a></li>
-        <li [hidden]="logon" ><a  routerLink = "/register" routerLinkActive="active">注册</a></li>
-        <li [hidden]="logon"> <a   class = "modal-trigger" href = "#modal1">登录</a></li>
+        <li><a routerLink = "/courses" routerLinkActive="active">Explore Courses</a></li>
+        <li><a routerLink = "/about" routerLinkActive="active">About Us</a></li>
+        <li [hidden]="logon" ><a  routerLink = "/register" routerLinkActive="active">Sign Up</a></li>
+        <li [hidden]="logon"> <a   class = "modal-trigger" href = "#modal1">Log in</a></li>
         <div [hidden]="!logon || is_tutor">
           <li><a routerLink = "/mytuttee/upcoming" routerLinkActive="active">Upcoming</a></li>
           <li><a routerLink = "/mytuttee/history" routerLinkActive="active">History</a></li>

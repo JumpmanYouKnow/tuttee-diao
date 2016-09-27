@@ -60,6 +60,10 @@ h2 {
      z-index: 2
 }
 
+.iconText {
+  font-size:20px;
+}
+
 
 #picture1,#picture3{
     padding-right: 1.75%;
