@@ -7,10 +7,10 @@
             <img *ngIf = "!TutProfile.photo" class="photo" src = "http://placehold.it/150x150">
          </div>
          <div class = "row center-align">
-            {{TutProfile.username}}
+            <h5 class="uppercase">{{TutProfile.username}}</h5>
          </div>
          <div class = "row center-align">
-            毕业时间: {{TutProfile.grad_year}}
+            Graduation Year: {{TutProfile.grad_year}}
          </div>
          <div class = "row center-align">
             Phone: {{TutProfile.phone}}
@@ -24,25 +24,28 @@
          <p>我是老板，老板很帅</p>
          <h4>课程</h4>
          <div  *ngFor = "let course of Courses" class = "course">
-            <a class = "col m3 btn" (click)="gotoDetail(course.id,TutProfile.id)">{{course.id}}</a>
+            <a class = "col m3 btn orange darken-1" (click)="gotoDetail(course.id,TutProfile.id)">{{course.id}}</a>
          </div>
       </div>
    </section>
 </div>
 <div class="container">
 <h3>Comments</h3>
-<div id = "comment" *ngFor = "#course of Courses" class = "row">
+<div id = "comment" *ngFor = "let course of Courses" class = "row">
+
    <h4>{{course.id | uppercase}}</h4>
-   <div *ngFor = "let review of course.reviews" id="commentbox">
-      <div class ="row">
-         <div class = "col m3 center-align">
-            <img src = "http://placehold.it/50x50">
-            <p>{{review.rating}}</p>
-         </div>
-         <div class = "commentContent col m9">
-            <p>{{review.timestamp|date:"medium"}}</p>
-            <p>{{review.text}}</p>
+   <p *ngIf="course.reviews.length==0">No comments yet.</p>
+      <div *ngFor = "let review of course.reviews" id="commentbox">
+         <div class ="row">
+            <div class = "col m3 center-align">
+               <img src = "http://placehold.it/50x50">
+               <p>{{review.rating}}</p>
+            </div>
+            <div class = "commentContent col m9">
+               <p>{{review.timestamp|date:"medium"}}</p>
+               <p>{{review.text}}</p>
+            </div>
          </div>
       </div>
-   </div>
+
 </div>

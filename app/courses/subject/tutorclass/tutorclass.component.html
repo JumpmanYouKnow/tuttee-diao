@@ -1,5 +1,5 @@
 <div *ngIf = "Timeslots" id ="jum">
-<h5  class = "center">{{username}}的{{Subject}}</h5>
+<h5  class = "center uppercase">{{username}}的{{Subject}}</h5>
 </div>
 
 <section>
@@ -10,12 +10,12 @@
                 <thead>
                 <tr>
                    
-                    <th data-field="time">时间</th>
-                    <th data-field="location">地点</th>
-                    <th data-field="duration">时长</th>
-                    <th data-filed="people">人数</th>
-                      <th data-filed="price">价格</th>
-                    <th data-field="description">描述</th>                                    
+                    <th data-field="time">Time</th>
+                    <th data-field="location">Location</th>
+                    <th data-field="duration">Duration</th>
+                    <th data-filed="people">Capacity</th>
+                      <th data-filed="price">Price</th>
+                    <th data-field="description">Description</th>                                    
                 </tr>
                 </thead>            
                 <tbody>
@@ -28,7 +28,7 @@
                     <td  style="width:10%"><a class ="people"></a>{{timeslot.current_apps}}/{{timeslot.capacity}}</td>
                      <td  style="width:10%"  class="price">{{timeslot.fee}}</td>
                     <td class="description">{{timeslot.description}}</td>
-                    <td><a class="btn orange darken-1" type="submit" (click)="postAppointment(timeslot)"  *ngIf="timeslot.current_apps != timeslot.capacity">预订课程</a></td>                
+                    <td><a class="btn orange darken-1" type="submit" (click)="postAppointment(timeslot)"  *ngIf="timeslot.current_apps != timeslot.capacity">Book Class</a></td>                
                 </tr>
                 </tbody>
             </table>    
@@ -36,6 +36,7 @@
             </div>
         </div>
         </section>
+<h4 class = "center-align" *ngIf="Timeslots && Timeslots.length == 0">No Class available, Please check out other tutors!</h4>
 
 <div class="container" id="commentbox" >
 <div id = "comment" *ngFor = "let comment of Comments" class = "row ">

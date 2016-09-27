@@ -37,6 +37,10 @@
 
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
 #rightCol{
     position: relative;
 }
