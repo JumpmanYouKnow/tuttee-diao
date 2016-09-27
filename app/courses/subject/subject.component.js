@@ -22,29 +22,6 @@ var SubjectComponent = (function () {
     }
     SubjectComponent.prototype.ngOnInit = function () {
         var _this = this;
-<<<<<<< HEAD
-        var a = this._routeParams.get('subject');
-        this._subjectService.getSubject(a).subscribe(function (data) {
-            _this.loading = false;
-            console.log(data);
-            _this.Subject = { id: data.id, name: data.name };
-            var _loop_1 = function(i) {
-                _this._tutprofileService.getTutProfile(data.tutors[i].id).subscribe(function (profile) {
-                    console.log(profile);
-                    if (profile.photo) {
-                        data.tutors[i].photo = "http://tuttee.ca/photo/" + profile.photo;
-                    }
-                });
-            };
-            for (var i = 0; i < data.tutors.length; i++) {
-                _loop_1(i);
-            }
-            _this.Teacher = data.tutors;
-            console.log(_this.Teacher);
-            // this.Subject = data;
-            // this.Teacher = this.Subject.teacher;
-        }, function (err) { return console.log(err); });
-=======
         this.route.params.subscribe(function (params) {
             var subject = params['subject'];
             console.log(subject);
@@ -56,7 +33,7 @@ var SubjectComponent = (function () {
                     _this._tutprofileService.getTutProfile(data.tutors[i].id).subscribe(function (profile) {
                         console.log(profile);
                         if (profile.photo) {
-                            data.tutors[i].photo = "http://127.0.0.1:5000/photo/" + profile.photo;
+                            data.tutors[i].photo = "http://tuttee.ca/photo/" + profile.photo;
                         }
                     });
                 };
@@ -69,7 +46,6 @@ var SubjectComponent = (function () {
                 // this.Teacher = this.Subject.teacher;
             }, function (err) { return console.log(err); });
         });
->>>>>>> 57bb798ecc3eb9452e53fb96c4e10e2a6aab8967
     };
     SubjectComponent.prototype.gotoDetail = function (subject_id, tutor_id) {
         this._router.navigate(['/subject', subject_id, tutor_id]);

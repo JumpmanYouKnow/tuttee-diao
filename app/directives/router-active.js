@@ -71,9 +71,10 @@ var RouterActive = (function () {
         __param(3, core_1.Query(router_2.RouterLink)),
         __param(4, core_1.Optional()),
         __param(4, core_1.Attribute('router-active')), 
-        __metadata('design:paramtypes', [router_1.Router, core_1.ElementRef, core_1.Renderer, core_1.QueryList, String])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _d) || Object, String])
     ], RouterActive);
     return RouterActive;
+    var _a, _b, _c, _d;
 }());
 exports.RouterActive = RouterActive;
 //# sourceMappingURL=router-active.js.map

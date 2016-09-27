@@ -50,9 +50,10 @@ var LocalStorageService = (function () {
     };
     LocalStorageService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [zone_1.NgZone])
+        __metadata('design:paramtypes', [(typeof (_a = typeof zone_1.NgZone !== 'undefined' && zone_1.NgZone) === 'function' && _a) || Object])
     ], LocalStorageService);
     return LocalStorageService;
+    var _a;
 }());
 function LocalStorageSubscriber(appPromise) {
     appPromise.then(function (bla) {
