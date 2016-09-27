@@ -1,2 +1,5 @@
 node_modules
-*/*/*.js.map
+app/**/*.js
+app/**/*.map
+app/*.js
+app/*.map
