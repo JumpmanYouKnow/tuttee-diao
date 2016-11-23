@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 /*
  * We're loading this component asynchronously
@@ -11,8 +12,8 @@ console.log('`About` component loaded asynchronously');
 @Component({
   selector: 'about',
   styleUrls: ['app/about/about.css'], 
- 	templateUrl: 'app/about/about.html',
- 
+  templateUrl: 'app/about/about.html',
+  directives: [ROUTER_DIRECTIVES]
 })
 export class AboutComponent {
   constructor() {

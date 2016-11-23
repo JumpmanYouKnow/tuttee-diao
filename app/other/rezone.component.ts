@@ -7,10 +7,13 @@ import {Component,AfterViewInit}  from '@angular/core';
 })
 
 export class RezoneComponent {
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
+  	// location.reload();
+  	$(function() {
+    $('body').scrollTop(0);
+    });
     console.log('hello `rezone` component');
   }
 }
