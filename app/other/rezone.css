@@ -1,0 +1,91 @@
+#cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -7rem;
+    z-index: -5;
+    height: 600px;
+    display: block;
+    background: url(http://www.rez-one.ca/wp-content/gallery/homepage/bridgeport-house-elevation-2.jpg) no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(2px);
+    margin: -10px -10px -10px -10px;
+}
+
+#bar {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: -80px;
+    z-index: 5;
+    height: 300px;
+    background: url(app/images/elements_home/bar.png) no-repeat;
+}
+
+h1 {
+    position: relative;
+    padding-bottom: 80px;
+    z-index: 10;
+    color: white;
+    padding-top: 100px;
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+    top: -400px;
+    z-index: 10;
+    color: white;
+    padding-top: 100px;
+    text-align: center;
+}
+
+html{
+    box-sizing:border-box;
+}
+
+.introbox{
+    /*height:300px;*/
+    /*width:150px;*/
+    border-radius: 20%;
+    border: 1px solid grey;
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-right:20px;
+}
+
+.photo {
+    position:relative;
+    left:20px;
+}
+
+.inside{
+    position:relative;
+    bottom:48px;
+}
+
+#intro1{
+    position:relative;
+    top: -300px;
+
+}
+
+#intro2{
+    position:relative;
+    top: -300px;
+}
+
+
+#aboutUsBox {
+    z-index: 10;
+    padding:40px;
+    font-size: 18px;
+    line-height: 25px;
+    color: white;
+    background-color: #6b7a8f;
+}
+
+.row {
+    padding-left: 20px;
+    padding-right: 20px;
+}

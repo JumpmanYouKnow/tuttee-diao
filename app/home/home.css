@@ -5,6 +5,8 @@
     background-image: url(app/images/backgrounds/background.png);
     padding-top: 60px;
     top: 80px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 
@@ -13,6 +15,7 @@
   height: 200px;
   color: white;
   background: url(app/images/elements_home/bar_right.png) no-repeat;
+  background-size: 100% 100%;
 }
 h2 {
   padding: 30px;
@@ -23,6 +26,7 @@ h2 {
   height: 200px;
   color: white;
   background: url(app/images/elements_home/bar_left.png) no-repeat;
+  background-size: 100% 100%;
 }
 
 .bigIcon {
