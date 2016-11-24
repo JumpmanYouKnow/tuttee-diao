@@ -22,6 +22,7 @@ import {PostService} from './mytutor/post.service'
 import {RegisterComponent} from './other/register'
 import {LoginComponent} from './other/login';
 import {ConditionsComponent} from './other/conditions'
+import {RezoneComponent} from './other/rezone.component';
 
 const routes: RouterConfig =[
 		...mytutorRoutes,
@@ -39,7 +40,8 @@ const routes: RouterConfig =[
 		{ path: 'mytutor/...', component: MytutorComponent},
 		{ path: 'register', component:RegisterComponent},
 		{ path: 'login', component:LoginComponent},
-		{ path: 'conditions', component:ConditionsComponent}
+		{ path: 'conditions', component:ConditionsComponent},
+		{ path: 'rezone', component:RezoneComponent},
 
 
 ];

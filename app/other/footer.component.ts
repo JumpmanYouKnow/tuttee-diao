@@ -1,9 +1,11 @@
 import {Component,AfterViewInit}  from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
 	selector: 'footer',
 	styleUrls: ['app/other/footer.css'], 
 	templateUrl: 'app/other/footer.html',
+	directives:[ROUTER_DIRECTIVES]
 
 })
 
